@@ -505,7 +505,7 @@ function PhoneRuntime({
       });
       return;
     }
-    const isWeChatStalker = /^私生\d{2}$/.test(thread);
+    const isWeChatStalker = app === "wechat" && /^私生\d{2}$/.test(thread);
     const nextMessages = isWeChatStalker
       ? (current.messages.wechat ?? []).map((item) => item.title === thread ? { ...item, read: true } : item).concat(outgoing)
       : [...(current.messages.messages ?? []).map((item) => item.title === thread ? { ...item, read: true } : item), outgoing];
