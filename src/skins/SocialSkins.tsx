@@ -88,10 +88,111 @@ function WeiboActions({ p, item }: { p: Props; item: Item }) {
     </div>
   );
 }
+const weiboDemoPosts: Item[] = [
+  {
+    id: "weibo-demo-chen-yiheng-20240825",
+    title: "组员借菜做饭记录",
+    body: "我们的组员要去村民的家借菜，我们就随便找了一家，然后还真要了，所以我觉得我们很不错👍，还真要到了。做了一些番茄炒鸡蛋🍅，还做一个鸡蛋🥚，哎，不对，还做了个番茄跟红糖配。陈浚铭很喜欢吃🥰，然后他就是吃光了。我们组整体来说表现得还挺不错的，我们非常开心，还做出咱们自己觉得很美味的菜。😊",
+    sender: "TF家族-陈奕恒Jonathan",
+    time: "2024-08-25 22:08",
+    folder: "关注",
+    kind: "text",
+    media: "",
+    hidden: false,
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+    meta: { handle: "24-8-25 22:08" },
+  },
+  {
+    id: "weibo-demo-chen-yiheng-20250416",
+    title: "和陈浚铭一起看电影",
+    body: "最近抽出一点时间和陈浚铭一起去看了一部电影😆😆😆，这部电影讲的是关于真人进入了游戏世界里，🥳🥳其实我们在现实中也玩过这个游戏，所以很想看看电影是什么感觉。😆😆😆",
+    sender: "TF家族-陈奕恒Jonathan",
+    time: "2025-04-16",
+    folder: "关注",
+    kind: "text",
+    media: "",
+    hidden: false,
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+    meta: { handle: "25-4-16" },
+  },
+  {
+    id: "weibo-demo-chen-yiheng-20250620",
+    title: "夏日派对和陈浚铭生日",
+    body: "这次的夏日派对，我们每个人都玩的很嗨，氛围感也很足，没想到玩游戏的时候我还知道很多歌🤣🤣🤣，当时我单人唱的是海芋恋，也很适合这个氛围，而且还在派对期间给陈浚铭过了一个生日。很开心，希望多来点这种派对。😆😆😆",
+    sender: "TF家族-陈奕恒Jonathan",
+    time: "2025-06-20 22:29",
+    folder: "关注",
+    kind: "text",
+    media: "",
+    hidden: false,
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+    meta: { handle: "25-6-20 22:29" },
+  },
+  {
+    id: "weibo-demo-chen-junming-20250426",
+    title: "陈太师出来打篮球吃饭",
+    body: "哈哈哈哈哈，大家好啊，我是陈太师，今天出来和陈奕恒一起打了篮球吃了饭，大家也要好好吃饭哦，嘻嘻嘻！",
+    sender: "TF家族-陈浚铭chen",
+    time: "2025-04-26 22:51",
+    folder: "我的",
+    kind: "text",
+    media: "",
+    hidden: false,
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+    meta: { handle: "25-4-26 22:51" },
+  },
+  {
+    id: "weibo-demo-chen-junming-20240520",
+    title: "学习师兄《非我不可》",
+    body: "哈哈哈哈哈哈，学习了一个唱跳，就是师兄的《非我不可》。我们拍的时候是围绕一个剧情来拍的，大概就是讲了原本我们九个人每个人都有一个碎片，想拼成一个图形，但一直拼不出来。最后杨涵博他们，带着剩下的四个碎片登场了，我们一起拼成了一个大爱心，然后被陈奕恒抱走了，陈奕恒最后那个真的很好玩。哈哈哈哈哈哈😂",
+    sender: "TF家族-陈浚铭chen",
+    time: "2024-05-20 22:30",
+    folder: "我的",
+    kind: "text",
+    media: "",
+    hidden: false,
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+    meta: { handle: "24-5-20 22:30" },
+  },
+];
+
 export function WeiboSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "关注");
   const [feed, setFeed] = useState("全部");
-  const list = feed === "全部" ? items : items.filter((i) => i.folder === feed);
+  const allPosts = [
+    ...weiboDemoPosts,
+    ...items.filter((item) => !weiboDemoPosts.some((demo) => demo.id === item.id)),
+  ];
+  const tabPosts = tab === "我"
+    ? allPosts.filter((item) => item.sender === "TF家族-陈浚铭chen" || item.folder === "我的")
+    : allPosts;
+  const filteredPosts = tabPosts.filter((item) =>
+    !q.trim() ||
+    item.body.toLowerCase().includes(q.toLowerCase()) ||
+    item.sender.toLowerCase().includes(q.toLowerCase()) ||
+    item.title.toLowerCase().includes(q.toLowerCase())
+  );
+  const list = feed === "全部" ? filteredPosts : filteredPosts.filter((i) => i.folder === feed);
   return (
     <div className="catalog-skin weibo-ui">
       <Header p={p} />
