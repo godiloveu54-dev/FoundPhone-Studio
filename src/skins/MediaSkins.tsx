@@ -148,38 +148,79 @@ export function SpotifySkin(p: Props) {
     </div>
   );
 }
+const neteaseDemoPlaylist = [
+  ["摇曳！摇曳！", "TF家族"],
+  ["说好的幸福呢", "TF家族-陈浚铭"],
+  ["遇见", "TF家族-陈浚铭"],
+  ["第三人称 (Single Version)", "TF家族-陈浚铭"],
+  ["危险的关系", "TF家族"],
+  ["拜托拜托", "TF家族"],
+  ["一直在身边", "TF家族"],
+  ["用尽我的一切奔向你", "TF家族练习生"],
+  ["遇见你的时候所有星星都落到我头上", "TF家族-陈浚铭"],
+  ["心动 (Heart Beating)", "TF家族"],
+  ["如果可以 (Live)", "TF家族-陈浚铭"],
+  ["带我走 (Live)", "TF家族-陈浚铭"],
+  ["同花顺 (Live)", "TF家族-陈浚铭"],
+  ["不完美小孩 (2023 TF少年梦工厂)", "TF家族四代练习生"],
+  ["想把我唱给你听 (2026TF家族新年音乐会)", "TF家族四代练习生"],
+  ["瞬 (Live)", "TF家族-陈浚铭"],
+  ["小幸运 (Live吉他弹唱)", "TF家族-陈浚铭"],
+  ["蒲公英的约定 (Live)", "TF家族-陈浚铭"],
+  ["世界那么大还是遇见你 (Live)", "TF家族-陈浚铭"],
+  ["大梦想家 (Live)", "TF家族-陈浚铭"],
+  ["剩下的盛夏 (Live)", "TF家族-陈浚铭"],
+  ["明天，你好 (Live)", "TF家族-陈浚铭"],
+  ["红玫瑰 (Live)", "TF家族-陈浚铭"],
+  ["逆光 (Live)", "TF家族-陈浚铭"],
+].map(([title, sender], index) => ({
+  id: `netease-demo-${index + 1}`,
+  title,
+  sender,
+  folder: "陈浚铭专属歌单",
+  kind: "music",
+  body: `${title} — ${sender}`,
+  meta: { album: "网易云音乐 · 歌单收藏", trackNumber: index + 1 },
+}));
 export function NeteaseSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "发现");
   const [folder, setFolder] = useState(""),
     [track, setTrack] = useTrack(p, items);
-  const list = folder
-    ? items.filter((i) => (i.folder || "我的歌单") === folder)
-    : items;
+  const playlist = useMemo(() => {
+    const seen = new Set<string>();
+    return [...neteaseDemoPlaylist, ...items.filter((item) => item.kind === "music")]
+      .filter((item) => {
+        const key = `${item.title}|${item.sender}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .filter((item) => !q || item.title.toLowerCase().includes(q.toLowerCase()) || item.sender.toLowerCase().includes(q.toLowerCase()));
+  }, [items, q]);
+  const list = folder ? playlist.filter((item) => (item.folder || "我的歌单") === folder) : playlist;
+  const folders = Array.from(new Set(playlist.map((item) => item.folder || "我的歌单")));
   return (
     <div className="catalog-skin netease-ui">
       <Header p={p} />
       <div className="catalog-scroll">
-        <SearchBox value={q} set={setQ} />
+        <SearchBox value={q} set={setQ} placeholder="搜索歌曲或歌手" />
         {tab === "发现" ? (
           <>
             <div className="netease-feature">
               <Music size={44} />
               <h2>推荐歌单</h2>
+              <p>把喜欢的歌，放进同一个夏天</p>
             </div>
             <div className="netease-shelves">
-              {groupItems(items, "我的歌单").map((g) => (
-                <button
-                  key={g}
-                  onClick={() => {
-                    setFolder(g);
-                    setTab("我的");
-                  }}
-                >
-                  <Music size={33} />
+              {folders.map((g) => (
+                <button key={g} onClick={() => { setFolder(g); setTab("我的"); }}>
+                  <div className="netease-playlist-cover"><Music size={28} /><span>♫</span></div>
                   <strong>{g}</strong>
+                  <small>{playlist.filter((item) => (item.folder || "我的歌单") === g).length} 首歌曲</small>
                 </button>
               ))}
             </div>
+            <h3 className="netease-section-title">为你推荐 · 陈浚铭歌单</h3>
           </>
         ) : (
           <>
@@ -187,54 +228,39 @@ export function NeteaseSkin(p: Props) {
               <Avatar name={p.owner ?? "我"} />
               <h2>{p.owner ?? "我的音乐"}</h2>
             </div>
-            <h3>{folder || "我的歌单"}</h3>
+            <div className="netease-playlist-heading">
+              <div className="netease-playlist-cover large"><Music size={36}/><span>♫</span></div>
+              <div><h3>{folder || "全部歌曲"}</h3><p>TF家族 · 24首歌曲</p><small>按你提供的顺序排列</small></div>
+            </div>
           </>
         )}
-        {list.map((i, n) => (
-          <div className="netease-track" key={i.id}>
-            <button
-              onClick={() => {
-                setTrack(i);
-              }}
-            >
+        {list.map((item, n) => (
+          <div className="netease-track" key={item.id}>
+            <button onClick={() => { setTrack(item); }}>
               <span>{n + 1}</span>
               <div>
-                <strong>{i.title}</strong>
-                <small>
-                  {i.sender} · {meta(i, "album")}
-                </small>
+                <strong>{item.title}</strong>
+                <small>{item.sender} · 网易云音乐</small>
               </div>
             </button>
-            <button
-              aria-label={`歌曲详情${i.title}`}
-              onClick={() => p.onItem(i)}
-            >
+            <button aria-label={`歌曲详情${item.title}`} onClick={() => p.onItem(item)}>
               <MessageCircle size={18} />
             </button>
           </div>
         ))}
-        <Empty items={list} />
+        {!list.length && <Empty items={[]} />}
       </div>
       {track && (
         <TrackPlayer
           item={track}
           p={p}
-          onNext={() =>
-            setTrack(
-              items[
-                (items.findIndex((i) => i.id === track.id) + 1) % items.length
-              ],
-            )
-          }
+          onNext={() => setTrack(playlist[(playlist.findIndex((item) => item.id === track.id) + 1) % playlist.length])}
         />
       )}
       <Tabs
         tabs={["发现", "我的"]}
         value={tab}
-        set={(t) => {
-          setTab(t);
-          setFolder("");
-        }}
+        set={(value) => { setTab(value); setFolder(""); }}
         icons={[<Compass />, <Music />]}
       />
     </div>
