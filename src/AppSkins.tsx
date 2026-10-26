@@ -70,11 +70,7 @@ function Avatar({
     "王橹杰": "./IMG_4396.jpeg",
     "陈奕恒": "./IMG_4398.jpeg",
     "聂玮辰": "./IMG_4400.jpeg",
-    "李煜东": "./IMG_4405.jpeg",
-    "杨涵博": "./IMG_4415.jpeg",
-    "官俊臣": "./IMG_4419.jpeg",
     "张奕然": "./IMG_4425.jpeg",
-    "魏子宸": "./IMG_4426.jpeg",
   };
   const normalizedName = name.replace(/^TF家族[-·]/, "").trim();
   const image = safeMedia(src || avatarByName[normalizedName] || "");
@@ -252,12 +248,7 @@ export function WeChatSkin(p: SkinProps) {
     [],
   );
   const [bankBalance, setBankBalance] = useSkinState<number>(p, "wechatBankBalance", 1000000);
-  const [readThreads, setReadThreads] = useSkinState<string[]>(
-    p,
-    "readThreads",
-    [],
-  );
-  const allChatItems = [...p.items, ...financeMessages];
+    const allChatItems = [...p.items, ...financeMessages];
   const conversations = [
     ...new Set(
       allChatItems
@@ -472,7 +463,7 @@ export function WeChatSkin(p: SkinProps) {
       ) : p.thread ? (
         <>
           <MessageList
-            items={allChatItems.filter((i) => i.title === p.thread).sort((a, b) => p.thread === "四代同堂" ? a.time.localeCompare(b.time) : b.time.localeCompare(a.time))}
+            items={allChatItems.filter((i) => i.title === p.thread).sort((a, b) => a.time.localeCompare(b.time))}
             creator={p.creator}
             onItem={p.onItem}
             onRead={p.onRead}
@@ -633,24 +624,20 @@ export function WeChatSkin(p: SkinProps) {
                     ),
                 )
                 .map((t) => {
-                  const list = p.items.filter((i) => i.title === t).sort((a, b) =>
-                    t === "四代同堂" ? a.time.localeCompare(b.time) : b.time.localeCompare(a.time),
-                  ),
-                    last = list[0];
+                  const list = p.items.filter((i) => i.title === t).sort((a, b) => a.time.localeCompare(b.time)),
+                    last = list[list.length - 1];
                   return (
                     <button
                       className="wx-chat-row"
                       key={t}
                       onClick={() => {
-                        setReadThreads((v) => (v.includes(t) ? v : [...v, t]));
                         list.forEach((item) => p.onRead(item.id));
                         p.onThread(t);
                       }}
                     >
                       <span className="wx-chat-avatar">
                         <Avatar name={t} src={last.avatar || p.items.find((i) => i.sender === t)?.avatar || p.items.find((i) => i.title === t)?.avatar} />
-                        {!readThreads.includes(t) &&
-                          list.some((i) => !i.read) && (
+                        {list.filter((i) => !i.read).length > 0 && (
                             <b className="wx-unread">
                               {list.filter((i) => !i.read).length}
                             </b>
