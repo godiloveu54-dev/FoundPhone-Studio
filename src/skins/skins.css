@@ -4496,3 +4496,25 @@
   font-size: 12px;
   line-height: 1.5;
 }
+
+
+/* WeChat Moments composer */
+.wx-moment-camera{position:absolute;right:16px;bottom:14px;display:grid;place-items:center;width:42px;height:42px;border:0;border-radius:50%;background:rgba(0,0,0,.36);color:#fff;cursor:pointer}
+.wx-moment-cover{position:relative}
+.wx-moment-composer-backdrop{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.46)}
+.wx-moment-composer{display:flex;flex-direction:column;gap:14px;width:min(100%,430px);max-height:90%;overflow:auto;padding:16px;border-radius:16px;background:var(--phone-bg,#fff);color:var(--phone-text,#222);box-shadow:0 12px 42px rgba(0,0,0,.24)}
+.wx-moment-composer header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.wx-moment-composer header button{border:0;background:transparent;color:inherit;padding:8px 4px;cursor:pointer}
+.wx-moment-composer header strong{font-size:16px}
+.wx-moment-composer header .wx-moment-send{padding:8px 16px;border-radius:7px;background:#07c160;color:#fff;font-weight:600}
+.wx-moment-composer header .wx-moment-send:disabled{opacity:.45;cursor:not-allowed}
+.wx-moment-composer textarea{width:100%;min-height:145px;resize:vertical;border:0;outline:0;background:transparent;color:inherit;font:inherit;line-height:1.6}
+.wx-moment-image-picker{display:flex;align-items:center;gap:10px;align-self:flex-start;padding:10px 12px;border:1px solid rgba(128,128,128,.28);border-radius:9px;cursor:pointer}
+.wx-moment-image-picker input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.wx-moment-image-preview{position:relative;align-self:flex-start;max-width:180px}
+.wx-moment-image-preview img{display:block;max-width:180px;max-height:180px;object-fit:contain;border-radius:8px}
+.wx-moment-image-preview button{margin-top:5px;border:0;background:transparent;color:#e45656;cursor:pointer}
+.wx-moment-error{margin:0;color:#d33;font-size:13px}
+.wx-moment-composer>small{color:#888;line-height:1.5}
+.wx-moment-comment-preview{margin-top:8px;padding:7px 9px;background:rgba(128,128,128,.09);border-radius:5px;text-align:left}
+.wx-moment-comment-preview p{margin:2px 0!important;font-size:13px!important;line-height:1.45}
