@@ -4981,3 +4981,31 @@ label {
 
 .taobao-ui{position:relative;overflow:hidden}
 .taobao-product-backdrop{inset:0;overflow-y:auto}
+
+/* WeChat gifts and simulated transfer */
+
+.wx-compose-plus{display:grid;place-items:center;min-width:26px;min-height:28px;padding:0;border:0;background:transparent;color:inherit}
+.wx-plus-panel{position:absolute;z-index:45;right:12px;bottom:82px;display:flex;gap:22px;padding:15px 20px;background:#f8f8f8;border:1px solid #e7e7e7;border-radius:14px;box-shadow:0 8px 28px #00000018}
+.wx-plus-panel button{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:52px;padding:0;background:transparent;border:0;color:#333}
+.wx-plus-panel small{font-size:10px}
+.wx-plus-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:11px;color:#fff}
+.wx-plus-icon.gift{background:#fa9d3b}.wx-plus-icon.transfer{background:#07c160}
+.wx-finance-backdrop{position:absolute;z-index:70;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;background:#0006}
+.wx-finance-sheet{position:relative;width:100%;max-width:330px;padding:24px 20px 18px;border-radius:18px;background:#fff;color:#202020;box-shadow:0 16px 50px #0003}
+.wx-finance-close{position:absolute;top:12px;right:12px;display:grid;place-items:center;width:30px;height:30px;border:0;background:transparent;color:#777}
+.wx-finance-heading{display:flex;align-items:center;gap:10px;margin:5px 0 24px;color:#07a84d}
+.wx-finance-heading h2{margin:0;color:#222;font-size:17px;font-weight:650}
+.wx-finance-label{margin:0 0 10px;color:#777;font-size:11px}
+.wx-transfer-input{display:flex;align-items:center;gap:8px;padding:8px 0 12px;border-bottom:1px solid #e8e8e8}
+.wx-transfer-input span{font-size:28px;font-weight:600}
+.wx-transfer-input input{width:100%;min-width:0;border:0;outline:0;background:transparent;font-size:30px;font-weight:600;color:#222}
+.wx-balance-note{margin:13px 0 20px;color:#888;font-size:11px}
+.wx-finance-primary{width:100%;padding:12px;border:0;border-radius:7px;background:#07c160;color:#fff;font-size:13px;font-weight:600}
+.wx-finance-primary:disabled{background:#b8ddc7;color:#fff}
+.wx-finance-disclaimer{display:block;margin-top:12px;text-align:center;color:#999;font-size:9px;line-height:1.5}
+.wx-gift-sheet{padding-top:25px}
+.wx-gift-intro{margin:-10px 0 15px;color:#888;font-size:11px}
+.wx-gift-row{display:flex;align-items:center;gap:12px;width:100%;padding:11px 2px;border:0;border-top:1px solid #f0f0f0;background:#fff;text-align:left;color:#222}
+.wx-gift-emoji{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;background:#fff3e8;font-size:23px}
+.wx-gift-row>span:nth-child(2){display:flex;flex:1;flex-direction:column;gap:4px}
+.wx-gift-row strong{font-size:12px}.wx-gift-row small{font-size:10px;color:#999}.wx-gift-arrow{font-size:22px;color:#aaa}
