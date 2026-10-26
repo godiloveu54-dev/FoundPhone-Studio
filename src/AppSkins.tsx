@@ -470,6 +470,12 @@ export function WeChatSkin(p: SkinProps) {
               <button style={{ padding: "7px 18px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "收到")}>收到</button>
             </div>
           )}
+          {p.thread === "张桂源" && !p.creator && (
+            <div className="wx-quick-replies">
+              <button style={{ padding: "7px 12px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "解冻了好开心")}>解冻了好开心</button>
+              <button style={{ padding: "7px 12px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "不能耍起了呀")}>不能耍起了呀</button>
+            </div>
+          )}
           <Compose creator={p.creator} onAdd={p.onAdd} onPlus={() => setPlusMenu((v) => !v)} />
         </>
       ) : moments ? (
