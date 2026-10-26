@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 7,
+  "revision": 8,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -3253,6 +3253,216 @@
           "phoneNumber": "",
           "callStatus": "未接来电",
           "category": "朋友"
+        }
+      },
+      {
+        "id": "call-history-017",
+        "title": "爸爸",
+        "body": "已接来电",
+        "sender": "爸爸",
+        "kind": "call",
+        "time": "2026-10-26 12:05",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-history-018",
+        "title": "妈妈",
+        "body": "已接来电",
+        "sender": "妈妈",
+        "kind": "call",
+        "time": "2026-10-26 11:42",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-history-019",
+        "title": "哥哥",
+        "body": "已接来电",
+        "sender": "哥哥",
+        "kind": "call",
+        "time": "2026-10-26 11:16",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-history-020",
+        "title": "陈奕恒",
+        "body": "已接来电",
+        "sender": "陈奕恒",
+        "kind": "call",
+        "time": "2026-10-26 10:58",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "朋友"
+        }
+      },
+      {
+        "id": "call-history-021",
+        "title": "张桂源",
+        "body": "已接来电",
+        "sender": "张桂源",
+        "kind": "call",
+        "time": "2026-10-26 10:33",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "朋友"
+        }
+      },
+      {
+        "id": "call-history-022",
+        "title": "10000",
+        "body": "已接来电",
+        "sender": "10000",
+        "kind": "call",
+        "time": "2026-10-26 10:08",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "10000",
+          "callStatus": "已接来电",
+          "category": "中国电信"
+        }
+      },
+      {
+        "id": "call-history-023",
+        "title": "191****6502",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-26 09:58",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "191****6502",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-024",
+        "title": "185****1743",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-26 09:21",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "185****1743",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-025",
+        "title": "157****8820",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-26 08:52",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "157****8820",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-026",
+        "title": "176****4391",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-25 23:56",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "176****4391",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-027",
+        "title": "189****2076",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-25 23:18",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "189****2076",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-028",
+        "title": "陈奕恒",
+        "body": "已接来电",
+        "sender": "陈奕恒",
+        "kind": "call",
+        "time": "2026-10-25 21:36",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "朋友"
+        }
+      },
+      {
+        "id": "call-history-029",
+        "title": "爸爸",
+        "body": "已接来电",
+        "sender": "爸爸",
+        "kind": "call",
+        "time": "2026-10-25 19:52",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-history-030",
+        "title": "180****9364",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-25 18:47",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "180****9364",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
         }
       }
     ],
