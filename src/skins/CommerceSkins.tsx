@@ -110,6 +110,7 @@ export function TaobaoSkin(p: Props) {
   const [checkout, setCheckout] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("招商银行储蓄卡 · 尾号 6688");
   const [, setTransactions] = useSkinState<string[]>(p, "simulatedTransactions", []);
+  const [familyCardPopup, setFamilyCardPopup] = useState<{ sender: string; text: string; kind: "food" | "plain" } | null>(null);
   const orderItems = orders.flatMap((raw) => {
     try { return [JSON.parse(raw) as Item]; } catch { return []; }
   });
@@ -119,6 +120,8 @@ export function TaobaoSkin(p: Props) {
     "爸爸的副卡",
     "妈妈的副卡",
     "哥哥的副卡",
+    "陈奕恒的亲情卡",
+    "张桂源的亲情卡",
     "亲密付 · 陈奕恒",
     "亲密付 · 张桂源",
     "亲密付 · 杨博文",
@@ -340,6 +343,21 @@ export function TaobaoSkin(p: Props) {
           </div>
         );
       })()}
+      {familyCardPopup && (
+        <div className="taobao-product-backdrop" role="presentation" onClick={() => setFamilyCardPopup(null)}>
+          <section className="taobao-product-sheet" role="dialog" aria-modal="true" aria-label="亲情卡消息" onClick={(e) => e.stopPropagation()}>
+            <h2>微信 · {familyCardPopup.sender}</h2>
+            <p style={{ lineHeight: 1.7, margin: "16px 0" }}>{familyCardPopup.text}</p>
+            {familyCardPopup.kind === "food" && (
+              <div className="taobao-option-group"><div>
+                <button onClick={() => { const text = p.onFamilyCardReply?.("听"); setFamilyCardPopup({ sender: "陈奕恒", text: text || "好！", kind: "plain" }); }}>听</button>
+                <button onClick={() => { const text = p.onFamilyCardReply?.("不听"); setFamilyCardPopup({ sender: "陈奕恒", text: text || "你好坏啊", kind: "plain" }); }}>不听</button>
+              </div></div>
+            )}
+            <button className="taobao-add-cart" onClick={() => setFamilyCardPopup(null)}>知道了</button>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
