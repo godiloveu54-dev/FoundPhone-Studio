@@ -65,7 +65,7 @@ function PostHeader({ item, p }: { item: Item; p: Props }) {
     </button>
   );
 }
-function WeiboActions({ p, item }: { p: Props; item: Item }) {
+function _WeiboActions({ p, item }: { p: Props; item: Item }) {
   const [liked, setLiked] = useSkinState<boolean>(p, `liked-${item.id}`, false);
   return (
     <div className="social-actions weibo-actions">
