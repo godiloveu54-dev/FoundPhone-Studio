@@ -305,6 +305,45 @@ export function CameraSkin(p: Props) {
 export function SafariSkin(p: Props) {
   const [q, setQ] = useState(""),
     [tab, setTab] = useState("书签");
+  type SearchHistoryEntry = { query: string; time: string };
+  const [searchHistory, setSearchHistory] = useState<SearchHistoryEntry[]>(() => {
+    const saved = p.ui?.safariSearchHistory;
+    if (typeof saved !== "string") return [];
+    try {
+      const parsed: unknown = JSON.parse(saved);
+      return Array.isArray(parsed)
+        ? parsed.filter(
+            (entry): entry is SearchHistoryEntry =>
+              !!entry &&
+              typeof entry === "object" &&
+              typeof (entry as SearchHistoryEntry).query === "string" &&
+              typeof (entry as SearchHistoryEntry).time === "string",
+          )
+        : [];
+    } catch {
+      return [];
+    }
+  });
+  const saveSearchHistory = (next: SearchHistoryEntry[]) => {
+    setSearchHistory(next);
+    p.onUi?.("safariSearchHistory", JSON.stringify(next));
+  };
+  const submitSearch = () => {
+    const query = q.trim();
+    if (!query) return;
+    const stamp = new Date().toLocaleString("zh-CN", {
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+    saveSearchHistory([
+      { query, time: stamp },
+      ...searchHistory.filter((entry) => entry.query !== query),
+    ].slice(0, 100));
+    setTab("历史记录");
+  };
   const items = p.items
     .filter((i) =>
       (i.title + i.body + meta(i, "url"))
@@ -316,11 +355,52 @@ export function SafariSkin(p: Props) {
         ? i.favorite || i.folder !== "历史记录"
         : i.folder === "历史记录",
     );
+  const visibleSearchHistory = searchHistory.filter((entry) =>
+    entry.query.toLowerCase().includes(q.toLowerCase()),
+  );
   return (
     <div className="catalog-skin native-safari">
       <Header p={p} />
       <div className="catalog-scroll">
         <h1>{tab}</h1>
+        {tab === "历史记录" && searchHistory.length > 0 && (
+          <section style={{ padding: "0 14px 14px" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+              <strong style={{ fontSize: 12 }}>搜索历史</strong>
+              <button
+                onClick={() => saveSearchHistory([])}
+                style={{ color: "#087cff", fontSize: 11, padding: "5px 0" }}
+              >
+                清除搜索历史
+              </button>
+            </div>
+            {visibleSearchHistory.map((entry, index) => (
+              <div
+                key={entry.query + entry.time + index}
+                style={{ display: "flex", alignItems: "center", gap: 10, padding: "11px 2px", borderBottom: "1px solid #e8e8eb" }}
+              >
+                <Clock size={16} style={{ color: "#888", flexShrink: 0 }} />
+                <button
+                  onClick={() => {
+                    setQ(entry.query);
+                    setTab("历史记录");
+                  }}
+                  style={{ display: "flex", flex: 1, minWidth: 0, flexDirection: "column", alignItems: "flex-start", gap: 4, textAlign: "left" }}
+                >
+                  <strong style={{ fontSize: 12, fontWeight: 500, overflowWrap: "anywhere" }}>{entry.query}</strong>
+                  <small style={{ color: "#999", fontSize: 10 }}>{entry.time}</small>
+                </button>
+                <button
+                  aria-label={`删除搜索记录：${entry.query}`}
+                  onClick={() => saveSearchHistory(searchHistory.filter((item) => item !== entry))}
+                  style={{ color: "#999", padding: 6, fontSize: 16 }}
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </section>
+        )}
         <div className="safari-favorites">
           {items.map((i) => (
             <button key={i.id} onClick={() => p.onItem(i)}>
@@ -332,7 +412,14 @@ export function SafariSkin(p: Props) {
             </button>
           ))}
         </div>
-        <Empty items={items} label="没有匹配的虚构网页" />
+        {tab === "历史记录" && searchHistory.length === 0 ? (
+          <Empty items={[]} label="暂无搜索历史" />
+        ) : (
+          <Empty
+            items={tab === "历史记录" ? [...items, ...visibleSearchHistory.map((entry) => ({ id: entry.query, title: entry.query } as Item))] : items}
+            label={tab === "历史记录" ? "没有匹配的历史记录" : "没有匹配的虚构网页"}
+          />
+        )}
       </div>
       <label className="safari-address">
         <LockKeyhole size={13} />
@@ -342,10 +429,16 @@ export function SafariSkin(p: Props) {
           placeholder="搜索或输入虚构网址"
           aria-label="地址栏"
           onKeyDown={(e) => {
-            if (e.key === "Enter" && items[0]) p.onItem(items[0]);
+            if (e.key === "Enter") submitSearch();
           }}
         />
-        <Search size={16} />
+        <button
+          aria-label="搜索"
+          onClick={submitSearch}
+          style={{ display: "grid", placeItems: "center", padding: 4, color: "#087cff" }}
+        >
+          <Search size={16} />
+        </button>
       </label>
       <Tabs
         tabs={["书签", "历史记录"]}
