@@ -259,9 +259,9 @@ export function WeChatSkin(p: SkinProps) {
     if (!contactGroups[letter]) contactGroups[letter] = [];
     if (!contactGroups[letter].includes(c)) contactGroups[letter].push(c);
   }
-  const posts = p.items.filter(
-    (i) => i.folder === "朋友圈" || i.kind === "post",
-  );
+  const posts = p.items
+    .filter((i) => i.folder === "朋友圈" || i.kind === "post")
+    .sort((a, b) => b.time.localeCompare(a.time));
   return (
     <div
       className="wechat-ui independent-skin"
