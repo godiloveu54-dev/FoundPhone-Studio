@@ -143,7 +143,9 @@ export function PhoneSkin(p: Props) {
   );
 }
 export function ContactsSkin(p: Props) {
-  const { q, setQ, items } = useContent(p, "所有联系人");
+  const { q, setQ, items: matchingItems } = useContent(p, "所有联系人");
+  const allowedContacts = new Set(["爸爸", "妈妈", "爷爷", "奶奶", "哥哥", "陈奕恒", "张桂源", "杨博文"]);
+  const items = matchingItems.filter((item) => allowedContacts.has(item.title) || allowedContacts.has(meta(item, "name")));
   return (
     <div className="catalog-skin native-contacts">
       <Header p={p} />
@@ -174,7 +176,7 @@ export function ContactsSkin(p: Props) {
                   key={i.id}
                   item={i}
                   onItem={p.onItem}
-                  leading={<Avatar name={i.title} />}
+                  leading={<span className="catalog-avatar round" style={{ background: "#e5e7eb", color: "#fff" }}>{i.title.slice(0, 1)}</span>}
                 />
               ))}
           </section>
