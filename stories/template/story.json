@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "恒铭 iPhone 模拟器",
   "description": "陈浚铭的 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容。",
-  "revision": 15,
+  "revision": 16,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -366,15 +366,15 @@
     },
     {
       "id": "guan-junchen",
-      "title": "关俊辰",
+      "title": "官俊臣",
       "body": "",
-      "sender": "关俊辰",
+      "sender": "官俊臣",
       "kind": "text",
       "time": "2026-10-26 08:00",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "关俊辰",
+        "name": "官俊臣",
         "phone": "",
         "relationship": "联系人"
       }
@@ -396,15 +396,15 @@
     },
     {
       "id": "nie-weichen",
-      "title": "聂卫晨",
+      "title": "聂玮辰",
       "body": "",
-      "sender": "聂卫晨",
+      "sender": "聂玮辰",
       "kind": "text",
       "time": "2026-10-26 08:00",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "聂卫晨",
+        "name": "聂玮辰",
         "phone": "",
         "relationship": "联系人"
       }
@@ -441,30 +441,30 @@
     },
     {
       "id": "wang-shuoran",
-      "title": "王硕然",
+      "title": "王烁然",
       "body": "",
-      "sender": "王硕然",
+      "sender": "王烁然",
       "kind": "text",
       "time": "2026-10-26 08:00",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "王硕然",
+        "name": "王烁然",
         "phone": "",
         "relationship": "联系人"
       }
     },
     {
       "id": "li-yudong",
-      "title": "李昱东",
+      "title": "李煜东",
       "body": "",
-      "sender": "李昱东",
+      "sender": "李煜东",
       "kind": "text",
       "time": "2026-10-26 08:00",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "李昱东",
+        "name": "李煜东",
         "phone": "",
         "relationship": "联系人"
       }
@@ -3229,10 +3229,66 @@
           "kind": "text"
         }
       ]
+    },
+    {
+      "id": "fourth-gen-group-chat",
+      "app": "wechat",
+      "title": "四代同堂",
+      "participants": [
+        "owner",
+        "company-staff",
+        "zhang-guiyuan",
+        "zuo-qihan",
+        "chen-yiheng",
+        "zhang-hanrui",
+        "chen-sihan",
+        "yang-bowen",
+        "wang-lujie",
+        "nie-weichen",
+        "li-yudong",
+        "yang-hanbo",
+        "guan-junchen",
+        "zhang-yiran",
+        "wei-zichen"
+      ],
+      "messages": [
+        {
+          "id": "fourth-gen-staff-20261026",
+          "time": "2026-10-26 08:00",
+          "senderId": "company-staff",
+          "body": "@所有人 接通知，近期准备恢复训练，所有人尽快返回重庆。看到消息回复「收到」，不要遗漏。",
+          "kind": "text"
+        }
+      ]
     }
   ],
   "content": {
     "phone": [
+      {
+        "id": "sasaeng-call",
+        "title": "中国电信 10000",
+        "body": "剧情来电（首次回复私生后触发）",
+        "sender": "中国电信",
+        "time": "2026-10-26 09:43",
+        "kind": "call",
+        "folder": "通话记录",
+        "avatar": "",
+        "media": "",
+        "meta": {
+          "phoneNumber": "10000",
+          "callStatus": "剧情来电",
+          "category": "私生剧情",
+          "dialogue": "[{\"speaker\":\"？\",\"text\":\"你好 是陈先生吗\"},{\"speaker\":\"我\",\"text\":\"有事吗？\"},{\"speaker\":\"？\",\"text\":\"不好意思打扰您 我是中国电信的客服 这边给您来电是因为系统检测到您的流量包业务…（憋笑）\"},{\"speaker\":\"我\",\"text\":\"挂了。\"},{\"speaker\":\"？\",\"text\":\"别挂哥哥…哥哥对不起我错了…好想你啊哥哥 终于听到你的声音了\"},{\"speaker\":\"我\",\"text\":\"…..\"}]"
+        },
+        "hidden": false,
+        "unlock": "",
+        "password": "",
+        "favorite": false,
+        "outgoing": false,
+        "read": false,
+        "likes": 0,
+        "comments": []
+      },
       {
         "id": "call-history-2026-10-26-015",
         "title": "中国电信",
@@ -10684,6 +10740,28 @@
         "comments": [
           "陈浚铭：👍"
         ]
+      }
+    ],
+    "messages": [
+      {
+        "id": "sasaeng-seed-message",
+        "title": "私生",
+        "body": "哥哥，你终于上线了……",
+        "sender": "私生",
+        "time": "2026-10-26 09:41",
+        "kind": "text",
+        "folder": "短信",
+        "avatar": "",
+        "media": "",
+        "meta": {},
+        "hidden": false,
+        "unlock": "",
+        "password": "",
+        "favorite": false,
+        "outgoing": false,
+        "read": false,
+        "likes": 0,
+        "comments": []
       }
     ]
   },
