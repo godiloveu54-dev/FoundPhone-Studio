@@ -220,9 +220,33 @@ export function WeChatSkin(p: SkinProps) {
         .map((i) => i.title),
     ),
   ];
-  const contacts = [
-    ...new Set(p.items.map((i) => i.sender).filter((s) => s !== "我")),
+  // 固定通讯录名单按微信常见的拼音首字母分组；额外配置在聊天记录里的联系人也会保留。
+  const preferredContacts = [
+    "爸爸", "陈浚铭", "陈思罕", "陈奕恒", "哥哥", "官俊臣", "李煜东",
+    "妈妈", "聂玮辰", "王橹杰", "王烁然", "杨博文", "杨涵博",
+    "张桂源", "张函瑞", "张奕然", "诸葛", "左航航酱", "左奇函",
   ];
+  const extraContacts = p.items
+    .map((i) => i.sender)
+    .filter((s) => s !== "我" && !preferredContacts.includes(s));
+  const contacts = [...preferredContacts, ...extraContacts];
+  const contactGroups: Record<string, string[]> = {
+    B: contacts.filter((c) => c === "爸爸"),
+    C: ["陈浚铭", "陈思罕", "陈奕恒"].filter((c) => contacts.includes(c)),
+    G: ["哥哥", "官俊臣"].filter((c) => contacts.includes(c)),
+    L: contacts.filter((c) => c === "李煜东"),
+    M: contacts.filter((c) => c === "妈妈"),
+    N: contacts.filter((c) => c === "聂玮辰"),
+    W: ["王橹杰", "王烁然"].filter((c) => contacts.includes(c)),
+    Y: ["杨博文", "杨涵博"].filter((c) => contacts.includes(c)),
+    Z: ["张桂源", "张函瑞", "张奕然", "诸葛", "左航航酱", "左奇函"].filter((c) => contacts.includes(c)),
+  };
+  // 未预设的联系人按名称归入对应首字母区，避免聊天记录中的其他联系人消失。
+  for (const c of extraContacts) {
+    const letter = /^[A-Z]/i.test(c) ? c[0].toUpperCase() : "#";
+    if (!contactGroups[letter]) contactGroups[letter] = [];
+    if (!contactGroups[letter].includes(c)) contactGroups[letter].push(c);
+  }
   const posts = p.items.filter(
     (i) => i.folder === "朋友圈" || i.kind === "post",
   );
@@ -454,26 +478,46 @@ export function WeChatSkin(p: SkinProps) {
             </>
           ) : tab === "通讯录" ? (
             <>
-              <div className="wx-section-label">联系人</div>
-              {contacts.map((c) => (
-                <button
-                  key={c}
-                  className="wx-contact"
-                  onClick={() => {
-                    const item = p.items.find((i) => i.sender === c);
-                    if (item) {
-                      p.onThread(item.title);
-                      p.onRead(item.title);
-                    }
-                  }}
-                >
-                  <Avatar
-                    name={c}
-                    src={p.items.find((i) => i.sender === c)?.avatar}
-                  />
-                  {c}
-                </button>
-              ))}
+              <div className="wx-contact-shortcuts">
+                {["新的朋友", "群聊", "标签", "公众号"].map((label, index) => (
+                  <button key={label} className="wx-contact-shortcut">
+                    <span>{["＋", "👥", "🏷", "◎"][index]}</span>{label}
+                  </button>
+                ))}
+              </div>
+              {Object.entries(contactGroups)
+                .filter(([, names]) => names.length > 0)
+                .map(([letter, names]) => (
+                  <section className="wx-contact-group" key={letter} id={`wx-contact-${letter}`}>
+                    <div className="wx-section-label">{letter}</div>
+                    {names.map((c) => (
+                      <button
+                        key={c}
+                        className="wx-contact"
+                        onClick={() => {
+                          const item = p.items.find((i) => i.sender === c);
+                          p.onThread(item?.title || c);
+                          p.onRead(item?.title || c);
+                        }}
+                      >
+                        <Avatar
+                          name={c}
+                          src={p.items.find((i) => i.sender === c)?.avatar}
+                        />
+                        {c}
+                      </button>
+                    ))}
+                  </section>
+                ))}
+              <nav className="wx-contact-index" aria-label="通讯录字母索引">
+                {"ABCDEFGHIJKLMNOPQRSTUVWXYZ#".split("").map((letter) => (
+                  <button
+                    key={letter}
+                    disabled={!contactGroups[letter]?.length}
+                    onClick={() => document.getElementById(`wx-contact-${letter}`)?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                  >{letter}</button>
+                ))}
+              </nav>
             </>
           ) : tab === "发现" ? (
             <div className="wx-discover-groups">
