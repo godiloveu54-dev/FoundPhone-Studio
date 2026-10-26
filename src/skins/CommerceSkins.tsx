@@ -334,9 +334,24 @@ export function TaobaoSkin(p: Props) {
 }
 export function DeliverySkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "商家");
-  const list = items.filter((i) =>
-    tab === "订单" ? i.folder === "订单" : i.folder !== "订单",
-  );
+  const [selectedMerchant, setSelectedMerchant] = useState<Item | null>(null);
+  const [paymentMethod, setPaymentMethod] = useState("招商银行储蓄卡 · 尾号 6688");
+  const [transactions, setTransactions] = useSkinState<string[]>(p, "simulatedTransactions", []);
+  const [deliveryOrders, setDeliveryOrders] = useSkinState<string[]>(p, "deliveryOrders", []);
+  const paymentMethods = [
+    "招商银行储蓄卡 · 尾号 6688",
+    "张桂源的副卡",
+    "爸爸的副卡",
+    "妈妈的副卡",
+    "哥哥的副卡",
+    "亲密付 · 陈奕恒",
+    "亲密付 · 张桂源",
+    "亲密付 · 杨博文",
+  ];
+  const parsedDeliveryOrders = deliveryOrders.map((raw) => { try { return JSON.parse(raw) as Item; } catch { return null; } }).filter((x): x is Item => !!x);
+  const list = tab === "订单"
+    ? [...parsedDeliveryOrders, ...items.filter((i) => i.folder === "订单")]
+    : items.filter((i) => i.folder !== "订单");
   return (
     <div className="catalog-skin delivery-ui">
       <Header p={p} />
@@ -351,7 +366,7 @@ export function DeliverySkin(p: Props) {
               <button
                 className="delivery-merchant"
                 key={i.id}
-                onClick={() => p.onItem(i)}
+                onClick={() => { setSelectedMerchant(i); setPaymentMethod("招商银行储蓄卡 · 尾号 6688"); }}
               >
                 <Media item={i} />
                 <div>
@@ -400,6 +415,32 @@ export function DeliverySkin(p: Props) {
         set={setTab}
         icons={[<Utensils />, <Receipt />]}
       />
+      {selectedMerchant && (
+        <div className="taobao-product-backdrop" role="presentation" onClick={() => setSelectedMerchant(null)}>
+          <section className="taobao-product-sheet" role="dialog" aria-modal="true" aria-label="外卖下单" onClick={(e) => e.stopPropagation()}>
+            <button className="taobao-sheet-close" onClick={() => setSelectedMerchant(null)} aria-label="关闭">×</button>
+            <h2>确认外卖订单</h2>
+            <Media item={selectedMerchant} className="taobao-product-image" />
+            <h3>{selectedMerchant.title}</h3>
+            <p>{selectedMerchant.body.split("\\n")[0]}</p>
+            <strong className="taobao-product-price">¥ {Number(meta(selectedMerchant, "price", "0")).toLocaleString("zh-CN")}</strong>
+            <h3>选择付款方式</h3>
+            <div className="taobao-option-group"><div>{paymentMethods.map((method) => <button className={paymentMethod === method ? "selected" : ""} key={method} onClick={() => setPaymentMethod(method)}>{method}</button>)}</div></div>
+            <button className="taobao-add-cart" onClick={() => {
+              const total = Number(meta(selectedMerchant, "price", "0"));
+              const now = new Date();
+              const time = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")} ${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
+              const record = { id: `simulated-delivery-payment-${Date.now()}`, title: selectedMerchant.title, body: `外卖订单：${selectedMerchant.title}`, sender: "外卖", kind: "text", time, folder: "账单", meta: { merchant: selectedMerchant.title, amount: `-¥${total.toFixed(2)}`, status: "支付成功（模拟）", paymentMethod, transactionType: "外卖支出", total } };
+              const order = { ...record, id: `delivery-order-${Date.now()}`, folder: "订单", meta: { ...record.meta, status: "商家接单（模拟）", price: total, address: meta(items[0], "address", "配送地址") } };
+              setTransactions((current) => [JSON.stringify(record), ...current]);
+              setDeliveryOrders((current) => [JSON.stringify(order), ...current]);
+              setSelectedMerchant(null);
+              setTab("订单");
+            }}>确认下单并付款（模拟）</button>
+            <small>仅记录模拟交易，不会真实扣款。</small>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
