@@ -844,7 +844,10 @@ function PhoneRuntime({
                     const readItem = sourceItems.find((item) => item.id === id);
                     const title = readItem?.title;
                     const notifications = title
-                      ? current.notifications.filter((notice) => !notice.includes(title))
+                      ? current.notifications.filter((notice) =>
+                          !notice.includes(title) &&
+                          !(title === "四代同堂" && notice.includes("TF四代工作群")),
+                        )
                       : current.notifications;
                     update(dispatch(work, { ...current, notifications }, "read", id));
                   }}
