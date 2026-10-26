@@ -20,7 +20,8 @@ export default defineConfig(({ command }) => ({
       },
       workbox: {
         clientsClaim: true,
-        globPatterns: ["**/*.{js,css,html,svg,json,txt,png,jpg}"],
+        globPatterns: ["**/*.{js,css,html,svg,txt,png,jpg}"],
+        cleanupOutdatedCaches: true,
         maximumFileSizeToCacheInBytes: 4000000,
       },
     }),
