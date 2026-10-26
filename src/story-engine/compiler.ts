@@ -111,6 +111,7 @@ export function compileStory(raw: unknown): { story: Story; work: Work } {
   // contains UI-specific phone/contact fields and primitive metadata values that
   // are valid for the simulator but need canonical forms in the story engine.
   if (raw && typeof raw === "object" && !Array.isArray(raw)) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- legacy simulator data is normalized before schema validation.
     const input = raw as Record<string, any>;
     if (input.phone && typeof input.phone === "object") {
       const phoneKeys = new Set([
@@ -122,6 +123,7 @@ export function compileStory(raw: unknown): { story: Story; work: Work } {
       }
     }
     if (Array.isArray(input.contacts)) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- contact fields vary across legacy story formats.
       input.contacts = input.contacts.map((contact: Record<string, any>) => ({
         id: String(contact.id ?? "contact"),
         name: String(contact.name ?? contact.meta?.name ?? contact.title ?? contact.sender ?? "联系人"),
@@ -135,6 +137,7 @@ export function compileStory(raw: unknown): { story: Story; work: Work } {
         "text", "image", "audio", "video", "file", "transfer", "call",
         "order", "note", "post", "event",
       ]);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- content is untrusted legacy input normalized below.
       for (const [app, items] of Object.entries(input.content as Record<string, any>)) {
         if (!Array.isArray(items)) continue;
         for (const item of items) {
