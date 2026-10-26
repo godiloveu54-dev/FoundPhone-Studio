@@ -324,8 +324,8 @@ function PhoneRuntime({
           },
         },
       });
+      open("weibo");
       if (locked) beginUnlock();
-      else open("weibo");
       return;
     }
     if (locked) beginUnlock();
