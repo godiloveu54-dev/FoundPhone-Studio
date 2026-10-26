@@ -496,7 +496,7 @@ function PhoneRuntime({
       /^私生\d{2}$/.test(thread) ||
       /私生|私生粉|跟踪者/i.test(thread) ||
       [...(work.data.messages ?? []), ...(current.messages.messages ?? []), ...(current.messages.wechat ?? [])].some(
-        (item) => item.title === thread && /私生|私生粉|跟踪者/i.test(item.sender),
+        (item) => item.title === thread && (/私生|私生粉|跟踪者/i.test(item.sender) || item.meta?.threadType === "sasaeng"),
       );
     const threadTriggerKey = `sasaengReplyTriggered:${thread}`;
     const alreadyTriggered = Boolean(current.variables.sasaengCallTriggered);
@@ -512,11 +512,54 @@ function PhoneRuntime({
       read: true,
     });
     if (!isSasaengThread) {
-      const nextMessages = [...(current.messages.messages ?? []), outgoing];
+      const messageApp = app === "wechat" ? "wechat" : "messages";
+      const nextMessages = [...(current.messages[messageApp] ?? []), outgoing];
       update({
         ...current,
-        messages: { ...current.messages, messages: nextMessages },
+        messages: { ...current.messages, [messageApp]: nextMessages },
       });
+      if (app === "wechat" && text.trim()) {
+        const lower = text.toLowerCase();
+        const replyPools: [RegExp, string[]][] = [
+          [/在吗|干嘛|干什么|怎么样|好吗|吗[？?]?$/, ["在在在！怎么啦😁", "我在啊，怎么突然找我", "在呢在呢，你说～"]],
+          [/谢谢|感谢|辛苦/, ["跟我还客气什么呀😆", "小事小事，不用谢！", "哈哈哈哈没事，应该的"]],
+          [/吃|饭|奶茶|蛋糕|酸辣粉|零食|好吃|饿/, ["哈哈哈哈你又想到吃的了！", "你吃了吗？记得好好吃饭😁", "这个听起来不错，下次带我一个"]],
+          [/篮球|打球|库里|nba|球星/, ["可以啊！什么时候约🏀", "哈哈哈哈这个我熟，必须安排", "说好了啊，下次一起！"]],
+          [/训练|公司|忙|累|困|休息/, ["最近确实有点忙，不过我会注意休息的", "你也是，别把自己累着了", "好啦我知道啦，等忙完再聊😁"]],
+          [/想你|想念|喜欢|爱你|在乎/, ["突然这么煽情啊🥹", "哈哈哈哈你怎么突然说这个", "我看到了！你也要好好的呀"]],
+          [/照片|图片|视频|拍|帅|可爱|狗|球球/, ["哈哈哈哈我看到了！", "这也太好笑了吧，发我看看😆", "怎么这么可爱啊哈哈哈哈"]],
+          [/生日|祝福|礼物/, ["你也太有心了吧😭谢谢你！", "哈哈哈哈我记住了！", "真的谢谢你，我很开心😁"]],
+        ];
+        const matching = replyPools.find(([pattern]) => pattern.test(lower));
+        const generalReplies = [
+          "哈哈哈哈哈哈你怎么突然说这个😁",
+          "好好好，我懂你意思了",
+          "真的假的哈哈哈哈，展开说说",
+          "我刚看到！你继续说～",
+          "哈哈哈哈行啊，那就这么说定了",
+          "你这个人真的好有意思😆",
+          "嗯嗯！然后呢？我在听",
+        ];
+        const pool = matching?.[1] ?? generalReplies;
+        const replyText = pool[Math.floor(Math.random() * pool.length)];
+        window.setTimeout(() => {
+          const latest = runtimeRef.current;
+          const reply = makeItem({
+            id: `wechat-auto-reply-${Date.now()}`,
+            title: thread,
+            body: replyText,
+            sender: thread,
+            time: `${latest.date ?? work.phone.date ?? "2026-10-26"} ${latest.time ?? work.phone.time}`,
+            outgoing: false,
+            read: false,
+          });
+          update({
+            ...latest,
+            messages: { ...latest.messages, wechat: [...(latest.messages.wechat ?? []), reply] },
+            notifications: [...latest.notifications, `微信 · ${thread}：${replyText}`],
+          });
+        }, 700 + Math.floor(Math.random() * 900));
+      }
       return;
     }
     const isWeChatStalker = app === "wechat" && /^私生\d{2}$/.test(thread);
@@ -834,7 +877,7 @@ function PhoneRuntime({
                     ...(s.messages[app] ?? []),
                     ...(!creator && app === "messages" &&
                       ![...(work.data[app] ?? []), ...(s.messages[app] ?? [])].some(
-                        (item) => /私生|私生粉|跟踪者/i.test(item.title + " " + item.sender),
+                        (item) => (/私生|私生粉|跟踪者/i.test(item.title + " " + item.sender) || item.meta?.threadType === "sasaeng"),
                       )
                       ? [sasaengSeedMessage]
                       : []),
