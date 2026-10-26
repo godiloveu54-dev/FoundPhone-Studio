@@ -159,7 +159,7 @@ export function ContactsSkin(p: Props) {
             else if (p.creator) p.onAdd();
           }}
         >
-          <Avatar name={p.owner ?? "我"} />
+          <span className="catalog-avatar round" style={{ background: "#e5e7eb", color: "#fff" }}>{(p.owner ?? "我").slice(0, 1)}</span>
           <span>
             <strong>{p.owner ?? "我的名片"}</strong>
             <small>我的名片</small>
