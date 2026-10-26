@@ -248,7 +248,33 @@ export function CameraSkin(p: Props) {
   const frames = p.items.filter((i) =>
     mode === "视频" ? i.kind === "video" : i.kind !== "video",
   );
-  const frame = frames[index % Math.max(frames.length, 1)];
+  const referencePhoto: Item = {
+    id: "camera-reference-img-4426",
+    title: "IMG_4426.jpeg",
+    body: "相机默认取景参考照片",
+    richText: "",
+    meta: { source: "相机默认取景" },
+    time: "",
+    sender: p.owner || "我",
+    avatar: "",
+    kind: "image",
+    media: "./IMG_4426.jpeg",
+    hidden: false,
+    unlock: "",
+    password: "",
+    folder: "相机",
+    favorite: false,
+    outgoing: false,
+    read: true,
+    likes: 0,
+    comments: [],
+  };
+  const preferredPhoto = frames.find((item) =>
+    item.media.toLowerCase().includes("img_4426.jpeg"),
+  );
+  const frame = mode === "照片"
+    ? preferredPhoto || referencePhoto
+    : frames[index % Math.max(frames.length, 1)];
   return (
     <div className="catalog-skin native-camera">
       <Header p={p} />
