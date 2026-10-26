@@ -449,6 +449,13 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
     observer.observe(card);
     return () => observer.disconnect();
   }, [item.id]);
+  const activateSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = false;
+    video.volume = 1;
+    if (video.paused) void video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+  };
   const togglePlayback = () => {
     const video = videoRef.current;
     if (!video) return;
@@ -465,11 +472,14 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
         <video
           ref={videoRef}
           src={safeMedia(item.media)}
-          muted
+          muted={false}
+          autoPlay
           loop
           playsInline
-          preload="none"
+          preload="auto"
           aria-label={item.title}
+          onTouchStart={activateSound}
+          onPointerDown={activateSound}
           onClick={togglePlayback}
         />
       ) : <Media item={item} />}
@@ -515,72 +525,45 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
 }
 const uploadedDouyinVideos: Item[] = [
   {
-    id: "uploaded-douyin-01",
-    title: "视频 1",
-    body: "视频 1",
-    richText: "",
-    meta: {},
-    time: "2026-10-26 10:00",
-    sender: "陈浚铭",
-    avatar: "./IMG_4390.jpeg",
-    kind: "video",
-    media: "./912ae0a07e7e9c7e504e49b0c75a101a.MP4",
-    hidden: false,
-    unlock: "",
-    password: "",
-    folder: "推荐",
-    favorite: false,
-    outgoing: false,
-    read: false,
-    likes: 0,
-    comments: [],
+    id: "uploaded-douyin-01", title: "支持师兄😁😁大战比伯",
+    body: "支持师兄😁😁大战比伯",
+    richText: "", meta: { handle: "陈浚铭", displayLikes: "28.6w", commentCount: "1.8万", shareCount: "12.4万", reposts: "12.4万", simulatedStats: "true" },
+    time: "2026-10-26 10:00", sender: "陈浚铭", avatar: "./IMG_4390.jpeg",
+    kind: "video", media: "./912ae0a07e7e9c7e504e49b0c75a101a.MP4", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 286000,
+    comments: ["支持师兄！这波必须冲😁😁", "大战比伯哈哈哈哈哈哈这个标题我先笑了", "师兄加油！气势先拉满！", "谁懂这句文案的含金量🤣", "这条必须转给朋友看！", "支持支持，评论区集合！", "哈哈哈哈哈哈赢面先加到百分之百", "师兄的排面不能少！", "这波属于先声夺人😎", "笑死我了，怎么这么有梗", "期待后续！", "评论区全是气氛组哈哈哈", "这句我能重复念一天", "支持师兄😁", "必须大战一场！", "这个视频我刷到第三遍了", "哈哈哈哈哈哈哈哈", "转发给姐妹一起笑", "师兄冲冲冲！", "有点东西，收藏了"]
   },
   {
-    id: "uploaded-douyin-02",
-    title: "视频 2",
-    body: "视频 2",
-    richText: "",
-    meta: {},
-    time: "2026-10-26 10:01",
-    sender: "陈浚铭",
-    avatar: "./IMG_4390.jpeg",
-    kind: "video",
-    media: "./e4a55bf771b9089c6d893dbca7474771.MP4",
-    hidden: false,
-    unlock: "",
-    password: "",
-    folder: "推荐",
-    favorite: false,
-    outgoing: false,
-    read: false,
-    likes: 0,
-    comments: [],
+    id: "uploaded-douyin-02", title: "喜欢小狗是人之常情吗？",
+    body: "喜欢小狗是人之常情吗？",
+    richText: "", meta: { handle: "陈浚铭", displayLikes: "45.2w", commentCount: "2.6万", shareCount: "8.7万", reposts: "8.7万", simulatedStats: "true" },
+    time: "2026-10-26 10:01", sender: "陈浚铭", avatar: "./IMG_4390.jpeg",
+    kind: "video", media: "./e4a55bf771b9089c6d893dbca7474771.MP4", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 452000,
+    comments: ["当然是人之常情！！小狗谁不爱啊😭", "小狗就是世界上最可爱的生物！", "问出这句话的人已经被小狗拿捏了", "喜欢小狗怎么会有错！", "想把全世界的小狗都抱一遍", "这条建议循环播放", "小狗：你终于懂我了🐶", "小狗真的会治愈一切", "评论区统一回复：是！", "当然是啦！", "谁能拒绝毛茸茸的小狗啊", "我宣布这是今日最佳问题", "小狗可爱值直接拉满", "想看更多小狗日常！", "喜欢小狗是本能哈哈哈哈", "我家狗狗也想回答这个问题", "救命真的太可爱了", "看完想立刻去摸狗", "转发给那个说我太喜欢狗的人", "这个问题不需要思考！"]
   },
   {
-    id: "uploaded-douyin-03",
-    title: "视频 3",
-    body: "视频 3",
-    richText: "",
-    meta: {},
-    time: "2026-10-26 10:02",
-    sender: "陈浚铭",
-    avatar: "./IMG_4390.jpeg",
-    kind: "video",
-    media: "./v0200fg10000cplfgv7og65o0nana5f0.MP4",
-    hidden: false,
-    unlock: "",
-    password: "",
-    folder: "推荐",
-    favorite: false,
-    outgoing: false,
-    read: false,
-    likes: 0,
-    comments: [],
+    id: "uploaded-douyin-03", title: "找呀找呀找朋友",
+    body: "找呀找呀找朋友",
+    richText: "", meta: { handle: "陈浚铭", displayLikes: "39.7w", commentCount: "2.1万", shareCount: "9.8万", reposts: "9.8万", simulatedStats: "true" },
+    time: "2026-10-26 10:02", sender: "陈浚铭", avatar: "./IMG_4390.jpeg",
+    kind: "video", media: "./v0200fg10000cplfgv7og65o0nana5f0.MP4", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 397000,
+    comments: ["找呀找呀找朋友～找到一个好朋友🎵", "这旋律一出来DNA动了", "小时候的回忆突然攻击我", "谁跟我一样自动接上下一句", "这个配乐太有魔性了", "哈哈哈哈哈好可爱", "一秒回到幼儿园", "朋友在哪里！我来啦！", "这条视频好有童趣", "我已经开始跟着唱了", "评论区一起唱起来！", "找到一个好朋友😁", "这首歌真的刻在脑子里", "太适合当循环视频了", "哈哈哈哈哈哈哈", "童年回忆杀", "看完心情都变好了", "我朋友已经被我转发烦了", "可爱可爱可爱", "再看一遍！"]
   },
+  {
+    id: "uploaded-douyin-04", title: "最新上传",
+    body: "",
+    richText: "", meta: { handle: "陈浚铭", displayLikes: "18.6w", commentCount: "8600", shareCount: "3.2万", reposts: "3.2万", simulatedStats: "true" },
+    time: "2026-10-26 10:03", sender: "陈浚铭", avatar: "./IMG_4390.jpeg",
+    kind: "video", media: "./adff80bc64c9040346bc22237bbd6788.mp4", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 186000,
+    comments: ["这个视频好有感觉！", "来了来了，支持新视频！", "又更新啦😁", "先赞再看！", "期待下次更新", "这条我先收藏了", "评论区打卡", "好喜欢这种日常感", "刷到就是缘分", "继续更新呀！", "转发支持一下", "来了来了！", "这个画面感不错", "再看一遍", "支持浚铭！"]
+  }
 ];
 export function DouyinSkin(p: Props) {
   const { tab, setTab, items } = useContent(p, "推荐");
-  const feedItems = [...uploadedDouyinVideos, ...items.filter((item) => !uploadedDouyinVideos.some((video) => video.id === item.id))];
+  const feedItems = [
+    ...uploadedDouyinVideos.slice(0, 3),
+    ...items.filter((item) => !uploadedDouyinVideos.some((video) => video.id === item.id)),
+    uploadedDouyinVideos[3],
+  ];
   const list = tab === "推荐" ? feedItems : feedItems.filter((i) => i.folder === tab);
   return (
     <div className="catalog-skin douyin-ui">
