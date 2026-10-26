@@ -24,10 +24,15 @@ import {
 } from "./shared";
 export function AlipaySkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "账单");
+  const [transactions] = useSkinState<string[]>(p, "simulatedTransactions", []);
+  const transactionItems = transactions.map((raw) => {
+    try { return JSON.parse(raw) as Item; } catch { return null; }
+  }).filter((x): x is Item => !!x);
+  const displayItems = tab === "账单" ? [...transactionItems, ...items] : items;
   const list =
     tab === "卡包"
       ? items.filter((i) => i.folder === "卡包" || i.folder === "票券")
-      : items.filter((i) => !["卡包", "票券"].includes(i.folder));
+      : displayItems.filter((i) => !["卡包", "票券"].includes(i.folder));
   return (
     <div className="catalog-skin alipay-ui">
       <Header p={p} />
@@ -100,6 +105,19 @@ export function TaobaoSkin(p: Props) {
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [checkout, setCheckout] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState("招商银行储蓄卡 · 尾号 6688");
+  const [transactions, setTransactions] = useSkinState<string[]>(p, "simulatedTransactions", []);
+  const paymentMethods = [
+    "招商银行储蓄卡 · 尾号 6688",
+    "张桂源的副卡",
+    "爸爸的副卡",
+    "妈妈的副卡",
+    "哥哥的副卡",
+    "亲密付 · 陈奕恒",
+    "亲密付 · 张桂源",
+    "亲密付 · 杨博文",
+  ];
   const products = items.filter((i) => i.kind === "product");
   const list = items
     .filter((i) =>
@@ -240,7 +258,10 @@ export function TaobaoSkin(p: Props) {
               </section>
             ))}
             {!cartItems.length && <p className="catalog-empty">购物车还是空的，去挑选喜欢的商品吧</p>}
-            {!!cartItems.length && <footer className="taobao-cart-total">合计：¥ {cartItems.reduce((sum, x) => sum + x.price * x.quantity, 0).toLocaleString("zh-CN")}</footer>}
+            {!!cartItems.length && <>
+              <footer className="taobao-cart-total">合计：¥ {cartItems.reduce((sum, x) => sum + x.price * x.quantity, 0).toLocaleString("zh-CN")}</footer>
+              <button className="taobao-add-cart" onClick={() => setCheckout(true)}>结算 · 选择付款方式</button>
+            </>}
           </div>
         ) : (
           <>
@@ -266,6 +287,29 @@ export function TaobaoSkin(p: Props) {
         set={(t) => { setTab(t); setStatus("全部"); }}
         icons={[<Home />, <ShoppingBag />, <ShoppingBag />, <Truck />]}
       />
+      {checkout && (
+        <div className="taobao-product-backdrop" role="presentation" onClick={() => setCheckout(false)}>
+          <section className="taobao-product-sheet" role="dialog" aria-modal="true" aria-label="确认付款" onClick={(e) => e.stopPropagation()}>
+            <button className="taobao-sheet-close" onClick={() => setCheckout(false)} aria-label="关闭">×</button>
+            <h2>确认订单</h2>
+            <p>{cartItems.map((x) => `${x.title} × ${x.quantity}`).join("、")}</p>
+            <strong className="taobao-product-price">合计 ¥ {cartItems.reduce((sum, x) => sum + x.price * x.quantity, 0).toLocaleString("zh-CN")}</strong>
+            <h3>选择付款方式</h3>
+            <div className="taobao-option-group"><div>{paymentMethods.map((method) => <button className={paymentMethod === method ? "selected" : ""} key={method} onClick={() => setPaymentMethod(method)}>{method}</button>)}</div></div>
+            <button className="taobao-add-cart" onClick={() => {
+              const total = cartItems.reduce((sum, x) => sum + x.price * x.quantity, 0);
+              const now = new Date();
+              const time = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")} ${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
+              const record = { id: `simulated-payment-${Date.now()}`, title: cartItems.length === 1 ? cartItems[0].title : `淘宝购物（${cartItems.length}件商品）`, body: cartItems.map((x) => `${x.title} × ${x.quantity}`).join("\\n"), sender: "淘宝", kind: "text", time, folder: "账单", meta: { merchant: "淘宝", amount: `-¥${total.toFixed(2)}`, status: "支付成功（模拟）", paymentMethod, transactionType: "购物支出", total } };
+              setTransactions((current) => [JSON.stringify(record), ...current]);
+              setCart([]);
+              setCheckout(false);
+              setTab("订单");
+            }}>确认付款（模拟）</button>
+            <small>仅记录模拟交易，不会真实扣款。</small>
+          </section>
+        </div>
+      )}
       {selected && (() => {
         const options = optionsFor(selected);
         return (
