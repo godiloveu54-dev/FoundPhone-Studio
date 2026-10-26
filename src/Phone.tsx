@@ -35,6 +35,7 @@ import { WeChatSkin, WhatsAppSkin } from "./AppSkins";
 import { RichText } from "./RichText";
 import {
   useEffect,
+  useMemo,
   useState,
   useRef,
   Suspense,
@@ -265,7 +266,7 @@ function PhoneRuntime({
   const callTarget = s.incomingCall?.target ?? "";
   const callStatus = s.incomingCall?.status ?? "";
   const callRecord = work.data.phone?.find((item) => item.id === callTarget);
-  const callDialogue = getCallDialogue(callRecord);
+  const callDialogue = useMemo(() => getCallDialogue(callRecord), [callRecord]);
   useEffect(() => {
     if (creator || callStatus !== "answered" || callDialogue.length === 0) {
       setCallDialogueIndex(0);
@@ -293,7 +294,7 @@ function PhoneRuntime({
       }
     }, 2400);
     return () => clearInterval(timer);
-  }, [creator, callStatus, callTarget, work.id, work.updatedAt]);
+  }, [creator, callStatus, callTarget, callDialogue, work, update]);
   const event = (event: string, target: string) => {
     if (!creator) update(dispatch(work, runtimeRef.current, event, target));
   };
