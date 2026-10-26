@@ -308,7 +308,17 @@ export function SafariSkin(p: Props) {
   type SearchHistoryEntry = { query: string; time: string };
   const [searchHistory, setSearchHistory] = useState<SearchHistoryEntry[]>(() => {
     const saved = p.ui?.safariSearchHistory;
-    if (typeof saved !== "string") return [];
+    if (typeof saved !== "string") {
+      return [
+        "朋友送我亲情卡我该怎么感谢？",
+        "朋友对我说我像香菜 懂的人很懂爱的人很爱 他懂因为他喜欢吃香菜是什么意思？",
+        "拔牙后脸怎么消肿？",
+        "最近流行的热梗",
+        "时代峰峻真的被封杀了吗？",
+        "和朋友冷战怎么办？",
+        "女孩更喜欢被叫姐姐还是乖乖？",
+      ].map((query) => ({ query, time: "" }));
+    }
     try {
       const parsed: unknown = JSON.parse(saved);
       return Array.isArray(parsed)
@@ -388,7 +398,7 @@ export function SafariSkin(p: Props) {
                   style={{ display: "flex", flex: 1, minWidth: 0, flexDirection: "column", alignItems: "flex-start", gap: 4, textAlign: "left" }}
                 >
                   <strong style={{ fontSize: 12, fontWeight: 500, overflowWrap: "anywhere" }}>{entry.query}</strong>
-                  <small style={{ color: "#999", fontSize: 10 }}>{entry.time}</small>
+                  {entry.time && <small style={{ color: "#999", fontSize: 10 }}>{entry.time}</small>}
                 </button>
                 <button
                   aria-label={`删除搜索记录：${entry.query}`}
