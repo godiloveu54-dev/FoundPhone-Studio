@@ -96,6 +96,8 @@ function MessageList({
   onRead: (id: string) => void;
   whatsapp?: boolean;
 }) {
+  const [playingAudio, setPlayingAudio] = useState("");
+  const [callDetail, setCallDetail] = useState<Item | null>(null);
   return (
     <div className={`skin-messages ${whatsapp ? "wa-wallpaper" : ""}`}>
       <div className="skin-date">{items[0]?.time.slice(0, 10)}</div>
@@ -108,10 +110,28 @@ function MessageList({
             <Avatar name={i.sender} src={i.avatar} />
           )}
           <button
-            className="skin-bubble"
-            onClick={() => (creator ? onItem(i) : onRead(i.id))}
+            className={`skin-bubble ${i.kind === "call" ? "wx-call-bubble" : ""}`}
+            onClick={() => {
+              if (i.kind === "call") setCallDetail(i);
+              else if (i.kind === "audio") setPlayingAudio((current) => current === i.id ? "" : i.id);
+              else if (creator) onItem(i);
+              else onRead(i.id);
+            }}
           >
-            {["image", "audio", "video"].includes(i.kind) ? (
+            {i.kind === "audio" ? (
+              <span className={`wx-voice-message ${playingAudio === i.id ? "is-playing" : ""}`}>
+                <span className="wx-voice-wave">)))</span>
+                <span>语音消息</span>
+                {playingAudio === i.id && <span className="wx-voice-playing">播放中…</span>}
+                {i.meta?.transcript && <small className="wx-voice-transcript">转文字：{i.meta.transcript}</small>}
+              </span>
+            ) : i.kind === "call" ? (
+              <span className="wx-call-message">
+                <Phone size={17} />
+                <span>{i.meta?.callType || "通话记录"}<small>{i.meta?.status || "记录"}</small></span>
+                {i.meta?.duration && <b>{i.meta.duration}</b>}
+              </span>
+            ) : ["image", "video"].includes(i.kind) ? (
               <ItemMedia item={i} />
             ) : i.kind === "transfer" ? (
               <div className="skin-transfer">
@@ -129,6 +149,19 @@ function MessageList({
           {!whatsapp && i.outgoing && <Avatar name={i.sender} src={i.avatar} />}
         </div>
       ))}
+      {callDetail && (
+        <div className="wx-call-detail-backdrop" role="presentation" onClick={() => setCallDetail(null)}>
+          <section className="wx-call-detail" role="dialog" aria-label="通话记录详情" onClick={(e) => e.stopPropagation()}>
+            <button className="wx-call-detail-close" onClick={() => setCallDetail(null)}>关闭</button>
+            <Phone size={28} />
+            <h3>{callDetail.meta?.callType || "通话记录"}</h3>
+            <p>{callDetail.meta?.status || "已记录"}</p>
+            <p>{callDetail.time}</p>
+            {callDetail.meta?.duration && <p>通话时长：{callDetail.meta.duration}</p>}
+            <small>仅展示已配置的通话记录，不包含未提供的通话内容。</small>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
@@ -313,7 +346,7 @@ export function WeChatSkin(p: SkinProps) {
       ) : p.thread ? (
         <>
           <MessageList
-            items={p.items.filter((i) => i.title === p.thread)}
+            items={p.items.filter((i) => i.title === p.thread).sort((a, b) => a.time.localeCompare(b.time))}
             creator={p.creator}
             onItem={p.onItem}
             onRead={p.onRead}
