@@ -157,7 +157,8 @@ export function WeChatSkin(p: SkinProps) {
     [moments, setMoments] = useState(false),
     [menu, setMenu] = useState(false),
     [searchOpen, setSearchOpen] = useState(false),
-    [utility, setUtility] = useState("");
+    [utility, setUtility] = useState(""),
+    [selectedYear, setSelectedYear] = useState("");
   const [readThreads, setReadThreads] = useSkinState<string[]>(
     p,
     "readThreads",
@@ -189,7 +190,9 @@ export function WeChatSkin(p: SkinProps) {
           aria-label={utility || p.thread || moments ? "返回" : "收藏"}
           onClick={() =>
             utility
-              ? setUtility("")
+              ? utility === "按日期查找" && selectedYear
+                ? setSelectedYear("")
+                : setUtility("")
               : p.thread
                 ? p.onThread("")
                 : moments
@@ -241,7 +244,35 @@ export function WeChatSkin(p: SkinProps) {
       )}
       {utility ? (
         <div className="skin-scroll wx-utility">
+          {utility === "按日期查找" ? (
+            selectedYear ? (
+              <div className="wx-year-history">
+                <p className="wx-year-caption">{selectedYear} 年 · 全部聊天记录</p>
+                <MessageList
+                  items={p.items
+                    .filter((i) => i.title === p.thread && /^\\d{4}/.test(i.time) && i.time.slice(0, 4) === selectedYear)
+                    .sort((a, b) => a.time.localeCompare(b.time))}
+                  creator={p.creator}
+                  onItem={p.onItem}
+                  onRead={p.onRead}
+                />
+                {!p.items.some((i) => i.title === p.thread && i.time.slice(0, 4) === selectedYear) && (
+                  <p className="skin-empty">这一年还没有配置聊天记录</p>
+                )}
+              </div>
+            ) : (
+              <div className="wx-year-picker">
+                <p>按年份查找聊天记录</p>
+                {["2023", "2024", "2025", "2026"].map((year) => (
+                  <button key={year} className="wx-year-row" onClick={() => setSelectedYear(year)}>
+                    <span>{year} 年</span><span>›</span>
+                  </button>
+                ))}
+              </div>
+            )
+          ) : null}
           {utility === "聊天信息" && (
+            <>
             <div className="wx-members">
               {[
                 ...new Set(
@@ -259,6 +290,10 @@ export function WeChatSkin(p: SkinProps) {
                 </div>
               ))}
             </div>
+            <button className="wx-discovery" onClick={() => { setSelectedYear(""); setUtility("按日期查找"); }}>
+              按日期查找 <span>›</span>
+            </button>
+            </>
           )}
           {p.items
             .filter((i) => i.folder === utility)
