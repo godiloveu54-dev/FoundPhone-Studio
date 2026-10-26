@@ -472,7 +472,7 @@ export function WeChatSkin(p: SkinProps) {
       ) : p.thread ? (
         <>
           <MessageList
-            items={allChatItems.filter((i) => i.title === p.thread).sort((a, b) => b.time.localeCompare(a.time))}
+            items={allChatItems.filter((i) => i.title === p.thread).sort((a, b) => p.thread === "四代同堂" ? a.time.localeCompare(b.time) : b.time.localeCompare(a.time))}
             creator={p.creator}
             onItem={p.onItem}
             onRead={p.onRead}
@@ -638,8 +638,8 @@ export function WeChatSkin(p: SkinProps) {
                       key={t}
                       onClick={() => {
                         setReadThreads((v) => (v.includes(t) ? v : [...v, t]));
+                        list.forEach((item) => p.onRead(item.id));
                         p.onThread(t);
-                        p.onRead(t);
                       }}
                     >
                       <span className="wx-chat-avatar">
