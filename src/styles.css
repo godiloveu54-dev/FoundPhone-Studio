@@ -4945,3 +4945,7 @@ label {
 @keyframes wx-voice-pulse { from { opacity: .45; transform: scaleX(.7); } to { opacity: 1; transform: scaleX(1.15); } }
 .dark-phone .wx-year-row { color: #f3f3f3; border-color: #383838; }
 .dark-phone .wx-call-detail { background: #292929; color: #f3f3f3; }
+
+.wx-history-date-divider { align-self: center; margin: 16px auto 12px; padding: 5px 10px; border-radius: 5px; background: #d8d8d8; color: #fff; font-size: 10px; letter-spacing: .2px; }
+.wx-year-history .skin-date { display: none; }
+.wx-year-history .skin-messages { overflow: visible; }
