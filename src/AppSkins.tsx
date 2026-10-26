@@ -70,6 +70,12 @@ function Avatar({
     "杨博文": "./IMG_4394.jpeg",
     "张函瑞": "./IMG_4395.jpeg",
     "王橹杰": "./IMG_4396.jpeg",
+    "聂玮辰": "./IMG_4400.jpeg",
+    "李煜东": "./IMG_4405.jpeg",
+    "杨涵博": "./IMG_4415.jpeg",
+    "官俊臣": "./IMG_4419.jpeg",
+    "张奕然": "./IMG_4425.jpeg",
+    "魏子宸": "./IMG_4426.jpeg",
   };
   const normalizedName = name.replace(/^TF家族[-·]/, "").trim();
   const image = safeMedia(src || avatarByName[normalizedName] || "");
@@ -246,8 +252,8 @@ export function WeChatSkin(p: SkinProps) {
   // 固定通讯录名单按微信常见的拼音首字母分组；额外配置在聊天记录里的联系人也会保留。
   const preferredContacts = [
     "爸爸", "陈浚铭", "陈思罕", "陈奕恒", "哥哥", "官俊臣", "李煜东",
-    "妈妈", "聂玮辰", "王橹杰", "王烁然", "杨博文", "杨涵博",
-    "张桂源", "张函瑞", "张奕然", "诸葛", "左航航酱", "左奇函",
+    "妈妈", "聂玮辰", "王橹杰", "杨博文", "杨涵博",
+    "张桂源", "张函瑞", "张奕然", "左奇函", "魏子宸",
     "飞总", "stf",
   ];
   const extraContacts = p.items
@@ -366,7 +372,7 @@ export function WeChatSkin(p: SkinProps) {
                 <MessageList
                   items={p.items
                     .filter((i) => i.title === p.thread && /^\d{4}/.test(i.time) && i.time.slice(0, 4) === selectedYear)
-                    .sort((a, b) => a.time.localeCompare(b.time))}
+                    .sort((a, b) => b.time.localeCompare(a.time))}
                   creator={p.creator}
                   onItem={p.onItem}
                   onRead={p.onRead}
@@ -446,7 +452,7 @@ export function WeChatSkin(p: SkinProps) {
       ) : p.thread ? (
         <>
           <MessageList
-            items={allChatItems.filter((i) => i.title === p.thread).sort((a, b) => a.time.localeCompare(b.time))}
+            items={allChatItems.filter((i) => i.title === p.thread).sort((a, b) => b.time.localeCompare(a.time))}
             creator={p.creator}
             onItem={p.onItem}
             onRead={p.onRead}
