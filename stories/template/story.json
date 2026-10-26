@@ -272,6 +272,21 @@
         "phone": "",
         "relationship": "工作联系人"
       }
+    },
+    {
+      "id": "test-contact",
+      "title": "测试联系人",
+      "body": "",
+      "sender": "测试联系人",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "测试联系人",
+        "phone": "",
+        "relationship": "测试"
+      }
     }
   ],
   "chats": [
