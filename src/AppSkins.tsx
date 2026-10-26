@@ -225,6 +225,7 @@ export function WeChatSkin(p: SkinProps) {
     "爸爸", "陈浚铭", "陈思罕", "陈奕恒", "哥哥", "官俊臣", "李煜东",
     "妈妈", "聂玮辰", "王橹杰", "王烁然", "杨博文", "杨涵博",
     "张桂源", "张函瑞", "张奕然", "诸葛", "左航航酱", "左奇函",
+    "飞总", "stf",
   ];
   const extraContacts = p.items
     .map((i) => i.sender)
@@ -240,6 +241,8 @@ export function WeChatSkin(p: SkinProps) {
     W: ["王橹杰", "王烁然"].filter((c) => contacts.includes(c)),
     Y: ["杨博文", "杨涵博"].filter((c) => contacts.includes(c)),
     Z: ["张桂源", "张函瑞", "张奕然", "诸葛", "左航航酱", "左奇函"].filter((c) => contacts.includes(c)),
+    F: contacts.filter((c) => c === "飞总"),
+    S: contacts.filter((c) => c.toLowerCase() === "stf"),
   };
   // 未预设的联系人按名称归入对应首字母区，避免聊天记录中的其他联系人消失。
   for (const c of extraContacts) {
