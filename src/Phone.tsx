@@ -1396,7 +1396,12 @@ function AppContent({
   const [pwError, setPwError] = useState("");
   const [likes, setLikes] = useState<string[]>([]);
   const [familyCardPopup, setFamilyCardPopup] = useState<{ sender: string; text: string; kind: "food" | "plain" } | null>(null);
-  const shown = items
+  const taobaoCatalog = app.id === "taobao"
+    ? (items.some((i) => i.kind === "product" || i.id.startsWith("taobao-product-"))
+        ? items
+        : ((work as unknown as { data?: Record<string, Item[]> }).data?.taobao ?? []))
+    : items;
+  const shown = taobaoCatalog
     .filter((i) => creator || (app.id === "taobao" && (i.kind === "product" || i.id.startsWith("taobao-product-"))) || visible(i, state))
     .filter((i) =>
       (i.title + i.body + i.sender).toLowerCase().includes(q.toLowerCase()),
