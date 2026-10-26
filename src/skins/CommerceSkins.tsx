@@ -102,6 +102,7 @@ export function TaobaoSkin(p: Props) {
   const [status, setStatus] = useState("全部");
   const [visibleProducts, setVisibleProducts] = useState(30);
   const [cart, setCart] = useSkinState<string[]>(p, "taobaoCart", []);
+  const [orders, setOrders] = useSkinState<string[]>(p, "taobaoOrders", []);
   const [selected, setSelected] = useState<Item | null>(null);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
@@ -109,6 +110,9 @@ export function TaobaoSkin(p: Props) {
   const [checkout, setCheckout] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("招商银行储蓄卡 · 尾号 6688");
   const [, setTransactions] = useSkinState<string[]>(p, "simulatedTransactions", []);
+  const orderItems = orders.flatMap((raw) => {
+    try { return [JSON.parse(raw) as Item]; } catch { return []; }
+  });
   const paymentMethods = [
     "招商银行储蓄卡 · 尾号 6688",
     "张桂源的副卡",
@@ -119,7 +123,7 @@ export function TaobaoSkin(p: Props) {
     "亲密付 · 张桂源",
     "亲密付 · 杨博文",
   ];
-  const list = items
+  const list = [...items, ...orderItems]
     .filter((i) =>
       tab === "商品"
         ? i.folder !== "订单" && i.folder !== "物流" && i.kind === "product"
@@ -304,7 +308,10 @@ export function TaobaoSkin(p: Props) {
               const total = cartItems.reduce((sum, x) => sum + x.price * x.quantity, 0);
               const now = new Date();
               const time = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")} ${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
-              const record = { id: `simulated-payment-${Date.now()}`, title: cartItems.length === 1 ? cartItems[0].title : `淘宝购物（${cartItems.length}件商品）`, body: cartItems.map((x) => `${x.title} × ${x.quantity}`).join("\\n"), sender: "淘宝", kind: "text", time, folder: "账单", meta: { merchant: "淘宝", amount: `-¥${total.toFixed(2)}`, status: "支付成功（模拟）", paymentMethod, transactionType: "购物支出", total } };
+              const orderId = `TB${Date.now()}`;
+              const order = { id: `taobao-order-${Date.now()}`, title: cartItems.length === 1 ? cartItems[0].title : `淘宝购物（${cartItems.length}件商品）`, body: cartItems.map((x) => `${x.title} × ${x.quantity}`).join("\\n"), sender: "淘宝", kind: "text", time, folder: "订单", meta: { merchant: "淘宝", amount: `-¥${total.toFixed(2)}`, price: total.toFixed(2), status: "待发货", number: orderId, paymentMethod, transactionType: "购物订单", total } };
+              const record = { ...order, id: `simulated-payment-${Date.now()}`, folder: "账单", meta: { merchant: "淘宝", amount: `-¥${total.toFixed(2)}`, status: "支付成功（模拟）", paymentMethod, transactionType: "购物支出", total } };
+              setOrders((current) => [JSON.stringify(order), ...current]);
               setTransactions((current) => [JSON.stringify(record), ...current]);
               setCart([]);
               setCheckout(false);
