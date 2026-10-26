@@ -461,9 +461,75 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
     </article>
   );
 }
+const uploadedDouyinVideos: Item[] = [
+  {
+    id: "uploaded-douyin-01",
+    title: "视频 1",
+    body: "视频 1",
+    richText: "",
+    meta: {},
+    time: "2026-10-26 10:00",
+    sender: "陈浚铭",
+    avatar: "./IMG_4390.jpeg",
+    kind: "video",
+    media: "./912ae0a07e7e9c7e504e49b0c75a101a.MP4",
+    hidden: false,
+    unlock: "",
+    password: "",
+    folder: "推荐",
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+  },
+  {
+    id: "uploaded-douyin-02",
+    title: "视频 2",
+    body: "视频 2",
+    richText: "",
+    meta: {},
+    time: "2026-10-26 10:01",
+    sender: "陈浚铭",
+    avatar: "./IMG_4390.jpeg",
+    kind: "video",
+    media: "./e4a55bf771b9089c6d893dbca7474771.MP4",
+    hidden: false,
+    unlock: "",
+    password: "",
+    folder: "推荐",
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+  },
+  {
+    id: "uploaded-douyin-03",
+    title: "视频 3",
+    body: "视频 3",
+    richText: "",
+    meta: {},
+    time: "2026-10-26 10:02",
+    sender: "陈浚铭",
+    avatar: "./IMG_4390.jpeg",
+    kind: "video",
+    media: "./v0200fg10000cplfgv7og65o0nana5f0.MP4",
+    hidden: false,
+    unlock: "",
+    password: "",
+    folder: "推荐",
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+  },
+];
 export function DouyinSkin(p: Props) {
   const { tab, setTab, items } = useContent(p, "推荐");
-  const list = tab === "推荐" ? items : items.filter((i) => i.folder === tab);
+  const feedItems = items.length ? items : uploadedDouyinVideos;
+  const list = tab === "推荐" ? feedItems : feedItems.filter((i) => i.folder === tab);
   return (
     <div className="catalog-skin douyin-ui">
       <Header p={p} />
