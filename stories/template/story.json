@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "恒铭 iPhone 模拟器",
   "description": "陈浚铭的 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容。",
-  "revision": 31,
+  "revision": 32,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -470,482 +470,482 @@
     },
     {
       "id": "sasaeng-01",
-      "title": "私生01",
+      "title": "176****2101",
       "body": "",
-      "sender": "私生01",
+      "sender": "176****2101",
       "kind": "text",
       "time": "2026-10-26 08:00",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生01",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2101",
+        "phone": "176****2101",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-02",
-      "title": "私生02",
+      "title": "176****2102",
       "body": "",
-      "sender": "私生02",
+      "sender": "176****2102",
       "kind": "text",
       "time": "2026-10-26 08:02",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生02",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2102",
+        "phone": "176****2102",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-03",
-      "title": "私生03",
+      "title": "176****2103",
       "body": "",
-      "sender": "私生03",
+      "sender": "176****2103",
       "kind": "text",
       "time": "2026-10-26 08:04",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生03",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2103",
+        "phone": "176****2103",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-04",
-      "title": "私生04",
+      "title": "176****2104",
       "body": "",
-      "sender": "私生04",
+      "sender": "176****2104",
       "kind": "text",
       "time": "2026-10-26 08:06",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生04",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2104",
+        "phone": "176****2104",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-05",
-      "title": "私生05",
+      "title": "176****2105",
       "body": "",
-      "sender": "私生05",
+      "sender": "176****2105",
       "kind": "text",
       "time": "2026-10-26 08:08",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生05",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2105",
+        "phone": "176****2105",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-06",
-      "title": "私生06",
+      "title": "176****2106",
       "body": "",
-      "sender": "私生06",
+      "sender": "176****2106",
       "kind": "text",
       "time": "2026-10-26 08:10",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生06",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2106",
+        "phone": "176****2106",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-07",
-      "title": "私生07",
+      "title": "176****2107",
       "body": "",
-      "sender": "私生07",
+      "sender": "176****2107",
       "kind": "text",
       "time": "2026-10-26 08:12",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生07",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2107",
+        "phone": "176****2107",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-08",
-      "title": "私生08",
+      "title": "176****2108",
       "body": "",
-      "sender": "私生08",
+      "sender": "176****2108",
       "kind": "text",
       "time": "2026-10-26 08:14",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生08",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2108",
+        "phone": "176****2108",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-09",
-      "title": "私生09",
+      "title": "176****2109",
       "body": "",
-      "sender": "私生09",
+      "sender": "176****2109",
       "kind": "text",
       "time": "2026-10-26 08:16",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生09",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2109",
+        "phone": "176****2109",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-10",
-      "title": "私生10",
+      "title": "176****2110",
       "body": "",
-      "sender": "私生10",
+      "sender": "176****2110",
       "kind": "text",
       "time": "2026-10-26 08:18",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生10",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2110",
+        "phone": "176****2110",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-11",
-      "title": "私生11",
+      "title": "176****2111",
       "body": "",
-      "sender": "私生11",
+      "sender": "176****2111",
       "kind": "text",
       "time": "2026-10-26 08:20",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生11",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2111",
+        "phone": "176****2111",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-12",
-      "title": "私生12",
+      "title": "176****2112",
       "body": "",
-      "sender": "私生12",
+      "sender": "176****2112",
       "kind": "text",
       "time": "2026-10-26 08:22",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生12",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2112",
+        "phone": "176****2112",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-13",
-      "title": "私生13",
+      "title": "176****2113",
       "body": "",
-      "sender": "私生13",
+      "sender": "176****2113",
       "kind": "text",
       "time": "2026-10-26 08:24",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生13",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2113",
+        "phone": "176****2113",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-14",
-      "title": "私生14",
+      "title": "176****2114",
       "body": "",
-      "sender": "私生14",
+      "sender": "176****2114",
       "kind": "text",
       "time": "2026-10-26 08:26",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生14",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2114",
+        "phone": "176****2114",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-15",
-      "title": "私生15",
+      "title": "176****2115",
       "body": "",
-      "sender": "私生15",
+      "sender": "176****2115",
       "kind": "text",
       "time": "2026-10-26 08:28",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生15",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2115",
+        "phone": "176****2115",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-16",
-      "title": "私生16",
+      "title": "176****2116",
       "body": "",
-      "sender": "私生16",
+      "sender": "176****2116",
       "kind": "text",
       "time": "2026-10-26 08:30",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生16",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2116",
+        "phone": "176****2116",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-17",
-      "title": "私生17",
+      "title": "176****2117",
       "body": "",
-      "sender": "私生17",
+      "sender": "176****2117",
       "kind": "text",
       "time": "2026-10-26 08:32",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生17",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2117",
+        "phone": "176****2117",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-18",
-      "title": "私生18",
+      "title": "176****2118",
       "body": "",
-      "sender": "私生18",
+      "sender": "176****2118",
       "kind": "text",
       "time": "2026-10-26 08:34",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生18",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2118",
+        "phone": "176****2118",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-19",
-      "title": "私生19",
+      "title": "176****2119",
       "body": "",
-      "sender": "私生19",
+      "sender": "176****2119",
       "kind": "text",
       "time": "2026-10-26 08:36",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生19",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2119",
+        "phone": "176****2119",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-20",
-      "title": "私生20",
+      "title": "176****2120",
       "body": "",
-      "sender": "私生20",
+      "sender": "176****2120",
       "kind": "text",
       "time": "2026-10-26 08:38",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生20",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2120",
+        "phone": "176****2120",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-21",
-      "title": "私生21",
+      "title": "176****2121",
       "body": "",
-      "sender": "私生21",
+      "sender": "176****2121",
       "kind": "text",
       "time": "2026-10-26 08:40",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生21",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2121",
+        "phone": "176****2121",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-22",
-      "title": "私生22",
+      "title": "176****2122",
       "body": "",
-      "sender": "私生22",
+      "sender": "176****2122",
       "kind": "text",
       "time": "2026-10-26 08:42",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生22",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2122",
+        "phone": "176****2122",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-23",
-      "title": "私生23",
+      "title": "176****2123",
       "body": "",
-      "sender": "私生23",
+      "sender": "176****2123",
       "kind": "text",
       "time": "2026-10-26 08:44",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生23",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2123",
+        "phone": "176****2123",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-24",
-      "title": "私生24",
+      "title": "176****2124",
       "body": "",
-      "sender": "私生24",
+      "sender": "176****2124",
       "kind": "text",
       "time": "2026-10-26 08:46",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生24",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2124",
+        "phone": "176****2124",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-25",
-      "title": "私生25",
+      "title": "176****2125",
       "body": "",
-      "sender": "私生25",
+      "sender": "176****2125",
       "kind": "text",
       "time": "2026-10-26 08:48",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生25",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2125",
+        "phone": "176****2125",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-26",
-      "title": "私生26",
+      "title": "176****2126",
       "body": "",
-      "sender": "私生26",
+      "sender": "176****2126",
       "kind": "text",
       "time": "2026-10-26 08:50",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生26",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2126",
+        "phone": "176****2126",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-27",
-      "title": "私生27",
+      "title": "176****2127",
       "body": "",
-      "sender": "私生27",
+      "sender": "176****2127",
       "kind": "text",
       "time": "2026-10-26 08:52",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生27",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2127",
+        "phone": "176****2127",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-28",
-      "title": "私生28",
+      "title": "176****2128",
       "body": "",
-      "sender": "私生28",
+      "sender": "176****2128",
       "kind": "text",
       "time": "2026-10-26 08:54",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生28",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2128",
+        "phone": "176****2128",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-29",
-      "title": "私生29",
+      "title": "176****2129",
       "body": "",
-      "sender": "私生29",
+      "sender": "176****2129",
       "kind": "text",
       "time": "2026-10-26 08:56",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生29",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2129",
+        "phone": "176****2129",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-30",
-      "title": "私生30",
+      "title": "176****2130",
       "body": "",
-      "sender": "私生30",
+      "sender": "176****2130",
       "kind": "text",
       "time": "2026-10-26 08:58",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生30",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2130",
+        "phone": "176****2130",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-31",
-      "title": "私生31",
+      "title": "176****2131",
       "body": "",
-      "sender": "私生31",
+      "sender": "176****2131",
       "kind": "text",
       "time": "2026-10-26 09:00",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生31",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2131",
+        "phone": "176****2131",
+        "relationship": "未知来电"
       }
     },
     {
       "id": "sasaeng-32",
-      "title": "私生32",
+      "title": "176****2132",
       "body": "",
-      "sender": "私生32",
+      "sender": "176****2132",
       "kind": "text",
       "time": "2026-10-26 09:02",
       "avatar": "",
       "folder": "通讯录",
       "meta": {
-        "name": "私生32",
-        "phone": "",
-        "relationship": "陌生人"
+        "name": "176****2132",
+        "phone": "176****2132",
+        "relationship": "未知来电"
       }
     }
   ],
@@ -3232,7 +3232,7 @@
     {
       "id": "sasaeng-person-01",
       "app": "messages",
-      "title": "私生01",
+      "title": "176****2101",
       "participants": [
         "owner",
         "sasaeng-01"
@@ -3243,14 +3243,18 @@
           "time": "2026-10-26 08:00",
           "senderId": "sasaeng-01",
           "body": "倾尽一切 成为你生命中的陌生人",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2101",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-02",
       "app": "messages",
-      "title": "私生02",
+      "title": "176****2102",
       "participants": [
         "owner",
         "sasaeng-02"
@@ -3261,14 +3265,18 @@
           "time": "2026-10-26 08:02",
           "senderId": "sasaeng-02",
           "body": "凭什么你对别人都能笑脸相迎 唯独对我这么冷漠 是不是逼我去死你才高兴",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2102",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-03",
       "app": "messages",
-      "title": "私生03",
+      "title": "176****2103",
       "participants": [
         "owner",
         "sasaeng-03"
@@ -3279,14 +3287,18 @@
           "time": "2026-10-26 08:04",
           "senderId": "sasaeng-03",
           "body": "看到你刚才看手机笑了 是因为看到我的名字了吗？",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2103",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-04",
       "app": "messages",
-      "title": "私生04",
+      "title": "176****2104",
       "participants": [
         "owner",
         "sasaeng-04"
@@ -3297,14 +3309,18 @@
           "time": "2026-10-26 08:06",
           "senderId": "sasaeng-04",
           "body": "宝贝昨天机场你穿得也太少了，这样会感冒的呀，下次多穿点哦乖",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2104",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-05",
       "app": "messages",
-      "title": "私生05",
+      "title": "176****2105",
       "participants": [
         "owner",
         "sasaeng-05"
@@ -3315,14 +3331,18 @@
           "time": "2026-10-26 08:08",
           "senderId": "sasaeng-05",
           "body": "喜欢你好痛苦啊哥哥 为什么你不能像我爱你一样爱我？为什么为什么为什么",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2105",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-06",
       "app": "messages",
-      "title": "私生06",
+      "title": "176****2106",
       "participants": [
         "owner",
         "sasaeng-06"
@@ -3333,14 +3353,18 @@
           "time": "2026-10-26 08:10",
           "senderId": "sasaeng-06",
           "body": "哥哥我好想你 你不许再和他们麦麸了知道吗 你是我的啊啊啊",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2106",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-07",
       "app": "messages",
-      "title": "私生07",
+      "title": "176****2107",
       "participants": [
         "owner",
         "sasaeng-07"
@@ -3351,14 +3375,18 @@
           "time": "2026-10-26 08:12",
           "senderId": "sasaeng-07",
           "body": "看到你今天又点肯德基了，有点自制力行不行？",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2107",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-08",
       "app": "messages",
-      "title": "私生08",
+      "title": "176****2108",
       "participants": [
         "owner",
         "sasaeng-08"
@@ -3369,14 +3397,18 @@
           "time": "2026-10-26 08:14",
           "senderId": "sasaeng-08",
           "body": "都什么时候了你还有心情玩游戏？",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2108",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-09",
       "app": "messages",
-      "title": "私生09",
+      "title": "176****2109",
       "participants": [
         "owner",
         "sasaeng-09"
@@ -3387,14 +3419,18 @@
           "time": "2026-10-26 08:16",
           "senderId": "sasaeng-09",
           "body": "你要是再把我拉黑 我现在就割腕 照片我都拍好了 不信你试试",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2109",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-10",
       "app": "messages",
-      "title": "私生10",
+      "title": "176****2110",
       "participants": [
         "owner",
         "sasaeng-10"
@@ -3405,14 +3441,18 @@
           "time": "2026-10-26 08:18",
           "senderId": "sasaeng-10",
           "body": "陈浚铭妈妈跟你说了多少次不许再打游戏，你是一点都不听啊",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2110",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-11",
       "app": "messages",
-      "title": "私生11",
+      "title": "176****2111",
       "participants": [
         "owner",
         "sasaeng-11"
@@ -3423,14 +3463,18 @@
           "time": "2026-10-26 08:20",
           "senderId": "sasaeng-11",
           "body": "哥哥今天发的那条微博，其实是专门发给我一个人看的对不对？",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2111",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-12",
       "app": "messages",
-      "title": "私生12",
+      "title": "176****2112",
       "participants": [
         "owner",
         "sasaeng-12"
@@ -3441,14 +3485,18 @@
           "time": "2026-10-26 08:22",
           "senderId": "sasaeng-12",
           "body": "听妈妈的话，和张桂源绝交",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2112",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-13",
       "app": "messages",
-      "title": "私生13",
+      "title": "176****2113",
       "participants": [
         "owner",
         "sasaeng-13"
@@ -3459,14 +3507,18 @@
           "time": "2026-10-26 08:24",
           "senderId": "sasaeng-13",
           "body": "带话：陈浚铭kk姐姐很想你",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2113",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-14",
       "app": "messages",
-      "title": "私生14",
+      "title": "176****2114",
       "participants": [
         "owner",
         "sasaeng-14"
@@ -3477,14 +3529,18 @@
           "time": "2026-10-26 08:26",
           "senderId": "sasaeng-14",
           "body": "为什么不接？？？你非要逼我把你手机号公布到网上你才满意吗！你凭什么对我这么冷漠啊",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2114",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-15",
       "app": "messages",
-      "title": "私生15",
+      "title": "176****2115",
       "participants": [
         "owner",
         "sasaeng-15"
@@ -3495,14 +3551,18 @@
           "time": "2026-10-26 08:28",
           "senderId": "sasaeng-15",
           "body": "你不要再和王橹杰玩了 离他远点听见没有 妈妈是为你好",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2115",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-16",
       "app": "messages",
-      "title": "私生16",
+      "title": "176****2116",
       "participants": [
         "owner",
         "sasaeng-16"
@@ -3513,14 +3573,18 @@
           "time": "2026-10-26 08:30",
           "senderId": "sasaeng-16",
           "body": "哥哥下雨了 好想现在就在你身边帮你擦干头发啊...",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2116",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-17",
       "app": "messages",
-      "title": "私生17",
+      "title": "176****2117",
       "participants": [
         "owner",
         "sasaeng-17"
@@ -3531,14 +3595,18 @@
           "time": "2026-10-26 08:32",
           "senderId": "sasaeng-17",
           "body": "别总跟那个陈思罕走得那么近，他明显在吸你的血，你怎么这么单纯？",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2117",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-18",
       "app": "messages",
-      "title": "私生18",
+      "title": "176****2118",
       "participants": [
         "owner",
         "sasaeng-18"
@@ -3549,14 +3617,18 @@
           "time": "2026-10-26 08:34",
           "senderId": "sasaeng-18",
           "body": "哥哥真的是你的电话吗",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2118",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-19",
       "app": "messages",
-      "title": "私生19",
+      "title": "176****2119",
       "participants": [
         "owner",
         "sasaeng-19"
@@ -3567,14 +3639,18 @@
           "time": "2026-10-26 08:36",
           "senderId": "sasaeng-19",
           "body": "我为你熬夜砸钱跟着你满世界飞 换来的就是你对我像躲瘟神一样吗",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2119",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-20",
       "app": "messages",
-      "title": "私生20",
+      "title": "176****2120",
       "participants": [
         "owner",
         "sasaeng-20"
@@ -3585,14 +3661,18 @@
           "time": "2026-10-26 08:38",
           "senderId": "sasaeng-20",
           "body": "和张函瑞绝交 绝交绝交绝交",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2120",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-21",
       "app": "messages",
-      "title": "私生21",
+      "title": "176****2121",
       "participants": [
         "owner",
         "sasaeng-21"
@@ -3603,14 +3683,18 @@
           "time": "2026-10-26 08:40",
           "senderId": "sasaeng-21",
           "body": "哥哥 丘比特怎么只射中了我一个人",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2121",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-22",
       "app": "messages",
-      "title": "私生22",
+      "title": "176****2122",
       "participants": [
         "owner",
         "sasaeng-22"
@@ -3621,14 +3705,18 @@
           "time": "2026-10-26 08:42",
           "senderId": "sasaeng-22",
           "body": "别总跟那个陈奕恒走得那么近，他明显在吸你的血，你怎么这么单纯？",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2122",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-23",
       "app": "messages",
-      "title": "私生23",
+      "title": "176****2123",
       "participants": [
         "owner",
         "sasaeng-23"
@@ -3639,14 +3727,18 @@
           "time": "2026-10-26 08:44",
           "senderId": "sasaeng-23",
           "body": "哥哥今天梦到我们去海边了，你在梦里抱着我说最爱我，醒来好想你。",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2123",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-24",
       "app": "messages",
-      "title": "私生24",
+      "title": "176****2124",
       "participants": [
         "owner",
         "sasaeng-24"
@@ -3657,14 +3749,18 @@
           "time": "2026-10-26 08:46",
           "senderId": "sasaeng-24",
           "body": "带话：vv姐姐很想你",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2124",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-25",
       "app": "messages",
-      "title": "私生25",
+      "title": "176****2125",
       "participants": [
         "owner",
         "sasaeng-25"
@@ -3675,14 +3771,18 @@
           "time": "2026-10-26 08:48",
           "senderId": "sasaeng-25",
           "body": "刚才电话响三声你才挂 是不是在用这种方式告诉我你在想我啊？",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2125",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-26",
       "app": "messages",
-      "title": "私生26",
+      "title": "176****2126",
       "participants": [
         "owner",
         "sasaeng-26"
@@ -3693,14 +3793,18 @@
           "time": "2026-10-26 08:50",
           "senderId": "sasaeng-26",
           "body": "和杨博文绝交啊宝贝 他太有心机了你斗不过他的宝贝 妈妈是为你好",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2126",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-27",
       "app": "messages",
-      "title": "私生27",
+      "title": "176****2127",
       "participants": [
         "owner",
         "sasaeng-27"
@@ -3711,14 +3815,18 @@
           "time": "2026-10-26 08:52",
           "senderId": "sasaeng-27",
           "body": "带话：小怡姐姐很想你",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2127",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-28",
       "app": "messages",
-      "title": "私生28",
+      "title": "176****2128",
       "participants": [
         "owner",
         "sasaeng-28"
@@ -3729,14 +3837,18 @@
           "time": "2026-10-26 08:54",
           "senderId": "sasaeng-28",
           "body": "啊啊啊哥哥舞台往B区看的那一眼是在找我对不对，我今天穿了你最喜欢的红色。",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2128",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-29",
       "app": "messages",
-      "title": "私生29",
+      "title": "176****2129",
       "participants": [
         "owner",
         "sasaeng-29"
@@ -3747,14 +3859,18 @@
           "time": "2026-10-26 08:56",
           "senderId": "sasaeng-29",
           "body": "哥哥你又挂我电话 我手腕伤口又开始流血了 都是你害的",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2129",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-30",
       "app": "messages",
-      "title": "私生30",
+      "title": "176****2130",
       "participants": [
         "owner",
         "sasaeng-30"
@@ -3765,14 +3881,18 @@
           "time": "2026-10-26 08:58",
           "senderId": "sasaeng-30",
           "body": "你快和左奇函绝交",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2130",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-31",
       "app": "messages",
-      "title": "私生31",
+      "title": "176****2131",
       "participants": [
         "owner",
         "sasaeng-31"
@@ -3783,14 +3903,18 @@
           "time": "2026-10-26 09:00",
           "senderId": "sasaeng-31",
           "body": "哥哥我爱你",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2131",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     },
     {
       "id": "sasaeng-person-32",
       "app": "messages",
-      "title": "私生32",
+      "title": "176****2132",
       "participants": [
         "owner",
         "sasaeng-32"
@@ -3801,7 +3925,11 @@
           "time": "2026-10-26 09:02",
           "senderId": "sasaeng-32",
           "body": "带话：小琪姐姐很想你",
-          "kind": "text"
+          "kind": "text",
+          "title": "176****2132",
+          "meta": {
+            "threadType": "sasaeng"
+          }
         }
       ]
     }
@@ -4787,7 +4915,7 @@
         "sender": "陈奕恒",
         "kind": "text",
         "time": "2026-10-26 08:00",
-        "avatar": "./IMG_4398.jpeg",
+        "avatar": "",
         "folder": "通讯录",
         "meta": {
           "name": "陈奕恒",
@@ -4802,7 +4930,7 @@
         "sender": "张桂源",
         "kind": "text",
         "time": "2026-10-26 08:00",
-        "avatar": "./IMG_4391.jpeg",
+        "avatar": "",
         "folder": "通讯录",
         "meta": {
           "name": "张桂源",
@@ -4817,7 +4945,7 @@
         "sender": "杨博文",
         "kind": "text",
         "time": "2026-10-26 08:00",
-        "avatar": "./IMG_4394.jpeg",
+        "avatar": "",
         "folder": "通讯录",
         "meta": {
           "name": "杨博文",
@@ -4826,78 +4954,33 @@
         }
       },
       {
-        "id": "template-contact-007",
-        "title": "左奇函",
+        "id": "template-contact-012",
+        "title": "爷爷",
         "body": "",
-        "sender": "左奇函",
-        "kind": "text",
-        "time": "2026-10-26 08:00",
-        "avatar": "./IMG_4392.jpeg",
-        "folder": "通讯录",
-        "meta": {
-          "name": "左奇函",
-          "phone": "",
-          "relationship": "朋友"
-        }
-      },
-      {
-        "id": "template-contact-008",
-        "title": "杨涵博",
-        "body": "",
-        "sender": "杨涵博",
+        "sender": "爷爷",
         "kind": "text",
         "time": "2026-10-26 08:00",
         "avatar": "",
-        "folder": "通讯录",
+        "folder": "所有联系人",
         "meta": {
-          "name": "杨涵博",
+          "name": "爷爷",
           "phone": "",
-          "relationship": "朋友"
+          "relationship": "家人"
         }
       },
       {
-        "id": "template-contact-009",
-        "title": "陈思罕",
+        "id": "template-contact-013",
+        "title": "奶奶",
         "body": "",
-        "sender": "陈思罕",
+        "sender": "奶奶",
         "kind": "text",
         "time": "2026-10-26 08:00",
-        "avatar": "./IMG_4393.jpeg",
-        "folder": "通讯录",
+        "avatar": "",
+        "folder": "所有联系人",
         "meta": {
-          "name": "陈思罕",
+          "name": "奶奶",
           "phone": "",
-          "relationship": "朋友"
-        }
-      },
-      {
-        "id": "template-contact-010",
-        "title": "张函瑞",
-        "body": "",
-        "sender": "张函瑞",
-        "kind": "text",
-        "time": "2026-10-26 08:00",
-        "avatar": "./IMG_4395.jpeg",
-        "folder": "通讯录",
-        "meta": {
-          "name": "张函瑞",
-          "phone": "",
-          "relationship": "朋友"
-        }
-      },
-      {
-        "id": "template-contact-011",
-        "title": "王橹杰",
-        "body": "",
-        "sender": "王橹杰",
-        "kind": "text",
-        "time": "2026-10-26 08:00",
-        "avatar": "./IMG_4396.jpeg",
-        "folder": "通讯录",
-        "meta": {
-          "name": "王橹杰",
-          "phone": "",
-          "relationship": "朋友"
+          "relationship": "家人"
         }
       }
     ],
