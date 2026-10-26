@@ -483,7 +483,8 @@ function PhoneRuntime({
                   onUi={(key, value) => {
                     const current = runtimeRef.current;
                     if (app === "weibo" && key === "weibo-reply-notification") {
-                      const notice = `微博：陈奕恒回复了你的评论\\u2063${String(value)}\\u2063`;
+                      const marker = String.fromCharCode(0x2063);
+                      const notice = `微博：陈奕恒回复了你的评论${marker}${String(value)}${marker}`;
                       update({ ...current, notifications: [...current.notifications, notice] });
                       setBanner(notice);
                       return;
