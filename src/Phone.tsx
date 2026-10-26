@@ -108,12 +108,12 @@ type PhoneProps = Omit<Parameters<typeof PhoneRuntime>[0], "deviceLayout">;
 type CallDialogueLine = { speaker: string; text: string };
 const sasaengSeedMessage: Item = {
   id: "sasaeng-seed-message",
-  title: "私生",
+  title: "176****2198",
   body: "哥哥，你终于上线了……",
   richText: "",
   meta: {},
   time: "2026-10-26 09:41",
-  sender: "私生",
+  sender: "176****2198",
   avatar: "",
   kind: "text",
   media: "",
