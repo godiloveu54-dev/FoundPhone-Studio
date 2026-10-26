@@ -528,7 +528,7 @@ const uploadedDouyinVideos: Item[] = [
 ];
 export function DouyinSkin(p: Props) {
   const { tab, setTab, items } = useContent(p, "推荐");
-  const feedItems = items.length ? items : uploadedDouyinVideos;
+  const feedItems = [...uploadedDouyinVideos, ...items.filter((item) => !uploadedDouyinVideos.some((video) => video.id === item.id))];
   const list = tab === "推荐" ? feedItems : feedItems.filter((i) => i.folder === tab);
   return (
     <div className="catalog-skin douyin-ui">
