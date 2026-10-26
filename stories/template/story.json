@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 4,
+  "revision": 5,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -3458,12 +3458,37 @@
     ],
     "douyin": [
       {
-        "id": "test-item-douyin",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "douyin-tf-family-when-i-breathe-20250302",
+        "title": "When I breathe, you breathe, let's go!",
+        "body": "When I breathe, you breathe, let's go! #TF家族练习生 陈奕恒、陈浚铭 #抖音星打卡 #追雪的冬天\n\n原视频：https://www.douyin.com/video/7477174949401103653",
+        "sender": "TF家族",
+        "kind": "video",
+        "media": "",
+        "time": "2025-03-02 19:37",
+        "folder": "推荐",
+        "likes": 1000000,
+        "comments": [
+          "馒猪99：这两个人同框就是青春电影的感觉啊！！🥹💚",
+          "陈奕恒和陈浚铭的氛围感真的绝了，反复看都看不腻！",
+          "这个配合好自然，默契感直接拉满了！",
+          "救命，镜头感也太好了吧，随手一帧都像画报📸",
+          "两个人都好有少年感，期待更多同框！",
+          "这段视频我可以循环一整天，真的越看越喜欢！",
+          "TF家族的小朋友们都在认真长大，继续闪闪发光吧✨",
+          "谁懂这个氛围，像冬天里突然出现的一束光！",
+          "陈奕恒好帅，陈浚铭也好可爱，双厨狂喜！",
+          "求多发一点这样的物料，已经开始期待下一条了！❤️"
+        ],
+        "meta": {
+          "handle": "TF家族",
+          "videoUrl": "https://www.douyin.com/video/7477174949401103653",
+          "shareUrl": "https://v.douyin.com/KqFM9B7SCrc/",
+          "reposts": "100000",
+          "shareCount": "100000",
+          "commentCount": "100000",
+          "displayLikes": "1000000",
+          "simulatedStats": "true"
+        }
       }
     ],
     "bilibili": [
