@@ -2187,12 +2187,88 @@
     ],
     "clock": [
       {
-        "id": "test-item-clock",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "alarm-0810",
+        "title": "闹钟",
+        "time": "2026-10-26 08:10",
+        "sender": "",
+        "kind": "alarm",
+        "meta": {
+          "clock": "上午 08:10",
+          "enabled": false,
+          "repeat": "永不"
+        }
+      },
+      {
+        "id": "alarm-0815",
+        "title": "闹钟",
+        "time": "2026-10-26 08:15",
+        "sender": "",
+        "kind": "alarm",
+        "meta": {
+          "clock": "上午 08:15",
+          "enabled": false,
+          "repeat": "永不"
+        }
+      },
+      {
+        "id": "alarm-0820",
+        "title": "闹钟",
+        "time": "2026-10-26 08:20",
+        "sender": "",
+        "kind": "alarm",
+        "meta": {
+          "clock": "上午 08:20",
+          "enabled": false,
+          "repeat": "永不"
+        }
+      },
+      {
+        "id": "alarm-0822",
+        "title": "闹钟",
+        "time": "2026-10-26 08:22",
+        "sender": "",
+        "kind": "alarm",
+        "meta": {
+          "clock": "上午 08:22",
+          "enabled": false,
+          "repeat": "永不"
+        }
+      },
+      {
+        "id": "alarm-0825",
+        "title": "闹钟",
+        "time": "2026-10-26 08:25",
+        "sender": "",
+        "kind": "alarm",
+        "meta": {
+          "clock": "上午 08:25",
+          "enabled": false,
+          "repeat": "永不"
+        }
+      },
+      {
+        "id": "alarm-0830",
+        "title": "闹钟",
+        "time": "2026-10-26 08:30",
+        "sender": "",
+        "kind": "alarm",
+        "meta": {
+          "clock": "上午 08:30",
+          "enabled": false,
+          "repeat": "永不"
+        }
+      },
+      {
+        "id": "alarm-0900",
+        "title": "闹钟",
+        "time": "2026-10-26 09:00",
+        "sender": "",
+        "kind": "alarm",
+        "meta": {
+          "clock": "上午 09:00",
+          "enabled": false,
+          "repeat": "永不"
+        }
       }
     ],
     "reminders": [
