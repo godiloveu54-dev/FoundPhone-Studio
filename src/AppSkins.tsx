@@ -486,8 +486,7 @@ export function WeChatSkin(p: SkinProps) {
             </div>
           )}
           {p.thread === "张桂源" && !p.creator &&
-            !p.items.some((item) => item.title === "张桂源" && item.outgoing &&
-              ["解冻了好开心", "不能耍起了呀"].includes(item.body)) && (
+            !p.items.some((item) => item.title === "张桂源" && item.outgoing) && (
             <div className="wx-quick-replies">
               <button style={{ padding: "7px 12px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "解冻了好开心")}>解冻了好开心</button>
               <button style={{ padding: "7px 12px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "不能耍起了呀")}>不能耍起了呀</button>
