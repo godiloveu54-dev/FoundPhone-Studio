@@ -110,6 +110,13 @@ function ChatRows({
 export function MessagesSkin(p: Props) {
   const { q, setQ, items } = useContent(p, "信息");
   const [unread, setUnread] = useState(false);
+  const [reply, setReply] = useState("");
+  const sendReply = () => {
+    const text = reply.trim();
+    if (!text || !p.thread || p.creator) return;
+    p.onReply?.(p.thread, text);
+    setReply("");
+  };
   return (
     <div className="catalog-skin native-messages">
       <Header
@@ -130,7 +137,28 @@ export function MessagesSkin(p: Props) {
             items={items.filter((i) => i.title === p.thread)}
             className="sms-bubbles"
           />
-          <Composer p={p} />
+          {p.creator ? (
+            <Composer p={p} />
+          ) : (
+            <div className="catalog-composer" style={{ gap: 8, padding: "10px 12px" }}>
+              <input
+                aria-label="回复私生"
+                value={reply}
+                onChange={(e) => setReply(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter") sendReply(); }}
+                placeholder="短信 · iMessage"
+                style={{ flex: 1, minWidth: 0, border: 0, outline: 0, background: "transparent", fontSize: 15 }}
+              />
+              <button
+                aria-label="发送信息"
+                disabled={!reply.trim()}
+                onClick={sendReply}
+                style={{ border: 0, borderRadius: 18, width: 30, height: 30, color: "#fff", background: reply.trim() ? "#1684ff" : "#a8a8a8", display: "grid", placeItems: "center" }}
+              >
+                <Send size={16} />
+              </button>
+            </div>
+          )}
         </>
       ) : (
         <div className="catalog-scroll">
