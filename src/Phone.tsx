@@ -1728,7 +1728,30 @@ function AppContent({
             </>
           ) : app.engine === "social" ? (
             filtered.map((i) => (
-              <article className="social-post" key={i.id}>
+              <article className={`social-post ${app.id === "douyin" ? "douyin-video-post" : ""}`} key={i.id}>
+                {app.id === "douyin" && i.media ? (
+                  <button className="douyin-video-stage" aria-label="播放视频并开启声音" onClick={(event) => {
+                    const video = event.currentTarget.querySelector("video");
+                    if (!video) return;
+                    video.muted = false;
+                    video.volume = 1;
+                    const result = video.play();
+                    if (result && typeof result.catch === "function") result.catch(() => {
+                      video.muted = true;
+                      void video.play().then(() => { video.muted = false; }).catch(() => undefined);
+                    });
+                  }}>
+                    <video src={safeMedia(i.media)} playsInline autoPlay loop preload="auto" muted={false} controls onLoadedMetadata={(event) => { event.currentTarget.muted = false; event.currentTarget.volume = 1; }} />
+                    <span className="douyin-video-hint">点按视频开启声音 · 上下滑动切换</span>
+                  </button>
+                ) : (
+                  <div className="post-author">
+                    <span className="avatar" style={{ background: app.color }}>{i.sender.slice(0, 1)}</span>
+                    <div><strong>{i.sender}</strong><small>{i.time}</small></div>
+                    <button aria-label="查看帖子详情" onClick={() => read(i)}><MoreHorizontal size={20} /></button>
+                  </div>
+                )}
+                {app.id === "douyin" && <div className="douyin-caption"><strong>{i.sender}</strong><p>{i.body || i.title}</p><small>点赞 {i.meta?.displayLikes || i.likes.toLocaleString("zh-CN")} · 评论 {i.meta?.commentCount || i.comments.length} · 转发 {i.meta?.reposts || "1.2万"}</small></div>}
                 <div className="post-author">
                   <span className="avatar" style={{ background: app.color }}>
                     {i.sender.slice(0, 1)}
@@ -1764,13 +1787,17 @@ function AppContent({
                     <MessageCircle size={22} />
                   </button>
                   <small>
-                    {i.likes + (likes.includes(i.id) ? 1 : 0)} 次虚构喜欢
+                    {app.id === "douyin"
+                      ? `${(i.likes + (likes.includes(i.id) ? 1 : 0)).toLocaleString("zh-CN")} 点赞 · ${i.comments.length.toLocaleString("zh-CN")} 评论`
+                      : `${i.likes + (likes.includes(i.id) ? 1 : 0)} 次虚构喜欢`}
                   </small>
                 </div>
-                <button className="post-text" onClick={() => read(i)}>
-                  <strong>{i.title}</strong>
-                  <p>{i.body}</p>
-                </button>
+                {app.id !== "douyin" && (
+                  <button className="post-text" onClick={() => read(i)}>
+                    <strong>{i.title}</strong>
+                    <p>{i.body}</p>
+                  </button>
+                )}
               </article>
             ))
           ) : (
