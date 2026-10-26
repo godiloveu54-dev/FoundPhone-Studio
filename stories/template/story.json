@@ -2217,11 +2217,83 @@
     ],
     "music": [
       {
-        "id": "test-item-music",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
+        "id": "music-track-01",
+        "title": "Black Bird",
+        "sender": "",
         "kind": "text",
+        "folder": "我的音乐",
+        "meta": {}
+      },
+      {
+        "id": "music-track-02",
+        "title": "Don't Leave",
+        "sender": "",
+        "kind": "text",
+        "folder": "我的音乐",
+        "meta": {}
+      },
+      {
+        "id": "music-track-03",
+        "title": "SAD！",
+        "sender": "XXX TENTACION",
+        "kind": "text",
+        "folder": "我的音乐",
+        "meta": {}
+      },
+      {
+        "id": "music-track-04",
+        "title": "一半一半",
+        "sender": "",
+        "kind": "text",
+        "folder": "我的音乐",
+        "meta": {}
+      },
+      {
+        "id": "music-track-05",
+        "title": "寻找答案（AnSwer）",
+        "sender": "TF家族-聂玮辰",
+        "kind": "text",
+        "folder": "我的音乐",
+        "meta": {}
+      },
+      {
+        "id": "music-track-06",
+        "title": "All My Life",
+        "sender": "",
+        "kind": "text",
+        "folder": "我的音乐",
+        "meta": {}
+      },
+      {
+        "id": "music-track-07",
+        "title": "普通的歌",
+        "sender": "TF家族-张桂源",
+        "kind": "text",
+        "folder": "我的音乐",
+        "meta": {}
+      },
+      {
+        "id": "music-track-08",
+        "title": "心动",
+        "sender": "TF家族",
+        "kind": "text",
+        "folder": "我的音乐",
+        "meta": {}
+      },
+      {
+        "id": "music-track-09",
+        "title": "适合，不适合",
+        "sender": "TF家族",
+        "kind": "text",
+        "folder": "我的音乐",
+        "meta": {}
+      },
+      {
+        "id": "music-track-10",
+        "title": "危险",
+        "sender": "TF家族",
+        "kind": "text",
+        "folder": "我的音乐",
         "meta": {}
       }
     ],
