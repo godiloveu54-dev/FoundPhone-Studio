@@ -403,13 +403,14 @@ function PhoneRuntime({
   const handleMessageReply = (thread: string, text: string) => {
     if (creator) return;
     const current = runtimeRef.current;
-    if (thread === "张桂源" && ["解冻了好开心", "不能耍起了呀"].includes(text)) {
+    if (thread === "张桂源") {
+      const quickReply = ["解冻了好开心", "不能耍起了呀"].includes(text);
       const alreadyReplied = Boolean(current.variables.zhangGuiyuanReplyDone) ||
         (current.messages.wechat ?? []).some((item) =>
           item.title === thread && item.outgoing &&
           ["解冻了好开心", "不能耍起了呀"].includes(item.body),
         );
-      if (alreadyReplied) return;
+      if (quickReply && alreadyReplied) return;
       const outgoing = makeItem({
         id: `zhang-guiyuan-player-${Date.now()}`,
         title: thread,
@@ -421,9 +422,19 @@ function PhoneRuntime({
       });
       update({
         ...current,
-        messages: { ...current.messages, wechat: [...(current.messages.wechat ?? []).map((item) => item.title === thread ? { ...item, read: true } : item), outgoing] },
-        variables: { ...current.variables, zhangGuiyuanReplyDone: true },
+        messages: {
+          ...current.messages,
+          wechat: [...(current.messages.wechat ?? []).map((item) => item.title === thread ? { ...item, read: true } : item), outgoing],
+        },
+        variables: quickReply
+          ? { ...current.variables, zhangGuiyuanReplyDone: true }
+          : current.variables,
         notifications: current.notifications.filter((item) => !item.includes("张桂源")),
+        read: [...new Set([
+          ...current.read,
+          ...[...(work.data.wechat ?? []), ...(current.messages.wechat ?? [])]
+            .filter((item) => item.title === thread).map((item) => item.id),
+        ])],
       });
       return;
     }
@@ -611,7 +622,11 @@ function PhoneRuntime({
   useEffect(() => {
     if (creator || !ready) return;
     const current = runtimeRef.current;
-    if (current.variables.fourthGenNoticeQueued) return;
+    const alreadyAcknowledged = Boolean(current.variables.fourthGenAckTriggered) ||
+      [...(work.data.wechat ?? []), ...(current.messages.wechat ?? [])].some((item) =>
+        item.title === "四代同堂" && item.outgoing && item.body === "收到",
+      );
+    if (current.variables.fourthGenNoticeQueued || alreadyAcknowledged) return;
     const notice = "@所有人 接通知，近期准备恢复训练，所有人尽快返回重庆。看到消息回复「收到」，不要遗漏。";
     update({
       ...current,
