@@ -17,7 +17,7 @@ import {
   Video,
   Share2,
 } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { safeMedia, type Item } from "../schema";
 import {
   Avatar,
