@@ -1403,7 +1403,7 @@ function AppContent({
   const [likes, setLikes] = useState<string[]>([]);
   const [familyCardPopup, setFamilyCardPopup] = useState<{ sender: string; text: string; kind: "food" | "plain" } | null>(null);
   const shown = items
-    .filter((i) => creator || visible(i, state))
+    .filter((i) => creator || (app.id === "taobao" && (i.kind === "product" || i.id.startsWith("taobao-product-"))) || visible(i, state))
     .filter((i) =>
       (i.title + i.body + i.sender).toLowerCase().includes(q.toLowerCase()),
     );
