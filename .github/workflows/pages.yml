@@ -1,14 +1,14 @@
 name: Validate and deploy Pages
 on:
   push:
-    branches: [main]
+    branches: [main, feature/wechat-year-chat-history]
   workflow_dispatch:
 permissions:
   contents: read
   pages: write
   id-token: write
 concurrency:
-  group: pages
+  group: pages-validation
   cancel-in-progress: false
 jobs:
   build:

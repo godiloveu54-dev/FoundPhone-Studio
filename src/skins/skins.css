@@ -1429,6 +1429,44 @@
 .catalog-composer > svg {
   color: var(--app-accent, #848491);
 }
+
+.native-messages .stalker-sms-composer {
+  gap: 8px;
+  padding: 9px 12px calc(9px + env(safe-area-inset-bottom, 0px));
+  background: #f7f7f7;
+}
+.native-messages .stalker-sms-composer input {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  border: 1px solid #dedee3;
+  border-radius: 18px;
+  background: #fff;
+  padding: 0 13px;
+  color: #202124;
+  font-size: 14px;
+  outline: none;
+}
+.native-messages .stalker-sms-composer input:focus {
+  border-color: #aeb4bc;
+}
+.native-messages .stalker-sms-composer > button {
+  flex: 0 0 36px;
+  width: 36px;
+  min-height: 36px;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #2789f5;
+  color: #fff;
+}
+.native-messages .stalker-sms-composer > button:disabled {
+  opacity: .45;
+}
+
 .message-heading {
   display: flex;
   justify-content: space-between;
@@ -3541,6 +3579,18 @@
   gap: 11px 9px;
   padding: 13px 9px;
 }
+.taobao-load-more {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 42px;
+  margin: 8px 0 18px;
+  border: 1px solid #e6a23c;
+  border-radius: 10px;
+  background: #fff7e8;
+  color: #9a5b00;
+  font-size: 14px;
+  font-weight: 600;
+}
 .taobao-products > button {
   display: block;
   text-align: left;
@@ -4130,3 +4180,353 @@
 .catalog-slot[hidden] {
   display: none;
 }
+
+
+/* Content-aware generated covers for the seeded Bilibili recommendations */
+.bili-grid .bili-generated-cover {
+  width: 100%;
+  height: 105px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 3px;
+  padding: 9px;
+  border-radius: 6px;
+  color: #fff;
+  isolation: isolate;
+}
+.bili-grid .bili-generated-cover::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: .62;
+  background: repeating-linear-gradient(135deg, transparent 0 12px, #ffffff20 12px 14px);
+}
+.bili-grid .bili-generated-cover.game {
+  background: radial-gradient(circle at 78% 24%, #ff7d4d 0 8%, transparent 27%), linear-gradient(135deg, #191a35, #743d77 52%, #e34f5a);
+}
+.bili-grid .bili-generated-cover.study {
+  background: radial-gradient(circle at 80% 18%, #fff5bf 0 7%, transparent 25%), linear-gradient(135deg, #174e75, #3c91ad 52%, #9bd8c4);
+}
+.bili-grid .bili-generated-cover.edit {
+  background: radial-gradient(circle at 78% 20%, #ffc4dc 0 8%, transparent 28%), linear-gradient(135deg, #422d59, #b65f8b 55%, #f1a6a5);
+}
+.bili-cover-kicker { font-size: 7px; letter-spacing: .7px; opacity: .9; }
+.bili-grid .bili-generated-cover .bili-cover-symbol {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  font-size: 33px;
+  font-weight: 800;
+  line-height: 1;
+  opacity: .8;
+  text-shadow: 0 2px 10px #0005;
+}
+.bili-grid .bili-generated-cover strong {
+  margin: 0;
+  max-width: 84%;
+  font-size: 11px;
+  line-height: 1.25;
+  font-weight: 800;
+  text-shadow: 0 1px 4px #0008;
+  overflow-wrap: anywhere;
+}
+.bili-grid .bili-generated-cover > small {
+  position: static;
+  display: block;
+  padding: 0;
+  background: none;
+  font-size: 7px;
+  color: #ffffffdc;
+  border-radius: 0;
+}
+
+
+/* Delivery app: cuisine filters, full restaurant menus, persistent cart and checkout */
+.delivery-category-strip {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding: 10px 12px;
+  background: #fff9e8;
+  scrollbar-width: none;
+}
+.delivery-category-strip::-webkit-scrollbar { display: none; }
+.delivery-category-strip button {
+  flex: 0 0 auto;
+  border-radius: 15px;
+  background: #fff;
+  border: 1px solid #eadfb7;
+  color: #6d5b28;
+  padding: 7px 11px;
+  font-size: 10px;
+}
+.delivery-category-strip button.selected {
+  color: #fff;
+  background: #8b742d;
+  border-color: #8b742d;
+}
+.delivery-location > div { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.delivery-location small { font-size: 9px; color: #887642; }
+.delivery-shop-art {
+  width: 80px;
+  height: 86px;
+  flex: 0 0 80px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #6c5720;
+  background: linear-gradient(145deg, #fff1bd, #f4d56c);
+}
+.delivery-shop-art span { font-size: 10px; }
+.delivery-shop-art.large { width: 58px; height: 58px; flex-basis: 58px; }
+.delivery-menu-backdrop {
+  position: absolute;
+  z-index: 60;
+  inset: 0;
+  background: #0008;
+  display: flex;
+  align-items: flex-end;
+}
+.delivery-menu-sheet {
+  width: 100%;
+  max-height: 88%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: #242424;
+  border-radius: 18px 18px 0 0;
+  overflow: hidden;
+  padding: 18px 14px 12px;
+  box-sizing: border-box;
+}
+.delivery-menu-close {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  z-index: 1;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  background: #f2f2f2;
+  color: #555;
+  font-size: 21px;
+}
+.delivery-menu-header { display: flex; gap: 11px; align-items: center; padding: 6px 28px 14px 0; border-bottom: 1px solid #eee; }
+.delivery-menu-header h2 { font-size: 16px; line-height: 1.4; font-weight: 700; }
+.delivery-menu-header p { display: flex; align-items: center; gap: 4px; color: #b19654; font-size: 10px; margin-top: 4px; }
+.delivery-menu-header small { display: block; color: #999; font-size: 10px; margin-top: 4px; }
+.delivery-menu-list { overflow-y: auto; flex: 1; min-height: 0; padding-bottom: 12px; }
+.delivery-menu-list > h3 { font-size: 12px; color: #777; padding: 13px 0 4px; }
+.delivery-dish-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+.delivery-dish-row > div:first-child { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.delivery-dish-row strong { font-size: 12px; font-weight: 600; }
+.delivery-dish-row small { font-size: 9px; color: #aaa; }
+.delivery-dish-row b { color: #b24b32; font-size: 12px; }
+.delivery-dish-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.delivery-dish-actions span { font-size: 11px; color: #666; }
+.delivery-dish-actions button, .delivery-quantity button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: #fff;
+  background: #8b742d;
+  font-size: 19px;
+  line-height: 1;
+}
+.delivery-menu-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0 2px;
+  border-top: 1px solid #eee;
+}
+.delivery-menu-bottom > div, .delivery-cart-footer > div { display: flex; flex-direction: column; gap: 4px; }
+.delivery-menu-bottom small, .delivery-cart-footer small { color: #888; font-size: 9px; }
+.delivery-menu-bottom strong, .delivery-cart-footer strong { font-size: 17px; color: #b24b32; }
+.delivery-menu-bottom .taobao-add-cart { margin: 0; width: auto; min-width: 112px; }
+.delivery-cart, .delivery-checkout { padding: 14px 12px 20px; background: #f7f7f7; min-height: 100%; box-sizing: border-box; }
+.delivery-cart h2, .delivery-checkout h2 { font-size: 17px; margin-bottom: 13px; }
+.delivery-address-card { display: flex; align-items: center; gap: 9px; padding: 13px; border-radius: 9px; background: #fff7dc; color: #715d25; margin-bottom: 10px; }
+.delivery-address-card > div { display: flex; flex-direction: column; gap: 4px; }
+.delivery-address-card strong { font-size: 12px; }
+.delivery-address-card small { font-size: 9px; color: #95834e; }
+.delivery-cart-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 13px 10px; margin-bottom: 1px; background: #fff; border-bottom: 1px solid #eee; }
+.delivery-cart-row > div:first-child { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.delivery-cart-row strong { font-size: 12px; }
+.delivery-cart-row small { font-size: 9px; color: #999; }
+.delivery-cart-row b { font-size: 12px; color: #b24b32; }
+.delivery-quantity { display: flex; align-items: center; gap: 8px; }
+.delivery-quantity button { width: 23px; height: 23px; font-size: 16px; }
+.delivery-quantity span { font-size: 11px; min-width: 10px; text-align: center; }
+.delivery-cart-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 4px; }
+.delivery-cart-footer .taobao-add-cart { margin: 0; width: auto; min-width: 105px; }
+.delivery-checkout-row { display: flex; justify-content: space-between; gap: 10px; padding: 11px 3px; background: #fff; border-bottom: 1px solid #eee; font-size: 10px; }
+.delivery-checkout-row b { flex-shrink: 0; }
+.delivery-checkout h3 { font-size: 12px; margin: 16px 0 9px; }
+.delivery-checkout-total { display: flex; align-items: center; justify-content: space-between; margin: 16px 0; }
+.delivery-checkout-total strong { color: #b24b32; font-size: 20px; }
+.delivery-checkout > .taobao-add-cart { margin-top: 8px; }
+.delivery-checkout > small { display: block; text-align: center; color: #999; font-size: 9px; margin-top: 9px; }
+.delivery-orders { padding: 1px 0 14px; }
+.delivery-orders .delivery-order { box-sizing: border-box; }
+.delivery-orders .delivery-order > p { white-space: pre-line; font-size: 10px; line-height: 1.7; margin-top: 12px; color: #666; }
+.delivery-orders .delivery-order > small { display: block; font-size: 9px; color: #999; margin-top: 8px; }
+.delivery-orders .delivery-order > footer { justify-content: flex-start; }
+.delivery-orders .delivery-order > footer b { margin-left: auto; color: #b24b32; }
+
+
+/* NetEase Cloud Music curated playlist */
+.netease-feature { position: relative; }
+.netease-feature p { color: rgba(255,255,255,.8); font-size: 10px; margin-top: 6px; }
+.netease-shelves button { min-width: 0; }
+.netease-playlist-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(145deg, #e9a7a9 0%, #b95163 48%, #612c4e 100%);
+  box-shadow: inset 0 0 25px rgba(255,255,255,.12);
+}
+.netease-playlist-cover::before {
+  content: "";
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  transform: rotate(-25deg) scaleX(.62);
+}
+.netease-playlist-cover > span {
+  position: absolute;
+  right: 9px;
+  bottom: 4px;
+  font-size: 38px;
+  color: rgba(255,255,255,.28);
+}
+.netease-playlist-cover.large { width: 76px; flex: 0 0 76px; }
+.netease-shelves button strong { display: block; margin-top: 7px; font-size: 10px; text-align: left; }
+.netease-shelves button small { display: block; color: #999; font-size: 9px; margin-top: 4px; text-align: left; }
+.netease-section-title { margin: 16px 0 8px; font-size: 13px; font-weight: 700; }
+.netease-playlist-heading { display: flex; gap: 12px; align-items: center; margin: 14px 0; padding: 12px; border-radius: 10px; background: #fff0f0; }
+.netease-playlist-heading h3 { font-size: 14px; font-weight: 700; }
+.netease-playlist-heading p { font-size: 10px; color: #666; margin-top: 6px; }
+.netease-playlist-heading small { font-size: 9px; color: #999; display: block; margin-top: 5px; }
+.netease-track > button:first-child { min-width: 0; }
+.netease-track > button:first-child > div { min-width: 0; }
+.netease-track strong { display: block; overflow-wrap: anywhere; }
+
+
+/* Weibo demo viral engagement and reply thread */
+.weibo-viral-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 11px 4px;
+  margin: 8px 0 2px;
+  border-top: 1px solid var(--line, #eeeeee);
+  color: var(--muted, #888);
+  font-size: 12px;
+}
+.weibo-viral-stats strong {
+  color: var(--text, #333);
+  font-weight: 650;
+  margin-left: 3px;
+}
+.weibo-comments {
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--surface-2, #f7f7f8);
+}
+.weibo-comment-list p {
+  margin: 0;
+  padding: 7px 0;
+  font-size: 13px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.weibo-comment-list p strong {
+  color: var(--text, #333);
+  font-weight: 650;
+}
+.weibo-comment-list .weibo-author-reply {
+  margin: 5px 0;
+  padding: 9px 10px;
+  border-radius: 9px;
+  background: var(--surface, #fff);
+  border-left: 3px solid #e66b8c;
+}
+.weibo-reply-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+.weibo-reply-form input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--line, #e2e2e2);
+  border-radius: 18px;
+  padding: 9px 12px;
+  background: var(--surface, #fff);
+  color: var(--text, #222);
+  outline: none;
+}
+.weibo-reply-form button {
+  flex: none;
+  border: 0;
+  border-radius: 18px;
+  padding: 0 15px;
+  color: white;
+  background: #e66b8c;
+  font-weight: 600;
+}
+.weibo-quick-reply {
+  display: block;
+  width: 100%;
+  margin-top: 9px;
+  padding: 10px 12px;
+  text-align: left;
+  border: 1px solid #f1b6c8;
+  border-radius: 10px;
+  color: #bd4b70;
+  background: #fff5f8;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* WeChat Moments composer */
+.wx-moment-camera{position:absolute;right:16px;bottom:14px;display:grid;place-items:center;width:42px;height:42px;border:0;border-radius:50%;background:rgba(0,0,0,.36);color:#fff;cursor:pointer}
+.wx-moment-cover{position:relative}
+.wx-moment-composer-backdrop{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.46)}
+.wx-moment-composer{display:flex;flex-direction:column;gap:14px;width:min(100%,430px);max-height:90%;overflow:auto;padding:16px;border-radius:16px;background:var(--phone-bg,#fff);color:var(--phone-text,#222);box-shadow:0 12px 42px rgba(0,0,0,.24)}
+.wx-moment-composer header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.wx-moment-composer header button{border:0;background:transparent;color:inherit;padding:8px 4px;cursor:pointer}
+.wx-moment-composer header strong{font-size:16px}
+.wx-moment-composer header .wx-moment-send{padding:8px 16px;border-radius:7px;background:#07c160;color:#fff;font-weight:600}
+.wx-moment-composer header .wx-moment-send:disabled{opacity:.45;cursor:not-allowed}
+.wx-moment-composer textarea{width:100%;min-height:145px;resize:vertical;border:0;outline:0;background:transparent;color:inherit;font:inherit;line-height:1.6}
+.wx-moment-image-picker{display:flex;align-items:center;gap:10px;align-self:flex-start;padding:10px 12px;border:1px solid rgba(128,128,128,.28);border-radius:9px;cursor:pointer}
+.wx-moment-image-picker input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.wx-moment-image-preview{position:relative;align-self:flex-start;max-width:180px}
+.wx-moment-image-preview img{display:block;max-width:180px;max-height:180px;object-fit:contain;border-radius:8px}
+.wx-moment-image-preview button{margin-top:5px;border:0;background:transparent;color:#e45656;cursor:pointer}
+.wx-moment-error{margin:0;color:#d33;font-size:13px}
+.wx-moment-composer>small{color:#888;line-height:1.5}
+.wx-moment-comment-preview{margin-top:8px;padding:7px 9px;background:rgba(128,128,128,.09);border-radius:5px;text-align:left}
+.wx-moment-comment-preview p{margin:2px 0!important;font-size:13px!important;line-height:1.45}

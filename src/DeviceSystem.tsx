@@ -69,6 +69,7 @@ export function DeviceLock({
   onUnlock,
   onCamera,
   onLight,
+  onOpenNotice,
 }: {
   work: Work;
   time: string;
@@ -80,6 +81,7 @@ export function DeviceLock({
   onUnlock: (v: string) => void;
   onCamera: () => void;
   onLight: () => void;
+  onOpenNotice?: (text: string) => void;
 }) {
   const [code, setCode] = useState("");
   useEffect(() => {
@@ -130,7 +132,7 @@ export function DeviceLock({
                 compact
                 notices={notices}
                 apps={work.apps}
-                onOpen={open}
+                onOpen={(text) => (onOpenNotice ? onOpenNotice(text) : open())}
                 onDismiss={onDismiss}
               />
             )}

@@ -17,7 +17,7 @@ import {
   Share2,
   ThumbsUp,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Item } from "../schema";
 import {
   Avatar,
@@ -55,9 +55,13 @@ function Actions({ p, item }: { p: Props; item: Item }) {
   );
 }
 function PostHeader({ item, p }: { item: Item; p: Props }) {
+  const weiboAvatar = item.avatar || (
+    item.sender.includes("陈浚铭") ? "./IMG_4399.jpeg" :
+    item.sender.includes("陈奕恒") ? "./IMG_4398.jpeg" : ""
+  );
   return (
     <button className="social-author" onClick={() => p.onItem(item)}>
-      <Avatar name={item.sender} />
+      <Avatar name={item.sender} src={weiboAvatar} />
       <span>
         <strong>{item.sender}</strong>
         <small>{meta(item, "handle", item.time)}</small>
@@ -65,7 +69,7 @@ function PostHeader({ item, p }: { item: Item; p: Props }) {
     </button>
   );
 }
-function WeiboActions({ p, item }: { p: Props; item: Item }) {
+function _WeiboActions({ p, item }: { p: Props; item: Item }) {
   const [liked, setLiked] = useSkinState<boolean>(p, `liked-${item.id}`, false);
   return (
     <div className="social-actions weibo-actions">
@@ -88,55 +92,321 @@ function WeiboActions({ p, item }: { p: Props; item: Item }) {
     </div>
   );
 }
+const weiboDemoPosts: Item[] = [
+  {
+    id: "weibo-demo-chen-yiheng-20240825",
+    title: "组员借菜做饭记录",
+    body: "我们的组员要去村民的家借菜，我们就随便找了一家，然后还真要了，所以我觉得我们很不错👍，还真要到了。做了一些番茄炒鸡蛋🍅，还做一个鸡蛋🥚，哎，不对，还做了个番茄跟红糖配。陈浚铭很喜欢吃🥰，然后他就是吃光了。我们组整体来说表现得还挺不错的，我们非常开心，还做出咱们自己觉得很美味的菜。😊",
+    sender: "TF家族-陈奕恒Jonathan",
+    time: "2024-08-25 22:08",
+    folder: "关注",
+    kind: "text",
+    richText: "",
+    avatar: "",
+    unlock: "",
+    password: "",
+    media: "",
+    hidden: false,
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+    meta: { handle: "24-8-25 22:08" },
+  },
+  {
+    id: "weibo-demo-chen-yiheng-20250416",
+    title: "和陈浚铭一起看电影",
+    body: "最近抽出一点时间和陈浚铭一起去看了一部电影😆😆😆，这部电影讲的是关于真人进入了游戏世界里，🥳🥳其实我们在现实中也玩过这个游戏，所以很想看看电影是什么感觉。😆😆😆",
+    sender: "TF家族-陈奕恒Jonathan",
+    time: "2025-04-16",
+    folder: "关注",
+    kind: "text",
+    richText: "",
+    avatar: "",
+    unlock: "",
+    password: "",
+    media: "",
+    hidden: false,
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+    meta: { handle: "25-4-16" },
+  },
+  {
+    id: "weibo-demo-chen-yiheng-20250620",
+    title: "夏日派对和陈浚铭生日",
+    body: "这次的夏日派对，我们每个人都玩的很嗨，氛围感也很足，没想到玩游戏的时候我还知道很多歌🤣🤣🤣，当时我单人唱的是海芋恋，也很适合这个氛围，而且还在派对期间给陈浚铭过了一个生日。很开心，希望多来点这种派对。😆😆😆",
+    sender: "TF家族-陈奕恒Jonathan",
+    time: "2025-06-20 22:29",
+    folder: "关注",
+    kind: "text",
+    richText: "",
+    avatar: "",
+    unlock: "",
+    password: "",
+    media: "",
+    hidden: false,
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+    meta: { handle: "25-6-20 22:29" },
+  },
+  {
+    id: "weibo-demo-chen-junming-20250426",
+    title: "陈太帅出来打篮球吃饭",
+    body: "哈哈哈哈哈，大家好啊，我是陈太帅，今天出来和陈奕恒一起打了篮球吃了饭，大家也要好好吃饭哦，嘻嘻嘻！",
+    sender: "TF家族-陈浚铭chen",
+    time: "2025-04-26 22:51",
+    folder: "我的",
+    kind: "text",
+    richText: "",
+    avatar: "",
+    unlock: "",
+    password: "",
+    media: "",
+    hidden: false,
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+    meta: { handle: "25-4-26 22:51" },
+  },
+  {
+    id: "weibo-demo-chen-junming-20240520",
+    title: "学习师兄《非我不可》",
+    body: "哈哈哈哈哈哈，学习了一个唱跳，就是师兄的《非我不可》。我们拍的时候是围绕一个剧情来拍的，大概就是讲了原本我们九个人每个人都有一个碎片，想拼成一个图形，但一直拼不出来。最后杨涵博他们，带着剩下的四个碎片登场了，我们一起拼成了一个大爱心，然后被陈奕恒抱走了，陈奕恒最后那个真的很好玩。哈哈哈哈哈哈😂",
+    sender: "TF家族-陈浚铭chen",
+    time: "2024-05-20 22:30",
+    folder: "我的",
+    kind: "text",
+    richText: "",
+    avatar: "",
+    unlock: "",
+    password: "",
+    media: "",
+    hidden: false,
+    favorite: false,
+    outgoing: false,
+    read: false,
+    likes: 0,
+    comments: [],
+    meta: { handle: "24-5-20 22:30" },
+  },
+];
+
+const weiboFanComments: Record<string, string[]> = {
+  "weibo-demo-chen-yiheng-20240825": [
+    "哈哈哈哈番茄配红糖是什么神奇组合！陈浚铭吃光了才是重点🤣",
+    "救命，原来陈浚铭喜欢吃这个，奕恒记得也太清楚了吧🥹",
+    "借菜做饭的故事好有生活感，想看你们下次做什么！",
+    "看得出来这一组真的很有默契，做饭也能这么开心😆",
+    "陈浚铭：只要好吃我就全部吃光！😂",
+    "这段描述怎么这么可爱，尤其是那个“哎，不对”哈哈哈",
+    "想看做饭vlog！拜托多更新一点日常吧🙏",
+    "你们觉得美味就好啦，快乐才是最重要的🥰",
+    "红糖番茄我先观望一下哈哈哈哈，有机会试试看！",
+    "每次讲到陈浚铭都好自然，感觉当时一定很欢乐❤️",
+  ],
+  "weibo-demo-chen-yiheng-20250416": [
+    "和朋友一起看喜欢的游戏电影真的会加倍快乐🎮",
+    "求电影名字！听起来好有意思！",
+    "现实里玩过再看电影，代入感一定很强吧😆",
+    "你们下次一起玩游戏也记得分享一下！",
+    "这种一起出去玩的日常请多来一点🥹",
+    "能和熟悉的人一起看电影真的很幸福呀",
+    "感觉你们看完肯定聊了好多游戏细节哈哈哈",
+    "电影里的游戏世界和现实对照起来一定很有趣！",
+    "期待下一次双人游戏局！🎮",
+    "一起玩一起笑的回忆最珍贵啦❤️",
+  ],
+  "weibo-demo-chen-yiheng-20250620": [
+    "海芋恋好适合夏日派对！光想象现场就很有氛围🌺",
+    "生日派对听起来太快乐了，祝大家天天开心！",
+    "想看完整的派对花絮！一定有好多名场面🤣",
+    "能和朋友一起过生日真的很幸福🥰",
+    "夏日派对请多办几次，我们还想听你唱歌！",
+    "这种热热闹闹的回忆真的会记很久吧❤️",
+    "海芋恋一响，夏天的感觉就来了！",
+    "生日快乐虽然晚了一点，但祝福一直有效🎂",
+    "求一个派对歌单，感觉每首都很适合夏天！",
+    "希望以后还有更多值得珍藏的快乐时刻✨",
+  ],
+  "weibo-demo-chen-junming-20250426": [
+    "陈太帅哈哈哈哈哈，这个称呼我能笑一天🤣",
+    "打完篮球再吃饭，快乐的一天安排得明明白白！",
+    "你们两个一起出去玩也太有生活感了🥹",
+    "陈太帅提醒大家吃饭，自己也要按时吃饭哦！",
+    "求篮球局后续！下次还要一起打呀🏀",
+    "这条微博每个字都很有画面感哈哈哈",
+    "友谊就是一起运动、一起吃饭、一起开心❤️",
+    "听劝！这就去好好吃饭！",
+    "陈奕恒快来评论区报到哈哈哈哈😆",
+    "这种简单快乐的日常真的最治愈了",
+  ],
+  "weibo-demo-chen-junming-20240520": [
+    "大爱心拼起来的瞬间一定超级感动吧❤️",
+    "陈奕恒最后把爱心抱走也太有梗了哈哈哈哈",
+    "九个人拼爱心的剧情好可爱，想再看一次！",
+    "《非我不可》真的很适合你们，舞台记忆点满满！",
+    "陈浚铭：爱心先寄存一下，之后记得还我🤣",
+    "这段幕后故事一定要多讲，听着就很好玩",
+    "全员一起拼成爱心的画面想想都好温暖🥹",
+    "最后那个动作是不是大家都没忍住笑哈哈哈",
+    "求完整视频！想把这个片段反复看！",
+    "这种团体回忆真的值得一直珍藏✨",
+  ],
+};
+const weiboViralStats: Record<string, { reposts: string; comments: string; likes: string }> = {
+  "weibo-demo-chen-yiheng-20240825": { reposts: "128.6万", comments: "96.8万", likes: "286.4万" },
+  "weibo-demo-chen-yiheng-20250416": { reposts: "106.2万", comments: "82.7万", likes: "241.9万" },
+  "weibo-demo-chen-yiheng-20250620": { reposts: "139.5万", comments: "118.3万", likes: "312.8万" },
+  "weibo-demo-chen-junming-20250426": { reposts: "115.7万", comments: "91.4万", likes: "267.2万" },
+  "weibo-demo-chen-junming-20240520": { reposts: "102.8万", comments: "87.6万", likes: "253.1万" },
+};
+const weiboAuthorReplies: Record<string, string> = {
+  "weibo-demo-chen-yiheng-20240825": "看见你爱吃我可太开心啦😎😁😆",
+  "weibo-demo-chen-yiheng-20250416": "和你一起玩游戏看电影真开心😆😆 下次有机会我们一定还要一起！拉钩！",
+  "weibo-demo-chen-yiheng-20250620": "虽然你的生日已经过去一个月了 但是我还是想祝你快乐🎉😆 那天真的很开心 我会一直收藏这份回忆的 希望以后一直陪你过生日🥰",
+};
+const weiboMyPostReplies: Record<string, string> = {
+  "weibo-demo-chen-junming-20250426": "真想每天和今天一样开心😆😆",
+  "weibo-demo-chen-junming-20240520": "❤️抱走的爱心还给你😆",
+};
+type WeiboReply = { author: string; text: string; isAuthor?: boolean };
 export function WeiboSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "关注");
   const [feed, setFeed] = useState("全部");
-  const list = feed === "全部" ? items : items.filter((i) => i.folder === feed);
+  const [openComments, setOpenComments] = useState<string | null>(null);
+  const [drafts, setDrafts] = useState<Record<string, string>>({});
+  const [replies, setReplies] = useState<Record<string, WeiboReply[]>>({});
+  const [quickReplyVisible, setQuickReplyVisible] = useState<string | null>(null);
+  useEffect(() => {
+    const target = p.ui?.["weibo-notification-target"];
+    if (typeof target === "string" && target) {
+      setOpenComments(target);
+      p.onUi?.("weibo-notification-target", "");
+    }
+  }, [p.ui?.["weibo-notification-target"]]);
+  const allPosts = [
+    ...weiboDemoPosts,
+    ...items.filter((item) => !weiboDemoPosts.some((demo) => demo.id === item.id)),
+  ];
+  const tabPosts = tab === "我"
+    ? allPosts.filter((item) => item.sender === "TF家族-陈浚铭chen" || item.folder === "个人主页" || item.folder === "我的")
+    : allPosts.filter((item) => item.sender !== "TF家族-陈浚铭chen" && item.folder !== "我的");
+  const filteredPosts = tabPosts
+    .filter((item) =>
+      !q.trim() ||
+      item.body.toLowerCase().includes(q.toLowerCase()) ||
+      item.sender.toLowerCase().includes(q.toLowerCase()) ||
+      item.title.toLowerCase().includes(q.toLowerCase())
+    )
+    .sort((a, b) => b.time.localeCompare(a.time));
+  const list = feed === "全部" ? filteredPosts : filteredPosts.filter((i) => i.folder === feed);
+  const submitReply = (item: Item) => {
+    const text = (drafts[item.id] || "").trim();
+    if (!text) return;
+    const next: WeiboReply[] = [{ author: p.owner || "我", text }];
+    if (weiboAuthorReplies[item.id]) {
+      next.push({ author: item.sender, text: weiboAuthorReplies[item.id], isAuthor: true });
+      const key = "weibo-thread-" + item.id;
+      const previous = Array.isArray(p.ui?.[key]) ? p.ui?.[key] as string[] : [];
+      p.onUi?.(key, [...previous, (p.owner || "我") + "：" + text, item.sender + " · 作者回复：" + weiboAuthorReplies[item.id]]);
+      p.onUi?.("weibo-reply-notification", item.id);
+    }
+    setReplies((old) => ({ ...old, [item.id]: [...(old[item.id] || []), ...next] }));
+    setDrafts((old) => ({ ...old, [item.id]: "" }));
+    setQuickReplyVisible(item.id === "weibo-demo-chen-yiheng-20250620" ? item.id : null);
+    setOpenComments(item.id);
+  };
   return (
     <div className="catalog-skin weibo-ui">
       <Header p={p} />
       <div className="weibo-sections">
         {["关注", "发现", "我"].map((t) => (
-          <button
-            key={t}
-            className={tab === t ? "selected" : ""}
-            onClick={() => setTab(t)}
-          >
-            {t}
-          </button>
+          <button key={t} className={tab === t ? "selected" : ""} onClick={() => setTab(t)}>{t}</button>
         ))}
       </div>
       <div className="catalog-scroll">
         {tab === "我" ? (
           <div className="weibo-profile">
-            <Avatar name={p.owner ?? "我"} />
+            <Avatar name={p.owner ?? "我"} src="./IMG_4399.jpeg" />
             <h2>{p.owner ?? "我"}</h2>
-            <span>{items.length} 条微博</span>
+            <span>{allPosts.filter((item) => item.sender === "TF家族-陈浚铭chen").length} 条微博</span>
           </div>
         ) : (
           <>
             <SearchBox value={q} set={setQ} />
             <div className="weibo-feed-filter">
-              {["全部", ...groupItems(items).filter((g) => g !== "未分类")].map(
-                (g) => (
-                  <button key={g} onClick={() => setFeed(g)}>
-                    {g}
-                  </button>
-                ),
-              )}
+              {["全部", ...groupItems(items).filter((g) => g !== "未分类")].map((g) => (
+                <button key={g} onClick={() => setFeed(g)}>{g}</button>
+              ))}
             </div>
           </>
         )}
-        {list.map((i) => (
-          <article className="weibo-post" key={i.id}>
-            <PostHeader p={p} item={i} />
-            <button className="social-body" onClick={() => p.onItem(i)}>
-              <p>{i.body}</p>
-              {i.media && <Media item={i} />}
-            </button>
-            <WeiboActions p={p} item={i} />
-          </article>
-        ))}
+        {list.map((i) => {
+          const stats = weiboViralStats[i.id];
+          const fanComments = weiboFanComments[i.id] || [];
+          const thread = replies[i.id] || [];
+          const savedThread = Array.isArray(p.ui?.["weibo-thread-" + i.id]) ? p.ui?.["weibo-thread-" + i.id] as string[] : [];
+          const count = stats ? stats.comments : String(i.comments.length || "评论");
+          return (
+            <article className="weibo-post" key={i.id}>
+              <PostHeader p={p} item={i} />
+              <button className="social-body" onClick={() => p.onItem(i)}>
+                <p>{i.body}</p>
+                {i.media && <Media item={i} />}
+              </button>
+              {stats && (
+                <div className="weibo-viral-stats">
+                  <span>转发 <strong>{stats.reposts}</strong></span>
+                  <span>评论 <strong>{stats.comments}</strong></span>
+                  <span>赞 <strong>{stats.likes}</strong></span>
+                </div>
+              )}
+              <div className="social-actions weibo-actions">
+                <button aria-label={`转发${i.title}`} onClick={() => setOpenComments(openComments === i.id ? null : i.id)}><Share2 size={17} />{stats?.reposts || "转发"}</button>
+                <button aria-label={`评论${i.title}`} onClick={() => setOpenComments(openComments === i.id ? null : i.id)}><MessageCircle size={17} />{count}</button>
+                <button aria-label={`喜欢${i.title}`} onClick={() => setOpenComments(openComments === i.id ? null : i.id)}><ThumbsUp size={17} />{stats?.likes || i.likes || "赞"}</button>
+              </div>
+              {openComments === i.id && (
+                <div className="weibo-comments">
+                  <div className="weibo-comment-list">
+                    {fanComments.map((comment, index) => (
+                      <p key={index}><strong>{["小橘灯不熄","浚浚的星球","今天也要开心","银河邮递员","小陈同学","晚风收藏家","柠檬汽水","追光日记","海盐奶盖","心动补给站"][index]}：</strong>{comment}</p>
+                    ))}
+                    {savedThread.map((entry, index) => {
+                      const split = entry.indexOf("：");
+                      const isAuthor = entry.includes(" · 作者回复：");
+                      return <p className={isAuthor ? "weibo-author-reply" : ""} key={"saved-" + index}><strong>{split >= 0 ? entry.slice(0, split) : "用户"}：</strong>{split >= 0 ? entry.slice(split + 1) : entry}</p>;
+                    })}
+                    {!savedThread.length && thread.map((reply, index) => (
+                      <p className={reply.isAuthor ? "weibo-author-reply" : ""} key={`${reply.author}-${index}`}><strong>{reply.author}{reply.isAuthor ? " · 作者回复" : ""}：</strong>{reply.text}</p>
+                    ))}
+                    {weiboMyPostReplies[i.id] && (
+                      <p className="weibo-author-reply"><strong>TF家族-陈奕恒Jonathan · 作者评论：</strong>{weiboMyPostReplies[i.id]}</p>
+                    )}
+                  </div>
+                  <form className="weibo-reply-form" onSubmit={(event) => { event.preventDefault(); submitReply(i); }}>
+                    <input value={drafts[i.id] || ""} onChange={(event) => setDrafts((old) => ({ ...old, [i.id]: event.target.value }))} placeholder="说点什么..." aria-label="微博评论" />
+                    <button type="submit">评论</button>
+                  </form>
+                  {quickReplyVisible === i.id && (
+                    <button className="weibo-quick-reply" onClick={() => setDrafts((old) => ({ ...old, [i.id]: "谢谢你给我送蛋糕😆😆我也很开心 我也希望和你一起度过每一个生日😁😁" }))}>
+                      快捷回复：谢谢你给我送蛋糕😆😆我也很开心 我也希望和你一起度过每一个生日😁😁
+                    </button>
+                  )}
+                </div>
+              )}
+            </article>
+          );
+        })}
         <Empty items={list} />
       </div>
     </div>

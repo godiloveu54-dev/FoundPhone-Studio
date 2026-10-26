@@ -22,6 +22,8 @@ export const itemSchema = z.object({
       "note",
       "post",
       "event",
+      "product",
+      "music",
     ])
     .default("text"),
   media: z.string().default(""),
@@ -101,6 +103,7 @@ export const workSchema = z.object({
       .optional(),
     passcode: z.string().max(12),
     wallpaper: z.string(),
+    wallpaperImage: z.string().optional(),
     theme: z.enum(["light", "dark"]),
     time: z.string(),
     battery: z.number().min(0).max(100),
@@ -196,7 +199,8 @@ export function validateWork(input: unknown): Work {
   return workSchema.parse(input);
 }
 export function safeMedia(value: string) {
-  return /^data:(image\/(png|jpeg|webp|gif)|audio\/(mpeg|mp3|wav|ogg|webm|mp4)|video\/(mp4|webm));base64,[a-zA-Z0-9+/=\s]+$/.test(
+  // Only allow embedded safe media and local project assets; remote URLs are not trusted.
+  return /^(data:(image\/(png|jpeg|webp|gif)|audio\/(mpeg|mp3|wav|ogg|webm|mp4)|video\/(mp4|webm));base64,[a-zA-Z0-9+/=\s]+|\.\.?\/[A-Za-z0-9_./-]+\.(?:png|jpe?g|webp|gif|mp4|webm|mp3|wav|ogg))$/i.test(
     value,
   )
     ? value

@@ -4918,3 +4918,176 @@ label {
   background: #e34f58;
   transform: rotate(135deg);
 }
+
+/* WeChat year-based chat history */
+.wx-year-picker { padding: 18px 16px; }
+.wx-year-picker > p, .wx-year-caption { color: #8a8a8a; font-size: 12px; margin: 0 0 14px; }
+.wx-year-row { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 17px 4px; border-bottom: 1px solid #e9e9e9; color: #202020; font-size: 16px; text-align: left; }
+.wx-year-row > span:last-child { color: #a0a0a0; font-size: 23px; }
+.wx-year-history { min-height: 100%; display: flex; flex-direction: column; }
+.wx-year-history .skin-messages { overflow: visible; flex: 1; }
+.wx-voice-message { min-width: 132px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.wx-voice-wave { font-size: 19px; letter-spacing: 2px; transform: scaleX(.8); transform-origin: left; }
+.wx-voice-message.is-playing .wx-voice-wave { animation: wx-voice-pulse .55s ease-in-out infinite alternate; }
+.wx-voice-playing { color: #168c53; font-size: 11px; }
+.wx-voice-transcript { white-space: normal; line-height: 1.55; color: #555; font-weight: 400; }
+.wx-call-bubble { min-width: 180px; }
+.wx-call-message { display: flex; align-items: center; gap: 8px; text-align: left; min-width: 160px; }
+.wx-call-message > span { display: flex; flex-direction: column; gap: 4px; }
+.wx-call-message small { color: #888; font-size: 10px; }
+.wx-call-message b { margin-left: auto; font-size: 11px; font-weight: 500; }
+.wx-call-detail-backdrop { position: absolute; inset: 0; z-index: 80; background: #0006; display: grid; place-items: center; padding: 20px; }
+.wx-call-detail { width: min(290px, 100%); border-radius: 18px; background: #fff; color: #222; padding: 24px 20px; text-align: center; box-shadow: 0 12px 45px #0003; }
+.wx-call-detail h3 { margin: 12px 0 6px; font-size: 18px; }
+.wx-call-detail p { margin: 7px 0; font-size: 13px; color: #555; }
+.wx-call-detail > small { display: block; margin-top: 16px; color: #999; line-height: 1.5; }
+.wx-call-detail-close { display: block; margin-left: auto; color: #168c53; }
+@keyframes wx-voice-pulse { from { opacity: .45; transform: scaleX(.7); } to { opacity: 1; transform: scaleX(1.15); } }
+.dark-phone .wx-year-row { color: #f3f3f3; border-color: #383838; }
+.dark-phone .wx-call-detail { background: #292929; color: #f3f3f3; }
+
+.wx-history-date-divider { align-self: center; margin: 16px auto 12px; padding: 5px 10px; border-radius: 5px; background: #d8d8d8; color: #fff; font-size: 10px; letter-spacing: .2px; }
+.wx-year-history .skin-date { display: none; }
+.wx-year-history .skin-messages { overflow: visible; }
+
+
+.taobao-product-backdrop{position:absolute;inset:0;z-index:80;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.42);padding:12px}
+.taobao-product-sheet{position:relative;width:100%;max-height:88%;overflow-y:auto;border-radius:22px 22px 14px 14px;background:#fff;color:#242424;padding:20px 16px 16px}
+.taobao-sheet-close{position:absolute;right:12px;top:10px;z-index:2;width:30px;height:30px;border:0;border-radius:50%;font-size:24px}
+.taobao-product-sheet>.catalog-art,.taobao-product-sheet>img{display:block;width:100%;height:170px;object-fit:contain;border-radius:12px;margin-bottom:12px}
+.taobao-product-sheet h2{font-size:17px;line-height:1.4;margin:6px 32px 8px 0}
+.taobao-product-price{display:block;color:#f04424;font-size:25px;margin:8px 0}
+.taobao-product-stats{color:#888;font-size:12px;margin:0 0 16px}
+.taobao-option-group{margin:15px 0}
+.taobao-option-group>strong,.taobao-quantity>strong{display:block;font-size:13px;margin-bottom:9px}
+.taobao-option-group>div{display:flex;flex-wrap:wrap;gap:8px}
+.taobao-option-group button{border:1px solid #e6e6e6;border-radius:8px;padding:8px 11px;color:#444;background:#f7f7f7;font-size:12px}
+.taobao-option-group button.selected{color:#e84725;border-color:#f15a36;background:#fff3ef}
+.taobao-quantity{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid #f1f1f1}
+.taobao-quantity>div,.taobao-cart-controls{display:flex;align-items:center;gap:8px}
+.taobao-quantity button,.taobao-cart-controls button{border:0;border-radius:7px;background:#f3f3f3;min-width:28px;height:28px}
+.taobao-add-cart{display:block;width:100%;border:0;border-radius:24px;padding:13px;background:#f04424;color:white;font-weight:700;margin-top:12px}
+.taobao-cart{padding:8px 12px 20px}
+.taobao-cart h2{font-size:18px;margin:8px 0 14px}
+.taobao-cart-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:white;border-radius:12px;padding:13px;margin-bottom:10px}
+.taobao-cart-row>div:first-child{display:flex;flex-direction:column;gap:5px;min-width:0}
+.taobao-cart-row strong{font-size:13px;overflow-wrap:anywhere}
+.taobao-cart-row small{font-size:11px;color:#888}
+.taobao-cart-row b{color:#ed4827;font-size:14px}
+.taobao-cart-controls{gap:7px;flex-shrink:0}
+.taobao-cart-controls span{min-width:14px;text-align:center;font-size:12px}
+.taobao-cart-controls button:last-child{background:transparent;color:#999;font-size:11px}
+.taobao-cart-total{position:sticky;bottom:0;text-align:right;padding:14px 4px;background:#fff;color:#e84725;font-weight:700}
+
+.taobao-ui{position:relative;overflow:hidden}
+.taobao-product-backdrop{inset:0;overflow-y:auto}
+
+/* WeChat gifts and simulated transfer */
+
+.wx-compose-plus{display:grid;place-items:center;min-width:26px;min-height:28px;padding:0;border:0;background:transparent;color:inherit}
+.wx-plus-panel{position:absolute;z-index:45;right:12px;bottom:82px;display:flex;gap:22px;padding:15px 20px;background:#f8f8f8;border:1px solid #e7e7e7;border-radius:14px;box-shadow:0 8px 28px #00000018}
+.wx-plus-panel button{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:52px;padding:0;background:transparent;border:0;color:#333}
+.wx-plus-panel small{font-size:10px}
+.wx-plus-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:11px;color:#fff}
+.wx-plus-icon.gift{background:#fa9d3b}.wx-plus-icon.transfer{background:#07c160}
+.wx-finance-backdrop{position:absolute;z-index:70;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;background:#0006}
+.wx-finance-sheet{position:relative;width:100%;max-width:330px;padding:24px 20px 18px;border-radius:18px;background:#fff;color:#202020;box-shadow:0 16px 50px #0003}
+.wx-finance-close{position:absolute;top:12px;right:12px;display:grid;place-items:center;width:30px;height:30px;border:0;background:transparent;color:#777}
+.wx-finance-heading{display:flex;align-items:center;gap:10px;margin:5px 0 24px;color:#07a84d}
+.wx-finance-heading h2{margin:0;color:#222;font-size:17px;font-weight:650}
+.wx-finance-label{margin:0 0 10px;color:#777;font-size:11px}
+.wx-transfer-input{display:flex;align-items:center;gap:8px;padding:8px 0 12px;border-bottom:1px solid #e8e8e8}
+.wx-transfer-input span{font-size:28px;font-weight:600}
+.wx-transfer-input input{width:100%;min-width:0;border:0;outline:0;background:transparent;font-size:30px;font-weight:600;color:#222}
+.wx-balance-note{margin:13px 0 20px;color:#888;font-size:11px}
+.wx-finance-primary{width:100%;padding:12px;border:0;border-radius:7px;background:#07c160;color:#fff;font-size:13px;font-weight:600}
+.wx-finance-primary:disabled{background:#b8ddc7;color:#fff}
+.wx-finance-disclaimer{display:block;margin-top:12px;text-align:center;color:#999;font-size:9px;line-height:1.5}
+.wx-gift-sheet{padding-top:25px}
+.wx-gift-intro{margin:-10px 0 15px;color:#888;font-size:11px}
+.wx-gift-row{display:flex;align-items:center;gap:12px;width:100%;padding:11px 2px;border:0;border-top:1px solid #f0f0f0;background:#fff;text-align:left;color:#222}
+.wx-gift-emoji{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;background:#fff3e8;font-size:23px}
+.wx-gift-row>span:nth-child(2){display:flex;flex:1;flex-direction:column;gap:4px}
+.wx-gift-row strong{font-size:12px}.wx-gift-row small{font-size:10px;color:#999}.wx-gift-arrow{font-size:22px;color:#aaa}
+
+
+/* WeChat-style alphabetical contacts */
+.wechat-ui [data-tab="通讯录"] {}
+.wx-contact-shortcuts {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin-bottom: 8px;
+}
+.wx-contact-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 11px 14px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: left;
+  font-size: 13px;
+}
+.wx-contact-shortcut > span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background: #07c160;
+  color: white;
+  font-size: 17px;
+}
+.wx-contact-group .wx-section-label {
+  padding: 8px 14px 6px;
+  background: #ededed;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.2;
+}
+.wx-contact-group .wx-contact {
+  min-height: 52px;
+  padding: 7px 14px;
+  gap: 11px;
+  border-bottom: 1px solid #ededed;
+}
+.wx-contact-index {
+  position: absolute;
+  z-index: 3;
+  right: 3px;
+  top: 30%;
+  bottom: 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  width: 15px;
+}
+.wx-contact-index button {
+  padding: 0;
+  min-height: 10px;
+  background: transparent;
+  color: #576b95;
+  font-size: 8px;
+  line-height: 1;
+}
+.wx-contact-index button:disabled {
+  color: #b9bec5;
+}
+
+
+/* WeChat simulated group chats */
+.wx-group-chat-list { padding-bottom: 18px; }
+.wx-group-chat-row { min-height: 76px; }
+.wx-group-chat-row .wx-chat-row > div,
+.wx-group-chat-row > div { min-width: 0; }
+.wx-group-chat-row p { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 245px; }
+.wx-group-members-panel { margin: 18px 16px; padding: 18px 14px; border-radius: 12px; background: rgba(128,128,128,.08); }
+.wx-group-members-title { font-size: 14px; color: var(--skin-muted, #888); margin-bottom: 14px; }
+.wx-group-members-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 8px; }
+.wx-group-members-grid > div { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+.wx-group-members-grid .skin-avatar { width: 42px; height: 42px; }
+.wx-group-members-grid small { font-size: 11px; text-align: center; overflow-wrap: anywhere; }
+.wx-group-members-panel > p { font-size: 12px; color: var(--skin-muted, #888); margin: 16px 0 0; }

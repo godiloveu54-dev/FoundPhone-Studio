@@ -93,10 +93,25 @@ export function Avatar({
   round?: boolean;
   src?: string;
 }) {
+  const avatarByName: Record<string, string> = {
+    "陈浚铭": "./IMG_4390.jpeg",
+    "张桂源": "./IMG_4391.jpeg",
+    "左奇函": "./IMG_4392.jpeg",
+    "陈思罕": "./IMG_4393.jpeg",
+    "杨博文": "./IMG_4394.jpeg",
+    "张函瑞": "./IMG_4395.jpeg",
+    "王橹杰": "./IMG_4396.jpeg",
+    "陈奕恒": "./IMG_4398.jpeg",
+    "聂玮辰": "./IMG_4400.jpeg",
+    "张奕然": "./IMG_4425.jpeg",
+  };
+  const normalizedName = name.replace(/^TF家族[-·]/, "").replace(/Jonathan|chen$/i, "").trim();
+  const fallbackAvatar = Object.entries(avatarByName).find(([person]) => normalizedName.includes(person))?.[1] || "";
+  const image = safeMedia(src || avatarByName[normalizedName] || fallbackAvatar);
   return (
     <span className={`catalog-avatar ${round ? "round" : ""}`}>
-      {safeMedia(src)?.startsWith("data:image/") ? (
-        <img src={safeMedia(src)} alt="" />
+      {image && /^(data:image\/|https?:\/\/|\.\.?\/)/.test(image) ? (
+        <img src={image} alt={name} loading="lazy" decoding="async" />
       ) : (
         name.slice(0, 1) || "人"
       )}
@@ -120,10 +135,11 @@ export function Media({
         controls
         playsInline
         src={src}
+        preload="none"
         onClick={(e) => e.stopPropagation()}
       />
     ) : (
-      <img className={className} loading="lazy" alt={item.title} src={src} />
+      <img className={className} loading="lazy" decoding="async" alt={item.title} src={src} />
     )
   ) : (
     <div className={`catalog-art ${className}`}>

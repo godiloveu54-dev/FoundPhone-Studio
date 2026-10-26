@@ -46,7 +46,9 @@ export function PhoneSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "最近通话");
   const [digits, setDigits] = useState(""),
     [call, setCall] = useState("");
-  const list = tab === "收藏" ? items.filter((i) => i.favorite) : items;
+  const list = (tab === "收藏" ? items.filter((i) => i.favorite) : items)
+    .slice()
+    .sort((a, b) => b.time.localeCompare(a.time));
   return (
     <div className="catalog-skin native-phone">
       <Header p={p} />
@@ -141,7 +143,9 @@ export function PhoneSkin(p: Props) {
   );
 }
 export function ContactsSkin(p: Props) {
-  const { q, setQ, items } = useContent(p, "所有联系人");
+  const { q, setQ, items: matchingItems } = useContent(p, "所有联系人");
+  const allowedContacts = new Set(["爸爸", "妈妈", "爷爷", "奶奶", "哥哥", "陈奕恒", "张桂源", "杨博文"]);
+  const items = matchingItems.filter((item) => allowedContacts.has(item.title) || allowedContacts.has(meta(item, "name")));
   return (
     <div className="catalog-skin native-contacts">
       <Header p={p} />
@@ -155,7 +159,7 @@ export function ContactsSkin(p: Props) {
             else if (p.creator) p.onAdd();
           }}
         >
-          <Avatar name={p.owner ?? "我"} />
+          <span className="catalog-avatar round" style={{ background: "#e5e7eb", color: "#fff" }}>{(p.owner ?? "我").slice(0, 1)}</span>
           <span>
             <strong>{p.owner ?? "我的名片"}</strong>
             <small>我的名片</small>
@@ -172,7 +176,7 @@ export function ContactsSkin(p: Props) {
                   key={i.id}
                   item={i}
                   onItem={p.onItem}
-                  leading={<Avatar name={i.title} />}
+                  leading={<span className="catalog-avatar round" style={{ background: "#e5e7eb", color: "#fff" }}>{i.title.slice(0, 1)}</span>}
                 />
               ))}
           </section>
@@ -248,7 +252,33 @@ export function CameraSkin(p: Props) {
   const frames = p.items.filter((i) =>
     mode === "视频" ? i.kind === "video" : i.kind !== "video",
   );
-  const frame = frames[index % Math.max(frames.length, 1)];
+  const referencePhoto: Item = {
+    id: "camera-reference-img-4426",
+    title: "IMG_4426.jpeg",
+    body: "相机默认取景参考照片",
+    richText: "",
+    meta: { source: "相机默认取景" },
+    time: "",
+    sender: p.owner || "我",
+    avatar: "",
+    kind: "image",
+    media: "./IMG_4426.jpeg",
+    hidden: false,
+    unlock: "",
+    password: "",
+    folder: "相机",
+    favorite: false,
+    outgoing: false,
+    read: true,
+    likes: 0,
+    comments: [],
+  };
+  const preferredPhoto = frames.find((item) =>
+    item.media.toLowerCase().includes("img_4426.jpeg"),
+  );
+  const frame = mode === "照片"
+    ? preferredPhoto || referencePhoto
+    : frames[index % Math.max(frames.length, 1)];
   return (
     <div className="catalog-skin native-camera">
       <Header p={p} />
@@ -862,9 +892,11 @@ export function MusicSkin(p: Props) {
               <small>{n + 1}</small>
               <span>
                 <strong>{i.title}</strong>
-                <small>
-                  {i.sender} · {meta(i, "album")}
-                </small>
+                {i.sender || meta(i, "album") ? (
+                  <small>
+                    {[i.sender, meta(i, "album")].filter(Boolean).join(" · ")}
+                  </small>
+                ) : null}
               </span>
               <span>{meta(i, "duration")}</span>
             </button>
@@ -910,30 +942,46 @@ function LocationMap({
   items,
   onItem,
   find = false,
+  showAvatar = false,
 }: {
   items: Item[];
   onItem: (i: Item) => void;
   find?: boolean;
+  showAvatar?: boolean;
 }) {
   return (
     <div className={`fiction-map ${find ? "find-map" : ""}`}>
-      <svg viewBox="0 0 300 300" aria-label="原创虚构地图">
-        <rect width="300" height="300" fill="#e4e5d8" />
-        {[35, 100, 190, 260].map((n) => (
-          <path
-            key={n}
-            d={`M0 ${n} H300 M${n} 0 V300`}
-            stroke="#fff"
-            strokeWidth="11"
-          />
-        ))}
-        <path
-          d="M20 0 Q190 110 120 300"
-          stroke="#b6d8df"
-          strokeWidth="24"
-          fill="none"
-        />
-        <rect x="205" y="112" width="42" height="65" rx="7" fill="#bdcfac" />
+      <svg viewBox="0 0 300 300" aria-label={find ? "重庆南岸区地图" : "原创虚构地图"} role="img">
+        {find ? (
+          <>
+            <rect width="300" height="300" fill="#e9e9df" />
+            <path d="M-20 12 L95 64 L155 115 L210 162 L320 220" stroke="#c6e3e8" strokeWidth="45" fill="none" />
+            <path d="M-20 12 L95 64 L155 115 L210 162 L320 220" stroke="#b3d7df" strokeWidth="2" fill="none" />
+            <path d="M-10 250 Q65 214 105 170 T190 95 T315 48" stroke="#fff" strokeWidth="10" fill="none" />
+            <path d="M-10 250 Q65 214 105 170 T190 95 T315 48" stroke="#d6d7ce" strokeWidth="1.5" fill="none" />
+            <path d="M10 88 L80 116 L125 148 L170 184 L230 248" stroke="#fff" strokeWidth="8" fill="none" />
+            <path d="M10 88 L80 116 L125 148 L170 184 L230 248" stroke="#d6d7ce" strokeWidth="1.5" fill="none" />
+            <path d="M28 0 L68 75 L100 125 L118 185 L135 300 M170 0 L178 55 L205 110 L238 170 L280 300 M0 190 L65 188 L130 210 L195 222 L300 260 M0 135 L70 142 L130 165 L190 175 L300 185" stroke="#fff" strokeWidth="7" fill="none" />
+            <path d="M28 0 L68 75 L100 125 L118 185 L135 300 M170 0 L178 55 L205 110 L238 170 L280 300 M0 190 L65 188 L130 210 L195 222 L300 260 M0 135 L70 142 L130 165 L190 175 L300 185" stroke="#d6d7ce" strokeWidth="1" fill="none" />
+            <path d="M15 32 L65 24 L95 48 L78 76 L35 68 Z M205 18 L258 28 L270 58 L236 72 L205 52 Z M205 235 L250 220 L285 250 L268 286 L220 278 Z" fill="#d3dfc8" />
+            <rect x="122" y="126" width="40" height="27" rx="4" fill="#d7c9b7" stroke="#fff" strokeWidth="2" />
+            <text x="143" y="139" fontSize="7" textAnchor="middle" fill="#5b574e">长江国际</text>
+            <text x="18" y="118" fontSize="9" fill="#66685f">南滨路</text>
+            <text x="202" y="99" fontSize="8" fill="#66685f">后堡</text>
+            <text x="190" y="202" fontSize="8" fill="#66685f">南岸区</text>
+            <text x="14" y="278" fontSize="8" fill="#66685f">黄葛渡立交</text>
+            <text x="15" y="17" fontSize="8" fill="#66685f">重庆市</text>
+          </>
+        ) : (
+          <>
+            <rect width="300" height="300" fill="#e4e5d8" />
+            {[35, 100, 190, 260].map((n) => (
+              <path key={n} d={`M0 ${n} H300 M${n} 0 V300`} stroke="#fff" strokeWidth="11" />
+            ))}
+            <path d="M20 0 Q190 110 120 300" stroke="#b6d8df" strokeWidth="24" fill="none" />
+            <rect x="205" y="112" width="42" height="65" rx="7" fill="#bdcfac" />
+          </>
+        )}
       </svg>
       {items.map((i, n) => (
         <button
@@ -946,7 +994,7 @@ function LocationMap({
           }}
           onClick={() => onItem(i)}
         >
-          {find ? <Avatar name={i.title} /> : <MapPin size={24} />}
+          {showAvatar ? <Avatar name={i.title} /> : <MapPin size={24} />}
         </button>
       ))}
     </div>
@@ -957,9 +1005,9 @@ export function MapsSkin(p: Props) {
   return (
     <div className="catalog-skin native-maps">
       <Header p={p} />
-      <LocationMap items={items} onItem={p.onItem} />
+      <LocationMap items={items} onItem={p.onItem} find />
       <div className="map-sheet">
-        <SearchBox value={q} set={setQ} placeholder="搜索虚构地点" />
+        <SearchBox value={q} set={setQ} placeholder="搜索重庆地点或地址" />
         <div className="map-places">
           {items.map((i) => (
             <Row key={i.id} item={i} onItem={p.onItem} leading={<MapPin />} />
@@ -1016,7 +1064,7 @@ export function FindSkin(p: Props) {
   return (
     <div className="catalog-skin native-find">
       <Header p={p} />
-      <LocationMap items={list} onItem={p.onItem} find />
+      <LocationMap items={list} onItem={p.onItem} find showAvatar />
       <div className="find-sheet">
         <h2>{tab}</h2>
         {list.map((i) => (

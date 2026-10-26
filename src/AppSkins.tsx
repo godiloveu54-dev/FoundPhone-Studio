@@ -1,6 +1,5 @@
-import { NativeComposer } from "./DeviceSystem";
 import { useSkinState } from "./skinState";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import {
   ChevronLeft,
   Plus,
@@ -30,6 +29,9 @@ import {
   Image as ImageIcon,
   Layers,
   ShoppingBag,
+  Gift,
+  Wallet,
+  X,
 } from "lucide-react";
 import { safeMedia, type Item, type UiValue } from "./schema";
 export type SkinProps = {
@@ -48,6 +50,8 @@ export type SkinProps = {
   thread: string;
   onThread: (s: string) => void;
   onReply?: (thread: string, text: string) => void;
+  onFamilyCardPayment?: (card: "陈奕恒" | "张桂源", isFood: boolean) => { sender: string; text: string; kind: "food" | "plain" };
+  onFamilyCardReply?: (choice: "听" | "不听") => string;
 };
 function Avatar({
   name,
@@ -58,12 +62,29 @@ function Avatar({
   round?: boolean;
   src?: string;
 }) {
+  const avatarByName: Record<string, string> = {
+    "陈浚铭": "./IMG_4390.jpeg",
+    "张桂源": "./IMG_4391.jpeg",
+    "左奇函": "./IMG_4392.jpeg",
+    "陈思罕": "./IMG_4393.jpeg",
+    "杨博文": "./IMG_4394.jpeg",
+    "张函瑞": "./IMG_4395.jpeg",
+    "王橹杰": "./IMG_4396.jpeg",
+    "陈奕恒": "./IMG_4398.jpeg",
+    "聂玮辰": "./IMG_4400.jpeg",
+    "张奕然": "./IMG_4425.jpeg",
+  };
+  // 这些联系人按用户要求保留默认头像，不从聊天记录或其他人物图片继承头像。
+  const defaultAvatarNames = new Set(["官俊臣", "李煜东", "杨涵博", "魏子宸"]);
+  if (defaultAvatarNames.has(name.replace(/^TF家族[-·]/, "").trim())) src = "";
+  const normalizedName = name.replace(/^TF家族[-·]/, "").trim();
+  const image = safeMedia(src || avatarByName[normalizedName] || "");
   return (
     <span className={`skin-avatar ${round ? "round" : ""}`}>
-      {safeMedia(src)?.startsWith("data:image/") ? (
-        <img src={safeMedia(src)} alt="" />
+      {image && /^(data:image\/|https?:\/\/|\.\.?\/|\/)/i.test(image) ? (
+        <img src={image} alt={name} loading="lazy" decoding="async" />
       ) : (
-        name.slice(0, 1)
+        name.slice(0, 1) || "人"
       )}
     </span>
   );
@@ -74,9 +95,9 @@ function ItemMedia({ item }: { item: Item }) {
     item.kind === "audio" ? (
       <audio controls src={src} />
     ) : item.kind === "video" ? (
-      <video controls playsInline src={src} />
+      <video controls playsInline preload="none" src={src} />
     ) : (
-      <img loading="lazy" alt={item.title} src={src} />
+      <img loading="lazy" decoding="async" alt={item.title} src={src} />
     )
   ) : (
     <div className="skin-photo">
@@ -97,10 +118,16 @@ function MessageList({
   onRead: (id: string) => void;
   whatsapp?: boolean;
 }) {
+  const [playingAudio, setPlayingAudio] = useState("");
+  const [callDetail, setCallDetail] = useState<Item | null>(null);
   return (
     <div className={`skin-messages ${whatsapp ? "wa-wallpaper" : ""}`}>
       <div className="skin-date">{items[0]?.time.slice(0, 10)}</div>
-      {items.map((i) => (
+      {items.map((i, index) => (
+        <Fragment key={i.id}>
+        {(index === 0 || items[index - 1].time.slice(0, 10) !== i.time.slice(0, 10)) && (
+          <div className="wx-history-date-divider">{i.time.slice(0, 10).replaceAll("-", ".")}</div>
+        )}
         <div
           key={i.id}
           className={`skin-message ${i.outgoing ? "outgoing" : ""}`}
@@ -109,10 +136,28 @@ function MessageList({
             <Avatar name={i.sender} src={i.avatar} />
           )}
           <button
-            className="skin-bubble"
-            onClick={() => (creator ? onItem(i) : onRead(i.id))}
+            className={`skin-bubble ${i.kind === "call" ? "wx-call-bubble" : ""}`}
+            onClick={() => {
+              if (i.kind === "call") setCallDetail(i);
+              else if (i.kind === "audio") setPlayingAudio((current) => current === i.id ? "" : i.id);
+              else if (creator) onItem(i);
+              else onRead(i.id);
+            }}
           >
-            {["image", "audio", "video"].includes(i.kind) ? (
+            {i.kind === "audio" ? (
+              <span className={`wx-voice-message ${playingAudio === i.id ? "is-playing" : ""}`}>
+                <span className="wx-voice-wave">)))</span>
+                <span>语音消息</span>
+                {playingAudio === i.id && <span className="wx-voice-playing">播放中…</span>}
+                {i.meta?.transcript && <small className="wx-voice-transcript">转文字：{i.meta.transcript}</small>}
+              </span>
+            ) : i.kind === "call" ? (
+              <span className="wx-call-message">
+                <Phone size={17} />
+                <span>{i.meta?.callType || "通话记录"}<small>{i.meta?.status || "记录"}</small></span>
+                {i.meta?.duration && <b>{i.meta.duration}</b>}
+              </span>
+            ) : ["image", "video"].includes(i.kind) ? (
               <ItemMedia item={i} />
             ) : i.kind === "transfer" ? (
               <div className="skin-transfer">
@@ -122,14 +167,27 @@ function MessageList({
             ) : (
               i.body
             )}
-            <small className={whatsapp ? undefined : "wx-message-time"}>
-              {i.time.slice(-5)}{" "}
-              {whatsapp && i.outgoing && <CheckCheck size={11} />}
-            </small>
+            {whatsapp && i.outgoing && (
+              <small className="wx-message-time"><CheckCheck size={11} /></small>
+            )}
           </button>
           {!whatsapp && i.outgoing && <Avatar name={i.sender} src={i.avatar} />}
         </div>
+        </Fragment>
       ))}
+      {callDetail && (
+        <div className="wx-call-detail-backdrop" role="presentation" onClick={() => setCallDetail(null)}>
+          <section className="wx-call-detail" role="dialog" aria-label="通话记录详情" onClick={(e) => e.stopPropagation()}>
+            <button className="wx-call-detail-close" onClick={() => setCallDetail(null)}>关闭</button>
+            <Phone size={28} />
+            <h3>{callDetail.meta?.callType || "通话记录"}</h3>
+            <p>{callDetail.meta?.status || "已记录"}</p>
+            <p>{callDetail.time}</p>
+            {callDetail.meta?.duration && <p>通话时长：{callDetail.meta.duration}</p>}
+            <small>仅展示已配置的通话记录，不包含未提供的通话内容。</small>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
@@ -137,18 +195,38 @@ function Compose({
   creator,
   onAdd,
   wa = false,
+  onPlus,
+  onSend,
 }: {
   creator: boolean;
   onAdd: () => void;
   wa?: boolean;
+  onPlus?: () => void;
+  onSend?: (text: string) => void;
 }) {
+  const [draft, setDraft] = useState("");
+  const send = () => {
+    const text = draft.trim();
+    if (!text) return;
+    if (creator) onAdd();
+    else onSend?.(text);
+    setDraft("");
+  };
   return (
-    <div className={`skin-compose ${wa ? "wa-compose" : ""}`}>
+    <div className={`skin-compose ${wa ? "wa-compose" : ""}`} style={{ display: "flex", alignItems: "center", gap: 8, boxSizing: "border-box", width: "100%", minWidth: 0, padding: "8px 10px" }}>
       {wa ? <Plus size={20} /> : <Mic size={20} />}
-      <NativeComposer creator={creator} onAdd={onAdd} />
-
-      <Smile size={21} />
-      {wa ? <Mic size={20} /> : <Plus size={22} />}
+      <input
+        className="native-compose-field"
+        aria-label="输入消息"
+        value={draft}
+        placeholder={creator ? "添加消息" : "输入消息"}
+        onChange={(e) => setDraft(e.target.value)}
+        onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } }}
+        style={{ flex: "1 1 0", width: 0, minWidth: 0, height: 36, boxSizing: "border-box", border: 0, borderRadius: 7, padding: "0 10px", outline: "none" }}
+      />
+      <button type="button" aria-label="表情" className="wx-compose-emoji" style={{ flex: "0 0 auto", display: "grid", placeItems: "center", border: 0, background: "transparent", padding: 3 }} onClick={() => setDraft((v) => v + "😊")}><Smile size={21} /></button>
+      {wa ? <Mic size={20} /> : <button type="button" aria-label="更多功能" className="wx-compose-plus" onClick={onPlus} style={{ flex: "0 0 auto", display: "grid", placeItems: "center", border: 0, background: "transparent", padding: 3 }}><Plus size={22} /></button>}
+      {!wa && <button type="button" aria-label="发送消息" disabled={!draft.trim()} onClick={send} style={{ flex: "0 0 auto", border: 0, borderRadius: 5, padding: "7px 10px", color: draft.trim() ? "#fff" : "#999", background: draft.trim() ? "#07c160" : "#e5e5e5", fontSize: 13, fontWeight: 600 }}>发送</button>}
     </div>
   );
 }
@@ -158,25 +236,84 @@ export function WeChatSkin(p: SkinProps) {
     [moments, setMoments] = useState(false),
     [menu, setMenu] = useState(false),
     [searchOpen, setSearchOpen] = useState(false),
-    [utility, setUtility] = useState("");
-  const [readThreads, setReadThreads] = useSkinState<string[]>(
+    [utility, setUtility] = useState(""),
+    [selectedYear, setSelectedYear] = useState(""),
+    [plusMenu, setPlusMenu] = useState(false),
+    [financeMode, setFinanceMode] = useState(""),
+    [transferAmount, setTransferAmount] = useState(""),
+    [financeMessages, setFinanceMessages] = useState<Item[]>([]);
+  const [composerOpen, setComposerOpen] = useState(false),
+    [draftPost, setDraftPost] = useState(""),
+    [draftImage, setDraftImage] = useState(""),
+    [draftImageName, setDraftImageName] = useState(""),
+    [postError, setPostError] = useState("");
+  const [savedMomentPosts, setSavedMomentPosts] = useSkinState<string[]>(
     p,
-    "readThreads",
+    "wechatMomentsUserPosts",
     [],
   );
+  const [bankBalance, setBankBalance] = useSkinState<number>(p, "wechatBankBalance", 1000000);
+    const allChatItems = [...p.items, ...financeMessages];
   const conversations = [
     ...new Set(
-      p.items
+      allChatItems
         .filter((i) => !["朋友圈", "我"].includes(i.folder))
         .map((i) => i.title),
     ),
+  ].sort((a, b) => {
+    const latestA = allChatItems.filter((i) => i.title === a).reduce((latest, i) => i.time > latest ? i.time : latest, "");
+    const latestB = allChatItems.filter((i) => i.title === b).reduce((latest, i) => i.time > latest ? i.time : latest, "");
+    return latestB.localeCompare(latestA);
+  });
+  // 固定通讯录名单按微信常见的拼音首字母分组；额外配置在聊天记录里的联系人也会保留。
+  const preferredContacts = [
+    "爸爸", "陈浚铭", "陈思罕", "陈奕恒", "哥哥", "官俊臣", "李煜东",
+    "妈妈", "聂玮辰", "王橹杰", "杨博文", "杨涵博",
+    "张桂源", "张函瑞", "张奕然", "左奇函", "魏子宸",
+    "飞总", "stf",
   ];
-  const contacts = [
-    ...new Set(p.items.map((i) => i.sender).filter((s) => s !== "我")),
+  const extraContacts = p.items
+    .map((i) => i.sender)
+    .filter((s) => s !== "我" && !preferredContacts.includes(s));
+  const contacts = [...preferredContacts, ...extraContacts];
+  // 已配置的微信模拟群聊与成员名单。
+  const groupChats = [
+    { name: "金牛（3）", members: ["张桂源", "陈浚铭", "陈奕恒"] },
+    { name: "四代同堂", members: ["杨博文", "张桂源", "张函瑞", "官俊臣", "王橹杰", "聂玮辰", "张奕然", "陈奕恒", "陈浚铭", "陈思罕", "魏子宸", "杨涵博", "李煜东", "左奇函"] },
+    { name: "四一", members: ["张桂源", "张函瑞", "王橹杰", "左奇函", "陈奕恒", "杨博文", "陈思罕", "陈浚铭"] },
+    { name: "瓦", members: ["张桂源", "杨涵博", "陈浚铭"] },
+    { name: "幸福一家人", members: ["陈浚铭", "哥哥", "爸爸", "妈妈"] },
   ];
-  const posts = p.items.filter(
-    (i) => i.folder === "朋友圈" || i.kind === "post",
-  );
+
+  const contactGroups: Record<string, string[]> = {
+    B: contacts.filter((c) => c === "爸爸"),
+    C: ["陈浚铭", "陈思罕", "陈奕恒"].filter((c) => contacts.includes(c)),
+    G: ["哥哥", "官俊臣"].filter((c) => contacts.includes(c)),
+    L: contacts.filter((c) => c === "李煜东"),
+    M: contacts.filter((c) => c === "妈妈"),
+    N: contacts.filter((c) => c === "聂玮辰"),
+    W: ["王橹杰", "魏子宸"].filter((c) => contacts.includes(c)),
+    Y: ["杨博文", "杨涵博"].filter((c) => contacts.includes(c)),
+    Z: ["张桂源", "张函瑞", "张奕然", "诸葛", "左航航酱", "左奇函"].filter((c) => contacts.includes(c)),
+    F: contacts.filter((c) => c === "飞总"),
+    S: contacts.filter((c) => c.toLowerCase() === "stf"),
+  };
+  // 未预设的联系人按名称归入对应首字母区，避免聊天记录中的其他联系人消失。
+  for (const c of extraContacts) {
+    const letter = /^[A-Z]/i.test(c) ? c[0].toUpperCase() : "#";
+    if (!contactGroups[letter]) contactGroups[letter] = [];
+    if (!contactGroups[letter].includes(c)) contactGroups[letter].push(c);
+  }
+  const userPosts: Item[] = savedMomentPosts.flatMap((raw) => {
+    try {
+      const parsed = JSON.parse(raw) as Item;
+      return parsed && parsed.kind === "post" && parsed.sender === (p.owner || "我") ? [parsed] : [];
+    } catch {
+      return [];
+    }
+  });
+  const posts = [...p.items.filter((i) => i.folder === "朋友圈" || i.kind === "post"), ...userPosts]
+    .sort((a, b) => b.time.localeCompare(a.time));
   return (
     <div
       className="wechat-ui independent-skin"
@@ -190,7 +327,9 @@ export function WeChatSkin(p: SkinProps) {
           aria-label={utility || p.thread || moments ? "返回" : "收藏"}
           onClick={() =>
             utility
-              ? setUtility("")
+              ? utility === "按日期查找" && selectedYear
+                ? setSelectedYear("")
+                : setUtility("")
               : p.thread
                 ? p.onThread("")
                 : moments
@@ -242,7 +381,53 @@ export function WeChatSkin(p: SkinProps) {
       )}
       {utility ? (
         <div className="skin-scroll wx-utility">
+          {utility === "按日期查找" ? (
+            selectedYear ? (
+              <div className="wx-year-history">
+                <p className="wx-year-caption">{selectedYear} 年 · 全部聊天记录</p>
+                <MessageList
+                  items={p.items
+                    .filter((i) => i.title === p.thread && /^\d{4}/.test(i.time) && i.time.slice(0, 4) === selectedYear)
+                    .sort((a, b) => a.time.localeCompare(b.time))}
+                  creator={p.creator}
+                  onItem={p.onItem}
+                  onRead={p.onRead}
+                />
+                {!p.items.some((i) => i.title === p.thread && i.time.slice(0, 4) === selectedYear) && (
+                  <p className="skin-empty">这一年还没有配置聊天记录</p>
+                )}
+              </div>
+            ) : (
+              <div className="wx-year-picker">
+                <p>按年份查找聊天记录</p>
+                {["2023", "2024", "2025", "2026"].map((year) => (
+                  <button key={year} className="wx-year-row" onClick={() => setSelectedYear(year)}>
+                    <span>{year} 年</span><span>›</span>
+                  </button>
+                ))}
+              </div>
+            )
+          ) : null}
+          {utility === "群聊" && (
+            <div className="wx-group-chat-list">
+              {groupChats.map((group) => (
+                <button
+                  key={group.name}
+                  className="wx-chat-row wx-group-chat-row"
+                  onClick={() => { setUtility(""); p.onThread(group.name); }}
+                >
+                  <span className="wx-chat-avatar"><Avatar name="群" /></span>
+                  <div>
+                    <strong>{group.name}</strong>
+                    <p>{group.members.join("、")}</p>
+                  </div>
+                  <small>{group.members.length} 人</small>
+                </button>
+              ))}
+            </div>
+          )}
           {utility === "聊天信息" && (
+            <>
             <div className="wx-members">
               {[
                 ...new Set(
@@ -254,14 +439,18 @@ export function WeChatSkin(p: SkinProps) {
                 <div key={name}>
                   <Avatar
                     name={name}
-                    src={p.items.find((i) => i.sender === name)?.avatar}
+                    src={p.items.find((i) => i.sender === name)?.avatar || p.items.find((i) => i.title === name)?.avatar}
                   />
                   <small>{name}</small>
                 </div>
               ))}
             </div>
+            <button className="wx-discovery" onClick={() => { setSelectedYear(""); setUtility("按日期查找"); }}>
+              按日期查找 <span>›</span>
+            </button>
+            </>
           )}
-          {p.items
+          {utility !== "按日期查找" && p.items
             .filter((i) => i.folder === utility)
             .map((i) => (
               <button
@@ -274,23 +463,49 @@ export function WeChatSkin(p: SkinProps) {
               </button>
             ))}
           {!p.items.some((i) => i.folder === utility) &&
-            utility !== "聊天信息" && <p className="skin-empty">暂无内容</p>}
+            utility !== "聊天信息" && utility !== "按日期查找" && utility !== "群聊" && <p className="skin-empty">暂无内容</p>}
         </div>
       ) : p.thread ? (
         <>
           <MessageList
-            items={p.items.filter((i) => i.title === p.thread)}
+            items={allChatItems.filter((i) => i.title === p.thread).sort((a, b) => a.time.localeCompare(b.time))}
             creator={p.creator}
             onItem={p.onItem}
             onRead={p.onRead}
           />
-          <Compose creator={p.creator} onAdd={p.onAdd} />
+          {groupChats.some((group) => group.name === p.thread) && !allChatItems.some((i) => i.title === p.thread) && (
+            <section className="wx-group-members-panel">
+              <div className="wx-group-members-title">群成员（{groupChats.find((group) => group.name === p.thread)?.members.length}）</div>
+              <div className="wx-group-members-grid">
+                {groupChats.find((group) => group.name === p.thread)?.members.map((member) => (
+                  <div key={member}><Avatar name={member} /><small>{member}</small></div>
+                ))}
+              </div>
+              <p>以上为已配置的群成员。聊天记录可后续继续添加。</p>
+            </section>
+          )}
+          {p.thread === "四代同堂" && !p.creator &&
+            !p.items.some((item) => item.title === "四代同堂" && item.outgoing && item.body === "收到") && (
+            <div className="wx-quick-replies">
+              <button style={{ padding: "7px 18px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "收到")}>收到</button>
+            </div>
+          )}
+          {p.thread === "张桂源" && !p.creator &&
+            !p.items.some((item) => item.title === "张桂源" && item.outgoing) && (
+            <div className="wx-quick-replies">
+              <button style={{ padding: "7px 12px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "解冻了好开心")}>解冻了好开心</button>
+              <button style={{ padding: "7px 12px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "不能耍起了呀")}>不能耍起了呀</button>
+            </div>
+          )}
+          <Compose creator={p.creator} onAdd={p.onAdd} onSend={(text) => p.onReply?.(p.thread, text)} onPlus={() => setPlusMenu((v) => !v)} />
         </>
       ) : moments ? (
         <div className="wx-moments">
           <div className="wx-moment-cover">
-            <Camera size={32} />
             <span>朋友圈</span>
+            <button className="wx-moment-camera" aria-label="发布朋友圈" onClick={() => { setPostError(""); setComposerOpen(true); }}>
+              <Camera size={25} />
+            </button>
           </div>
           {posts.map((i) => (
             <button
@@ -303,10 +518,85 @@ export function WeChatSkin(p: SkinProps) {
                 <strong>{i.sender}</strong>
                 <p>{i.body}</p>
                 {i.media && <ItemMedia item={i} />}
-                <small>{i.time}</small>
+                <small>{i.time.slice(0, 10)}{i.meta?.location ? ` · ${i.meta.location}` : ""}</small>
+                {i.comments.length > 0 && <div className="wx-moment-comment-preview">{i.comments.slice(0, 2).map((comment, n) => <p key={n}>{comment}</p>)}</div>}
               </div>
             </button>
           ))}
+          {composerOpen && (
+            <div className="wx-moment-composer-backdrop" role="presentation" onClick={() => setComposerOpen(false)}>
+              <section className="wx-moment-composer" role="dialog" aria-modal="true" aria-label="发表朋友圈" onClick={(e) => e.stopPropagation()}>
+                <header><button onClick={() => setComposerOpen(false)}>取消</button><strong>发表朋友圈</strong><button className="wx-moment-send" disabled={!draftPost.trim() && !draftImage} onClick={() => {
+                  const now = new Date();
+                  const time = now.getFullYear() + "-" + String(now.getMonth()+1).padStart(2,"0") + "-" + String(now.getDate()).padStart(2,"0") + " " + String(now.getHours()).padStart(2,"0") + ":" + String(now.getMinutes()).padStart(2,"0");
+                  const keywordReplies: [RegExp, string[]][] = [
+                    [/吃|饭|奶茶|蛋糕|好吃|饿/, ["陈奕恒：给我也尝一口！😋", "陈浚铭：你又背着我吃好吃的！", "张桂源：看着就香哈哈哈"]],
+                    [/累|困|睡|熬夜|辛苦/, ["陈浚铭：辛苦啦，早点休息。", "陈奕恒：别太累了！", "杨博文：劳逸结合啊"]],
+                    [/雪|下雨|天气|冷|热|太阳/, ["官俊臣：我也想出去玩！", "陈浚铭：这天气真的绝了😁", "张函瑞：记得穿暖和点～"]],
+                    [/帅|美|漂亮|自拍|照片|拍照/, ["陈奕恒：拍得不错嘛😎", "张桂源：这不得多发几张？", "左奇函：很会拍💅"]],
+                    [/想你|想念|喜欢|爱/, ["陈浚铭：突然这么煽情啊🥹", "陈奕恒：谁呀谁呀，展开说说！", "张函瑞：嘿嘿嘿～"]],
+                  ];
+                  const matching = keywordReplies.find(([pattern]) => pattern.test(draftPost));
+                  const pool = matching?.[1] || [
+                    "陈奕恒：哈哈哈哈哈哈😂",
+                    "陈浚铭：你这条我必须评论一下😁",
+                    "杨博文：？展开讲讲",
+                    "张桂源：笑死我了哈哈哈",
+                    "张函瑞：好可爱！",
+                    "王橹杰：哈哈哈哈",
+                    "官俊臣：带我一个！",
+                    "左奇函：有点东西💅",
+                    "陈思罕：👍",
+                  ];
+                  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+                  const chosen = shuffled.slice(0, 1 + Math.floor(Math.random() * 2));
+                  const event: Item = {
+                    id: "wechat-moment-user-" + Date.now(),
+                    title: (p.owner || "我") + "的朋友圈",
+                    body: draftPost.trim(),
+                    richText: "",
+                    meta: { source: "用户发布" },
+                    time,
+                    sender: p.owner || "我",
+                    avatar: "",
+                    kind: "post",
+                    media: draftImage,
+                    hidden: false,
+                    unlock: "",
+                    password: "",
+                    folder: "朋友圈",
+                    favorite: false,
+                    outgoing: true,
+                    read: true,
+                    likes: 0,
+                    comments: chosen,
+                  };
+                  setSavedMomentPosts((current) => [...current, JSON.stringify(event)]);
+                  setDraftPost("");
+                  setDraftImage("");
+                  setDraftImageName("");
+                  setPostError("");
+                  setComposerOpen(false);
+                }}>发表</button></header>
+                <textarea aria-label="朋友圈文字" placeholder="这一刻的想法…" value={draftPost} onChange={(e) => setDraftPost(e.target.value)} />
+                {draftImage && <div className="wx-moment-image-preview"><img src={draftImage} alt="待发布图片" /><button onClick={() => { setDraftImage(""); setDraftImageName(""); }}>移除图片</button></div>}
+                <label className="wx-moment-image-picker"><ImageIcon size={22} /><span>{draftImageName || "添加图片"}</span><input type="file" accept="image/png,image/jpeg,image/webp,image/gif" onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  if (file.size > 1500000) { setPostError("图片请控制在 1.5MB 以内，再选择一次。"); e.currentTarget.value = ""; return; }
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    const value = typeof reader.result === "string" ? reader.result : "";
+                    if (/^data:image\/(png|jpeg|webp|gif);base64,/.test(value)) { setDraftImage(value); setDraftImageName(file.name); setPostError(""); }
+                    else setPostError("这张图片无法读取，请重新选择。");
+                  };
+                  reader.readAsDataURL(file);
+                }} /></label>
+                {postError && <p className="wx-moment-error">{postError}</p>}
+                <small>发布后会显示在朋友圈；好友评论由本地随机回复规则生成，并非 AI 实时对话。</small>
+              </section>
+            </div>
+          )}
           {!posts.length && <p className="skin-empty">暂无朋友圈动态</p>}
           {p.creator && (
             <button className="phone-add" onClick={p.onAdd}>
@@ -338,24 +628,23 @@ export function WeChatSkin(p: SkinProps) {
                     ),
                 )
                 .map((t) => {
-                  const list = p.items.filter((i) => i.title === t),
-                    last = list.at(-1)!;
+                  const list = p.items.filter((i) => i.title === t).sort((a, b) => a.time.localeCompare(b.time)),
+                    last = list[list.length - 1],
+                    unread = list.filter((item) => !item.read && !item.outgoing && !list.some((reply) => reply.outgoing && reply.time >= item.time));
                   return (
                     <button
                       className="wx-chat-row"
                       key={t}
                       onClick={() => {
-                        setReadThreads((v) => (v.includes(t) ? v : [...v, t]));
+                        list.forEach((item) => p.onRead(item.id));
                         p.onThread(t);
-                        p.onRead(t);
                       }}
                     >
                       <span className="wx-chat-avatar">
-                        <Avatar name={t} src={last.avatar} />
-                        {!readThreads.includes(t) &&
-                          list.some((i) => !i.read) && (
+                        <Avatar name={t} src={last.avatar || p.items.find((i) => i.sender === t)?.avatar || p.items.find((i) => i.title === t)?.avatar} />
+                        {unread.length > 0 && (
                             <b className="wx-unread">
-                              {list.filter((i) => !i.read).length}
+                              {unread.length}
                             </b>
                           )}
                       </span>
@@ -363,7 +652,7 @@ export function WeChatSkin(p: SkinProps) {
                         <strong>{t}</strong>
                         <p>{last.body}</p>
                       </div>
-                      <time>{last.time.slice(-5)}</time>
+                      <time>{last.time.slice(0, 10)}</time>
                     </button>
                   );
                 })}
@@ -371,26 +660,46 @@ export function WeChatSkin(p: SkinProps) {
             </>
           ) : tab === "通讯录" ? (
             <>
-              <div className="wx-section-label">联系人</div>
-              {contacts.map((c) => (
-                <button
-                  key={c}
-                  className="wx-contact"
-                  onClick={() => {
-                    const item = p.items.find((i) => i.sender === c);
-                    if (item) {
-                      p.onThread(item.title);
-                      p.onRead(item.title);
-                    }
-                  }}
-                >
-                  <Avatar
-                    name={c}
-                    src={p.items.find((i) => i.sender === c)?.avatar}
-                  />
-                  {c}
-                </button>
-              ))}
+              <div className="wx-contact-shortcuts">
+                {["新的朋友", "群聊", "标签", "公众号"].map((label, index) => (
+                  <button key={label} className="wx-contact-shortcut" onClick={() => { if (label === "群聊") setUtility("群聊"); }}>
+                    <span>{["＋", "👥", "🏷", "◎"][index]}</span>{label}
+                  </button>
+                ))}
+              </div>
+              {Object.entries(contactGroups)
+                .filter(([, names]) => names.length > 0)
+                .map(([letter, names]) => (
+                  <section className="wx-contact-group" key={letter} id={`wx-contact-${letter}`}>
+                    <div className="wx-section-label">{letter}</div>
+                    {names.map((c) => (
+                      <button
+                        key={c}
+                        className="wx-contact"
+                        onClick={() => {
+                          const item = p.items.find((i) => i.sender === c);
+                          p.onThread(item?.title || c);
+                          p.onRead(item?.title || c);
+                        }}
+                      >
+                        <Avatar
+                          name={c}
+                          src={p.items.find((i) => i.sender === c)?.avatar || p.items.find((i) => i.title === c)?.avatar}
+                        />
+                        {c}
+                      </button>
+                    ))}
+                  </section>
+                ))}
+              <nav className="wx-contact-index" aria-label="通讯录字母索引">
+                {"ABCDEFGHIJKLMNOPQRSTUVWXYZ#".split("").map((letter) => (
+                  <button
+                    key={letter}
+                    disabled={!contactGroups[letter]?.length}
+                    onClick={() => document.getElementById(`wx-contact-${letter}`)?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                  >{letter}</button>
+                ))}
+              </nav>
             </>
           ) : tab === "发现" ? (
             <div className="wx-discover-groups">
@@ -420,7 +729,7 @@ export function WeChatSkin(p: SkinProps) {
           ) : (
             <>
               <div className="wx-profile">
-                <Avatar name={p.owner || "机主"} />
+                <Avatar name={p.owner || "机主"} src={p.owner === "陈浚铭" ? "./IMG_4390.jpeg" : ""} />
                 <div>
                   <h2>{p.owner || "机主"}</h2>
                   <small>微信号：未设置</small>
@@ -480,6 +789,53 @@ export function WeChatSkin(p: SkinProps) {
               )}
             </>
           )}
+        </div>
+      )}
+      {p.thread && plusMenu && (
+        <div className="wx-plus-panel" role="dialog" aria-label="聊天更多功能">
+          <button onClick={() => { setPlusMenu(false); setFinanceMode("gift"); }}><span className="wx-plus-icon gift"><Gift size={22} /></span><small>礼物</small></button>
+          <button onClick={() => { setPlusMenu(false); setFinanceMode("transfer"); }}><span className="wx-plus-icon transfer"><Wallet size={22} /></span><small>转账</small></button>
+        </div>
+      )}
+      {financeMode === "transfer" && (
+        <div className="wx-finance-backdrop" role="presentation" onClick={() => setFinanceMode("")}>
+          <section className="wx-finance-sheet" role="dialog" aria-label="微信转账" onClick={(e) => e.stopPropagation()}>
+            <button className="wx-finance-close" aria-label="关闭" onClick={() => setFinanceMode("")}><X size={19} /></button>
+            <div className="wx-finance-heading"><Wallet size={25} /><h2>转账给 {p.thread}</h2></div>
+            <p className="wx-finance-label">转账金额（人民币）</p>
+            <label className="wx-transfer-input"><span>¥</span><input inputMode="decimal" type="number" min="0.01" step="0.01" placeholder="0.00" value={transferAmount} onChange={(e) => setTransferAmount(e.target.value)} /></label>
+            <div className="wx-balance-note">模拟银行卡余额：¥{bankBalance.toLocaleString("zh-CN", {minimumFractionDigits:2, maximumFractionDigits:2})}</div>
+            <button className="wx-finance-primary" disabled={!Number.isFinite(Number(transferAmount)) || Number(transferAmount) <= 0 || Number(transferAmount) > bankBalance} onClick={() => {
+              const amount = Math.round(Number(transferAmount) * 100) / 100;
+              const stamp = new Date();
+              const time = stamp.getFullYear() + "-" + String(stamp.getMonth()+1).padStart(2,"0") + "-" + String(stamp.getDate()).padStart(2,"0") + " " + String(stamp.getHours()).padStart(2,"0") + ":" + String(stamp.getMinutes()).padStart(2,"0");
+              const event: Item = { id: "wechat-transfer-" + Date.now(), title: p.thread, body: amount.toFixed(2), richText: "", meta: { transactionType: "微信转账", status: "待对方确认", amount: "-¥" + amount.toFixed(2), recipient: p.thread, source: "模拟银行卡" }, time, sender: "我", avatar: "", kind: "transfer", media: "", hidden: false, unlock: "", password: "", folder: p.thread, favorite: false, outgoing: true, read: true, likes: 0, comments: [] };
+              setBankBalance((v) => Math.round((v - amount) * 100) / 100);
+              setFinanceMessages((v) => [...v, event]);
+              setTransferAmount("");
+              setFinanceMode("");
+            }}>确认转账（模拟）</button>
+            <small className="wx-finance-disclaimer">仅为模拟器内的虚拟转账，不会真实扣款。</small>
+          </section>
+        </div>
+      )}
+      {financeMode === "gift" && (
+        <div className="wx-finance-backdrop" role="presentation" onClick={() => setFinanceMode("")}>
+          <section className="wx-finance-sheet wx-gift-sheet" role="dialog" aria-label="挑选礼物" onClick={(e) => e.stopPropagation()}>
+            <button className="wx-finance-close" aria-label="关闭" onClick={() => setFinanceMode("")}><X size={19} /></button>
+            <div className="wx-finance-heading"><Gift size={25} /><h2>送给 {p.thread} 的礼物</h2></div>
+            <p className="wx-gift-intro">先选择礼物，后续可接入淘宝购买和送达流程。</p>
+            {[{name:"鲜花礼盒",price:199,emoji:"💐"},{name:"巧克力礼盒",price:128,emoji:"🍫"},{name:"毛绒玩偶",price:168,emoji:"🧸"},{name:"惊喜礼物盒",price:299,emoji:"🎁"}].map((gift) => (
+              <button className="wx-gift-row" key={gift.name} onClick={() => {
+                const stamp = new Date();
+                const time = stamp.getFullYear() + "-" + String(stamp.getMonth()+1).padStart(2,"0") + "-" + String(stamp.getDate()).padStart(2,"0") + " " + String(stamp.getHours()).padStart(2,"0") + ":" + String(stamp.getMinutes()).padStart(2,"0");
+                const event: Item = { id: "wechat-gift-" + Date.now(), title: p.thread, body: "我想送你一个" + gift.name + "（¥" + gift.price + "）", richText: "", meta: { transactionType: "礼物", giftName: gift.name, giftPrice: String(gift.price), recipient: p.thread, status: "待前往淘宝购买" }, time, sender: "我", avatar: "", kind: "order", media: "", hidden: false, unlock: "", password: "", folder: p.thread, favorite: false, outgoing: true, read: true, likes: 0, comments: [] };
+                setFinanceMessages((v) => [...v, event]);
+                setFinanceMode("");
+              }}><span className="wx-gift-emoji">{gift.emoji}</span><span><strong>{gift.name}</strong><small>¥{gift.price} · 模拟商品</small></span><span className="wx-gift-arrow">›</span></button>
+            ))}
+            <small className="wx-finance-disclaimer">当前是礼物挑选预览，尚未跳转淘宝或创建订单。</small>
+          </section>
         </div>
       )}
       {!p.thread && !moments && !utility && (
@@ -926,7 +1282,7 @@ export function InstagramSkin(p: SkinProps) {
         ) : (
           <>
             <div className="ig-profile">
-              <Avatar name={posts[0]?.sender ?? "我"} round />
+              <Avatar name={posts[0]?.sender ?? "我"} src={posts[0]?.sender === "陈浚铭" ? "./IMG_4399.jpeg" : ""} round />
               <div>
                 <strong>{posts.length}</strong>
                 <small>帖子</small>
