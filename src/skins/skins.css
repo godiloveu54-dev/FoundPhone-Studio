@@ -3579,6 +3579,18 @@
   gap: 11px 9px;
   padding: 13px 9px;
 }
+.taobao-load-more {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 42px;
+  margin: 8px 0 18px;
+  border: 1px solid #e6a23c;
+  border-radius: 10px;
+  background: #fff7e8;
+  color: #9a5b00;
+  font-size: 14px;
+  font-weight: 600;
+}
 .taobao-products > button {
   display: block;
   text-align: left;
