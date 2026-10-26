@@ -242,7 +242,11 @@ export function WeChatSkin(p: SkinProps) {
         .filter((i) => !["朋友圈", "我"].includes(i.folder))
         .map((i) => i.title),
     ),
-  ];
+  ].sort((a, b) => {
+    const latestA = allChatItems.filter((i) => i.title === a).reduce((latest, i) => i.time > latest ? i.time : latest, "");
+    const latestB = allChatItems.filter((i) => i.title === b).reduce((latest, i) => i.time > latest ? i.time : latest, "");
+    return latestB.localeCompare(latestA);
+  });
   // 固定通讯录名单按微信常见的拼音首字母分组；额外配置在聊天记录里的联系人也会保留。
   const preferredContacts = [
     "爸爸", "陈浚铭", "陈思罕", "陈奕恒", "哥哥", "官俊臣", "李煜东",
@@ -462,6 +466,11 @@ export function WeChatSkin(p: SkinProps) {
               <p>以上为已配置的群成员。聊天记录可后续继续添加。</p>
             </section>
           )}
+          {p.thread === "四代同堂" && !p.creator && (
+            <div className="wx-quick-replies">
+              <button onClick={() => p.onReply(p.thread!, "收到")}>收到</button>
+            </div>
+          )}
           <Compose creator={p.creator} onAdd={p.onAdd} onPlus={() => setPlusMenu((v) => !v)} />
         </>
       ) : moments ? (
@@ -593,8 +602,8 @@ export function WeChatSkin(p: SkinProps) {
                     ),
                 )
                 .map((t) => {
-                  const list = p.items.filter((i) => i.title === t),
-                    last = list.at(-1)!;
+                  const list = p.items.filter((i) => i.title === t).sort((a, b) => b.time.localeCompare(a.time)),
+                    last = list[0];
                   return (
                     <button
                       className="wx-chat-row"
