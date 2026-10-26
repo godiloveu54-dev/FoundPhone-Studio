@@ -104,7 +104,8 @@ export function Avatar({
     "王橹杰": "./IMG_4396.jpeg",
   };
   const normalizedName = name.replace(/^TF家族[-·]/, "").replace(/Jonathan|chen$/i, "").trim();
-  const image = safeMedia(src || avatarByName[normalizedName] || "");
+  const fallbackAvatar = Object.entries(avatarByName).find(([person]) => normalizedName.includes(person))?.[1] || "";
+  const image = safeMedia(src || avatarByName[normalizedName] || fallbackAvatar);
   return (
     <span className={`catalog-avatar ${round ? "round" : ""}`}>
       {image && /^(data:image\/|https?:\/\/|\.\.?\/)/.test(image) ? (
