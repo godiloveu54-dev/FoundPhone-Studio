@@ -89,16 +89,124 @@
   ],
   "contacts": [
     {
-      "id": "test-contact",
-      "name": "测试联系人",
-      "phone": "",
-      "bio": "这是一条测试内容。"
+      "id": "contact-001",
+      "title": "爸爸",
+      "body": "",
+      "sender": "爸爸",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "爸爸",
+        "phone": "",
+        "relationship": "家人"
+      }
     },
     {
-      "id": "chen-yiheng",
-      "name": "陈奕恒",
-      "phone": "",
-      "bio": "喜欢篮球、分享日常和发语音。"
+      "id": "contact-002",
+      "title": "妈妈",
+      "body": "",
+      "sender": "妈妈",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "妈妈",
+        "phone": "",
+        "relationship": "家人"
+      }
+    },
+    {
+      "id": "contact-003",
+      "title": "哥哥",
+      "body": "",
+      "sender": "哥哥",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "哥哥",
+        "phone": "",
+        "relationship": "家人"
+      }
+    },
+    {
+      "id": "contact-004",
+      "title": "陈奕恒",
+      "body": "",
+      "sender": "陈奕恒",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "陈奕恒",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-005",
+      "title": "张桂源",
+      "body": "",
+      "sender": "张桂源",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "张桂源",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-006",
+      "title": "杨博文",
+      "body": "",
+      "sender": "杨博文",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "杨博文",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-007",
+      "title": "左奇函",
+      "body": "",
+      "sender": "左奇函",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "左奇函",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-008",
+      "title": "杨涵博",
+      "body": "",
+      "sender": "杨涵博",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "杨涵博",
+        "phone": "",
+        "relationship": "朋友"
+      }
     }
   ],
   "chats": [
@@ -2075,12 +2183,124 @@
     ],
     "contacts": [
       {
-        "id": "test-item-contacts",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
+        "id": "contact-001",
+        "title": "爸爸",
+        "body": "",
+        "sender": "爸爸",
         "kind": "text",
-        "meta": {}
+        "time": "2026-10-26 08:00",
+        "avatar": "",
+        "folder": "通讯录",
+        "meta": {
+          "name": "爸爸",
+          "phone": "",
+          "relationship": "家人"
+        }
+      },
+      {
+        "id": "contact-002",
+        "title": "妈妈",
+        "body": "",
+        "sender": "妈妈",
+        "kind": "text",
+        "time": "2026-10-26 08:00",
+        "avatar": "",
+        "folder": "通讯录",
+        "meta": {
+          "name": "妈妈",
+          "phone": "",
+          "relationship": "家人"
+        }
+      },
+      {
+        "id": "contact-003",
+        "title": "哥哥",
+        "body": "",
+        "sender": "哥哥",
+        "kind": "text",
+        "time": "2026-10-26 08:00",
+        "avatar": "",
+        "folder": "通讯录",
+        "meta": {
+          "name": "哥哥",
+          "phone": "",
+          "relationship": "家人"
+        }
+      },
+      {
+        "id": "contact-004",
+        "title": "陈奕恒",
+        "body": "",
+        "sender": "陈奕恒",
+        "kind": "text",
+        "time": "2026-10-26 08:00",
+        "avatar": "",
+        "folder": "通讯录",
+        "meta": {
+          "name": "陈奕恒",
+          "phone": "",
+          "relationship": "朋友"
+        }
+      },
+      {
+        "id": "contact-005",
+        "title": "张桂源",
+        "body": "",
+        "sender": "张桂源",
+        "kind": "text",
+        "time": "2026-10-26 08:00",
+        "avatar": "",
+        "folder": "通讯录",
+        "meta": {
+          "name": "张桂源",
+          "phone": "",
+          "relationship": "朋友"
+        }
+      },
+      {
+        "id": "contact-006",
+        "title": "杨博文",
+        "body": "",
+        "sender": "杨博文",
+        "kind": "text",
+        "time": "2026-10-26 08:00",
+        "avatar": "",
+        "folder": "通讯录",
+        "meta": {
+          "name": "杨博文",
+          "phone": "",
+          "relationship": "朋友"
+        }
+      },
+      {
+        "id": "contact-007",
+        "title": "左奇函",
+        "body": "",
+        "sender": "左奇函",
+        "kind": "text",
+        "time": "2026-10-26 08:00",
+        "avatar": "",
+        "folder": "通讯录",
+        "meta": {
+          "name": "左奇函",
+          "phone": "",
+          "relationship": "朋友"
+        }
+      },
+      {
+        "id": "contact-008",
+        "title": "杨涵博",
+        "body": "",
+        "sender": "杨涵博",
+        "kind": "text",
+        "time": "2026-10-26 08:00",
+        "avatar": "",
+        "folder": "通讯录",
+        "meta": {
+          "name": "杨涵博",
+          "phone": "",
+          "relationship": "朋友"
+        }
       }
     ],
     "photos": [
