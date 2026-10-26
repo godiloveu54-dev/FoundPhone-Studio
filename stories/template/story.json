@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "恒铭 iPhone 模拟器",
   "description": "陈浚铭的 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容。",
-  "revision": 29,
+  "revision": 30,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -1096,7 +1096,7 @@
           "id": "cyh-user-canonical-001",
           "title": "陈奕恒",
           "time": "2023-08-23",
-          "senderId": "system",
+          "senderId": "微信系统",
           "kind": "event",
           "body": "我们已经是好友啦～现在可以开始聊天了。"
         },
@@ -1437,6 +1437,14 @@
           "body": "太好了我就知道你懂我 我也是这样想的😆😆😊☺️☺️"
         },
         {
+          "id": "cyh-calllog-1",
+          "title": "陈奕恒",
+          "time": "2025-01-23",
+          "senderId": "owner",
+          "kind": "call",
+          "body": "语音通话 已结束 13:22"
+        },
+        {
           "id": "cyh-user-canonical-044",
           "title": "陈奕恒",
           "time": "2025-02-01",
@@ -1623,6 +1631,14 @@
           "senderId": "chen-yiheng",
           "kind": "text",
           "body": "🥳"
+        },
+        {
+          "id": "cyh-calllog-2",
+          "title": "陈奕恒",
+          "time": "2025-03-16",
+          "senderId": "owner",
+          "kind": "call",
+          "body": "视频通话 已结束 08:46"
         },
         {
           "id": "cyh-user-canonical-067",
@@ -1929,6 +1945,14 @@
           "body": "生日快乐\n希望你每天都开心😊😊"
         },
         {
+          "id": "cyh-calllog-3",
+          "title": "陈奕恒",
+          "time": "2025-05-22",
+          "senderId": "owner",
+          "kind": "call",
+          "body": "语音通话 已结束 16:03"
+        },
+        {
           "id": "cyh-user-canonical-105",
           "title": "陈奕恒",
           "time": "2025-06-03",
@@ -2015,6 +2039,14 @@
           "senderId": "chen-yiheng",
           "kind": "text",
           "body": "哈哈哈哈哈哈\n这还差不多"
+        },
+        {
+          "id": "cyh-calllog-4",
+          "title": "陈奕恒",
+          "time": "2025-07-26",
+          "senderId": "owner",
+          "kind": "call",
+          "body": "视频通话 已结束 06:18"
         },
         {
           "id": "cyh-user-canonical-116",
@@ -2392,7 +2424,7 @@
           "id": "cyh-user-canonical-162",
           "title": "陈奕恒",
           "time": "2025-12-10",
-          "senderId": "system",
+          "senderId": "微信系统",
           "kind": "call",
           "body": "陈奕恒和陈浚铭深夜语音通话了四个小时"
         },
@@ -2437,10 +2469,18 @@
           "body": "陈奕恒老师，加油"
         },
         {
+          "id": "cyh-calllog-5",
+          "title": "陈奕恒",
+          "time": "2026-01-18",
+          "senderId": "owner",
+          "kind": "call",
+          "body": "语音通话 已结束 05:39"
+        },
+        {
           "id": "cyh-user-canonical-168",
           "title": "陈奕恒",
           "time": "2026-01-23",
-          "senderId": "system",
+          "senderId": "微信系统",
           "kind": "call",
           "body": "陈奕恒和陈浚铭语音通话五小时"
         },
@@ -2483,6 +2523,14 @@
           "senderId": "chen-yiheng",
           "kind": "text",
           "body": "everything will be ok"
+        },
+        {
+          "id": "cyh-calllog-6",
+          "title": "陈奕恒",
+          "time": "2026-02-02",
+          "senderId": "owner",
+          "kind": "call",
+          "body": "视频通话 已结束 11:24"
         },
         {
           "id": "cyh-user-canonical-174",
@@ -2531,6 +2579,14 @@
           "senderId": "owner",
           "kind": "text",
           "body": "哈哈哈哈哈哈"
+        },
+        {
+          "id": "cyh-calllog-7",
+          "title": "陈奕恒",
+          "time": "2026-04-12",
+          "senderId": "owner",
+          "kind": "call",
+          "body": "语音通话 已结束 09:52"
         },
         {
           "id": "cyh-user-canonical-180",
@@ -2648,7 +2704,7 @@
           "id": "cyh-user-canonical-194",
           "title": "陈奕恒",
           "time": "2026-05-23",
-          "senderId": "system",
+          "senderId": "微信系统",
           "kind": "call",
           "body": "语音通话两小时"
         },
@@ -2717,6 +2773,14 @@
           "body": "哈哈哈哈哈哈哈哈"
         },
         {
+          "id": "cyh-calllog-8",
+          "title": "陈奕恒",
+          "time": "2026-06-28",
+          "senderId": "owner",
+          "kind": "call",
+          "body": "视频通话 已结束 07:18"
+        },
+        {
           "id": "cyh-user-canonical-203",
           "title": "陈奕恒",
           "time": "2026-07-17",
@@ -2739,6 +2803,14 @@
           "senderId": "chen-yiheng",
           "kind": "text",
           "body": "哈哈哈哈我也没想到 时间过得好快啊😎"
+        },
+        {
+          "id": "cyh-calllog-9",
+          "title": "陈奕恒",
+          "time": "2026-09-04",
+          "senderId": "owner",
+          "kind": "call",
+          "body": "语音通话 已结束 14:06"
         }
       ]
     },
