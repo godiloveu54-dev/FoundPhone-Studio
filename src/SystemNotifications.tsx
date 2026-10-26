@@ -8,7 +8,7 @@ export function notificationContent(text: string, apps: Work["apps"]) {
   const sender = separator > 0 ? text.slice(0, separator) : "信息";
   const app = apps.find((a) => a.name === sender);
   const rawBody = separator > 0 ? text.slice(separator + 1) : text;
-  const body = rawBody.replace(/\\u2063[a-z0-9-]+\\u2063/g, "").trim();
+  const body = rawBody.replace(/\u2063[a-z0-9-]+\u2063/g, "").trim();
   return {
     title: sender,
     body,
