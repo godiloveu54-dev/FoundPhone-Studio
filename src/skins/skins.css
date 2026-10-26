@@ -4378,3 +4378,83 @@
 .netease-track > button:first-child { min-width: 0; }
 .netease-track > button:first-child > div { min-width: 0; }
 .netease-track strong { display: block; overflow-wrap: anywhere; }
+
+
+/* Weibo demo viral engagement and reply thread */
+.weibo-viral-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 11px 4px;
+  margin: 8px 0 2px;
+  border-top: 1px solid var(--line, #eeeeee);
+  color: var(--muted, #888);
+  font-size: 12px;
+}
+.weibo-viral-stats strong {
+  color: var(--text, #333);
+  font-weight: 650;
+  margin-left: 3px;
+}
+.weibo-comments {
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--surface-2, #f7f7f8);
+}
+.weibo-comment-list p {
+  margin: 0;
+  padding: 7px 0;
+  font-size: 13px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.weibo-comment-list p strong {
+  color: var(--text, #333);
+  font-weight: 650;
+}
+.weibo-comment-list .weibo-author-reply {
+  margin: 5px 0;
+  padding: 9px 10px;
+  border-radius: 9px;
+  background: var(--surface, #fff);
+  border-left: 3px solid #e66b8c;
+}
+.weibo-reply-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+.weibo-reply-form input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--line, #e2e2e2);
+  border-radius: 18px;
+  padding: 9px 12px;
+  background: var(--surface, #fff);
+  color: var(--text, #222);
+  outline: none;
+}
+.weibo-reply-form button {
+  flex: none;
+  border: 0;
+  border-radius: 18px;
+  padding: 0 15px;
+  color: white;
+  background: #e66b8c;
+  font-weight: 600;
+}
+.weibo-quick-reply {
+  display: block;
+  width: 100%;
+  margin-top: 9px;
+  padding: 10px 12px;
+  text-align: left;
+  border: 1px solid #f1b6c8;
+  border-radius: 10px;
+  color: #bd4b70;
+  background: #fff5f8;
+  font-size: 12px;
+  line-height: 1.5;
+}
