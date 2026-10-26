@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "恒铭 iPhone 模拟器",
   "description": "陈浚铭的 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容。",
-  "revision": 33,
+  "revision": 34,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -5734,12 +5734,23 @@
     ],
     "maps": [
       {
-        "id": "test-item-maps",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "maps-chongqing-changjiang-international",
+        "title": "长江国际大厦",
+        "body": "重庆市南岸区南滨路22号长江国际大厦A栋18层",
+        "sender": "地图地点",
+        "time": "2026-10-26",
+        "kind": "event",
+        "folder": "地点",
+        "hidden": false,
+        "meta": {
+          "location": "重庆市南岸区南滨路22号长江国际大厦A栋18层",
+          "status": "南滨路 · 南岸区 · 重庆",
+          "x": "48",
+          "y": "44",
+          "latitude": "29.54236",
+          "longitude": "106.56278",
+          "address": "重庆市南岸区南滨路22号长江国际大厦A栋18层"
+        }
       }
     ],
     "weather": [
