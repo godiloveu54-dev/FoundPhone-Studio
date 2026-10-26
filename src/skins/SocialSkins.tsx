@@ -57,7 +57,7 @@ function Actions({ p, item }: { p: Props; item: Item }) {
 function PostHeader({ item, p }: { item: Item; p: Props }) {
   return (
     <button className="social-author" onClick={() => p.onItem(item)}>
-      <Avatar name={item.sender} />
+      <Avatar name={item.sender} src={item.avatar} />
       <span>
         <strong>{item.sender}</strong>
         <small>{meta(item, "handle", item.time)}</small>
