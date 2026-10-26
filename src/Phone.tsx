@@ -1678,7 +1678,7 @@ function AppContent({
         </div>
       ) : (
         <div
-          className={`phone-content ${app.engine === "social" ? "feed-content" : ""}`}
+          className={`phone-content ${app.engine === "social" ? "feed-content" : ""} ${app.id === "taobao" ? "taobao-catalog-content" : ""}`}
         >
           {app.engine !== "media" && (
             <div className="phone-search">
@@ -1809,22 +1809,19 @@ function AppContent({
             filtered.map((i) => (
               <button
                 key={i.id}
-                className={`record-row ${app.engine === "document" ? "document-row" : ""}`}
+                className={`record-row ${app.engine === "document" ? "document-row" : ""} ${app.id === "taobao" ? "taobao-product-card" : ""}`}
                 onClick={() => read(i)}
               >
                 <div className="record-symbol">
-                  {app.engine === "records" ? (
+                  {app.id === "taobao" ? <span>{String(i.meta?.brand ?? i.sender).slice(0, 1)}</span> : app.engine === "records" ? (
                     <app.icon size={20} />
                   ) : (
                     <span>{i.title.slice(0, 1)}</span>
                   )}
                 </div>
-                <div>
+                <div className="record-main">
                   <strong>{i.title}</strong>
-                  <p>{i.body.split("\n")[0]}</p>
-                  <small>
-                    {i.time} {i.folder && `· ${i.folder}`}
-                  </small>
+                  {app.id === "taobao" ? <><p className="taobao-brand">{String(i.meta?.brand ?? i.sender)} · {String(i.meta?.category ?? i.folder ?? "精选")}</p><b className="taobao-price">¥{Number(i.meta?.price ?? 0).toLocaleString("zh-CN")}</b><small>销量 {Number(i.meta?.sales ?? 0).toLocaleString("zh-CN")} · 评分 {String(i.meta?.rating ?? "4.8")}</small></> : <><p>{i.body.split("\n")[0]}</p><small>{i.time} {i.folder && `· ${i.folder}`}</small></>}
                 </div>
                 {i.password || i.hidden ? (
                   <LockKeyhole size={14} />
