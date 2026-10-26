@@ -1500,6 +1500,8 @@ function AppContent({
               thread={thread}
               onThread={setThread}
               onReply={onReply}
+              onFamilyCardPayment={onFamilyCardPayment}
+              onFamilyCardReply={onFamilyCardReply}
             />
           </Suspense>
         </div>
