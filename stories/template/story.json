@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v3",
   "title": "恒铭 iPhone 模拟器",
   "description": "陈浚铭的 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容。",
-  "revision": 41,
+  "revision": 42,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -12039,6 +12039,346 @@
           "brand": "Apple",
           "price": 11999,
           "category": "数码",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-351",
+        "title": "Air Jordan 1 Low 低帮",
+        "body": "品牌：Nike\n价格：¥999\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 999,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-352",
+        "title": "Air Jordan 3 复古",
+        "body": "品牌：Nike\n价格：¥1,599\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1599,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-353",
+        "title": "Dunk Low 复古配色",
+        "body": "品牌：Nike\n价格：¥1,099\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1099,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-354",
+        "title": "Dunk High 高帮",
+        "body": "品牌：Nike\n价格：¥1,199\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1199,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-355",
+        "title": "Air Force 1 联名款",
+        "body": "品牌：Nike\n价格：¥1,599\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1599,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-356",
+        "title": "Air Max 1 复古",
+        "body": "品牌：Nike\n价格：¥1,099\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1099,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-357",
+        "title": "Air Max 90 经典",
+        "body": "品牌：Nike\n价格：¥1,099\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1099,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-358",
+        "title": "VaporMax Plus",
+        "body": "品牌：Nike\n价格：¥1,599\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1599,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-359",
+        "title": "GT Cut 3 篮球鞋",
+        "body": "品牌：Nike\n价格：¥1,399\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1399,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-360",
+        "title": "LeBron 21 篮球鞋",
+        "body": "品牌：Nike\n价格：¥1,599\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1599,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-361",
+        "title": "Kobe 8 复刻",
+        "body": "品牌：Nike\n价格：¥1,899\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1899,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-362",
+        "title": "KD 17 篮球鞋",
+        "body": "品牌：Nike\n价格：¥1,299\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1299,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-363",
+        "title": "Alphafly 3 竞速跑鞋",
+        "body": "品牌：Nike\n价格：¥2,899\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 2899,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-364",
+        "title": "Pegasus 41 缓震跑鞋",
+        "body": "品牌：Nike\n价格：¥1,099\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1099,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-365",
+        "title": "Invincible 3 缓震跑鞋",
+        "body": "品牌：Nike\n价格：¥1,499\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1499,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-366",
+        "title": "Mercurial 足球鞋 高端",
+        "body": "品牌：Nike\n价格：¥2,299\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 2299,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-367",
+        "title": "Phantom 足球鞋",
+        "body": "品牌：Nike\n价格：¥1,899\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1899,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-368",
+        "title": "Tiempo 足球鞋",
+        "body": "品牌：Nike\n价格：¥1,699\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1699,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-369",
+        "title": "Dri-FIT 运动T恤",
+        "body": "品牌：Nike\n价格：¥299\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 299,
+          "category": "运动鞋服",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-370",
+        "title": "运动袜 3双装",
+        "body": "品牌：Nike\n价格：¥129\n类目：运动鞋服\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 129,
+          "category": "运动鞋服",
           "stock": 20,
           "sales": 500,
           "rating": 4.8,
