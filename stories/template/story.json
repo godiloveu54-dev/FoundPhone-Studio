@@ -10,11 +10,12 @@
     "time": "09:41",
     "battery": 94,
     "network": "5G",
-    "wallpaper": "apple-wwdc26",
+    "wallpaper": "custom-IMG_4388",
     "deviceName": "陈太帅的手坤",
     "iosVersion": "27.0.1",
     "modelName": "iPhone 17 Pro Max",
-    "photoCount": 25
+    "photoCount": 4,
+    "wallpaperImage": "./IMG_4388.jpeg"
   },
   "installedApps": [
     "appstore",
@@ -144,7 +145,7 @@
       "sender": "陈奕恒",
       "kind": "text",
       "time": "2026-10-26 08:00",
-      "avatar": "",
+      "avatar": "./IMG_4398.jpeg",
       "folder": "通讯录",
       "meta": {
         "name": "陈奕恒",
@@ -159,7 +160,7 @@
       "sender": "张桂源",
       "kind": "text",
       "time": "2026-10-26 08:00",
-      "avatar": "",
+      "avatar": "./IMG_4391.jpeg",
       "folder": "通讯录",
       "meta": {
         "name": "张桂源",
@@ -174,7 +175,7 @@
       "sender": "杨博文",
       "kind": "text",
       "time": "2026-10-26 08:00",
-      "avatar": "",
+      "avatar": "./IMG_4394.jpeg",
       "folder": "通讯录",
       "meta": {
         "name": "杨博文",
@@ -189,7 +190,7 @@
       "sender": "左奇函",
       "kind": "text",
       "time": "2026-10-26 08:00",
-      "avatar": "",
+      "avatar": "./IMG_4392.jpeg",
       "folder": "通讯录",
       "meta": {
         "name": "左奇函",
@@ -2510,7 +2511,7 @@
         "sender": "陈奕恒",
         "kind": "text",
         "time": "2026-10-26 08:00",
-        "avatar": "",
+        "avatar": "./IMG_4398.jpeg",
         "folder": "通讯录",
         "meta": {
           "name": "陈奕恒",
@@ -2525,7 +2526,7 @@
         "sender": "张桂源",
         "kind": "text",
         "time": "2026-10-26 08:00",
-        "avatar": "",
+        "avatar": "./IMG_4391.jpeg",
         "folder": "通讯录",
         "meta": {
           "name": "张桂源",
@@ -2540,7 +2541,7 @@
         "sender": "杨博文",
         "kind": "text",
         "time": "2026-10-26 08:00",
-        "avatar": "",
+        "avatar": "./IMG_4394.jpeg",
         "folder": "通讯录",
         "meta": {
           "name": "杨博文",
@@ -2555,7 +2556,7 @@
         "sender": "左奇函",
         "kind": "text",
         "time": "2026-10-26 08:00",
-        "avatar": "",
+        "avatar": "./IMG_4392.jpeg",
         "folder": "通讯录",
         "meta": {
           "name": "左奇函",
@@ -2581,12 +2582,60 @@
     ],
     "photos": [
       {
-        "id": "test-item-photos",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "gallery-IMG_4401",
+        "title": "IMG_4401",
+        "body": "",
+        "sender": "陈浚铭",
+        "time": "2026-10-26 09:00",
+        "kind": "image",
+        "media": "./IMG_4401.jpeg",
+        "avatar": "",
+        "folder": "图库",
+        "meta": {
+          "album": "最近项目"
+        }
+      },
+      {
+        "id": "gallery-IMG_4402",
+        "title": "IMG_4402",
+        "body": "",
+        "sender": "陈浚铭",
+        "time": "2026-10-26 09:01",
+        "kind": "image",
+        "media": "./IMG_4402.jpeg",
+        "avatar": "",
+        "folder": "图库",
+        "meta": {
+          "album": "最近项目"
+        }
+      },
+      {
+        "id": "gallery-IMG_4404",
+        "title": "IMG_4404",
+        "body": "",
+        "sender": "陈浚铭",
+        "time": "2026-10-26 09:02",
+        "kind": "image",
+        "media": "./IMG_4404.jpeg",
+        "avatar": "",
+        "folder": "图库",
+        "meta": {
+          "album": "最近项目"
+        }
+      },
+      {
+        "id": "gallery-IMG_4403",
+        "title": "IMG_4403",
+        "body": "",
+        "sender": "陈浚铭",
+        "time": "2026-10-26 09:03",
+        "kind": "image",
+        "media": "./IMG_4403.jpeg",
+        "avatar": "",
+        "folder": "图库",
+        "meta": {
+          "album": "最近项目"
+        }
       }
     ],
     "camera": [
