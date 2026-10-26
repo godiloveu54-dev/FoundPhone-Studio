@@ -442,8 +442,6 @@ function PhoneRuntime({
         ...(current.messages.wechat ?? []),
       ].some((item) =>
         item.title === thread && /近期准备恢复训练/.test(item.body),
-      ) || (work.data.chats ?? []).some((chat) =>
-        chat.title === thread && chat.messages?.some((item) => /近期准备恢复训练/.test(item.body)),
       );
       if (text === "收到" && (alreadyReplied || !staffNoticeExists)) return;
       const cleanWechat = (current.messages.wechat ?? []).filter((item) => !item.id.startsWith("fourth-gen-ack-"));
