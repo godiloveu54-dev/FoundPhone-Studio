@@ -22,6 +22,8 @@ export const itemSchema = z.object({
       "note",
       "post",
       "event",
+      "product",
+      "music",
     ])
     .default("text"),
   media: z.string().default(""),
