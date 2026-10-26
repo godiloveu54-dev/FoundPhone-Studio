@@ -55,9 +55,13 @@ function Actions({ p, item }: { p: Props; item: Item }) {
   );
 }
 function PostHeader({ item, p }: { item: Item; p: Props }) {
+  const weiboAvatar = item.avatar || (
+    item.sender.includes("陈浚铭") ? "./IMG_4399.jpeg" :
+    item.sender.includes("陈奕恒") ? "./IMG_4398.jpeg" : ""
+  );
   return (
     <button className="social-author" onClick={() => p.onItem(item)}>
-      <Avatar name={item.sender} src={item.avatar} />
+      <Avatar name={item.sender} src={weiboAvatar} />
       <span>
         <strong>{item.sender}</strong>
         <small>{meta(item, "handle", item.time)}</small>
@@ -332,7 +336,7 @@ export function WeiboSkin(p: Props) {
       <div className="catalog-scroll">
         {tab === "我" ? (
           <div className="weibo-profile">
-            <Avatar name={p.owner ?? "我"} />
+            <Avatar name={p.owner ?? "我"} src="./IMG_4399.jpeg" />
             <h2>{p.owner ?? "我"}</h2>
             <span>{allPosts.filter((item) => item.sender === "TF家族-陈浚铭chen").length} 条微博</span>
           </div>
