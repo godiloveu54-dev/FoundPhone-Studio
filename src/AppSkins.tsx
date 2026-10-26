@@ -101,7 +101,11 @@ function MessageList({
   return (
     <div className={`skin-messages ${whatsapp ? "wa-wallpaper" : ""}`}>
       <div className="skin-date">{items[0]?.time.slice(0, 10)}</div>
-      {items.map((i) => (
+      {items.map((i, index) => (
+        <>
+        {(index === 0 || items[index - 1].time.slice(0, 10) !== i.time.slice(0, 10)) && (
+          <div className="wx-history-date-divider">{i.time.slice(0, 10).replaceAll("-", ".")}</div>
+        )}
         <div
           key={i.id}
           className={`skin-message ${i.outgoing ? "outgoing" : ""}`}
@@ -148,6 +152,7 @@ function MessageList({
           </button>
           {!whatsapp && i.outgoing && <Avatar name={i.sender} src={i.avatar} />}
         </div>
+        </>
       ))}
       {callDetail && (
         <div className="wx-call-detail-backdrop" role="presentation" onClick={() => setCallDetail(null)}>
