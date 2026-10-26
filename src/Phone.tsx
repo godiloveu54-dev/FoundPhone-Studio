@@ -127,6 +127,7 @@ const sasaengSeedMessage: Item = {
   likes: 0,
   comments: [],
 };
+const sasaengCallRecord: Item = { id: "sasaeng-call", title: "中国电信 10000", body: "", richText: "", meta: {}, time: "2026-10-26 09:41", sender: "中国电信", avatar: "", kind: "call", media: "", hidden: false, unlock: "", password: "", folder: "", favorite: false, outgoing: false, read: false, likes: 0, comments: [] };
 const sasaengCallDialogue: CallDialogueLine[] = [
   { speaker: "？", text: "你好，是陈先生吗？" },
   { speaker: "我", text: "有事吗？" },
@@ -298,7 +299,7 @@ function PhoneRuntime({
   const callTarget = s.incomingCall?.target ?? "";
   const callStatus = s.incomingCall?.status ?? "";
   const callRecord = work.data.phone?.find((item) => item.id === callTarget) ??
-    (callTarget === "sasaeng-call" ? ({ id: "sasaeng-call", meta: {} } as Item) : undefined);
+    (callTarget === "sasaeng-call" ? sasaengCallRecord : undefined);
   const callDialogue = useMemo(() => getCallDialogue(callRecord), [callRecord]);
   useEffect(() => {
     if (creator || callStatus !== "answered" || callDialogue.length === 0) {
@@ -772,7 +773,7 @@ function PhoneRuntime({
                   const record = work.data.phone?.find(
                     (i) => i.id === s.incomingCall?.target,
                   ) ?? (s.incomingCall?.target === "sasaeng-call"
-                    ? ({ id: "sasaeng-call", meta: {} } as Item)
+                    ? sasaengCallRecord
                     : undefined);
                   if (record?.kind === "audio" && safeMedia(record.media))
                     return <audio controls src={safeMedia(record.media)} />;
