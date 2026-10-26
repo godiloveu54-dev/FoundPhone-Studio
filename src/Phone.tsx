@@ -403,6 +403,21 @@ function PhoneRuntime({
   const handleMessageReply = (thread: string, text: string) => {
     if (creator) return;
     const current = runtimeRef.current;
+    if (thread === "张桂源" && ["解冻了好开心", "不能耍起了呀"].includes(text)) {
+      const outgoing = makeItem({
+        id: `zhang-guiyuan-player-${Date.now()}`,
+        title: thread,
+        body: text,
+        sender: work.phone.owner,
+        time: `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`,
+        outgoing: true,
+      });
+      update({
+        ...current,
+        messages: { ...current.messages, wechat: [...(current.messages.wechat ?? []), outgoing] },
+      });
+      return;
+    }
     if (thread === "四代同堂") {
       const outgoing = makeItem({
         id: `fourth-gen-player-${Date.now()}`,
@@ -438,6 +453,13 @@ function PhoneRuntime({
           });
         }, 650 * (index + 1));
       });
+      window.setTimeout(() => {
+        const latest = runtimeRef.current;
+        update({
+          ...latest,
+          notifications: [...latest.notifications, "张桂源：遭不住了兄弟"],
+        });
+      }, 650 * (members.length + 1));
       return;
     }
     const isSasaengThread =
@@ -565,11 +587,12 @@ function PhoneRuntime({
     });
   const handleNotificationOpen = (text: string) => {
     setPanel("");
-    if (text.includes("TF四代工作群")) {
+    if (text.includes("TF四代工作群") || text.includes("张桂源：遭不住了兄弟")) {
       const current = runtimeRef.current;
+      const targetThread = text.includes("遭不住了兄弟") ? "张桂源" : "四代同堂";
       update({
         ...current,
-        ui: { ...current.ui, wechat: { ...current.ui?.wechat, openThread: "四代同堂" } },
+        ui: { ...current.ui, wechat: { ...current.ui?.wechat, openThread: targetThread } },
       });
       if (locked) beginUnlock();
       else open("wechat");
