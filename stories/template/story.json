@@ -334,51 +334,6 @@
       }
     },
     {
-      "id": "爸爸",
-      "title": "爸爸",
-      "body": "",
-      "sender": "爸爸",
-      "kind": "text",
-      "time": "2026-10-26 08:00",
-      "avatar": "",
-      "folder": "通讯录",
-      "meta": {
-        "name": "爸爸",
-        "phone": "",
-        "relationship": "联系人"
-      }
-    },
-    {
-      "id": "妈妈",
-      "title": "妈妈",
-      "body": "",
-      "sender": "妈妈",
-      "kind": "text",
-      "time": "2026-10-26 08:00",
-      "avatar": "",
-      "folder": "通讯录",
-      "meta": {
-        "name": "妈妈",
-        "phone": "",
-        "relationship": "联系人"
-      }
-    },
-    {
-      "id": "哥哥",
-      "title": "哥哥",
-      "body": "",
-      "sender": "哥哥",
-      "kind": "text",
-      "time": "2026-10-26 08:00",
-      "avatar": "",
-      "folder": "通讯录",
-      "meta": {
-        "name": "哥哥",
-        "phone": "",
-        "relationship": "联系人"
-      }
-    },
-    {
       "id": "yang-hanbo",
       "title": "杨涵博",
       "body": "",
@@ -2920,13 +2875,13 @@
       "title": "爸爸",
       "participants": [
         "owner",
-        "爸爸"
+        "contact-001"
       ],
       "messages": [
         {
           "id": "baba-2026-10-26-001",
           "time": "2026-10-26",
-          "senderId": "爸爸",
+          "senderId": "contact-001",
           "body": "幺儿 晚上想吃什么？爸爸在买菜",
           "kind": "text"
         },
@@ -2940,7 +2895,7 @@
         {
           "id": "baba-2026-10-26-003",
           "time": "2026-10-26",
-          "senderId": "爸爸",
+          "senderId": "contact-001",
           "body": "要得要得",
           "kind": "text"
         }
@@ -2952,27 +2907,27 @@
       "title": "妈妈",
       "participants": [
         "owner",
-        "妈妈"
+        "contact-002"
       ],
       "messages": [
         {
           "id": "mama-2026-10-26-001",
           "time": "2026-10-26",
-          "senderId": "妈妈",
+          "senderId": "contact-002",
           "body": "乖乖 桌上有给你留的早饭",
           "kind": "text"
         },
         {
           "id": "mama-2026-10-26-002",
           "time": "2026-10-26",
-          "senderId": "妈妈",
+          "senderId": "contact-002",
           "body": "睡醒了记得起来吃呀",
           "kind": "text"
         },
         {
           "id": "mama-2026-10-26-003",
           "time": "2026-10-26",
-          "senderId": "妈妈",
+          "senderId": "contact-002",
           "body": "吃了再睡浚铭",
           "kind": "text"
         },
@@ -2986,7 +2941,7 @@
         {
           "id": "mama-2026-10-26-005",
           "time": "2026-10-26",
-          "senderId": "妈妈",
+          "senderId": "contact-002",
           "body": "宝贝真乖",
           "kind": "text"
         }
@@ -2998,7 +2953,7 @@
       "title": "哥哥",
       "participants": [
         "owner",
-        "哥哥"
+        "contact-003"
       ],
       "messages": [
         {
@@ -3011,7 +2966,7 @@
         {
           "id": "gege-2026-10-25-002",
           "time": "2026-10-25",
-          "senderId": "哥哥",
+          "senderId": "contact-003",
           "body": "不是说下大雪就好了吗",
           "kind": "text"
         },
@@ -3039,14 +2994,14 @@
         {
           "id": "gege-2026-10-25-006",
           "time": "2026-10-25",
-          "senderId": "哥哥",
+          "senderId": "contact-003",
           "body": "…….",
           "kind": "text"
         },
         {
           "id": "gege-2026-10-25-007",
           "time": "2026-10-25",
-          "senderId": "哥哥",
+          "senderId": "contact-003",
           "body": "好",
           "kind": "text"
         }
