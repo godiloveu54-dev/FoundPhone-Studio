@@ -462,6 +462,7 @@ function PhoneRuntime({
         variables: text === "收到"
           ? { ...current.variables, fourthGenAckTriggered: true }
           : current.variables,
+        notifications: current.notifications.filter((notice) => !notice.includes("TF四代工作群") && !notice.includes("四代同堂")),
       });
       if (text !== "收到") return;
       const members = ["张桂源", "左奇函", "陈奕恒", "杨博文", "杨涵博", "官俊臣", "张奕然", "张函瑞", "陈思罕", "魏子宸", "王橹杰", "聂玮辰", "李煜东"];
