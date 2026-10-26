@@ -295,7 +295,7 @@ export function WeChatSkin(p: SkinProps) {
             </button>
             </>
           )}
-          {p.items
+          {utility !== "按日期查找" && p.items
             .filter((i) => i.folder === utility)
             .map((i) => (
               <button
@@ -308,7 +308,7 @@ export function WeChatSkin(p: SkinProps) {
               </button>
             ))}
           {!p.items.some((i) => i.folder === utility) &&
-            utility !== "聊天信息" && <p className="skin-empty">暂无内容</p>}
+            utility !== "聊天信息" && utility !== "按日期查找" && <p className="skin-empty">暂无内容</p>}
         </div>
       ) : p.thread ? (
         <>
