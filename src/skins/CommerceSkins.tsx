@@ -129,7 +129,7 @@ export function TaobaoSkin(p: Props) {
   const list = [...items, ...orderItems]
     .filter((i) =>
       tab === "商品"
-        ? i.folder !== "订单" && i.folder !== "物流" && i.kind === "product"
+        ? i.folder !== "订单" && i.folder !== "物流" && (i.kind === "product" || i.id.startsWith("taobao-product-"))
         : tab === "购物车"
           ? false
           : i.folder === tab,
