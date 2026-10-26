@@ -17,7 +17,7 @@ import {
   Share2,
   ThumbsUp,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Item } from "../schema";
 import {
   Avatar,
@@ -143,7 +143,7 @@ const weiboDemoPosts: Item[] = [
   {
     id: "weibo-demo-chen-junming-20250426",
     title: "陈太师出来打篮球吃饭",
-    body: "哈哈哈哈哈，大家好啊，我是陈太师，今天出来和陈奕恒一起打了篮球吃了饭，大家也要好好吃饭哦，嘻嘻嘻！",
+    body: "哈哈哈哈哈，大家好啊，我是陈太帅，今天出来和陈奕恒一起打了篮球吃了饭，大家也要好好吃饭哦，嘻嘻嘻！",
     sender: "TF家族-陈浚铭chen",
     time: "2025-04-26 22:51",
     folder: "我的",
@@ -262,6 +262,13 @@ export function WeiboSkin(p: Props) {
   const [drafts, setDrafts] = useState<Record<string, string>>({});
   const [replies, setReplies] = useState<Record<string, WeiboReply[]>>({});
   const [quickReplyVisible, setQuickReplyVisible] = useState<string | null>(null);
+  useEffect(() => {
+    const target = p.ui?.["weibo-notification-target"];
+    if (typeof target === "string" && target) {
+      setOpenComments(target);
+      p.onUi?.("weibo-notification-target", "");
+    }
+  }, [p.ui?.["weibo-notification-target"]]);
   const allPosts = [
     ...weiboDemoPosts,
     ...items.filter((item) => !weiboDemoPosts.some((demo) => demo.id === item.id)),
@@ -284,6 +291,10 @@ export function WeiboSkin(p: Props) {
     const next: WeiboReply[] = [{ author: p.owner || "我", text }];
     if (weiboAuthorReplies[item.id]) {
       next.push({ author: item.sender, text: weiboAuthorReplies[item.id], isAuthor: true });
+      const key = "weibo-thread-" + item.id;
+      const previous = Array.isArray(p.ui?.[key]) ? p.ui?.[key] as string[] : [];
+      p.onUi?.(key, [...previous, (p.owner || "我") + "：" + text, item.sender + " · 作者回复：" + weiboAuthorReplies[item.id]]);
+      p.onUi?.("weibo-reply-notification", item.id);
     }
     setReplies((old) => ({ ...old, [item.id]: [...(old[item.id] || []), ...next] }));
     setDrafts((old) => ({ ...old, [item.id]: "" }));
@@ -345,6 +356,11 @@ export function WeiboSkin(p: Props) {
                     {fanComments.map((comment, index) => (
                       <p key={index}><strong>{["小橘灯不熄","浚浚的星球","今天也要开心","银河邮递员","小陈同学","晚风收藏家","柠檬汽水","追光日记","海盐奶盖","心动补给站"][index]}：</strong>{comment}</p>
                     ))}
+                    {(Array.isArray(p.ui?.["weibo-thread-" + i.id]) ? p.ui?.["weibo-thread-" + i.id] as string[] : []).map((entry, index) => {
+                      const split = entry.indexOf("：");
+                      const isAuthor = entry.includes(" · 作者回复：");
+                      return <p className={isAuthor ? "weibo-author-reply" : ""} key={"saved-" + index}><strong>{split >= 0 ? entry.slice(0, split) : "用户"}：</strong>{split >= 0 ? entry.slice(split + 1) : entry}</p>;
+                    })}
                     {thread.map((reply, index) => (
                       <p className={reply.isAuthor ? "weibo-author-reply" : ""} key={`${reply.author}-${index}`}><strong>{reply.author}{reply.isAuthor ? " · 作者回复" : ""}：</strong>{reply.text}</p>
                     ))}
