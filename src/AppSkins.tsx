@@ -1,6 +1,6 @@
 import { NativeComposer } from "./DeviceSystem";
 import { useSkinState } from "./skinState";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import {
   ChevronLeft,
   Plus,
@@ -102,7 +102,7 @@ function MessageList({
     <div className={`skin-messages ${whatsapp ? "wa-wallpaper" : ""}`}>
       <div className="skin-date">{items[0]?.time.slice(0, 10)}</div>
       {items.map((i, index) => (
-        <>
+        <Fragment key={i.id}>
         {(index === 0 || items[index - 1].time.slice(0, 10) !== i.time.slice(0, 10)) && (
           <div className="wx-history-date-divider">{i.time.slice(0, 10).replaceAll("-", ".")}</div>
         )}
@@ -152,7 +152,7 @@ function MessageList({
           </button>
           {!whatsapp && i.outgoing && <Avatar name={i.sender} src={i.avatar} />}
         </div>
-        </>
+        </Fragment>
       ))}
       {callDetail && (
         <div className="wx-call-detail-backdrop" role="presentation" onClick={() => setCallDetail(null)}>
