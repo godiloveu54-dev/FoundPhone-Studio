@@ -5043,6 +5043,2522 @@
           "rating": 4.7,
           "currency": "CNY"
         }
+      },
+      {
+        "id": "taobao-product-151",
+        "title": "浓缩修护精华 50ml",
+        "body": "品牌：La Mer\n价格：¥4,680\n类目：美妆\n库存：160\n销量：2860\n评分：4.9",
+        "sender": "La Mer",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "La Mer",
+          "price": 4680,
+          "category": "美妆",
+          "stock": 160,
+          "sales": 2860,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-152",
+        "title": "精粹水 200ml",
+        "body": "品牌：La Mer\n价格：¥1,680\n类目：美妆\n库存：360\n销量：8640\n评分：4.8",
+        "sender": "La Mer",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "La Mer",
+          "price": 1680,
+          "category": "美妆",
+          "stock": 360,
+          "sales": 8640,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-153",
+        "title": "鎏金晚霜 50ml",
+        "body": "品牌：La Mer\n价格：¥6,800\n类目：美妆\n库存：90\n销量：1680\n评分：4.9",
+        "sender": "La Mer",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "La Mer",
+          "price": 6800,
+          "category": "美妆",
+          "stock": 90,
+          "sales": 1680,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-154",
+        "title": "鱼子精华琼贵面霜 100ml",
+        "body": "品牌：La Prairie\n价格：¥8,800\n类目：美妆\n库存：70\n销量：1240\n评分：4.9",
+        "sender": "La Prairie",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "La Prairie",
+          "price": 8800,
+          "category": "美妆",
+          "stock": 70,
+          "sales": 1240,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-155",
+        "title": "鱼子眼霜 20ml",
+        "body": "品牌：La Prairie\n价格：¥3,680\n类目：美妆\n库存：150\n销量：2680\n评分：4.9",
+        "sender": "La Prairie",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "La Prairie",
+          "price": 3680,
+          "category": "美妆",
+          "stock": 150,
+          "sales": 2680,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-156",
+        "title": "白鱼子精华 30ml",
+        "body": "品牌：La Prairie\n价格：¥6,200\n类目：美妆\n库存：100\n销量：1860\n评分：4.8",
+        "sender": "La Prairie",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "La Prairie",
+          "price": 6200,
+          "category": "美妆",
+          "stock": 100,
+          "sales": 1860,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-157",
+        "title": "铂金晚霜 50ml",
+        "body": "品牌：La Prairie\n价格：¥12,800\n类目：美妆\n库存：40\n销量：620\n评分：4.9",
+        "sender": "La Prairie",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "La Prairie",
+          "price": 12800,
+          "category": "美妆",
+          "stock": 40,
+          "sales": 620,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-158",
+        "title": "小灯泡精华 75ml",
+        "body": "品牌：SK-II\n价格：¥2,180\n类目：美妆\n库存：200\n销量：4680\n评分：4.8",
+        "sender": "SK-II",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "SK-II",
+          "price": 2180,
+          "category": "美妆",
+          "stock": 200,
+          "sales": 4680,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-159",
+        "title": "大红瓶面霜 100g",
+        "body": "品牌：SK-II\n价格：¥1,880\n类目：美妆\n库存：240\n销量：5860\n评分：4.8",
+        "sender": "SK-II",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "SK-II",
+          "price": 1880,
+          "category": "美妆",
+          "stock": 240,
+          "sales": 5860,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-160",
+        "title": "小棕瓶精华 100ml 双瓶",
+        "body": "品牌：Estée Lauder\n价格：¥2,180\n类目：美妆\n库存：260\n销量：6840\n评分：4.8",
+        "sender": "Estée Lauder",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Estée Lauder",
+          "price": 2180,
+          "category": "美妆",
+          "stock": 260,
+          "sales": 6840,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-161",
+        "title": "白金面霜 50ml",
+        "body": "品牌：Estée Lauder\n价格：¥3,680\n类目：美妆\n库存：120\n销量：2260\n评分：4.8",
+        "sender": "Estée Lauder",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Estée Lauder",
+          "price": 3680,
+          "category": "美妆",
+          "stock": 120,
+          "sales": 2260,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-162",
+        "title": "黑钻眼霜 15ml",
+        "body": "品牌：Estée Lauder\n价格：¥2,280\n类目：美妆\n库存：180\n销量：3480\n评分：4.8",
+        "sender": "Estée Lauder",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Estée Lauder",
+          "price": 2280,
+          "category": "美妆",
+          "stock": 180,
+          "sales": 3480,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-163",
+        "title": "菁纯面霜 100ml",
+        "body": "品牌：Lancôme\n价格：¥4,280\n类目：美妆\n库存：140\n销量：2680\n评分：4.8",
+        "sender": "Lancôme",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Lancôme",
+          "price": 4280,
+          "category": "美妆",
+          "stock": 140,
+          "sales": 2680,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-164",
+        "title": "小黑瓶精华 150ml",
+        "body": "品牌：Lancôme\n价格：¥1,980\n类目：美妆\n库存：280\n销量：7240\n评分：4.8",
+        "sender": "Lancôme",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Lancôme",
+          "price": 1980,
+          "category": "美妆",
+          "stock": 280,
+          "sales": 7240,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-165",
+        "title": "菁纯眼霜 20ml",
+        "body": "品牌：Lancôme\n价格：¥1,780\n类目：美妆\n库存：300\n销量：7680\n评分：4.8",
+        "sender": "Lancôme",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Lancôme",
+          "price": 1780,
+          "category": "美妆",
+          "stock": 300,
+          "sales": 7680,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-166",
+        "title": "兰花面霜 50ml",
+        "body": "品牌：Guerlain\n价格：¥5,280\n类目：美妆\n库存：100\n销量：1860\n评分：4.9",
+        "sender": "Guerlain",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Guerlain",
+          "price": 5280,
+          "category": "美妆",
+          "stock": 100,
+          "sales": 1860,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-167",
+        "title": "帝皇蜂姿复原蜜 50ml",
+        "body": "品牌：Guerlain\n价格：¥1,380\n类目：美妆\n库存：340\n销量：8640\n评分：4.8",
+        "sender": "Guerlain",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Guerlain",
+          "price": 1380,
+          "category": "美妆",
+          "stock": 340,
+          "sales": 8640,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-168",
+        "title": "花草水语 限量香水 125ml",
+        "body": "品牌：Guerlain\n价格：¥1,280\n类目：美妆\n库存：300\n销量：6840\n评分：4.7",
+        "sender": "Guerlain",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Guerlain",
+          "price": 1280,
+          "category": "美妆",
+          "stock": 300,
+          "sales": 6840,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-169",
+        "title": "乌木沉香 100ml",
+        "body": "品牌：Tom Ford\n价格：¥3,980\n类目：美妆\n库存：160\n销量：3240\n评分：4.9",
+        "sender": "Tom Ford",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Tom Ford",
+          "price": 3980,
+          "category": "美妆",
+          "stock": 160,
+          "sales": 3240,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-170",
+        "title": "黑管口红 限量",
+        "body": "品牌：Tom Ford\n价格：¥620\n类目：美妆\n库存：420\n销量：9860\n评分：4.8",
+        "sender": "Tom Ford",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Tom Ford",
+          "price": 620,
+          "category": "美妆",
+          "stock": 420,
+          "sales": 9860,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-171",
+        "title": "四色眼影盘 限量",
+        "body": "品牌：Tom Ford\n价格：¥880\n类目：美妆\n库存：280\n销量：5640\n评分：4.8",
+        "sender": "Tom Ford",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "Tom Ford",
+          "price": 880,
+          "category": "美妆",
+          "stock": 280,
+          "sales": 5640,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-172",
+        "title": "Maya 羽绒服 亮面",
+        "body": "品牌：Moncler\n价格：¥21,800\n类目：服饰\n库存：40\n销量：960\n评分：4.8",
+        "sender": "Moncler",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Moncler",
+          "price": 21800,
+          "category": "服饰",
+          "stock": 40,
+          "sales": 960,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-173",
+        "title": "短款羽绒夹克 联名",
+        "body": "品牌：Moncler\n价格：¥15,800\n类目：服饰\n库存：56\n销量：1240\n评分：4.8",
+        "sender": "Moncler",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Moncler",
+          "price": 15800,
+          "category": "服饰",
+          "stock": 56,
+          "sales": 1240,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-174",
+        "title": "针织帽 羊毛",
+        "body": "品牌：Moncler\n价格：¥3,200\n类目：配饰\n库存：180\n销量：4260\n评分：4.7",
+        "sender": "Moncler",
+        "kind": "product",
+        "folder": "配饰",
+        "meta": {
+          "brand": "Moncler",
+          "price": 3200,
+          "category": "配饰",
+          "stock": 180,
+          "sales": 4260,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-175",
+        "title": "Expedition 派克大衣",
+        "body": "品牌：Canada Goose\n价格：¥16,800\n类目：服饰\n库存：48\n销量：1080\n评分：4.8",
+        "sender": "Canada Goose",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Canada Goose",
+          "price": 16800,
+          "category": "服饰",
+          "stock": 48,
+          "sales": 1080,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-176",
+        "title": "飞行员夹克 皮毛领",
+        "body": "品牌：Canada Goose\n价格：¥11,800\n类目：服饰\n库存：66\n销量：1460\n评分：4.7",
+        "sender": "Canada Goose",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Canada Goose",
+          "price": 11800,
+          "category": "服饰",
+          "stock": 66,
+          "sales": 1460,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-177",
+        "title": "101801 驼色大衣",
+        "body": "品牌：Max Mara\n价格：¥39,800\n类目：服饰\n库存：22\n销量：560\n评分：4.9",
+        "sender": "Max Mara",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Max Mara",
+          "price": 39800,
+          "category": "服饰",
+          "stock": 22,
+          "sales": 560,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-178",
+        "title": "泰迪熊大衣 长款",
+        "body": "品牌：Max Mara\n价格：¥32,800\n类目：服饰\n库存：28\n销量：680\n评分：4.9",
+        "sender": "Max Mara",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Max Mara",
+          "price": 32800,
+          "category": "服饰",
+          "stock": 28,
+          "sales": 680,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-179",
+        "title": "羊绒围巾 大号",
+        "body": "品牌：Max Mara\n价格：¥4,800\n类目：配饰\n库存：160\n销量：3240\n评分：4.8",
+        "sender": "Max Mara",
+        "kind": "product",
+        "folder": "配饰",
+        "meta": {
+          "brand": "Max Mara",
+          "price": 4800,
+          "category": "配饰",
+          "stock": 160,
+          "sales": 3240,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-180",
+        "title": "Air Jordan 1 限量联名",
+        "body": "品牌：Nike\n价格：¥4,999\n类目：鞋履\n库存：60\n销量：2380\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Nike",
+          "price": 4999,
+          "category": "鞋履",
+          "stock": 60,
+          "sales": 2380,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-181",
+        "title": "Air Force 1 纯白",
+        "body": "品牌：Nike\n价格：¥999\n类目：鞋履\n库存：480\n销量：26800\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Nike",
+          "price": 999,
+          "category": "鞋履",
+          "stock": 480,
+          "sales": 26800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-182",
+        "title": "限量球鞋 二级市场",
+        "body": "品牌：Nike\n价格：¥8,888\n类目：鞋履\n库存：18\n销量：420\n评分：4.9",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Nike",
+          "price": 8888,
+          "category": "鞋履",
+          "stock": 18,
+          "sales": 420,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-183",
+        "title": "Originals Firebird 运动夹克 黑",
+        "body": "品牌：Adidas\n价格：¥699\n类目：服饰\n库存：420\n销量：12800\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 699,
+          "category": "服饰",
+          "stock": 420,
+          "sales": 12800,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-184",
+        "title": "Originals SST 复古夹克",
+        "body": "品牌：Adidas\n价格：¥799\n类目：服饰\n库存：380\n销量：10600\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 799,
+          "category": "服饰",
+          "stock": 380,
+          "sales": 10600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-185",
+        "title": "三叶草 连帽卫衣 经典",
+        "body": "品牌：Adidas\n价格：¥699\n类目：服饰\n库存：460\n销量：15200\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 699,
+          "category": "服饰",
+          "stock": 460,
+          "sales": 15200,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-186",
+        "title": "三叶草 羊羔绒外套",
+        "body": "品牌：Adidas\n价格：¥1,299\n类目：服饰\n库存：260\n销量：8600\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 1299,
+          "category": "服饰",
+          "stock": 260,
+          "sales": 8600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-187",
+        "title": "Terrex 冲锋衣 防水",
+        "body": "品牌：Adidas\n价格：¥1,899\n类目：服饰\n库存：180\n销量：6200\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 1899,
+          "category": "服饰",
+          "stock": 180,
+          "sales": 6200,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-188",
+        "title": "Terrex 羽绒服 户外",
+        "body": "品牌：Adidas\n价格：¥2,599\n类目：服饰\n库存：140\n销量：4800\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 2599,
+          "category": "服饰",
+          "stock": 140,
+          "sales": 4800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-189",
+        "title": "冬季长款羽绒服 连帽",
+        "body": "品牌：Adidas\n价格：¥1,999\n类目：服饰\n库存：200\n销量：6800\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 1999,
+          "category": "服饰",
+          "stock": 200,
+          "sales": 6800,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-190",
+        "title": "短款羽绒服 轻薄",
+        "body": "品牌：Adidas\n价格：¥1,299\n类目：服饰\n库存：280\n销量：9200\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 1299,
+          "category": "服饰",
+          "stock": 280,
+          "sales": 9200,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-191",
+        "title": "运动棉服 夹克",
+        "body": "品牌：Adidas\n价格：¥899\n类目：服饰\n库存：340\n销量：11200\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 899,
+          "category": "服饰",
+          "stock": 340,
+          "sales": 11200,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-192",
+        "title": "防风夹克 跑步",
+        "body": "品牌：Adidas\n价格：¥599\n类目：服饰\n库存：420\n销量：13400\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 599,
+          "category": "服饰",
+          "stock": 420,
+          "sales": 13400,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-193",
+        "title": "高尔夫 防风外套",
+        "body": "品牌：Adidas\n价格：¥1,199\n类目：服饰\n库存：220\n销量：5600\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 1199,
+          "category": "服饰",
+          "stock": 220,
+          "sales": 5600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-194",
+        "title": "足球 训练外套",
+        "body": "品牌：Adidas\n价格：¥699\n类目：服饰\n库存：380\n销量：9800\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 699,
+          "category": "服饰",
+          "stock": 380,
+          "sales": 9800,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-195",
+        "title": "篮球 连帽夹克",
+        "body": "品牌：Adidas\n价格：¥799\n类目：服饰\n库存：320\n销量：8200\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 799,
+          "category": "服饰",
+          "stock": 320,
+          "sales": 8200,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-196",
+        "title": "Z.N.E. 针织外套",
+        "body": "品牌：Adidas\n价格：¥899\n类目：服饰\n库存：300\n销量：7600\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 899,
+          "category": "服饰",
+          "stock": 300,
+          "sales": 7600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-197",
+        "title": "联名 Gucci 夹克（二级市场）",
+        "body": "品牌：Adidas\n价格：¥12,800\n类目：服饰\n库存：12\n销量：280\n评分：4.9",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 12800,
+          "category": "服饰",
+          "stock": 12,
+          "sales": 280,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-198",
+        "title": "联名 Balenciaga 运动夹克",
+        "body": "品牌：Adidas\n价格：¥9,800\n类目：服饰\n库存：16\n销量：340\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 9800,
+          "category": "服饰",
+          "stock": 16,
+          "sales": 340,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-199",
+        "title": "Y-3 羊毛大衣",
+        "body": "品牌：Adidas\n价格：¥6,800\n类目：服饰\n库存：60\n销量：1240\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 6800,
+          "category": "服饰",
+          "stock": 60,
+          "sales": 1240,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-200",
+        "title": "Y-3 机能夹克",
+        "body": "品牌：Adidas\n价格：¥4,800\n类目：服饰\n库存：90\n销量：1860\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 4800,
+          "category": "服饰",
+          "stock": 90,
+          "sales": 1860,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-201",
+        "title": "Y-3 连帽卫衣",
+        "body": "品牌：Adidas\n价格：¥2,899\n类目：服饰\n库存：120\n销量：2680\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 2899,
+          "category": "服饰",
+          "stock": 120,
+          "sales": 2680,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-202",
+        "title": "by Stella McCartney 风衣",
+        "body": "品牌：Adidas\n价格：¥2,299\n类目：服饰\n库存：140\n销量：3240\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 2299,
+          "category": "服饰",
+          "stock": 140,
+          "sales": 3240,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-203",
+        "title": "Samba 联名 Wales Bonner",
+        "body": "品牌：Adidas\n价格：¥2,899\n类目：鞋履\n库存：60\n销量：1860\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 2899,
+          "category": "鞋履",
+          "stock": 60,
+          "sales": 1860,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-204",
+        "title": "Gazelle Indoor 复古",
+        "body": "品牌：Adidas\n价格：¥999\n类目：鞋履\n库存：380\n销量：16800\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 999,
+          "category": "鞋履",
+          "stock": 380,
+          "sales": 16800,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-205",
+        "title": "Campus 00s 厚底",
+        "body": "品牌：Adidas\n价格：¥899\n类目：鞋履\n库存：420\n销量：18600\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 899,
+          "category": "鞋履",
+          "stock": 420,
+          "sales": 18600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-206",
+        "title": "Superstar 贝壳头 经典",
+        "body": "品牌：Adidas\n价格：¥799\n类目：鞋履\n库存：560\n销量：42800\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 799,
+          "category": "鞋履",
+          "stock": 560,
+          "sales": 42800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-207",
+        "title": "Stan Smith 小白鞋",
+        "body": "品牌：Adidas\n价格：¥699\n类目：鞋履\n库存：620\n销量：48600\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 699,
+          "category": "鞋履",
+          "stock": 620,
+          "sales": 48600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-208",
+        "title": "Yeezy Boost 350 V2",
+        "body": "品牌：Adidas\n价格：¥2,999\n类目：鞋履\n库存：80\n销量：3240\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 2999,
+          "category": "鞋履",
+          "stock": 80,
+          "sales": 3240,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-209",
+        "title": "Yeezy Slide 拖鞋",
+        "body": "品牌：Adidas\n价格：¥899\n类目：鞋履\n库存：260\n销量：12800\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 899,
+          "category": "鞋履",
+          "stock": 260,
+          "sales": 12800,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-210",
+        "title": "Ultraboost Light 跑鞋",
+        "body": "品牌：Adidas\n价格：¥1,599\n类目：鞋履\n库存：240\n销量：8600\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 1599,
+          "category": "鞋履",
+          "stock": 240,
+          "sales": 8600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-211",
+        "title": "Adizero Adios Pro 3 竞速",
+        "body": "品牌：Adidas\n价格：¥2,299\n类目：鞋履\n库存：120\n销量：4200\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 2299,
+          "category": "鞋履",
+          "stock": 120,
+          "sales": 4200,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-212",
+        "title": "Predator 足球鞋 高端",
+        "body": "品牌：Adidas\n价格：¥2,499\n类目：鞋履\n库存：90\n销量：2860\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 2499,
+          "category": "鞋履",
+          "stock": 90,
+          "sales": 2860,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-213",
+        "title": "Harden Vol.8 篮球鞋",
+        "body": "品牌：Adidas\n价格：¥1,399\n类目：鞋履\n库存：160\n销量：5240\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 1399,
+          "category": "鞋履",
+          "stock": 160,
+          "sales": 5240,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-214",
+        "title": "Forum Low 复古板鞋",
+        "body": "品牌：Adidas\n价格：¥899\n类目：鞋履\n库存：340\n销量：12400\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 899,
+          "category": "鞋履",
+          "stock": 340,
+          "sales": 12400,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-215",
+        "title": "NMD R1 经典",
+        "body": "品牌：Adidas\n价格：¥1,199\n类目：鞋履\n库存：220\n销量：7600\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 1199,
+          "category": "鞋履",
+          "stock": 220,
+          "sales": 7600,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-216",
+        "title": "Y-3 联名跑鞋",
+        "body": "品牌：Adidas\n价格：¥3,899\n类目：鞋履\n库存：50\n销量：1240\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 3899,
+          "category": "鞋履",
+          "stock": 50,
+          "sales": 1240,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-217",
+        "title": "三叶草 棒球帽",
+        "body": "品牌：Adidas\n价格：¥299\n类目：配饰\n库存：680\n销量：48600\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "配饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 299,
+          "category": "配饰",
+          "stock": 680,
+          "sales": 48600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-218",
+        "title": "运动双肩包 大容量",
+        "body": "品牌：Adidas\n价格：¥499\n类目：配饰\n库存：420\n销量：26800\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "配饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 499,
+          "category": "配饰",
+          "stock": 420,
+          "sales": 26800,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-219",
+        "title": "瑜伽垫 加厚",
+        "body": "品牌：Adidas\n价格：¥399\n类目：运动\n库存：260\n销量：12400\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "运动",
+        "meta": {
+          "brand": "Adidas",
+          "price": 399,
+          "category": "运动",
+          "stock": 260,
+          "sales": 12400,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-220",
+        "title": "足球 比赛用球",
+        "body": "品牌：Adidas\n价格：¥599\n类目：运动\n库存：180\n销量：8600\n评分：4.7",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "运动",
+        "meta": {
+          "brand": "Adidas",
+          "price": 599,
+          "category": "运动",
+          "stock": 180,
+          "sales": 8600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-221",
+        "title": "篮球 室内外",
+        "body": "品牌：Adidas\n价格：¥299\n类目：运动\n库存：340\n销量：16800\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "运动",
+        "meta": {
+          "brand": "Adidas",
+          "price": 299,
+          "category": "运动",
+          "stock": 340,
+          "sales": 16800,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-222",
+        "title": "运动袜 3双装",
+        "body": "品牌：Adidas\n价格：¥129\n类目：配饰\n库存：880\n销量：68200\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "配饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 129,
+          "category": "配饰",
+          "stock": 880,
+          "sales": 68200,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-223",
+        "title": "三叶草 腰包",
+        "body": "品牌：Adidas\n价格：¥399\n类目：配饰\n库存：480\n销量：32400\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "配饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 399,
+          "category": "配饰",
+          "stock": 480,
+          "sales": 32400,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-224",
+        "title": "训练手套",
+        "body": "品牌：Adidas\n价格：¥199\n类目：运动\n库存：520\n销量：26800\n评分：4.5",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "运动",
+        "meta": {
+          "brand": "Adidas",
+          "price": 199,
+          "category": "运动",
+          "stock": 520,
+          "sales": 26800,
+          "rating": 4.5,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-225",
+        "title": "运动水壶 750ml",
+        "body": "品牌：Adidas\n价格：¥159\n类目：运动\n库存：620\n销量：38600\n评分：4.5",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "运动",
+        "meta": {
+          "brand": "Adidas",
+          "price": 159,
+          "category": "运动",
+          "stock": 620,
+          "sales": 38600,
+          "rating": 4.5,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-226",
+        "title": "三叶草 羊毛围巾",
+        "body": "品牌：Adidas\n价格：¥499\n类目：配饰\n库存：260\n销量：12400\n评分：4.6",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "配饰",
+        "meta": {
+          "brand": "Adidas",
+          "price": 499,
+          "category": "配饰",
+          "stock": 260,
+          "sales": 12400,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-227",
+        "title": "990v6 灰色",
+        "body": "品牌：New Balance\n价格：¥2,399\n类目：鞋履\n库存：160\n销量：6800\n评分：4.8",
+        "sender": "New Balance",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "New Balance",
+          "price": 2399,
+          "category": "鞋履",
+          "stock": 160,
+          "sales": 6800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-228",
+        "title": "2002R 联名",
+        "body": "品牌：New Balance\n价格：¥1,699\n类目：鞋履\n库存：200\n销量：8600\n评分：4.7",
+        "sender": "New Balance",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "New Balance",
+          "price": 1699,
+          "category": "鞋履",
+          "stock": 200,
+          "sales": 8600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-229",
+        "title": "327 系列",
+        "body": "品牌：New Balance\n价格：¥999\n类目：鞋履\n库存：380\n销量：18600\n评分：4.6",
+        "sender": "New Balance",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "New Balance",
+          "price": 999,
+          "category": "鞋履",
+          "stock": 380,
+          "sales": 18600,
+          "rating": 4.6,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-230",
+        "title": "Cloudmonster 2",
+        "body": "品牌：On昂跑\n价格：¥1,890\n类目：鞋履\n库存：140\n销量：5600\n评分：4.8",
+        "sender": "On昂跑",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "On昂跑",
+          "price": 1890,
+          "category": "鞋履",
+          "stock": 140,
+          "sales": 5600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-231",
+        "title": "Cloud 5 跑鞋",
+        "body": "品牌：On昂跑\n价格：¥1,490\n类目：鞋履\n库存：220\n销量：9800\n评分：4.7",
+        "sender": "On昂跑",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "On昂跑",
+          "price": 1490,
+          "category": "鞋履",
+          "stock": 220,
+          "sales": 9800,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-232",
+        "title": "Align 瑜伽裤 25寸",
+        "body": "品牌：Lululemon\n价格：¥1,080\n类目：服饰\n库存：320\n销量：16800\n评分：4.8",
+        "sender": "Lululemon",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Lululemon",
+          "price": 1080,
+          "category": "服饰",
+          "stock": 320,
+          "sales": 16800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-233",
+        "title": "Define 夹克",
+        "body": "品牌：Lululemon\n价格：¥1,280\n类目：服饰\n库存：260\n销量：12400\n评分：4.8",
+        "sender": "Lululemon",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Lululemon",
+          "price": 1280,
+          "category": "服饰",
+          "stock": 260,
+          "sales": 12400,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-234",
+        "title": "瑜伽垫 5mm",
+        "body": "品牌：Lululemon\n价格：¥780\n类目：运动\n库存：180\n销量：8600\n评分：4.7",
+        "sender": "Lululemon",
+        "kind": "product",
+        "folder": "运动",
+        "meta": {
+          "brand": "Lululemon",
+          "price": 780,
+          "category": "运动",
+          "stock": 180,
+          "sales": 8600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-235",
+        "title": "iPhone 15 Pro 512G",
+        "body": "品牌：Apple\n价格：¥11,999\n类目：数码\n库存：80\n销量：18600\n评分：4.8",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 11999,
+          "category": "数码",
+          "stock": 80,
+          "sales": 18600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-236",
+        "title": "iPad Pro 13寸 M4 2TB",
+        "body": "品牌：Apple\n价格：¥19,999\n类目：数码\n库存：30\n销量：4600\n评分：4.9",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 19999,
+          "category": "数码",
+          "stock": 30,
+          "sales": 4600,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-237",
+        "title": "MacBook Pro 16寸 M3 Max",
+        "body": "品牌：Apple\n价格：¥29,999\n类目：数码\n库存：16\n销量：2800\n评分：4.9",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 29999,
+          "category": "数码",
+          "stock": 16,
+          "sales": 2800,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-238",
+        "title": "MacBook Air 15寸 M3",
+        "body": "品牌：Apple\n价格：¥11,999\n类目：数码\n库存：40\n销量：6800\n评分：4.8",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 11999,
+          "category": "数码",
+          "stock": 40,
+          "sales": 6800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-239",
+        "title": "AirPods Pro 2 USB-C",
+        "body": "品牌：Apple\n价格：¥1,899\n类目：数码\n库存：320\n销量：46800\n评分：4.8",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 1899,
+          "category": "数码",
+          "stock": 320,
+          "sales": 46800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-240",
+        "title": "Apple Watch Ultra 2",
+        "body": "品牌：Apple\n价格：¥6,499\n类目：数码\n库存：90\n销量：8600\n评分：4.8",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 6499,
+          "category": "数码",
+          "stock": 90,
+          "sales": 8600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-241",
+        "title": "Vision Pro 256G",
+        "body": "品牌：Apple\n价格：¥29,999\n类目：数码\n库存：8\n销量：860\n评分：4.9",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 29999,
+          "category": "数码",
+          "stock": 8,
+          "sales": 860,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-242",
+        "title": "Mate 60 Pro+ 1TB",
+        "body": "品牌：Huawei\n价格：¥9,999\n类目：数码\n库存：50\n销量：9600\n评分：4.8",
+        "sender": "Huawei",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Huawei",
+          "price": 9999,
+          "category": "数码",
+          "stock": 50,
+          "sales": 9600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-243",
+        "title": "Mate X5 典藏版 1TB",
+        "body": "品牌：Huawei\n价格：¥16,999\n类目：数码\n库存：20\n销量：3200\n评分：4.8",
+        "sender": "Huawei",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Huawei",
+          "price": 16999,
+          "category": "数码",
+          "stock": 20,
+          "sales": 3200,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-244",
+        "title": "非凡大师 手表",
+        "body": "品牌：Huawei\n价格：¥23,999\n类目：数码\n库存：10\n销量：680\n评分：4.9",
+        "sender": "Huawei",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Huawei",
+          "price": 23999,
+          "category": "数码",
+          "stock": 10,
+          "sales": 680,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-245",
+        "title": "问界M9 车模",
+        "body": "品牌：Huawei\n价格：¥1,299\n类目：数码\n库存：180\n销量：8600\n评分：4.7",
+        "sender": "Huawei",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Huawei",
+          "price": 1299,
+          "category": "数码",
+          "stock": 180,
+          "sales": 8600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-246",
+        "title": "14 Ultra 16+1TB",
+        "body": "品牌：Xiaomi\n价格：¥7,999\n类目：数码\n库存：70\n销量：12400\n评分：4.8",
+        "sender": "Xiaomi",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Xiaomi",
+          "price": 7999,
+          "category": "数码",
+          "stock": 70,
+          "sales": 12400,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-247",
+        "title": "MIX Fold 4 16+1TB",
+        "body": "品牌：Xiaomi\n价格：¥9,999\n类目：数码\n库存：40\n销量：5600\n评分：4.7",
+        "sender": "Xiaomi",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Xiaomi",
+          "price": 9999,
+          "category": "数码",
+          "stock": 40,
+          "sales": 5600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-248",
+        "title": "小米电视 大师 77寸 OLED",
+        "body": "品牌：Xiaomi\n价格：¥19,999\n类目：家电\n库存：12\n销量：860\n评分：4.8",
+        "sender": "Xiaomi",
+        "kind": "product",
+        "folder": "家电",
+        "meta": {
+          "brand": "Xiaomi",
+          "price": 19999,
+          "category": "家电",
+          "stock": 12,
+          "sales": 860,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-249",
+        "title": "A7M4 微单 机身",
+        "body": "品牌：Sony\n价格：¥16,999\n类目：数码\n库存：24\n销量：3600\n评分：4.9",
+        "sender": "Sony",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Sony",
+          "price": 16999,
+          "category": "数码",
+          "stock": 24,
+          "sales": 3600,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-250",
+        "title": "A1 旗舰微单",
+        "body": "品牌：Sony\n价格：¥42,999\n类目：数码\n库存：8\n销量：860\n评分：4.9",
+        "sender": "Sony",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Sony",
+          "price": 42999,
+          "category": "数码",
+          "stock": 8,
+          "sales": 860,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-251",
+        "title": "85寸 8K 电视",
+        "body": "品牌：Sony\n价格：¥29,999\n类目：家电\n库存：6\n销量：420\n评分：4.9",
+        "sender": "Sony",
+        "kind": "product",
+        "folder": "家电",
+        "meta": {
+          "brand": "Sony",
+          "price": 29999,
+          "category": "家电",
+          "stock": 6,
+          "sales": 420,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-252",
+        "title": "吹风机 Supersonic 限定色",
+        "body": "品牌：Dyson\n价格：¥3,490\n类目：家电\n库存：120\n销量：8600\n评分：4.8",
+        "sender": "Dyson",
+        "kind": "product",
+        "folder": "家电",
+        "meta": {
+          "brand": "Dyson",
+          "price": 3490,
+          "category": "家电",
+          "stock": 120,
+          "sales": 8600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-253",
+        "title": "V15 Detect 吸尘器",
+        "body": "品牌：Dyson\n价格：¥4,990\n类目：家电\n库存：80\n销量：6200\n评分：4.8",
+        "sender": "Dyson",
+        "kind": "product",
+        "folder": "家电",
+        "meta": {
+          "brand": "Dyson",
+          "price": 4990,
+          "category": "家电",
+          "stock": 80,
+          "sales": 6200,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-254",
+        "title": "空气净化风扇 甲醛版",
+        "body": "品牌：Dyson\n价格：¥5,490\n类目：家电\n库存：60\n销量：4600\n评分：4.8",
+        "sender": "Dyson",
+        "kind": "product",
+        "folder": "家电",
+        "meta": {
+          "brand": "Dyson",
+          "price": 5490,
+          "category": "家电",
+          "stock": 60,
+          "sales": 4600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-255",
+        "title": "Switch OLED 限定款",
+        "body": "品牌：Nintendo\n价格：¥2,499\n类目：数码\n库存：140\n销量：12800\n评分：4.8",
+        "sender": "Nintendo",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Nintendo",
+          "price": 2499,
+          "category": "数码",
+          "stock": 140,
+          "sales": 12800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-256",
+        "title": "PS5 Pro 光驱版",
+        "body": "品牌：Sony PlayStation\n价格：¥5,999\n类目：数码\n库存：40\n销量：6800\n评分：4.8",
+        "sender": "Sony PlayStation",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Sony PlayStation",
+          "price": 5999,
+          "category": "数码",
+          "stock": 40,
+          "sales": 6800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-257",
+        "title": "PS VR2",
+        "body": "品牌：Sony PlayStation\n价格：¥4,499\n类目：数码\n库存：30\n销量：3200\n评分：4.7",
+        "sender": "Sony PlayStation",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Sony PlayStation",
+          "price": 4499,
+          "category": "数码",
+          "stock": 30,
+          "sales": 3200,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-258",
+        "title": "Mavic 3 Pro 畅飞套装",
+        "body": "品牌：DJI\n价格：¥21,999\n类目：数码\n库存：12\n销量：860\n评分：4.9",
+        "sender": "DJI",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "DJI",
+          "price": 21999,
+          "category": "数码",
+          "stock": 12,
+          "sales": 860,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-259",
+        "title": "Mini 4 Pro 长续航",
+        "body": "品牌：DJI\n价格：¥5,988\n类目：数码\n库存：50\n销量：4200\n评分：4.8",
+        "sender": "DJI",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "DJI",
+          "price": 5988,
+          "category": "数码",
+          "stock": 50,
+          "sales": 4200,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-260",
+        "title": "Inspire 3 全画幅",
+        "body": "品牌：DJI\n价格：¥98,000\n类目：数码\n库存：2\n销量：36\n评分：5",
+        "sender": "DJI",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "DJI",
+          "price": 98000,
+          "category": "数码",
+          "stock": 2,
+          "sales": 36,
+          "rating": 5,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-261",
+        "title": "Hero 12 黑",
+        "body": "品牌：GoPro\n价格：¥3,498\n类目：数码\n库存：90\n销量：6800\n评分：4.7",
+        "sender": "GoPro",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "GoPro",
+          "price": 3498,
+          "category": "数码",
+          "stock": 90,
+          "sales": 6800,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-262",
+        "title": "Q3 相机",
+        "body": "品牌：Leica\n价格：¥52,800\n类目：数码\n库存：8\n销量：420\n评分：4.9",
+        "sender": "Leica",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Leica",
+          "price": 52800,
+          "category": "数码",
+          "stock": 8,
+          "sales": 420,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-263",
+        "title": "M11 黑漆",
+        "body": "品牌：Leica\n价格：¥72,000\n类目：数码\n库存：4\n销量：180\n评分：4.9",
+        "sender": "Leica",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Leica",
+          "price": 72000,
+          "category": "数码",
+          "stock": 4,
+          "sales": 180,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-264",
+        "title": "SL3 机身",
+        "body": "品牌：Leica\n价格：¥58,000\n类目：数码\n库存：6\n销量：260\n评分：4.9",
+        "sender": "Leica",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Leica",
+          "price": 58000,
+          "category": "数码",
+          "stock": 6,
+          "sales": 260,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-265",
+        "title": "Noctilux 50mm 镜头",
+        "body": "品牌：Leica\n价格：¥88,000\n类目：数码\n库存：3\n销量：120\n评分：5",
+        "sender": "Leica",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Leica",
+          "price": 88000,
+          "category": "数码",
+          "stock": 3,
+          "sales": 120,
+          "rating": 5,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-266",
+        "title": "MOLLY 经典系列 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥69\n类目：潮玩\n库存：980\n销量：128000\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 69,
+          "category": "潮玩",
+          "stock": 980,
+          "sales": 128000,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-267",
+        "title": "MOLLY 经典系列 盲盒 整盒12个",
+        "body": "品牌：泡泡玛特\n价格：¥828\n类目：潮玩\n库存：320\n销量：28600\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 828,
+          "category": "潮玩",
+          "stock": 320,
+          "sales": 28600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-268",
+        "title": "MOLLY 星座系列 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥69\n类目：潮玩\n库存：860\n销量：98600\n评分：4.7",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 69,
+          "category": "潮玩",
+          "stock": 860,
+          "sales": 98600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-269",
+        "title": "MOLLY 太空系列 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥79\n类目：潮玩\n库存：760\n销量：86400\n评分：4.7",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 79,
+          "category": "潮玩",
+          "stock": 760,
+          "sales": 86400,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-270",
+        "title": "MOLLY 大娃 100%",
+        "body": "品牌：泡泡玛特\n价格：¥399\n类目：潮玩\n库存：420\n销量：16800\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 399,
+          "category": "潮玩",
+          "stock": 420,
+          "sales": 16800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-271",
+        "title": "MOLLY 大娃 400%",
+        "body": "品牌：泡泡玛特\n价格：¥1,299\n类目：潮玩\n库存：180\n销量：6800\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 1299,
+          "category": "潮玩",
+          "stock": 180,
+          "sales": 6800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-272",
+        "title": "MOLLY 大娃 1000%",
+        "body": "品牌：泡泡玛特\n价格：¥4,999\n类目：潮玩\n库存：30\n销量：860\n评分：4.9",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 4999,
+          "category": "潮玩",
+          "stock": 30,
+          "sales": 860,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-273",
+        "title": "DIMOO 动物王国 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥69\n类目：潮玩\n库存：920\n销量：118000\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 69,
+          "category": "潮玩",
+          "stock": 920,
+          "sales": 118000,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-274",
+        "title": "DIMOO 太空旅行 盲盒 整盒",
+        "body": "品牌：泡泡玛特\n价格：¥828\n类目：潮玩\n库存：300\n销量：26400\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 828,
+          "category": "潮玩",
+          "stock": 300,
+          "sales": 26400,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-275",
+        "title": "DIMOO 大娃 400%",
+        "body": "品牌：泡泡玛特\n价格：¥1,399\n类目：潮玩\n库存：160\n销量：6200\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 1399,
+          "category": "潮玩",
+          "stock": 160,
+          "sales": 6200,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-276",
+        "title": "SKULLPANDA 密林古堡 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥79\n类目：潮玩\n库存：880\n销量：108000\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 79,
+          "category": "潮玩",
+          "stock": 880,
+          "sales": 108000,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-277",
+        "title": "SKULLPANDA 温度系列 盲盒 整盒",
+        "body": "品牌：泡泡玛特\n价格：¥948\n类目：潮玩\n库存：260\n销量：22800\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 948,
+          "category": "潮玩",
+          "stock": 260,
+          "sales": 22800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-278",
+        "title": "SKULLPANDA 大娃 1000%",
+        "body": "品牌：泡泡玛特\n价格：¥5,999\n类目：潮玩\n库存：20\n销量：620\n评分：4.9",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 5999,
+          "category": "潮玩",
+          "stock": 20,
+          "sales": 620,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-279",
+        "title": "LABUBU 马卡龙 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥99\n类目：潮玩\n库存：760\n销量：96800\n评分：4.9",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 99,
+          "category": "潮玩",
+          "stock": 760,
+          "sales": 96800,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-280",
+        "title": "LABUBU 大娃 400%",
+        "body": "品牌：泡泡玛特\n价格：¥1,599\n类目：潮玩\n库存：140\n销量：5600\n评分：4.9",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 1599,
+          "category": "潮玩",
+          "stock": 140,
+          "sales": 5600,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-281",
+        "title": "LABUBU 大娃 1000%",
+        "body": "品牌：泡泡玛特\n价格：¥6,999\n类目：潮玩\n库存：16\n销量：480\n评分：5",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 6999,
+          "category": "潮玩",
+          "stock": 16,
+          "sales": 480,
+          "rating": 5,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-282",
+        "title": "LABUBU 联名 大娃 限量",
+        "body": "品牌：泡泡玛特\n价格：¥12,800\n类目：潮玩\n库存：6\n销量：180\n评分：5",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 12800,
+          "category": "潮玩",
+          "stock": 6,
+          "sales": 180,
+          "rating": 5,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-283",
+        "title": "HIRONO 小野 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥69\n类目：潮玩\n库存：860\n销量：102000\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 69,
+          "category": "潮玩",
+          "stock": 860,
+          "sales": 102000,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-284",
+        "title": "HIRONO 小野 整盒",
+        "body": "品牌：泡泡玛特\n价格：¥828\n类目：潮玩\n库存：280\n销量：24600\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 828,
+          "category": "潮玩",
+          "stock": 280,
+          "sales": 24600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-285",
+        "title": "CRYBABY 哭泣宝贝 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥69\n类目：潮玩\n库存：800\n销量：92400\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 69,
+          "category": "潮玩",
+          "stock": 800,
+          "sales": 92400,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-286",
+        "title": "CRYBABY 大娃 400%",
+        "body": "品牌：泡泡玛特\n价格：¥1,299\n类目：潮玩\n库存：170\n销量：6400\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 1299,
+          "category": "潮玩",
+          "stock": 170,
+          "sales": 6400,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-287",
+        "title": "PINO JELLY 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥69\n类目：潮玩\n库存：720\n销量：78600\n评分：4.7",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 69,
+          "category": "潮玩",
+          "stock": 720,
+          "sales": 78600,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-288",
+        "title": "Zsiga 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥69\n类目：潮玩\n库存：680\n销量：72400\n评分：4.7",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 69,
+          "category": "潮玩",
+          "stock": 680,
+          "sales": 72400,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-289",
+        "title": "HACIPUPU 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥69\n类目：潮玩\n库存：660\n销量：68200\n评分：4.7",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 69,
+          "category": "潮玩",
+          "stock": 660,
+          "sales": 68200,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-290",
+        "title": "小甜豆 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥59\n类目：潮玩\n库存：900\n销量：118000\n评分：4.7",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 59,
+          "category": "潮玩",
+          "stock": 900,
+          "sales": 118000,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-291",
+        "title": "星星人 盲盒 单盒",
+        "body": "品牌：泡泡玛特\n价格：¥69\n类目：潮玩\n库存：780\n销量：86400\n评分：4.7",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 69,
+          "category": "潮玩",
+          "stock": 780,
+          "sales": 86400,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-292",
+        "title": "MEGA 珍藏系列 400%",
+        "body": "品牌：泡泡玛特\n价格：¥1,499\n类目：潮玩\n库存：120\n销量：4800\n评分：4.9",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 1499,
+          "category": "潮玩",
+          "stock": 120,
+          "sales": 4800,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-293",
+        "title": "MEGA 珍藏系列 1000%",
+        "body": "品牌：泡泡玛特\n价格：¥5,999\n类目：潮玩\n库存：24\n销量：780\n评分：4.9",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 5999,
+          "category": "潮玩",
+          "stock": 24,
+          "sales": 780,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-294",
+        "title": "MEGA 联名 1000% 限量",
+        "body": "品牌：泡泡玛特\n价格：¥15,800\n类目：潮玩\n库存：5\n销量：120\n评分：5",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 15800,
+          "category": "潮玩",
+          "stock": 5,
+          "sales": 120,
+          "rating": 5,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-295",
+        "title": "LABUBU 搪胶毛绒 大号",
+        "body": "品牌：泡泡玛特\n价格：¥499\n类目：潮玩\n库存：260\n销量：26800\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 499,
+          "category": "潮玩",
+          "stock": 260,
+          "sales": 26800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-296",
+        "title": "LABUBU 搪胶毛绒 小号",
+        "body": "品牌：泡泡玛特\n价格：¥299\n类目：潮玩\n库存：380\n销量：38600\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 299,
+          "category": "潮玩",
+          "stock": 380,
+          "sales": 38600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-297",
+        "title": "CRYBABY 毛绒挂件",
+        "body": "品牌：泡泡玛特\n价格：¥159\n类目：潮玩\n库存：560\n销量：62400\n评分：4.7",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 159,
+          "category": "潮玩",
+          "stock": 560,
+          "sales": 62400,
+          "rating": 4.7,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-298",
+        "title": "DIMOO 毛绒公仔",
+        "body": "品牌：泡泡玛特\n价格：¥299\n类目：潮玩\n库存：320\n销量：28600\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 299,
+          "category": "潮玩",
+          "stock": 320,
+          "sales": 28600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
       }
     ],
     "netease": [
