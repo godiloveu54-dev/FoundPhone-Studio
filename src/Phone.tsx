@@ -337,6 +337,69 @@ function PhoneRuntime({
   const event = (event: string, target: string) => {
     if (!creator) update(dispatch(work, runtimeRef.current, event, target));
   };
+  const handleFamilyCardPayment = (card: "陈奕恒" | "张桂源", isFood: boolean) => {
+    const isTaobao = app === "taobao";
+    const text = card === "陈奕恒"
+      ? (isFood
+          ? "陈浚铭 如果我和你说 就是 你少吃点些对你不好的东西 多吃健康的食物 你会听吗？"
+          : "你终于愿意花我的卡了😆😆")
+      : (isFood ? "陈浚铭好能吃啊陈浚铭" : "陈浚铭好能买啊陈浚铭");
+    const sender = card === "陈奕恒" ? "陈奕恒" : "张桂源";
+    const current = runtimeRef.current;
+    const stamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
+    const incoming = makeItem({
+      id: `family-card-${Date.now()}`,
+      title: sender,
+      body: text,
+      sender,
+      time: stamp,
+      kind: "text",
+      outgoing: false,
+      read: false,
+    });
+    update({
+      ...current,
+      messages: {
+        ...current.messages,
+        wechat: [...(current.messages.wechat ?? []), incoming],
+      },
+      notifications: [...current.notifications, `微信 · ${sender}：${text}`],
+    });
+    return { sender, text, kind: card === "陈奕恒" && isFood && !isTaobao ? "food" as const : "plain" as const };
+  };
+  const handleFamilyCardReply = (choice: "听" | "不听") => {
+    const current = runtimeRef.current;
+    const stamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
+    const outgoing = makeItem({
+      id: `family-card-choice-${Date.now()}`,
+      title: "陈奕恒",
+      body: choice,
+      sender: work.phone.owner || "陈浚铭",
+      time: stamp,
+      kind: "text",
+      outgoing: true,
+      read: true,
+    });
+    const response = makeItem({
+      id: `family-card-response-${Date.now()}`,
+      title: "陈奕恒",
+      body: choice === "听" ? "陈浚铭你真好😁😁" : "你好坏啊",
+      sender: "陈奕恒",
+      time: stamp,
+      kind: "text",
+      outgoing: false,
+      read: false,
+    });
+    update({
+      ...current,
+      messages: {
+        ...current.messages,
+        wechat: [...(current.messages.wechat ?? []), outgoing, response],
+      },
+      notifications: [...current.notifications, `微信 · 陈奕恒：${response.body}`],
+    });
+    return response.body;
+  };
   const handleMessageReply = (thread: string, text: string) => {
     if (creator) return;
     const current = runtimeRef.current;
@@ -605,6 +668,8 @@ function PhoneRuntime({
                   onEdit={(item) => onEdit?.(app, item)}
                   onAdd={() => onAdd?.(app)}
                   onReply={handleMessageReply}
+                  onFamilyCardPayment={handleFamilyCardPayment}
+                  onFamilyCardReply={handleFamilyCardReply}
                   onBack={() => setApp("")}
                   onSettings={onSettings}
                   onUi={(key, value) => {
@@ -1046,6 +1111,8 @@ function AppContent({
   onBack,
   onSettings,
   onUi,
+  onFamilyCardPayment,
+  onFamilyCardReply,
   work,
 }: {
   app: AppPlugin;
@@ -1059,6 +1126,8 @@ function AppContent({
   onBack: () => void;
   onSettings?: () => void;
   onUi?: (key: string, value: UiValue) => void;
+  onFamilyCardPayment: (card: "陈奕恒" | "张桂源", isFood: boolean) => { sender: string; text: string; kind: "food" | "plain" };
+  onFamilyCardReply: (choice: "听" | "不听") => string;
   work: Work;
 }) {
   const [detail, setDetail] = useState<Item | null>(null);
@@ -1092,77 +1161,15 @@ function AppContent({
   };
   const payWithFamilyCard = (card: "陈奕恒" | "张桂源") => {
     if (creator || !detail) return;
-    const isFood = app.id === "delivery";
-    const isTaobao = app.id === "taobao";
-    const isPurchase = isFood || isTaobao;
-    if (!isPurchase) return;
-    const text = card === "陈奕恒"
-      ? (isFood
-          ? "陈浚铭 如果我和你说 就是 你少吃点些对你不好的东西 多吃健康的食物 你会听吗？"
-          : "你终于愿意花我的卡了😆😆")
-      : (isFood ? "陈浚铭好能吃啊陈浚铭" : "陈浚铭好能买啊陈浚铭");
-    const sender = card === "陈奕恒" ? "陈奕恒" : "张桂源";
-    const current = runtimeRef.current;
-    const stamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
-    const incoming = makeItem({
-      id: `family-card-${Date.now()}`,
-      title: sender,
-      body: text,
-      sender,
-      time: stamp,
-      kind: "text",
-      outgoing: false,
-      read: false,
-    });
-    update({
-      ...current,
-      messages: {
-        ...current.messages,
-        wechat: [...(current.messages.wechat ?? []), incoming],
-      },
-      notifications: [...current.notifications, `微信 · ${sender}：${text}`],
-    });
+    const popup = onFamilyCardPayment(card, app.id === "delivery");
     setFamilyCardChoice("");
-    setFamilyCardPopup({
-      sender,
-      text,
-      kind: card === "陈奕恒" && isFood ? "food" : "plain",
-    });
+    setFamilyCardPopup(popup);
   };
   const chooseFamilyCardReply = (choice: "听" | "不听") => {
     const popup = familyCardPopup;
     if (!popup || popup.kind !== "food") return;
-    const current = runtimeRef.current;
-    const stamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
-    const outgoing = makeItem({
-      id: `family-card-choice-${Date.now()}`,
-      title: "陈奕恒",
-      body: choice,
-      sender: work.phone.owner || "陈浚铭",
-      time: stamp,
-      kind: "text",
-      outgoing: true,
-      read: true,
-    });
-    const response = makeItem({
-      id: `family-card-response-${Date.now()}`,
-      title: "陈奕恒",
-      body: choice === "听" ? "陈浚铭你真好😁😁" : "你好坏啊",
-      sender: "陈奕恒",
-      time: stamp,
-      kind: "text",
-      outgoing: false,
-      read: false,
-    });
-    update({
-      ...current,
-      messages: {
-        ...current.messages,
-        wechat: [...(current.messages.wechat ?? []), outgoing, response],
-      },
-      notifications: [...current.notifications, `微信 · 陈奕恒：${response.body}`],
-    });
-    setFamilyCardPopup({ sender: "陈奕恒", text: response.body, kind: "plain" });
+    const text = onFamilyCardReply(choice);
+    setFamilyCardPopup({ sender: "陈奕恒", text, kind: "plain" });
     setFamilyCardChoice(choice);
   };
   const chats = [...new Set(shown.map((i) => i.title))];
