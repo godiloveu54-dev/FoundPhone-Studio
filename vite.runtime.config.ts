@@ -10,6 +10,7 @@ export default defineConfig(({ command }) => ({
     react(),
     VitePWA({
       registerType: "autoUpdate",
+      selfDestroying: true,
       manifest: {
         name: "捡手机",
         short_name: "捡手机",
