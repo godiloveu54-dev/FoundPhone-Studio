@@ -323,12 +323,6 @@ function PhoneRuntime({
           "callEnded",
           current.target || current.caller,
         );
-        if (
-          current.target === "sasaeng-call" &&
-          !ended.endings.includes("私生来电剧情结束")
-        ) {
-          ended.endings.push("私生来电剧情结束");
-        }
         update(ended);
       }
     }, 2400);
