@@ -2495,12 +2495,344 @@
     ],
     "taobao": [
       {
-        "id": "test-item-taobao",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "taobao-product-001",
+        "title": "Neverfull MM 老花托特包",
+        "body": "品牌：Louis Vuitton\n价格：¥14,800\n类目：箱包\n库存：120\n销量：3860\n评分：4.9",
+        "sender": "Louis Vuitton",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Louis Vuitton",
+          "price": 14800,
+          "category": "箱包",
+          "stock": 120,
+          "sales": 3860,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-002",
+        "title": "Speedy 25 Bandoulière",
+        "body": "品牌：Louis Vuitton\n价格：¥13,200\n类目：箱包\n库存：98\n销量：2750\n评分：4.8",
+        "sender": "Louis Vuitton",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Louis Vuitton",
+          "price": 13200,
+          "category": "箱包",
+          "stock": 98,
+          "sales": 2750,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-003",
+        "title": "Classic Flap 中号 金扣",
+        "body": "品牌：Chanel\n价格：¥92,000\n类目：箱包\n库存：16\n销量：480\n评分：4.9",
+        "sender": "Chanel",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Chanel",
+          "price": 92000,
+          "category": "箱包",
+          "stock": 16,
+          "sales": 480,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-004",
+        "title": "Birkin 25 Togo 金扣",
+        "body": "品牌：Hermès\n价格：¥138,000\n类目：箱包\n库存：6\n销量：180\n评分：5.0",
+        "sender": "Hermès",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Hermès",
+          "price": 138000,
+          "category": "箱包",
+          "stock": 6,
+          "sales": 180,
+          "rating": 5,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-005",
+        "title": "Horsebit 1955 中号",
+        "body": "品牌：Gucci\n价格：¥26,500\n类目：箱包\n库存：32\n销量：820\n评分：4.8",
+        "sender": "Gucci",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Gucci",
+          "price": 26500,
+          "category": "箱包",
+          "stock": 32,
+          "sales": 820,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-006",
+        "title": "Lady Dior 大号 藤格纹",
+        "body": "品牌：Dior\n价格：¥52,000\n类目：箱包\n库存：18\n销量：520\n评分：4.9",
+        "sender": "Dior",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Dior",
+          "price": 52000,
+          "category": "箱包",
+          "stock": 18,
+          "sales": 520,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-007",
+        "title": "Re-Edition 2005 尼龙",
+        "body": "品牌：Prada\n价格：¥12,800\n类目：箱包\n库存：92\n销量：2680\n评分：4.8",
+        "sender": "Prada",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Prada",
+          "price": 12800,
+          "category": "箱包",
+          "stock": 92,
+          "sales": 2680,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-008",
+        "title": "经典格纹风衣 长款",
+        "body": "品牌：Burberry\n价格：¥26,800\n类目：服饰\n库存：28\n销量：620\n评分：4.8",
+        "sender": "Burberry",
+        "kind": "product",
+        "folder": "服饰",
+        "meta": {
+          "brand": "Burberry",
+          "price": 26800,
+          "category": "服饰",
+          "stock": 28,
+          "sales": 620,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-009",
+        "title": "Triomphe 中号 腋下包",
+        "body": "品牌：Celine\n价格：¥32,800\n类目：箱包\n库存：26\n销量：720\n评分：4.8",
+        "sender": "Celine",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Celine",
+          "price": 32800,
+          "category": "箱包",
+          "stock": 26,
+          "sales": 720,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-010",
+        "title": "Puzzle 中号 经典牛皮",
+        "body": "品牌：Loewe\n价格：¥28,500\n类目：箱包\n库存：30\n销量：820\n评分：4.9",
+        "sender": "Loewe",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Loewe",
+          "price": 28500,
+          "category": "箱包",
+          "stock": 30,
+          "sales": 820,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-011",
+        "title": "潜航者 黑水鬼 41mm",
+        "body": "品牌：Rolex\n价格：¥98,000\n类目：腕表\n库存：8\n销量：240\n评分：4.9",
+        "sender": "Rolex",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Rolex",
+          "price": 98000,
+          "category": "腕表",
+          "stock": 8,
+          "sales": 240,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-012",
+        "title": "LOVE 手镯 18K金 宽版",
+        "body": "品牌：Cartier\n价格：¥72,000\n类目：珠宝\n库存：12\n销量：380\n评分：4.9",
+        "sender": "Cartier",
+        "kind": "product",
+        "folder": "珠宝",
+        "meta": {
+          "brand": "Cartier",
+          "price": 72000,
+          "category": "珠宝",
+          "stock": 12,
+          "sales": 380,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-013",
+        "title": "精华面霜 100ml",
+        "body": "品牌：La Mer\n价格：¥5,280\n类目：美妆\n库存：180\n销量：3260\n评分：4.9",
+        "sender": "La Mer",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "La Mer",
+          "price": 5280,
+          "category": "美妆",
+          "stock": 180,
+          "sales": 3260,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-014",
+        "title": "神仙水 330ml 限量",
+        "body": "品牌：SK-II\n价格：¥2,280\n类目：美妆\n库存：220\n销量：5240\n评分：4.8",
+        "sender": "SK-II",
+        "kind": "product",
+        "folder": "美妆",
+        "meta": {
+          "brand": "SK-II",
+          "price": 2280,
+          "category": "美妆",
+          "stock": 220,
+          "sales": 5240,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-015",
+        "title": "Dunk Low 熊猫",
+        "body": "品牌：Nike\n价格：¥1,299\n类目：鞋履\n库存：320\n销量：18600\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Nike",
+          "price": 1299,
+          "category": "鞋履",
+          "stock": 320,
+          "sales": 18600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-016",
+        "title": "Samba OG 白黑",
+        "body": "品牌：Adidas\n价格：¥999\n类目：鞋履\n库存：520\n销量：32800\n评分：4.8",
+        "sender": "Adidas",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Adidas",
+          "price": 999,
+          "category": "鞋履",
+          "stock": 520,
+          "sales": 32800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-017",
+        "title": "iPhone 15 Pro Max 1TB",
+        "body": "品牌：Apple\n价格：¥13,999\n类目：数码\n库存：60\n销量：12800\n评分：4.9",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 13999,
+          "category": "数码",
+          "stock": 60,
+          "sales": 12800,
+          "rating": 4.9,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-018",
+        "title": "WH-1000XM5",
+        "body": "品牌：Sony\n价格：¥2,999\n类目：数码\n库存：180\n销量：18600\n评分：4.8",
+        "sender": "Sony",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Sony",
+          "price": 2999,
+          "category": "数码",
+          "stock": 180,
+          "sales": 18600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-019",
+        "title": "Airwrap 长发版",
+        "body": "品牌：Dyson\n价格：¥4,590\n类目：家电\n库存：90\n销量：6800\n评分：4.8",
+        "sender": "Dyson",
+        "kind": "product",
+        "folder": "家电",
+        "meta": {
+          "brand": "Dyson",
+          "price": 4590,
+          "category": "家电",
+          "stock": 90,
+          "sales": 6800,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-020",
+        "title": "LABUBU 搪胶毛绒 挂件",
+        "body": "品牌：泡泡玛特\n价格：¥199\n类目：潮玩\n库存：520\n销量：48600\n评分：4.8",
+        "sender": "泡泡玛特",
+        "kind": "product",
+        "folder": "潮玩",
+        "meta": {
+          "brand": "泡泡玛特",
+          "price": 199,
+          "category": "潮玩",
+          "stock": 520,
+          "sales": 48600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
       }
     ],
     "netease": [
