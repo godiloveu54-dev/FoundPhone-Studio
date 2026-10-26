@@ -437,9 +437,11 @@ function PhoneRuntime({
         outgoing: true,
       });
       const alreadyReplied = Boolean(current.variables.fourthGenAckTriggered);
-      const staffNoticeExists = (work.data.wechat ?? []).some((item) =>
-        item.title === thread && item.sender === "工作人员" &&
-        /恢复训练|回复/.test(item.body),
+      const staffNoticeExists = [
+        ...(work.data.wechat ?? []),
+        ...(current.messages.wechat ?? []),
+      ].some((item) =>
+        item.title === thread && /近期准备恢复训练/.test(item.body),
       ) || (work.data.chats ?? []).some((chat) =>
         chat.title === thread && chat.messages?.some((item) => /近期准备恢复训练/.test(item.body)),
       );
@@ -518,6 +520,11 @@ function PhoneRuntime({
       variables: !alreadyTriggered
         ? { ...current.variables, sasaengCallTriggered: true }
         : current.variables,
+      read: [...new Set([
+        ...current.read,
+        ...[...(work.data[app] ?? []), ...(current.messages[app] ?? [])]
+          .filter((item) => item.title === thread).map((item) => item.id),
+      ])],
       notifications: current.notifications.filter((item) => !item.includes(thread)),
     });
     const replies = [
@@ -812,7 +819,7 @@ function PhoneRuntime({
                       )
                       ? [sasaengSeedMessage]
                       : []),
-                  ]}
+                  ].map((item) => s.read.includes(item.id) ? { ...item, read: true } : item)}
                   creator={creator}
                   state={s}
                   onRead={(id) => event("read", id)}
