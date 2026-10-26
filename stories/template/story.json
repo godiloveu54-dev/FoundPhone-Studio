@@ -2490,6 +2490,159 @@
           "time": "2026-10-26 08:06"
         }
       ]
+    },
+    {
+      "id": "zhang-guiyuan-wechat",
+      "app": "wechat",
+      "title": "张桂源",
+      "participants": [
+        "owner",
+        "zhang-guiyuan"
+      ],
+      "messages": [
+        {
+          "id": "zg-2026-10-12-001",
+          "time": "2026-10-12",
+          "senderId": "zhang-guiyuan",
+          "body": "遭不住了啊兄弟",
+          "kind": "text"
+        },
+        {
+          "id": "zg-2026-10-12-002",
+          "time": "2026-10-12",
+          "senderId": "zhang-guiyuan",
+          "body": "被丧尸围城了啊",
+          "kind": "text"
+        },
+        {
+          "id": "zg-2026-10-12-003",
+          "time": "2026-10-12",
+          "senderId": "zhang-guiyuan",
+          "body": "哥们以为自己在拍釜山行",
+          "kind": "text"
+        },
+        {
+          "id": "zg-2026-10-12-004",
+          "time": "2026-10-12",
+          "senderId": "owner",
+          "body": "我不行了哈哈哈哈哈哈哈哈",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "id": "zhang-hanrui-wechat",
+      "app": "wechat",
+      "title": "张函瑞",
+      "participants": [
+        "owner",
+        "zhang-hanrui"
+      ],
+      "messages": [
+        {
+          "id": "zhr-2026-10-18-001",
+          "time": "2026-10-18",
+          "senderId": "owner",
+          "body": "生日快乐函瑞😆😆新歌好好听",
+          "kind": "text"
+        },
+        {
+          "id": "zhr-2026-10-18-002",
+          "time": "2026-10-18",
+          "senderId": "zhang-hanrui",
+          "body": "谢谢浚铭😁😁也期待你的新歌",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "id": "jinniu-3-wechat",
+      "app": "wechat",
+      "title": "金牛（3）",
+      "participants": [
+        "owner",
+        "zhang-guiyuan",
+        "chen-yiheng"
+      ],
+      "messages": [
+        {
+          "id": "jn-2026-10-24-001",
+          "time": "2026-10-24",
+          "senderId": "zhang-guiyuan",
+          "body": "兄弟们我们下周一一起耍起吧@陈浚铭@陈奕恒",
+          "kind": "text"
+        },
+        {
+          "id": "jn-2026-10-24-002",
+          "time": "2026-10-24",
+          "senderId": "owner",
+          "body": "欧坤",
+          "kind": "text"
+        },
+        {
+          "id": "jn-2026-10-24-003",
+          "time": "2026-10-24",
+          "senderId": "chen-yiheng",
+          "body": "不见不散😆",
+          "kind": "text"
+        },
+        {
+          "id": "jn-2026-10-26-001",
+          "time": "2026-10-26",
+          "senderId": "chen-yiheng",
+          "body": "哈哈就是我到的时间刚刚好😁😁你们人呢😁😁",
+          "kind": "text"
+        },
+        {
+          "id": "jn-2026-10-26-002",
+          "time": "2026-10-26",
+          "senderId": "owner",
+          "body": "我好像迷路了 你开个共享位置😭",
+          "kind": "text"
+        },
+        {
+          "id": "jn-2026-10-26-003",
+          "time": "2026-10-26",
+          "senderId": "chen-yiheng",
+          "body": "看见你了 你站着别动我来找你",
+          "kind": "text"
+        },
+        {
+          "id": "jn-2026-10-26-004",
+          "time": "2026-10-26",
+          "senderId": "owner",
+          "body": "@张桂源 哥们你人呢 我们已经汇合了",
+          "kind": "text"
+        },
+        {
+          "id": "jn-2026-10-26-005",
+          "time": "2026-10-26",
+          "senderId": "owner",
+          "body": "@张桂源",
+          "kind": "text"
+        },
+        {
+          "id": "jn-2026-10-26-006",
+          "time": "2026-10-26",
+          "senderId": "chen-yiheng",
+          "body": "@张桂源",
+          "kind": "text"
+        },
+        {
+          "id": "jn-2026-10-26-007",
+          "time": "2026-10-26",
+          "senderId": "zhang-guiyuan",
+          "body": "那个…我忘记了 马上来😟",
+          "kind": "text"
+        },
+        {
+          "id": "jn-2026-10-26-008",
+          "time": "2026-10-26",
+          "senderId": "chen-yiheng",
+          "body": "oh man what can i say",
+          "kind": "text"
+        }
+      ]
     }
   ],
   "content": {
