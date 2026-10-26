@@ -4918,3 +4918,30 @@ label {
   background: #e34f58;
   transform: rotate(135deg);
 }
+
+/* WeChat year-based chat history */
+.wx-year-picker { padding: 18px 16px; }
+.wx-year-picker > p, .wx-year-caption { color: #8a8a8a; font-size: 12px; margin: 0 0 14px; }
+.wx-year-row { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 17px 4px; border-bottom: 1px solid #e9e9e9; color: #202020; font-size: 16px; text-align: left; }
+.wx-year-row > span:last-child { color: #a0a0a0; font-size: 23px; }
+.wx-year-history { min-height: 100%; display: flex; flex-direction: column; }
+.wx-year-history .skin-messages { overflow: visible; flex: 1; }
+.wx-voice-message { min-width: 132px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.wx-voice-wave { font-size: 19px; letter-spacing: 2px; transform: scaleX(.8); transform-origin: left; }
+.wx-voice-message.is-playing .wx-voice-wave { animation: wx-voice-pulse .55s ease-in-out infinite alternate; }
+.wx-voice-playing { color: #168c53; font-size: 11px; }
+.wx-voice-transcript { white-space: normal; line-height: 1.55; color: #555; font-weight: 400; }
+.wx-call-bubble { min-width: 180px; }
+.wx-call-message { display: flex; align-items: center; gap: 8px; text-align: left; min-width: 160px; }
+.wx-call-message > span { display: flex; flex-direction: column; gap: 4px; }
+.wx-call-message small { color: #888; font-size: 10px; }
+.wx-call-message b { margin-left: auto; font-size: 11px; font-weight: 500; }
+.wx-call-detail-backdrop { position: absolute; inset: 0; z-index: 80; background: #0006; display: grid; place-items: center; padding: 20px; }
+.wx-call-detail { width: min(290px, 100%); border-radius: 18px; background: #fff; color: #222; padding: 24px 20px; text-align: center; box-shadow: 0 12px 45px #0003; }
+.wx-call-detail h3 { margin: 12px 0 6px; font-size: 18px; }
+.wx-call-detail p { margin: 7px 0; font-size: 13px; color: #555; }
+.wx-call-detail > small { display: block; margin-top: 16px; color: #999; line-height: 1.5; }
+.wx-call-detail-close { display: block; margin-left: auto; color: #168c53; }
+@keyframes wx-voice-pulse { from { opacity: .45; transform: scaleX(.7); } to { opacity: 1; transform: scaleX(1.15); } }
+.dark-phone .wx-year-row { color: #f3f3f3; border-color: #383838; }
+.dark-phone .wx-call-detail { background: #292929; color: #f3f3f3; }
