@@ -3464,6 +3464,171 @@
           "callStatus": "未接来电",
           "category": "陌生来电"
         }
+      },
+      {
+        "id": "call-2026-10-26-dad",
+        "title": "爸爸",
+        "body": "已接来电",
+        "sender": "爸爸",
+        "kind": "call",
+        "time": "2026-10-26 07:52",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-2026-10-26-mom",
+        "title": "妈妈",
+        "body": "已接来电",
+        "sender": "妈妈",
+        "kind": "call",
+        "time": "2026-10-26 08:05",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-2026-10-26-brother",
+        "title": "哥哥",
+        "body": "未接来电",
+        "sender": "哥哥",
+        "kind": "call",
+        "time": "2026-10-26 08:19",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "未接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-2026-10-25-zhang-guiyuan",
+        "title": "张桂源",
+        "body": "已接来电",
+        "sender": "张桂源",
+        "kind": "call",
+        "time": "2026-10-25 21:36",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "朋友"
+        }
+      },
+      {
+        "id": "call-2026-10-25-chen-yiheng",
+        "title": "陈奕恒",
+        "body": "已接来电",
+        "sender": "陈奕恒",
+        "kind": "call",
+        "time": "2026-10-25 20:48",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "朋友"
+        }
+      },
+      {
+        "id": "call-2026-10-26-private-01",
+        "title": "未知号码 1",
+        "body": "未接来电",
+        "sender": "未知号码 1",
+        "kind": "call",
+        "time": "2026-10-26 09:02",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "186****2041",
+          "callStatus": "未接来电",
+          "category": "陌生号码"
+        }
+      },
+      {
+        "id": "call-2026-10-26-private-02",
+        "title": "未知号码 2",
+        "body": "未接来电",
+        "sender": "未知号码 2",
+        "kind": "call",
+        "time": "2026-10-26 09:08",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "133****7186",
+          "callStatus": "未接来电",
+          "category": "陌生号码"
+        }
+      },
+      {
+        "id": "call-2026-10-26-private-03",
+        "title": "未知号码 3",
+        "body": "已拒接",
+        "sender": "未知号码 3",
+        "kind": "call",
+        "time": "2026-10-26 09:14",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "177****5920",
+          "callStatus": "已拒接",
+          "category": "陌生号码"
+        }
+      },
+      {
+        "id": "call-2026-10-26-private-04",
+        "title": "未知号码 4",
+        "body": "未接来电",
+        "sender": "未知号码 4",
+        "kind": "call",
+        "time": "2026-10-26 09:27",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "150****8364",
+          "callStatus": "未接来电",
+          "category": "陌生号码"
+        }
+      },
+      {
+        "id": "call-2026-10-26-private-05",
+        "title": "未知号码 5",
+        "body": "未接来电",
+        "sender": "未知号码 5",
+        "kind": "call",
+        "time": "2026-10-26 09:41",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "191****4702",
+          "callStatus": "未接来电",
+          "category": "陌生号码"
+        }
+      },
+      {
+        "id": "call-2026-10-26-private-06",
+        "title": "中国电信",
+        "body": "来电",
+        "sender": "中国电信",
+        "kind": "call",
+        "time": "2026-10-26 09:43",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "10000",
+          "callStatus": "来电",
+          "category": "剧情来电"
+        }
       }
     ],
     "contacts": [
