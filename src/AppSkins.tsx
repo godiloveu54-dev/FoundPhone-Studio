@@ -50,6 +50,8 @@ export type SkinProps = {
   thread: string;
   onThread: (s: string) => void;
   onReply?: (thread: string, text: string) => void;
+  onFamilyCardPayment?: (card: "陈奕恒" | "张桂源", isFood: boolean) => { sender: string; text: string; kind: "food" | "plain" };
+  onFamilyCardReply?: (choice: "听" | "不听") => string;
 };
 function Avatar({
   name,
