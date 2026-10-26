@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v3",
   "title": "恒铭 iPhone 模拟器",
   "description": "陈浚铭的 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容。",
-  "revision": 40,
+  "revision": 41,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -11956,6 +11956,91 @@
           "category": "箱包",
           "stock": 9,
           "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-346",
+        "title": "Vara 蝴蝶结平底鞋",
+        "body": "品牌：Ferragamo\n价格：¥5,800\n类目：鞋履\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Ferragamo",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Ferragamo",
+          "price": 5800,
+          "category": "鞋履",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-347",
+        "title": "Gancini 乐福鞋",
+        "body": "品牌：Ferragamo\n价格：¥6,800\n类目：鞋履\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Ferragamo",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Ferragamo",
+          "price": 6800,
+          "category": "鞋履",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-348",
+        "title": "豆豆鞋 小牛皮",
+        "body": "品牌：Tod's\n价格：¥6,800\n类目：鞋履\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Tod's",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Tod's",
+          "price": 6800,
+          "category": "鞋履",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-349",
+        "title": "Summer Charms 乐福鞋",
+        "body": "品牌：Loro Piana\n价格：¥8,800\n类目：鞋履\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Loro Piana",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "Loro Piana",
+          "price": 8800,
+          "category": "鞋履",
+          "stock": 20,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-350",
+        "title": "iPhone 15 Pro 512G",
+        "body": "品牌：Apple\n价格：¥11,999\n类目：数码\n库存：20\n销量：500\n评分：4.8",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 11999,
+          "category": "数码",
+          "stock": 20,
+          "sales": 500,
           "rating": 4.8,
           "currency": "CNY"
         }
