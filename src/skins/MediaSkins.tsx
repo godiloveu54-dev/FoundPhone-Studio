@@ -548,21 +548,13 @@ const uploadedDouyinVideos: Item[] = [
     kind: "video", media: "./v0200fg10000cplfgv7og65o0nana5f0.MP4", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 397000,
     comments: ["找呀找呀找朋友～找到一个好朋友🎵", "这旋律一出来DNA动了", "小时候的回忆突然攻击我", "谁跟我一样自动接上下一句", "这个配乐太有魔性了", "哈哈哈哈哈好可爱", "一秒回到幼儿园", "朋友在哪里！我来啦！", "这条视频好有童趣", "我已经开始跟着唱了", "评论区一起唱起来！", "找到一个好朋友😁", "这首歌真的刻在脑子里", "太适合当循环视频了", "哈哈哈哈哈哈哈", "童年回忆杀", "看完心情都变好了", "我朋友已经被我转发烦了", "可爱可爱可爱", "再看一遍！"]
   },
-  {
-    id: "uploaded-douyin-04", title: "最新上传",
-    body: "",
-    richText: "", meta: { handle: "陈浚铭", displayLikes: "18.6w", commentCount: "8600", shareCount: "3.2万", reposts: "3.2万", simulatedStats: "true" },
-    time: "2026-10-26 10:03", sender: "陈浚铭", avatar: "./IMG_4390.jpeg",
-    kind: "video", media: "./adff80bc64c9040346bc22237bbd6788.mp4", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 186000,
-    comments: ["这个视频好有感觉！", "来了来了，支持新视频！", "又更新啦😁", "先赞再看！", "期待下次更新", "这条我先收藏了", "评论区打卡", "好喜欢这种日常感", "刷到就是缘分", "继续更新呀！", "转发支持一下", "来了来了！", "这个画面感不错", "再看一遍", "支持浚铭！"]
-  }
+
 ];
 export function DouyinSkin(p: Props) {
   const { tab, setTab, items } = useContent(p, "推荐");
   const feedItems = [
-    ...uploadedDouyinVideos.slice(0, 3),
+    ...uploadedDouyinVideos,
     ...items.filter((item) => !uploadedDouyinVideos.some((video) => video.id === item.id)),
-    uploadedDouyinVideos[3],
   ];
   const list = tab === "推荐" ? feedItems : feedItems.filter((i) => i.folder === tab);
   return (
