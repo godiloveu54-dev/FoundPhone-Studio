@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v3",
   "title": "恒铭 iPhone 模拟器",
   "description": "恒铭 iPhone 模拟器｜陈浚铭的手机。使用独立游玩页面加载最新剧情，不读取旧版创作工作室存档。",
-  "revision": 45,
+  "revision": 46,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
