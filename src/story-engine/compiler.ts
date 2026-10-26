@@ -242,6 +242,9 @@ export function compileStory(raw: unknown): { story: Story; work: Work } {
       if (!contacts.has(c) && c !== "owner")
         fail(`chats.${n}.participants.${j}`, "联系人不存在: " + c);
     });
+    // Uninstalled messaging apps keep their authored records in the source,
+    // but their conversations are not injected into the playable phone.
+    if (!installed.has(chat.app)) return;
     chat.messages.forEach((m, j) => {
       if (
         m.senderId &&
