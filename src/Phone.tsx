@@ -1139,7 +1139,6 @@ function AppContent({
   const [pwError, setPwError] = useState("");
   const [likes, setLikes] = useState<string[]>([]);
   const [familyCardPopup, setFamilyCardPopup] = useState<{ sender: string; text: string; kind: "food" | "plain" } | null>(null);
-  const [familyCardChoice, setFamilyCardChoice] = useState<"听" | "不听" | "">("");
   const shown = items
     .filter((i) => creator || visible(i, state))
     .filter((i) =>
@@ -1162,7 +1161,6 @@ function AppContent({
   const payWithFamilyCard = (card: "陈奕恒" | "张桂源") => {
     if (creator || !detail) return;
     const popup = onFamilyCardPayment(card, app.id === "delivery");
-    setFamilyCardChoice("");
     setFamilyCardPopup(popup);
   };
   const chooseFamilyCardReply = (choice: "听" | "不听") => {
@@ -1170,7 +1168,6 @@ function AppContent({
     if (!popup || popup.kind !== "food") return;
     const text = onFamilyCardReply(choice);
     setFamilyCardPopup({ sender: "陈奕恒", text, kind: "plain" });
-    setFamilyCardChoice(choice);
   };
   const chats = [...new Set(shown.map((i) => i.title))];
   const back = () => {
@@ -1249,7 +1246,7 @@ function AppContent({
                     <button onClick={() => chooseFamilyCardReply("不听")} style={{ padding: 11, border: "1px solid #ddd", borderRadius: 10, background: "#fff", color: "#222", fontWeight: 700 }}>不听</button>
                   </div>
                 )}
-                <button onClick={() => { setFamilyCardPopup(null); setFamilyCardChoice(""); }} style={{ marginTop: 12, width: "100%", padding: 10, border: 0, borderRadius: 10, background: "#e7e7e7", color: "#333" }}>关闭</button>
+                <button onClick={() => { setFamilyCardPopup(null); }} style={{ marginTop: 12, width: "100%", padding: 10, border: 0, borderRadius: 10, background: "#e7e7e7", color: "#333" }}>关闭</button>
               </div>
             </div>
           )}
