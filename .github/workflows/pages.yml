@@ -1,12 +1,10 @@
-name: Validate and deploy Pages
+name: Validate build
 on:
   push:
     branches: [main, feature/wechat-year-chat-history]
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
   group: pages-validation
   cancel-in-progress: false
@@ -23,17 +21,3 @@ jobs:
         run: npm ci
       - name: Build story data and site
         run: npm run story:build && npx vite build --config vite.runtime.config.ts && node scripts/package-runtime.mjs
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: dist
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
