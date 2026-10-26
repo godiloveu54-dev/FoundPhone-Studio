@@ -104,14 +104,20 @@ export function Avatar({
     "陈奕恒": "./IMG_4398.jpeg",
   };
   const normalizedName = name.replace(/^TF家族[-·]/, "").replace(/Jonathan|chen$/i, "").trim();
+  // These two contacts must always use the plain character avatar, even if old story data contains a photo URL.
+  const plainCharacter = normalizedName.includes("聂玮辰")
+    ? "聂"
+    : normalizedName.includes("张奕然")
+      ? "张"
+      : "";
   const fallbackAvatar = Object.entries(avatarByName).find(([person]) => normalizedName.includes(person))?.[1] || "";
-  const image = safeMedia(src || avatarByName[normalizedName] || fallbackAvatar);
+  const image = plainCharacter ? "" : safeMedia(src || avatarByName[normalizedName] || fallbackAvatar);
   return (
     <span className={`catalog-avatar ${round ? "round" : ""}`}>
       {image && /^(data:image\/|https?:\/\/|\.\.?\/)/.test(image) ? (
         <img src={image} alt={name} loading="lazy" decoding="async" />
       ) : (
-        name.slice(0, 1) || "人"
+        plainCharacter || name.slice(0, 1) || "人"
       )}
     </span>
   );
