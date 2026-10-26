@@ -90,8 +90,8 @@ function ChatRows({
             className="catalog-chat"
             key={name}
             onClick={() => {
+              items.filter((item) => item.title === name).forEach((item) => p.onRead(item.id));
               p.onThread(name);
-              p.onRead(name);
             }}
           >
             <Avatar name={name} src={last.avatar} round={round} />
