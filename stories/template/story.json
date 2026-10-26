@@ -3067,12 +3067,43 @@
     ],
     "wallet": [
       {
-        "id": "test-item-wallet",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
+        "id": "wallet-cmb-bank-card",
+        "title": "招商银行",
+        "body": "招商银行储蓄卡\n银联借记卡 · 尾号 6688\n可用于 Apple Pay 付款（模拟卡片）",
+        "sender": "招商银行",
         "kind": "text",
-        "meta": {}
+        "time": "2026-10-26 09:41",
+        "folder": "银行卡",
+        "meta": {
+          "cardType": "bank-card",
+          "bankName": "招商银行",
+          "network": "银联",
+          "accountType": "借记卡",
+          "lastFour": "6688",
+          "status": "已添加（模拟）",
+          "cardColor": "red",
+          "displayName": "招商银行储蓄卡"
+        }
+      },
+      {
+        "id": "wallet-chongqing-transit",
+        "title": "重庆交通卡",
+        "body": "重庆交通卡\n交通联合 · 余额 ¥50.00\n支持交通卡功能的模拟展示；余额为虚构示例。",
+        "sender": "重庆交通卡",
+        "kind": "text",
+        "time": "2026-10-26 09:41",
+        "folder": "交通卡",
+        "meta": {
+          "cardType": "transit-card",
+          "transitName": "重庆交通卡",
+          "city": "重庆",
+          "network": "交通联合",
+          "balance": "50.00",
+          "currency": "CNY",
+          "status": "已添加（模拟）",
+          "cardColor": "blue",
+          "expressMode": true
+        }
       }
     ],
     "health": [
