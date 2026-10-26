@@ -287,6 +287,246 @@
         "phone": "",
         "relationship": "测试"
       }
+    },
+    {
+      "id": "chen-yiheng",
+      "title": "陈奕恒",
+      "body": "",
+      "sender": "陈奕恒",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "陈奕恒",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "zhang-guiyuan",
+      "title": "张桂源",
+      "body": "",
+      "sender": "张桂源",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "张桂源",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "zhang-hanrui",
+      "title": "张函瑞",
+      "body": "",
+      "sender": "张函瑞",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "张函瑞",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "爸爸",
+      "title": "爸爸",
+      "body": "",
+      "sender": "爸爸",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "爸爸",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "妈妈",
+      "title": "妈妈",
+      "body": "",
+      "sender": "妈妈",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "妈妈",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "哥哥",
+      "title": "哥哥",
+      "body": "",
+      "sender": "哥哥",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "哥哥",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "yang-hanbo",
+      "title": "杨涵博",
+      "body": "",
+      "sender": "杨涵博",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "杨涵博",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "yang-bowen",
+      "title": "杨博文",
+      "body": "",
+      "sender": "杨博文",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "杨博文",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "guan-junchen",
+      "title": "关俊辰",
+      "body": "",
+      "sender": "关俊辰",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "关俊辰",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "wang-lujie",
+      "title": "王橹杰",
+      "body": "",
+      "sender": "王橹杰",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "王橹杰",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "nie-weichen",
+      "title": "聂卫晨",
+      "body": "",
+      "sender": "聂卫晨",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "聂卫晨",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "zhang-yiran",
+      "title": "张奕然",
+      "body": "",
+      "sender": "张奕然",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "张奕然",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "chen-sihan",
+      "title": "陈思罕",
+      "body": "",
+      "sender": "陈思罕",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "陈思罕",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "wang-shuoran",
+      "title": "王硕然",
+      "body": "",
+      "sender": "王硕然",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "王硕然",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "li-yudong",
+      "title": "李昱东",
+      "body": "",
+      "sender": "李昱东",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "李昱东",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "wei-zichen",
+      "title": "魏子宸",
+      "body": "",
+      "sender": "魏子宸",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "魏子宸",
+        "phone": "",
+        "relationship": "联系人"
+      }
     }
   ],
   "chats": [
