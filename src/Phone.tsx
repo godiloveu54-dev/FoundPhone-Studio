@@ -101,6 +101,24 @@ export function AppIcon({
   );
 }
 type PhoneProps = Omit<Parameters<typeof PhoneRuntime>[0], "deviceLayout">;
+
+type CallDialogueLine = { speaker: string; text: string };
+function getCallDialogue(item?: Item): CallDialogueLine[] {
+  if (!item?.meta?.dialogue) return [];
+  try {
+    const value: unknown = JSON.parse(item.meta.dialogue);
+    if (!Array.isArray(value)) return [];
+    return value.filter(
+      (line): line is CallDialogueLine =>
+        !!line &&
+        typeof line === "object" &&
+        typeof (line as CallDialogueLine).speaker === "string" &&
+        typeof (line as CallDialogueLine).text === "string",
+    );
+  } catch {
+    return [];
+  }
+}
 export function Phone(props: PhoneProps) {
   const deviceLayout = useDeviceLayout(props.work, props.creator);
   return (
@@ -162,6 +180,7 @@ function PhoneRuntime({
   const [folder, setFolder] = useState("");
   const [panel, setPanel] = useState("");
   const [own, setOwn] = useState(() => initialRuntime(work));
+  const [callDialogueIndex, setCallDialogueIndex] = useState(0);
   const [ready, setReady] = useState(creator || !!external);
   const [loadError, setLoadError] = useState("");
   useEffect(() => {
@@ -243,6 +262,38 @@ function PhoneRuntime({
     }, 1000);
     return () => clearInterval(interval);
   }, [creator, ready, work.id, work.updatedAt]);
+  const callTarget = s.incomingCall?.target ?? "";
+  const callStatus = s.incomingCall?.status ?? "";
+  const callRecord = work.data.phone?.find((item) => item.id === callTarget);
+  const callDialogue = getCallDialogue(callRecord);
+  useEffect(() => {
+    if (creator || callStatus !== "answered" || callDialogue.length === 0) {
+      setCallDialogueIndex(0);
+      return;
+    }
+    setCallDialogueIndex(0);
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index < callDialogue.length - 1) {
+        index += 1;
+        setCallDialogueIndex(index);
+        return;
+      }
+      clearInterval(timer);
+      const current = runtimeRef.current.incomingCall;
+      if (current?.status === "answered" && current.target === callTarget) {
+        update(
+          dispatch(
+            work,
+            { ...runtimeRef.current, incomingCall: null },
+            "callEnded",
+            current.target || current.caller,
+          ),
+        );
+      }
+    }, 2400);
+    return () => clearInterval(timer);
+  }, [creator, callStatus, callTarget, work.id, work.updatedAt]);
   const event = (event: string, target: string) => {
     if (!creator) update(dispatch(work, runtimeRef.current, event, target));
   };
@@ -623,11 +674,39 @@ function PhoneRuntime({
                   const record = work.data.phone?.find(
                     (i) => i.id === s.incomingCall?.target,
                   );
-                  return record?.kind === "audio" && safeMedia(record.media) ? (
-                    <audio controls src={safeMedia(record.media)} />
-                  ) : (
-                    <p>这是一通虚构来电。</p>
-                  );
+                  if (record?.kind === "audio" && safeMedia(record.media))
+                    return <audio controls src={safeMedia(record.media)} />;
+                  const dialogue = getCallDialogue(record);
+                  if (dialogue.length > 0) {
+                    const line = dialogue[
+                      Math.min(callDialogueIndex, dialogue.length - 1)
+                    ];
+                    return (
+                      <div
+                        className="call-dialogue"
+                        aria-live="polite"
+                        style={{
+                          width: "100%",
+                          maxWidth: 310,
+                          margin: "20px auto",
+                          padding: "14px 16px",
+                          borderRadius: 16,
+                          background: "rgba(255,255,255,0.12)",
+                          textAlign: "left",
+                          boxSizing: "border-box",
+                        }}
+                      >
+                        <small style={{ opacity: 0.72 }}>{line.speaker}</small>
+                        <p style={{ margin: "8px 0 0", lineHeight: 1.65 }}>
+                          {line.text}
+                        </p>
+                        <small style={{ display: "block", opacity: 0.62, marginTop: 12 }}>
+                          {callDialogueIndex + 1} / {dialogue.length}
+                        </small>
+                      </div>
+                    );
+                  }
+                  return <p>这是一通虚构来电。</p>;
                 })()}
               <div className="incoming-actions">
                 <button
