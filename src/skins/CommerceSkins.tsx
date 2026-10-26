@@ -362,7 +362,7 @@ export function DeliverySkin(p: Props) {
   const cartItems = cart.map((raw) => { try { return JSON.parse(raw) as { key: string; shopId: string; shopName: string; name: string; price: number; quantity: number }; } catch { return null; } }).filter((x): x is NonNullable<typeof x> => !!x);
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const cartTotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const categories = ["全部", ...Array.from(new Set(deliveryMenuRows.map((shop) => shop.category.split("·")[0])))];
+  const categories = ["全部", ...Array.from(new Set(deliveryMenuRows.map((shop) => shop.category.split("·")[0]))), ...Array.from(new Set(deliveryMenuRows.map((shop) => shop.category)))];
   const shops = deliveryMenuRows.filter((shop) =>
     (category === "全部" || shop.category.startsWith(category)) &&
     (shop.name.toLowerCase().includes(q.toLowerCase()) || shop.category.includes(q) || shop.menu.some((dish) => dish.name.includes(q)))
@@ -404,7 +404,7 @@ export function DeliverySkin(p: Props) {
       </div>
       <SearchBox value={q} set={setQ} placeholder="搜索店铺、菜品" />
       <div className="delivery-category-strip">
-        {categories.map((value) => <button key={value} className={category === value ? "selected" : ""} onClick={() => { setCategory(value); setTab("商家"); }}>{value}</button>)}
+        {categories.map((value) => <button key={value} className={category === value ? "selected" : ""} onClick={() => { setCategory(value); setTab("商家"); }}>{value.replace("·", " / ")}</button>)}
       </div>
       <div className="catalog-scroll">
         {tab === "商家" ? (
