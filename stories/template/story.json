@@ -2883,12 +2883,50 @@
     ],
     "weather": [
       {
-        "id": "test-item-weather",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "weather-chongqing-nanan",
+        "title": "重庆南岸区",
+        "body": "重庆市南岸区天气卡片（模拟数据）。",
+        "sender": "天气",
+        "kind": "weather",
+        "time": "2026-10-26 09:00",
+        "folder": "天气",
+        "meta": {
+          "locationLabel": "重庆市",
+          "temperature": "21",
+          "low": "17",
+          "high": "24",
+          "condition": "多云",
+          "aqi": "48",
+          "aqiLabel": "优",
+          "rain": "10%",
+          "wind": "微风",
+          "sunrise": "06:54",
+          "hourly": "[{\"time\":\"现在\",\"temperature\":\"21\",\"label\":\"多云\"},{\"time\":\"10时\",\"temperature\":\"22\",\"label\":\"多云\"},{\"time\":\"11时\",\"temperature\":\"23\",\"label\":\"晴间多云\"},{\"time\":\"12时\",\"temperature\":\"24\",\"label\":\"多云\"},{\"time\":\"13时\",\"temperature\":\"24\",\"label\":\"多云\"},{\"time\":\"日落\",\"temperature\":\"22\",\"label\":\"多云\"}]",
+          "daily": "[{\"label\":\"今天\",\"low\":\"17\",\"high\":\"24\"},{\"label\":\"周二\",\"low\":\"17\",\"high\":\"23\"},{\"label\":\"周三\",\"low\":\"16\",\"high\":\"22\"},{\"label\":\"周四\",\"low\":\"16\",\"high\":\"21\"},{\"label\":\"周五\",\"low\":\"15\",\"high\":\"22\"}]"
+        }
+      },
+      {
+        "id": "weather-chongqing-qijiang",
+        "title": "重庆市綦江区",
+        "body": "重庆市綦江区天气卡片（模拟数据）。",
+        "sender": "天气",
+        "kind": "weather",
+        "time": "2026-10-26 09:00",
+        "folder": "天气",
+        "meta": {
+          "locationLabel": "重庆市",
+          "temperature": "20",
+          "low": "16",
+          "high": "23",
+          "condition": "阴转多云",
+          "aqi": "52",
+          "aqiLabel": "良",
+          "rain": "20%",
+          "wind": "微风",
+          "sunrise": "06:55",
+          "hourly": "[{\"time\":\"现在\",\"temperature\":\"20\",\"label\":\"阴\"},{\"time\":\"10时\",\"temperature\":\"20\",\"label\":\"阴转多云\"},{\"time\":\"11时\",\"temperature\":\"21\",\"label\":\"多云\"},{\"time\":\"12时\",\"temperature\":\"22\",\"label\":\"多云\"},{\"time\":\"13时\",\"temperature\":\"23\",\"label\":\"多云\"},{\"time\":\"日落\",\"temperature\":\"21\",\"label\":\"多云\"}]",
+          "daily": "[{\"label\":\"今天\",\"low\":\"16\",\"high\":\"23\"},{\"label\":\"周二\",\"low\":\"16\",\"high\":\"22\"},{\"label\":\"周三\",\"low\":\"15\",\"high\":\"22\"},{\"label\":\"周四\",\"low\":\"15\",\"high\":\"20\"},{\"label\":\"周五\",\"low\":\"14\",\"high\":\"21\"}]"
+        }
       }
     ],
     "wallet": [
