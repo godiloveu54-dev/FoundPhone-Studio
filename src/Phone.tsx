@@ -436,6 +436,22 @@ function PhoneRuntime({
             .filter((item) => item.title === thread).map((item) => item.id),
         ])],
       });
+      if (!quickReply && text.trim()) {
+        const replyText = /篮球|球|库里|NBA/i.test(text)
+          ? "可以啊！下次一起打球🏀"
+          : /吃|饭|奶茶|酸辣粉|零食/.test(text)
+            ? "哈哈哈哈你又想到吃的了！记得好好吃饭😁"
+            : /忙|累|训练|休息/.test(text)
+              ? "你也是，别把自己累着了"
+              : /谢谢|感谢/.test(text)
+                ? "跟我还客气什么呀😆"
+                : ["哈哈哈哈哈哈你怎么突然说这个😁", "好好好，我懂你意思了", "真的假的哈哈哈哈，展开说说"][Math.floor(Math.random() * 3)];
+        window.setTimeout(() => {
+          const latest = runtimeRef.current;
+          const reply = makeItem({ id: `zhang-guiyuan-auto-${Date.now()}`, title: thread, body: replyText, sender: thread, time: `${latest.date ?? work.phone.date ?? "2026-10-26"} ${latest.time ?? work.phone.time}`, read: false });
+          update({ ...latest, messages: { ...latest.messages, wechat: [...(latest.messages.wechat ?? []), reply] }, notifications: [...latest.notifications, `微信 · 张桂源：${replyText}`] });
+        }, 700 + Math.floor(Math.random() * 900));
+      }
       return;
     }
     if (thread === "四代同堂") {
