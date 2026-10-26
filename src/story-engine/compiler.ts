@@ -135,7 +135,7 @@ export function compileStory(raw: unknown): { story: Story; work: Work } {
     if (input.content && typeof input.content === "object") {
       const validKinds = new Set([
         "text", "image", "audio", "video", "file", "transfer", "call",
-        "order", "note", "post", "event",
+        "order", "note", "post", "event", "product",
       ]);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any -- content is untrusted legacy input normalized below.
       for (const [app, items] of Object.entries(input.content as Record<string, any>)) {
@@ -221,7 +221,7 @@ export function compileStory(raw: unknown): { story: Story; work: Work } {
   s.contacts.forEach((c, n) => {
     if (c.avatar && !safeMedia(c.avatar))
       fail(`contacts.${n}.avatar`, "无效头像");
-    if (installed.has("contacts"))
+    if (installed.has("contacts") && !(s.content.contacts?.length))
       add(
         "contacts",
         {
