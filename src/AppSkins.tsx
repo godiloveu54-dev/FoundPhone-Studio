@@ -231,6 +231,15 @@ export function WeChatSkin(p: SkinProps) {
     .map((i) => i.sender)
     .filter((s) => s !== "我" && !preferredContacts.includes(s));
   const contacts = [...preferredContacts, ...extraContacts];
+  // 已配置的微信模拟群聊与成员名单。
+  const groupChats = [
+    { name: "金牛（3）", members: ["张桂源", "陈浚铭", "陈奕恒"] },
+    { name: "四代同堂", members: ["杨博文", "张桂源", "张函瑞", "官俊臣", "王橹杰", "聂玮辰", "张奕然", "陈奕恒", "陈浚铭", "陈思罕", "魏子宸", "杨涵博", "王烁然", "李煜东"] },
+    { name: "四一", members: ["张桂源", "张函瑞", "王橹杰", "左奇函", "陈奕恒", "杨博文", "陈思罕", "陈浚铭"] },
+    { name: "瓦", members: ["张桂源", "杨涵博"] },
+    { name: "幸福一家人", members: ["陈浚铭", "哥哥", "爸爸", "妈妈"] },
+  ];
+
   const contactGroups: Record<string, string[]> = {
     B: contacts.filter((c) => c === "爸爸"),
     C: ["陈浚铭", "陈思罕", "陈奕恒"].filter((c) => contacts.includes(c)),
@@ -347,6 +356,24 @@ export function WeChatSkin(p: SkinProps) {
               </div>
             )
           ) : null}
+          {utility === "群聊" && (
+            <div className="wx-group-chat-list">
+              {groupChats.map((group) => (
+                <button
+                  key={group.name}
+                  className="wx-chat-row wx-group-chat-row"
+                  onClick={() => { setUtility(""); p.onThread(group.name); }}
+                >
+                  <span className="wx-chat-avatar"><Avatar name="群" /></span>
+                  <div>
+                    <strong>{group.name}</strong>
+                    <p>{group.members.join("、")}</p>
+                  </div>
+                  <small>{group.members.length} 人</small>
+                </button>
+              ))}
+            </div>
+          )}
           {utility === "聊天信息" && (
             <>
             <div className="wx-members">
@@ -394,6 +421,17 @@ export function WeChatSkin(p: SkinProps) {
             onItem={p.onItem}
             onRead={p.onRead}
           />
+          {groupChats.some((group) => group.name === p.thread) && !allChatItems.some((i) => i.title === p.thread) && (
+            <section className="wx-group-members-panel">
+              <div className="wx-group-members-title">群成员（{groupChats.find((group) => group.name === p.thread)?.members.length}）</div>
+              <div className="wx-group-members-grid">
+                {groupChats.find((group) => group.name === p.thread)?.members.map((member) => (
+                  <div key={member}><Avatar name={member} /><small>{member}</small></div>
+                ))}
+              </div>
+              <p>以上为已配置的群成员。聊天记录可后续继续添加。</p>
+            </section>
+          )}
           <Compose creator={p.creator} onAdd={p.onAdd} onPlus={() => setPlusMenu((v) => !v)} />
         </>
       ) : moments ? (
@@ -483,7 +521,7 @@ export function WeChatSkin(p: SkinProps) {
             <>
               <div className="wx-contact-shortcuts">
                 {["新的朋友", "群聊", "标签", "公众号"].map((label, index) => (
-                  <button key={label} className="wx-contact-shortcut">
+                  <button key={label} className="wx-contact-shortcut" onClick={() => { if (label === "群聊") setUtility("群聊"); }}>
                     <span>{["＋", "👥", "🏷", "◎"][index]}</span>{label}
                   </button>
                 ))}
