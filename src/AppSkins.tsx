@@ -273,7 +273,7 @@ export function WeChatSkin(p: SkinProps) {
     L: contacts.filter((c) => c === "李煜东"),
     M: contacts.filter((c) => c === "妈妈"),
     N: contacts.filter((c) => c === "聂玮辰"),
-    W: ["王橹杰", "王烁然"].filter((c) => contacts.includes(c)),
+    W: ["王橹杰", "王烁然", "魏子宸"].filter((c) => contacts.includes(c)),
     Y: ["杨博文", "杨涵博"].filter((c) => contacts.includes(c)),
     Z: ["张桂源", "张函瑞", "张奕然", "诸葛", "左航航酱", "左奇函"].filter((c) => contacts.includes(c)),
     F: contacts.filter((c) => c === "飞总"),
@@ -467,7 +467,7 @@ export function WeChatSkin(p: SkinProps) {
           )}
           {p.thread === "四代同堂" && !p.creator && (
             <div className="wx-quick-replies">
-              <button onClick={() => p.onReply?.(p.thread!, "收到")}>收到</button>
+              <button style={{ padding: "7px 18px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "收到")}>收到</button>
             </div>
           )}
           <Compose creator={p.creator} onAdd={p.onAdd} onPlus={() => setPlusMenu((v) => !v)} />
