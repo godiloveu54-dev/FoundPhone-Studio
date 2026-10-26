@@ -2915,16 +2915,20 @@
       {
         "id": "find-device-chen-taishuai-shoukun",
         "title": "陈太帅的手坤",
-        "body": "位置：重庆时代峰峻里",
+        "body": "重庆市南岸区南滨路22号长江国际大厦A栋18层",
         "sender": "陈浚铭",
         "time": "2026-10-26 09:00",
         "kind": "text",
         "folder": "设备",
         "meta": {
           "deviceName": "陈太帅的手坤",
-          "location": "重庆时代峰峻里",
-          "status": "在线",
-          "deviceType": "设备"
+          "location": "重庆市南岸区南滨路22号长江国际大厦A栋18层",
+          "status": "南滨路 · 南岸区",
+          "deviceType": "设备",
+          "x": "48",
+          "y": "44",
+          "latitude": "29.54236",
+          "longitude": "106.56278"
         }
       }
     ],
