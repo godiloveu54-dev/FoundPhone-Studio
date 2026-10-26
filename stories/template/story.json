@@ -2781,6 +2781,81 @@
           "kind": "text"
         }
       ]
+    },
+    {
+      "id": "wa-wechat",
+      "app": "wechat",
+      "title": "瓦",
+      "participants": [
+        "owner",
+        "yang-hanbo",
+        "zhang-guiyuan"
+      ],
+      "messages": [
+        {
+          "id": "wa-2026-10-19-001",
+          "time": "2026-10-19",
+          "senderId": "yang-hanbo",
+          "body": "瓦？",
+          "kind": "text"
+        },
+        {
+          "id": "wa-2026-10-19-002",
+          "time": "2026-10-19",
+          "senderId": "owner",
+          "body": "1",
+          "kind": "text"
+        },
+        {
+          "id": "wa-2026-10-19-003",
+          "time": "2026-10-19",
+          "senderId": "zhang-guiyuan",
+          "body": "1",
+          "kind": "text"
+        },
+        {
+          "id": "wa-2026-10-21-001",
+          "time": "2026-10-21",
+          "senderId": "owner",
+          "body": "耍起嘛",
+          "kind": "text"
+        },
+        {
+          "id": "wa-2026-10-21-002",
+          "time": "2026-10-21",
+          "senderId": "zhang-guiyuan",
+          "body": "1",
+          "kind": "text"
+        },
+        {
+          "id": "wa-2026-10-21-003",
+          "time": "2026-10-21",
+          "senderId": "yang-hanbo",
+          "body": "1",
+          "kind": "text"
+        },
+        {
+          "id": "wa-2026-10-24-001",
+          "time": "2026-10-24",
+          "senderId": "zhang-guiyuan",
+          "body": "来来来 包赢的",
+          "kind": "text"
+        },
+        {
+          "id": "wa-2026-10-24-002",
+          "time": "2026-10-24",
+          "senderId": "owner",
+          "body": "包的包的",
+          "kind": "text"
+        },
+        {
+          "id": "wa-2026-10-24-003",
+          "time": "2026-10-24",
+          "senderId": "yang-hanbo",
+          "body": "…我怎么有点不太信呢",
+          "kind": "text"
+        }
+      ]
     }
   ],
   "content": {
