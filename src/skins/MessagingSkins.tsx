@@ -12,7 +12,7 @@ import {
   Smile,
   Users,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Item } from "../schema";
 import {
   Add,
@@ -107,9 +107,137 @@ function ChatRows({
     </>
   );
 }
+const STALKER_REPLIES = [
+  "开枪，我教过你的",
+  "我亲手养的玫瑰长出刺来了",
+  "你的坏我照单全收",
+  "我就在这里，不躲，不逃，把你的坏脾气稳稳接住了",
+  "耶，骂人",
+  "宝宝不生气人家这次失误了哎刀马刀马刀马",
+  "宝贝轻点骂，人家好生怕",
+  "亲手养的小猫终于学会亮爪保护自己了",
+  "美人嗔怒 爽哉爽哉",
+  "你骂我，说明你的心里有我",
+  "你的脾气对我来说无异于小猫伸爪，我照单全收",
+  "打是亲骂是爱，你这一段输出我都怕你爱死我了",
+  "谢谢",
+  "老公失误了",
+  "男孩我保证你是天使",
+  "你慢点骂，我心脏受不了这突如其来的幸福",
+  "谢谢老公指点",
+];
+const isStalkerNumber = (value: string) => /^\\d{3}\\*{4}\\d{4}$/.test(value);
+const storedThreadKey = (number: string) => `stalker-sms-thread-${number}`;
+function readStoredThread(p: Props, number: string): Item[] {
+  try {
+    const raw = p.ui?.[storedThreadKey(number)];
+    const parsed = typeof raw === "string" ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed as Item[] : [];
+  } catch {
+    return [];
+  }
+}
+function localStamp() {
+  const d = new Date();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
 export function MessagesSkin(p: Props) {
-  const { q, setQ, items } = useContent(p, "信息");
+  const { q, setQ, items: baseItems } = useContent(p, "信息");
   const [unread, setUnread] = useState(false);
+  const [replyText, setReplyText] = useState("");
+  const stalkerNumbers = [...new Set(baseItems.map((i) => i.title).filter(isStalkerNumber))];
+  const [dynamicMessages, setDynamicMessages] = useState<Item[]>(() =>
+    stalkerNumbers.flatMap((number) => readStoredThread(p, number)),
+  );
+
+  useEffect(() => {
+    setDynamicMessages(stalkerNumbers.flatMap((number) => readStoredThread(p, number)));
+  }, [p.ui, baseItems.length]);
+
+  const persistMessage = (number: string, item: Item) => {
+    const previous = readStoredThread(p, number);
+    const next = [...previous, item].slice(-250);
+    p.onUi?.(storedThreadKey(number), JSON.stringify(next));
+    setDynamicMessages((current) => [...current, item]);
+  };
+
+  useEffect(() => {
+    if (!stalkerNumbers.length || p.creator) return;
+    const timer = window.setInterval(() => {
+      const number = stalkerNumbers[Math.floor(Math.random() * stalkerNumbers.length)];
+      const source = baseItems.filter((item) => item.title === number && !item.outgoing);
+      if (!source.length) return;
+      const sample = source[Math.floor(Math.random() * source.length)];
+      persistMessage(number, {
+        ...sample,
+        id: `stalker-incoming-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        body: sample.body,
+        time: localStamp(),
+        sender: number,
+        outgoing: false,
+        read: false,
+      });
+    }, 20000);
+    return () => window.clearInterval(timer);
+  }, [stalkerNumbers.join("|"), baseItems, p.ui, p.creator]);
+
+  const allItems = [...baseItems, ...dynamicMessages].sort((a, b) => a.time.localeCompare(b.time));
+  const sendReply = () => {
+    const text = replyText.trim();
+    if (!text || !isStalkerNumber(p.thread) || p.creator) return;
+    const number = p.thread;
+    const outgoing: Item = {
+      id: `stalker-outgoing-${Date.now()}`,
+      title: number,
+      body: text,
+      time: localStamp(),
+      sender: p.owner || "我",
+      avatar: "",
+      kind: "text",
+      media: "",
+      outgoing: true,
+      read: true,
+      hidden: false,
+      unlock: "",
+      password: "",
+      folder: "私生短信",
+      favorite: false,
+      likes: 0,
+      comments: [],
+      richText: "",
+      meta: {},
+    };
+    persistMessage(number, outgoing);
+    setReplyText("");
+    window.setTimeout(() => {
+      const source = baseItems.filter((item) => item.title === number && !item.outgoing);
+      const sample = source[Math.floor(Math.random() * source.length)];
+      const incoming: Item = {
+        id: `stalker-reply-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        title: number,
+        body: STALKER_REPLIES[Math.floor(Math.random() * STALKER_REPLIES.length)],
+        time: localStamp(),
+        sender: number,
+        avatar: sample?.avatar || "",
+        kind: "text",
+        media: "",
+        outgoing: false,
+        read: false,
+        hidden: false,
+        unlock: "",
+        password: "",
+        folder: "私生短信",
+        favorite: false,
+        likes: 0,
+        comments: [],
+        richText: "",
+        meta: {},
+      };
+      persistMessage(number, incoming);
+    }, 900 + Math.floor(Math.random() * 1300));
+  };
+
   return (
     <div className="catalog-skin native-messages">
       <Header
@@ -127,23 +255,45 @@ export function MessagesSkin(p: Props) {
         <>
           <Bubbles
             p={p}
-            items={items.filter((i) => i.title === p.thread)}
+            items={allItems.filter((i) => i.title === p.thread)}
             className="sms-bubbles"
           />
-          <Composer p={p} />
+          {isStalkerNumber(p.thread) && !p.creator ? (
+            <form
+              className="catalog-composer stalker-sms-composer"
+              onSubmit={(event) => {
+                event.preventDefault();
+                sendReply();
+              }}
+            >
+              <input
+                aria-label="回复陌生号码"
+                value={replyText}
+                onChange={(event) => setReplyText(event.target.value)}
+                placeholder="回复信息…"
+                autoComplete="off"
+              />
+              <button type="submit" aria-label="发送回复" disabled={!replyText.trim()}>
+                <Send size={19} />
+              </button>
+            </form>
+          ) : (
+            <Composer p={p} />
+          )}
         </>
       ) : (
         <div className="catalog-scroll">
           <SearchBox value={q} set={setQ} />
           <ChatRows
             p={p}
-            items={unread ? items.filter((i) => !i.read) : items}
+            items={allItems.filter((i) => !unread || !i.read)}
           />
         </div>
       )}
     </div>
   );
 }
+
 export function QQSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "消息");
   const list = items.filter((i) => i.folder !== "空间" && i.kind !== "post");
