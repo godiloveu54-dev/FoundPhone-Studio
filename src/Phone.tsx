@@ -58,6 +58,7 @@ import {
 import { getApp, type AppPlugin } from "./registry";
 import {
   initialRuntime,
+  makeItem,
   safeMedia,
   type Work,
   type Item,
@@ -105,7 +106,37 @@ export function AppIcon({
 type PhoneProps = Omit<Parameters<typeof PhoneRuntime>[0], "deviceLayout">;
 
 type CallDialogueLine = { speaker: string; text: string };
+const sasaengSeedMessage: Item = {
+  id: "sasaeng-seed-message",
+  title: "私生",
+  body: "哥哥，你终于上线了……",
+  richText: "",
+  meta: {},
+  time: "2026-10-26 09:41",
+  sender: "私生",
+  avatar: "",
+  kind: "text",
+  media: "",
+  hidden: false,
+  unlock: "",
+  password: "",
+  folder: "",
+  favorite: false,
+  outgoing: false,
+  read: false,
+  likes: 0,
+  comments: [],
+};
+const sasaengCallDialogue: CallDialogueLine[] = [
+  { speaker: "？", text: "你好，是陈先生吗？" },
+  { speaker: "我", text: "有事吗？" },
+  { speaker: "？", text: "不好意思打扰您，我是中国电信的客服，这边给您来电是因为系统检测到您的流量包业务……（憋笑）" },
+  { speaker: "我", text: "挂了。" },
+  { speaker: "？", text: "别挂哥哥……哥哥对不起，我错了……好想你啊哥哥，终于听到你的声音了。" },
+  { speaker: "我", text: "……" },
+];
 function getCallDialogue(item?: Item): CallDialogueLine[] {
+  if (item?.id === "sasaeng-call") return sasaengCallDialogue;
   if (!item?.meta?.dialogue) return [];
   try {
     const value: unknown = JSON.parse(item.meta.dialogue);
@@ -266,7 +297,8 @@ function PhoneRuntime({
   }, [creator, ready, work.id, work.updatedAt]);
   const callTarget = s.incomingCall?.target ?? "";
   const callStatus = s.incomingCall?.status ?? "";
-  const callRecord = work.data.phone?.find((item) => item.id === callTarget);
+  const callRecord = work.data.phone?.find((item) => item.id === callTarget) ??
+    (callTarget === "sasaeng-call" ? ({ id: "sasaeng-call", meta: {} } as Item) : undefined);
   const callDialogue = useMemo(() => getCallDialogue(callRecord), [callRecord]);
   useEffect(() => {
     if (creator || callStatus !== "answered" || callDialogue.length === 0) {
@@ -298,6 +330,58 @@ function PhoneRuntime({
   }, [creator, callStatus, callTarget, callDialogue, work, update]);
   const event = (event: string, target: string) => {
     if (!creator) update(dispatch(work, runtimeRef.current, event, target));
+  };
+  const handleMessageReply = (thread: string, text: string) => {
+    if (creator) return;
+    const current = runtimeRef.current;
+    const isSasaengThread =
+      /私生|私生粉|跟踪者/i.test(thread) ||
+      [...(work.data.messages ?? []), ...(current.messages.messages ?? [])].some(
+        (item) => item.title === thread && /私生|私生粉|跟踪者/i.test(item.sender),
+      );
+    const alreadyTriggered = Boolean(current.variables.sasaengCallTriggered);
+    const timestamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
+    const outgoing = makeItem({
+      id: `player-reply-${Date.now()}`,
+      title: thread,
+      body: text,
+      sender: work.phone.owner,
+      time: timestamp,
+      outgoing: true,
+    });
+    const nextMessages = [...(current.messages.messages ?? []), outgoing];
+    const next: Runtime = {
+      ...current,
+      messages: { ...current.messages, messages: nextMessages },
+      variables: isSasaengThread && !alreadyTriggered
+        ? { ...current.variables, sasaengCallTriggered: true }
+        : current.variables,
+    };
+    update(next);
+    if (!isSasaengThread || alreadyTriggered) return;
+    window.setTimeout(() => {
+      const latest = runtimeRef.current;
+      const stalkerReply = makeItem({
+        id: `sasaeng-reply-${Date.now()}`,
+        title: thread,
+        body: "哥哥……你终于回我了，我好想你。",
+        sender: "私生",
+        time: `${latest.date ?? work.phone.date ?? "2026-10-26"} ${latest.time ?? work.phone.time}`,
+      });
+      update({
+        ...latest,
+        messages: {
+          ...latest.messages,
+          messages: [...(latest.messages.messages ?? []), stalkerReply],
+        },
+        notifications: [...latest.notifications, "中国电信 10000 来电"],
+        incomingCall: {
+          caller: "中国电信 10000",
+          target: "sasaeng-call",
+          status: "ringing",
+        },
+      });
+    }, 1300);
   };
   const captureApp = () => {
     if (!app) return;
@@ -502,12 +586,19 @@ function PhoneRuntime({
                   items={[
                     ...(work.data[app] ?? []),
                     ...(s.messages[app] ?? []),
+                    ...(!creator && app === "messages" &&
+                      ![...(work.data[app] ?? []), ...(s.messages[app] ?? [])].some(
+                        (item) => /私生|私生粉|跟踪者/i.test(item.title + " " + item.sender),
+                      )
+                      ? [sasaengSeedMessage]
+                      : []),
                   ]}
                   creator={creator}
                   state={s}
                   onRead={(id) => event("read", id)}
                   onEdit={(item) => onEdit?.(app, item)}
                   onAdd={() => onAdd?.(app)}
+                  onReply={handleMessageReply}
                   onBack={() => setApp("")}
                   onSettings={onSettings}
                   onUi={(key, value) => {
@@ -1081,6 +1172,7 @@ function AppContent({
               onBack={onBack}
               thread={thread}
               onThread={setThread}
+              onReply={handleMessageReply}
             />
           </Suspense>
         </div>
