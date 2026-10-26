@@ -1141,7 +1141,7 @@ export function InstagramSkin(p: SkinProps) {
         ) : (
           <>
             <div className="ig-profile">
-              <Avatar name={posts[0]?.sender ?? "我"} round />
+              <Avatar name={posts[0]?.sender ?? "我"} src={posts[0]?.sender === "陈浚铭" ? "./IMG_4399.jpeg" : ""} round />
               <div>
                 <strong>{posts.length}</strong>
                 <small>帖子</small>
