@@ -498,7 +498,9 @@ function PhoneRuntime({
       [...(work.data.messages ?? []), ...(current.messages.messages ?? []), ...(current.messages.wechat ?? [])].some(
         (item) => item.title === thread && /私生|私生粉|跟踪者/i.test(item.sender),
       );
+    const threadTriggerKey = `sasaengReplyTriggered:${thread}`;
     const alreadyTriggered = Boolean(current.variables.sasaengCallTriggered);
+    const alreadyRepliedToThisPerson = Boolean(current.variables[threadTriggerKey]);
     const timestamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
     const outgoing = makeItem({
       id: `player-reply-${Date.now()}`,
@@ -527,9 +529,11 @@ function PhoneRuntime({
         ...current.messages,
         ...(isWeChatStalker ? { wechat: nextMessages } : { messages: nextMessages }),
       },
-      variables: !alreadyTriggered
-        ? { ...current.variables, sasaengCallTriggered: true }
-        : current.variables,
+      variables: {
+        ...current.variables,
+        [threadTriggerKey]: true,
+        ...(!alreadyTriggered ? { sasaengCallTriggered: true } : {}),
+      },
       read: [...new Set([
         ...current.read,
         ...[...(work.data[app] ?? []), ...(current.messages[app] ?? [])]
@@ -545,12 +549,13 @@ function PhoneRuntime({
       "哥哥，你是不是生气了？我以后会乖的。",
       "你终于肯理我了，我真的好开心。",
     ];
+    if (alreadyRepliedToThisPerson) return;
     window.setTimeout(() => {
       const latest = runtimeRef.current;
       const stalkerReply = makeItem({
         id: `sasaeng-reply-${Date.now()}`,
         title: thread,
-        body: replies[Math.floor(Math.random() * replies.length)],
+        body: replies[Math.abs([...thread].reduce((sum, char) => sum + char.charCodeAt(0), 0)) % replies.length],
         sender: thread,
         time: `${latest.date ?? work.phone.date ?? "2026-10-26"} ${latest.time ?? work.phone.time}`,
         read: true,
