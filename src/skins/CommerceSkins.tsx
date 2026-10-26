@@ -319,6 +319,8 @@ export function TaobaoSkin(p: Props) {
               setCart([]);
               setCheckout(false);
               setTab("订单");
+              const card = /陈奕恒/.test(paymentMethod) ? "陈奕恒" : /张桂源/.test(paymentMethod) ? "张桂源" : null;
+              if (card && p.onFamilyCardPayment) setFamilyCardPopup(p.onFamilyCardPayment(card, false));
             }}>确认付款（模拟）</button>
             <small>仅记录模拟交易，不会真实扣款。</small>
           </section>
