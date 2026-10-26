@@ -288,7 +288,7 @@ export function WeChatSkin(p: SkinProps) {
                 <p className="wx-year-caption">{selectedYear} 年 · 全部聊天记录</p>
                 <MessageList
                   items={p.items
-                    .filter((i) => i.title === p.thread && /^\\d{4}/.test(i.time) && i.time.slice(0, 4) === selectedYear)
+                    .filter((i) => i.title === p.thread && /^\d{4}/.test(i.time) && i.time.slice(0, 4) === selectedYear)
                     .sort((a, b) => a.time.localeCompare(b.time))}
                   creator={p.creator}
                   onItem={p.onItem}
