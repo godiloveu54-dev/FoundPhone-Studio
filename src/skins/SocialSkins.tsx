@@ -281,7 +281,7 @@ export function WeiboSkin(p: Props) {
   const submitReply = (item: Item) => {
     const text = (drafts[item.id] || "").trim();
     if (!text) return;
-    const next: WeiboReply[] = [{ author: p.owner || "我", text }, ...(replies[item.id] || [])];
+    const next: WeiboReply[] = [{ author: p.owner || "我", text }];
     if (weiboAuthorReplies[item.id]) {
       next.push({ author: item.sender, text: weiboAuthorReplies[item.id], isAuthor: true });
     }
