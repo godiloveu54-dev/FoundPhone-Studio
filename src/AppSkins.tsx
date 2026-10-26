@@ -467,7 +467,7 @@ export function WeChatSkin(p: SkinProps) {
           )}
           {p.thread === "四代同堂" && !p.creator && (
             <div className="wx-quick-replies">
-              <button onClick={() => p.onReply(p.thread!, "收到")}>收到</button>
+              <button onClick={() => p.onReply?.(p.thread!, "收到")}>收到</button>
             </div>
           )}
           <Compose creator={p.creator} onAdd={p.onAdd} onPlus={() => setPlusMenu((v) => !v)} />
