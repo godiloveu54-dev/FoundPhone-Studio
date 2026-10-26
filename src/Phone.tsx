@@ -34,6 +34,7 @@ import "./ios/status-bar.css";
 import { WeChatSkin, WhatsAppSkin } from "./AppSkins";
 import { RichText } from "./RichText";
 import {
+  useCallback,
   useEffect,
   useMemo,
   useState,
@@ -211,11 +212,11 @@ function PhoneRuntime({
   const s = external ?? own;
   const runtimeRef = useRef(s);
   runtimeRef.current = s;
-  const update = (next: Runtime) => {
+  const update = useCallback((next: Runtime) => {
     runtimeRef.current = next;
     setOwn(next);
     onRuntime?.(next);
-  };
+  }, [onRuntime]);
   useEffect(() => {
     let active = true;
     if (creator || external) return;
