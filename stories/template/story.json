@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "恒铭 iPhone 模拟器",
   "description": "陈浚铭的 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容。",
-  "revision": 30,
+  "revision": 31,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -1096,9 +1096,9 @@
           "id": "cyh-user-canonical-001",
           "title": "陈奕恒",
           "time": "2023-08-23",
-          "senderId": "微信系统",
           "kind": "event",
-          "body": "我们已经是好友啦～现在可以开始聊天了。"
+          "body": "我们已经是好友啦～现在可以开始聊天了。",
+          "sender": "微信系统"
         },
         {
           "id": "cyh-user-canonical-002",
@@ -2424,9 +2424,9 @@
           "id": "cyh-user-canonical-162",
           "title": "陈奕恒",
           "time": "2025-12-10",
-          "senderId": "微信系统",
           "kind": "call",
-          "body": "陈奕恒和陈浚铭深夜语音通话了四个小时"
+          "body": "陈奕恒和陈浚铭深夜语音通话了四个小时",
+          "sender": "微信系统"
         },
         {
           "id": "cyh-user-canonical-163",
@@ -2480,9 +2480,9 @@
           "id": "cyh-user-canonical-168",
           "title": "陈奕恒",
           "time": "2026-01-23",
-          "senderId": "微信系统",
           "kind": "call",
-          "body": "陈奕恒和陈浚铭语音通话五小时"
+          "body": "陈奕恒和陈浚铭语音通话五小时",
+          "sender": "微信系统"
         },
         {
           "id": "cyh-user-canonical-169",
@@ -2704,9 +2704,9 @@
           "id": "cyh-user-canonical-194",
           "title": "陈奕恒",
           "time": "2026-05-23",
-          "senderId": "微信系统",
           "kind": "call",
-          "body": "语音通话两小时"
+          "body": "语音通话两小时",
+          "sender": "微信系统"
         },
         {
           "id": "cyh-user-canonical-195",
