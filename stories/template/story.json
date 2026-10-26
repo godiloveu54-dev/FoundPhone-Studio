@@ -3925,7 +3925,7 @@
     ],
     "contacts": [
       {
-        "id": "contact-001",
+        "id": "template-contact-001",
         "title": "爸爸",
         "body": "",
         "sender": "爸爸",
@@ -3940,7 +3940,7 @@
         }
       },
       {
-        "id": "contact-002",
+        "id": "template-contact-002",
         "title": "妈妈",
         "body": "",
         "sender": "妈妈",
@@ -3955,7 +3955,7 @@
         }
       },
       {
-        "id": "contact-003",
+        "id": "template-contact-003",
         "title": "哥哥",
         "body": "",
         "sender": "哥哥",
@@ -3970,7 +3970,7 @@
         }
       },
       {
-        "id": "contact-004",
+        "id": "template-contact-004",
         "title": "陈奕恒",
         "body": "",
         "sender": "陈奕恒",
@@ -3985,7 +3985,7 @@
         }
       },
       {
-        "id": "contact-005",
+        "id": "template-contact-005",
         "title": "张桂源",
         "body": "",
         "sender": "张桂源",
@@ -4000,7 +4000,7 @@
         }
       },
       {
-        "id": "contact-006",
+        "id": "template-contact-006",
         "title": "杨博文",
         "body": "",
         "sender": "杨博文",
@@ -4015,7 +4015,7 @@
         }
       },
       {
-        "id": "contact-007",
+        "id": "template-contact-007",
         "title": "左奇函",
         "body": "",
         "sender": "左奇函",
@@ -4030,7 +4030,7 @@
         }
       },
       {
-        "id": "contact-008",
+        "id": "template-contact-008",
         "title": "杨涵博",
         "body": "",
         "sender": "杨涵博",
@@ -4045,7 +4045,7 @@
         }
       },
       {
-        "id": "contact-009",
+        "id": "template-contact-009",
         "title": "陈思罕",
         "body": "",
         "sender": "陈思罕",
@@ -4060,7 +4060,7 @@
         }
       },
       {
-        "id": "contact-010",
+        "id": "template-contact-010",
         "title": "张函瑞",
         "body": "",
         "sender": "张函瑞",
@@ -4075,7 +4075,7 @@
         }
       },
       {
-        "id": "contact-011",
+        "id": "template-contact-011",
         "title": "王橹杰",
         "body": "",
         "sender": "王橹杰",
