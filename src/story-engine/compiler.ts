@@ -213,7 +213,11 @@ export function compileStory(raw: unknown): { story: Story; work: Work } {
     (data[app] ??= []).push(item);
   };
   for (const [app, items] of Object.entries(s.content))
-    items.forEach((i, n) => add(app, i, `content.${app}.${n}`));
+    items.forEach((i, n) => {
+      // Keep authored content in story.json even when its app is uninstalled.
+      // It is omitted from the playable runtime until that app is installed again.
+      if (installed.has(app)) add(app, i, `content.${app}.${n}`);
+    });
   s.contacts.forEach((c, n) => {
     if (c.avatar && !safeMedia(c.avatar))
       fail(`contacts.${n}.avatar`, "无效头像");
