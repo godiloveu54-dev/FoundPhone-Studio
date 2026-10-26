@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 11,
+  "revision": 12,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -10331,6 +10331,148 @@
         "id": "test-appstore",
         "title": "测试内容",
         "body": "这是一条测试内容。"
+      }
+    ],
+    "wechat": [
+      {
+        "id": "moments-chen-yiheng-20261020",
+        "title": "陈奕恒的朋友圈",
+        "body": "so cool😎🌇",
+        "sender": "陈奕恒",
+        "time": "2026-10-20 12:00",
+        "kind": "post",
+        "media": "./IMG_4419.jpeg",
+        "folder": "朋友圈",
+        "meta": {
+          "location": "土耳其"
+        },
+        "likes": 0,
+        "comments": [
+          "陈浚铭：😁😁"
+        ]
+      },
+      {
+        "id": "moments-yang-bowen-20261023",
+        "title": "杨博文的朋友圈",
+        "body": "埋头苦干…",
+        "sender": "杨博文",
+        "time": "2026-10-23 12:00",
+        "kind": "post",
+        "media": "./f368ac70-d0fe-11f1-a756-add5ec85ef27.jpeg",
+        "folder": "朋友圈",
+        "meta": {},
+        "likes": 0,
+        "comments": [
+          "陈浚铭：装逼装逼我装逼"
+        ]
+      },
+      {
+        "id": "moments-zhang-guiyuan-20261012",
+        "title": "张桂源的朋友圈",
+        "body": "坤动",
+        "sender": "张桂源",
+        "time": "2026-10-12 12:00",
+        "kind": "post",
+        "media": "",
+        "folder": "朋友圈",
+        "meta": {
+          "location": "澳门"
+        },
+        "likes": 0,
+        "comments": [
+          "陈浚铭：玩梗中分"
+        ]
+      },
+      {
+        "id": "moments-zhang-hanrui-20261018",
+        "title": "张函瑞的朋友圈",
+        "body": "我的第一个小公主😆😆",
+        "sender": "张函瑞",
+        "time": "2026-10-18 12:00",
+        "kind": "post",
+        "media": "./IMG_4415.jpeg",
+        "folder": "朋友圈",
+        "meta": {},
+        "likes": 0,
+        "comments": [
+          "陈浚铭：格格吉祥"
+        ]
+      },
+      {
+        "id": "moments-chen-junming-20260911",
+        "title": "陈浚铭的朋友圈",
+        "body": "好烧心啊",
+        "sender": "陈浚铭",
+        "time": "2026-09-11 12:00",
+        "kind": "post",
+        "media": "./fc6fb770-cf71-11f1-9960-b39a3285e14a.jpeg",
+        "folder": "朋友圈",
+        "meta": {},
+        "likes": 0,
+        "comments": [
+          "陈奕恒：这个西瓜怎么卖？😬😬",
+          "张桂源：陈浚铭好瓜皮啊陈浚铭"
+        ]
+      },
+      {
+        "id": "moments-wang-lujie-20261004",
+        "title": "王橹杰的朋友圈",
+        "body": "",
+        "sender": "王橹杰",
+        "time": "2026-10-04 12:00",
+        "kind": "post",
+        "media": "./8a4b8900-d0ff-11f1-a756-add5ec85ef27.jpeg",
+        "folder": "朋友圈",
+        "meta": {},
+        "likes": 0,
+        "comments": [
+          "陈浚铭：好消肿啊"
+        ]
+      },
+      {
+        "id": "moments-guan-junchen-20261023",
+        "title": "官俊臣的朋友圈",
+        "body": "想下大雪",
+        "sender": "官俊臣",
+        "time": "2026-10-23 12:00",
+        "kind": "post",
+        "media": "",
+        "folder": "朋友圈",
+        "meta": {},
+        "likes": 0,
+        "comments": [
+          "陈浚铭：我哥也喜欢下雪😁😁"
+        ]
+      },
+      {
+        "id": "moments-zuo-qihan-20261024",
+        "title": "左奇函的朋友圈",
+        "body": "duo💅",
+        "sender": "左奇函",
+        "time": "2026-10-24 12:00",
+        "kind": "post",
+        "media": "./IMG_4425.jpeg",
+        "folder": "朋友圈",
+        "meta": {},
+        "likes": 0,
+        "comments": [
+          "陈浚铭：当你凝视深渊的时候 深渊也在凝视你"
+        ]
+      },
+      {
+        "id": "moments-chen-sihan-20261024",
+        "title": "陈思罕的朋友圈",
+        "body": "感觉自己跳的好通透啊",
+        "sender": "陈思罕",
+        "time": "2026-10-24 12:00",
+        "kind": "post",
+        "media": "",
+        "folder": "朋友圈",
+        "meta": {},
+        "likes": 0,
+        "comments": [
+          "陈浚铭：👍"
+        ]
       }
     ]
   },
