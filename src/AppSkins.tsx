@@ -76,7 +76,7 @@ function Avatar({
   return (
     <span className={`skin-avatar ${round ? "round" : ""}`}>
       {image && /^(data:image\/|https?:\/\/|\.\.?\/|\/)/i.test(image) ? (
-        <img src={image} alt={name} loading="lazy" />
+        <img src={image} alt={name} loading="lazy" decoding="async" />
       ) : (
         name.slice(0, 1) || "人"
       )}
@@ -89,9 +89,9 @@ function ItemMedia({ item }: { item: Item }) {
     item.kind === "audio" ? (
       <audio controls src={src} />
     ) : item.kind === "video" ? (
-      <video controls playsInline src={src} />
+      <video controls playsInline preload="none" src={src} />
     ) : (
-      <img loading="lazy" alt={item.title} src={src} />
+      <img loading="lazy" decoding="async" alt={item.title} src={src} />
     )
   ) : (
     <div className="skin-photo">
