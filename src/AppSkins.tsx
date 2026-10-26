@@ -30,6 +30,9 @@ import {
   Image as ImageIcon,
   Layers,
   ShoppingBag,
+  Gift,
+  Wallet,
+  X,
 } from "lucide-react";
 import { safeMedia, type Item, type UiValue } from "./schema";
 export type SkinProps = {
@@ -174,10 +177,12 @@ function Compose({
   creator,
   onAdd,
   wa = false,
+  onPlus,
 }: {
   creator: boolean;
   onAdd: () => void;
   wa?: boolean;
+  onPlus?: () => void;
 }) {
   return (
     <div className={`skin-compose ${wa ? "wa-compose" : ""}`}>
@@ -185,7 +190,7 @@ function Compose({
       <NativeComposer creator={creator} onAdd={onAdd} />
 
       <Smile size={21} />
-      {wa ? <Mic size={20} /> : <Plus size={22} />}
+      {wa ? <Mic size={20} /> : <button aria-label="更多功能" className="wx-compose-plus" onClick={onPlus}><Plus size={22} /></button>}
     </div>
   );
 }
@@ -196,15 +201,21 @@ export function WeChatSkin(p: SkinProps) {
     [menu, setMenu] = useState(false),
     [searchOpen, setSearchOpen] = useState(false),
     [utility, setUtility] = useState(""),
-    [selectedYear, setSelectedYear] = useState("");
+    [selectedYear, setSelectedYear] = useState(""),
+    [plusMenu, setPlusMenu] = useState(false),
+    [financeMode, setFinanceMode] = useState(""),
+    [transferAmount, setTransferAmount] = useState(""),
+    [bankBalance, setBankBalance] = useState(1000000),
+    [financeMessages, setFinanceMessages] = useState<Item[]>([]);
   const [readThreads, setReadThreads] = useSkinState<string[]>(
     p,
     "readThreads",
     [],
   );
+  const allChatItems = [...p.items, ...financeMessages];
   const conversations = [
     ...new Set(
-      p.items
+      allChatItems
         .filter((i) => !["朋友圈", "我"].includes(i.folder))
         .map((i) => i.title),
     ),
@@ -351,12 +362,12 @@ export function WeChatSkin(p: SkinProps) {
       ) : p.thread ? (
         <>
           <MessageList
-            items={p.items.filter((i) => i.title === p.thread).sort((a, b) => a.time.localeCompare(b.time))}
+            items={allChatItems.filter((i) => i.title === p.thread).sort((a, b) => a.time.localeCompare(b.time))}
             creator={p.creator}
             onItem={p.onItem}
             onRead={p.onRead}
           />
-          <Compose creator={p.creator} onAdd={p.onAdd} />
+          <Compose creator={p.creator} onAdd={p.onAdd} onPlus={() => setPlusMenu((v) => !v)} />
         </>
       ) : moments ? (
         <div className="wx-moments">
@@ -552,6 +563,53 @@ export function WeChatSkin(p: SkinProps) {
               )}
             </>
           )}
+        </div>
+      )}
+      {p.thread && plusMenu && (
+        <div className="wx-plus-panel" role="dialog" aria-label="聊天更多功能">
+          <button onClick={() => { setPlusMenu(false); setFinanceMode("gift"); }}><span className="wx-plus-icon gift"><Gift size={22} /></span><small>礼物</small></button>
+          <button onClick={() => { setPlusMenu(false); setFinanceMode("transfer"); }}><span className="wx-plus-icon transfer"><Wallet size={22} /></span><small>转账</small></button>
+        </div>
+      )}
+      {financeMode === "transfer" && (
+        <div className="wx-finance-backdrop" role="presentation" onClick={() => setFinanceMode("")}>
+          <section className="wx-finance-sheet" role="dialog" aria-label="微信转账" onClick={(e) => e.stopPropagation()}>
+            <button className="wx-finance-close" aria-label="关闭" onClick={() => setFinanceMode("")}><X size={19} /></button>
+            <div className="wx-finance-heading"><Wallet size={25} /><h2>转账给 {p.thread}</h2></div>
+            <p className="wx-finance-label">转账金额（人民币）</p>
+            <label className="wx-transfer-input"><span>¥</span><input inputMode="decimal" type="number" min="0.01" step="0.01" placeholder="0.00" value={transferAmount} onChange={(e) => setTransferAmount(e.target.value)} /></label>
+            <div className="wx-balance-note">模拟银行卡余额：¥{bankBalance.toLocaleString("zh-CN", {minimumFractionDigits:2, maximumFractionDigits:2})}</div>
+            <button className="wx-finance-primary" disabled={!Number.isFinite(Number(transferAmount)) || Number(transferAmount) <= 0 || Number(transferAmount) > bankBalance} onClick={() => {
+              const amount = Math.round(Number(transferAmount) * 100) / 100;
+              const stamp = new Date();
+              const time = stamp.getFullYear() + "-" + String(stamp.getMonth()+1).padStart(2,"0") + "-" + String(stamp.getDate()).padStart(2,"0") + " " + String(stamp.getHours()).padStart(2,"0") + ":" + String(stamp.getMinutes()).padStart(2,"0");
+              const event: Item = { id: "wechat-transfer-" + Date.now(), title: p.thread, body: amount.toFixed(2), richText: "", meta: { transactionType: "微信转账", status: "待对方确认", amount: "-¥" + amount.toFixed(2), recipient: p.thread, source: "模拟银行卡" }, time, sender: "我", avatar: "", kind: "transfer", media: "", hidden: false, unlock: "", password: "", folder: p.thread, favorite: false, outgoing: true, read: true, likes: 0, comments: [] };
+              setBankBalance((v) => Math.round((v - amount) * 100) / 100);
+              setFinanceMessages((v) => [...v, event]);
+              setTransferAmount("");
+              setFinanceMode("");
+            }}>确认转账（模拟）</button>
+            <small className="wx-finance-disclaimer">仅为模拟器内的虚拟转账，不会真实扣款。</small>
+          </section>
+        </div>
+      )}
+      {financeMode === "gift" && (
+        <div className="wx-finance-backdrop" role="presentation" onClick={() => setFinanceMode("")}>
+          <section className="wx-finance-sheet wx-gift-sheet" role="dialog" aria-label="挑选礼物" onClick={(e) => e.stopPropagation()}>
+            <button className="wx-finance-close" aria-label="关闭" onClick={() => setFinanceMode("")}><X size={19} /></button>
+            <div className="wx-finance-heading"><Gift size={25} /><h2>送给 {p.thread} 的礼物</h2></div>
+            <p className="wx-gift-intro">先选择礼物，后续可接入淘宝购买和送达流程。</p>
+            {[{name:"鲜花礼盒",price:199,emoji:"💐"},{name:"巧克力礼盒",price:128,emoji:"🍫"},{name:"毛绒玩偶",price:168,emoji:"🧸"},{name:"惊喜礼物盒",price:299,emoji:"🎁"}].map((gift) => (
+              <button className="wx-gift-row" key={gift.name} onClick={() => {
+                const stamp = new Date();
+                const time = stamp.getFullYear() + "-" + String(stamp.getMonth()+1).padStart(2,"0") + "-" + String(stamp.getDate()).padStart(2,"0") + " " + String(stamp.getHours()).padStart(2,"0") + ":" + String(stamp.getMinutes()).padStart(2,"0");
+                const event: Item = { id: "wechat-gift-" + Date.now(), title: p.thread, body: "我想送你一个" + gift.name + "（¥" + gift.price + "）", richText: "", meta: { transactionType: "礼物", giftName: gift.name, giftPrice: String(gift.price), recipient: p.thread, status: "待前往淘宝购买" }, time, sender: "我", avatar: "", kind: "order", media: "", hidden: false, unlock: "", password: "", folder: p.thread, favorite: false, outgoing: true, read: true, likes: 0, comments: [] };
+                setFinanceMessages((v) => [...v, event]);
+                setFinanceMode("");
+              }}><span className="wx-gift-emoji">{gift.emoji}</span><span><strong>{gift.name}</strong><small>¥{gift.price} · 模拟商品</small></span><span className="wx-gift-arrow">›</span></button>
+            ))}
+            <small className="wx-finance-disclaimer">当前是礼物挑选预览，尚未跳转淘宝或创建订单。</small>
+          </section>
         </div>
       )}
       {!p.thread && !moments && !utility && (
