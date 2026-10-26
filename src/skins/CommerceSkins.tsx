@@ -350,7 +350,7 @@ export function DeliverySkin(p: Props) {
   const [selectedMerchant, setSelectedMerchant] = useState<(typeof deliveryMenuRows)[number] | null>(null);
   const [cart, setCart] = useSkinState<string[]>(p, "deliveryCart", []);
   const [paymentMethod, setPaymentMethod] = useState("招商银行储蓄卡 · 尾号 6688");
-  const [transactions, setTransactions] = useSkinState<string[]>(p, "simulatedTransactions", []);
+  const [, setTransactions] = useSkinState<string[]>(p, "simulatedTransactions", []);
   const [deliveryOrders, setDeliveryOrders] = useSkinState<string[]>(p, "deliveryOrders", []);
   const paymentMethods = [
     "招商银行储蓄卡 · 尾号 6688", "张桂源的副卡", "爸爸的副卡", "妈妈的副卡",
