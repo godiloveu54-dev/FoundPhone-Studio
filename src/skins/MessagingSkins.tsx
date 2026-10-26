@@ -12,7 +12,7 @@ import {
   Smile,
   Users,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Item } from "../schema";
 import {
   Add,
@@ -150,16 +150,21 @@ export function MessagesSkin(p: Props) {
   const [dynamicMessages, setDynamicMessages] = useState<Item[]>(() =>
     stalkerNumbers.flatMap((number) => readStoredThread(p, number)),
   );
+  const threadCache = useRef<Record<string, Item[]>>({});
 
   useEffect(() => {
-    setDynamicMessages(stalkerNumbers.flatMap((number) => readStoredThread(p, number)));
+    const loaded: Record<string, Item[]> = {};
+    for (const number of stalkerNumbers) loaded[number] = readStoredThread(p, number);
+    threadCache.current = loaded;
+    setDynamicMessages(Object.values(loaded).flat());
   }, [p.ui, baseItems.length]);
 
   const persistMessage = (number: string, item: Item) => {
-    const previous = readStoredThread(p, number);
+    const previous = threadCache.current[number] ?? readStoredThread(p, number);
     const next = [...previous, item].slice(-250);
+    threadCache.current[number] = next;
     p.onUi?.(storedThreadKey(number), JSON.stringify(next));
-    setDynamicMessages((current) => [...current, item]);
+    setDynamicMessages((current) => [...current.filter((message) => message.id !== item.id), item]);
   };
 
   useEffect(() => {
