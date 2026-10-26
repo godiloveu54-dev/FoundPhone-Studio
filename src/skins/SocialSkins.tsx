@@ -330,6 +330,7 @@ export function WeiboSkin(p: Props) {
           const stats = weiboViralStats[i.id];
           const fanComments = weiboFanComments[i.id] || [];
           const thread = replies[i.id] || [];
+          const savedThread = Array.isArray(p.ui?.["weibo-thread-" + i.id]) ? p.ui?.["weibo-thread-" + i.id] as string[] : [];
           const count = stats ? stats.comments : String(i.comments.length || "评论");
           return (
             <article className="weibo-post" key={i.id}>
@@ -356,12 +357,12 @@ export function WeiboSkin(p: Props) {
                     {fanComments.map((comment, index) => (
                       <p key={index}><strong>{["小橘灯不熄","浚浚的星球","今天也要开心","银河邮递员","小陈同学","晚风收藏家","柠檬汽水","追光日记","海盐奶盖","心动补给站"][index]}：</strong>{comment}</p>
                     ))}
-                    {(Array.isArray(p.ui?.["weibo-thread-" + i.id]) ? p.ui?.["weibo-thread-" + i.id] as string[] : []).map((entry, index) => {
+                    {savedThread.map((entry, index) => {
                       const split = entry.indexOf("：");
                       const isAuthor = entry.includes(" · 作者回复：");
                       return <p className={isAuthor ? "weibo-author-reply" : ""} key={"saved-" + index}><strong>{split >= 0 ? entry.slice(0, split) : "用户"}：</strong>{split >= 0 ? entry.slice(split + 1) : entry}</p>;
                     })}
-                    {thread.map((reply, index) => (
+                    {!savedThread.length && thread.map((reply, index) => (
                       <p className={reply.isAuthor ? "weibo-author-reply" : ""} key={`${reply.author}-${index}`}><strong>{reply.author}{reply.isAuthor ? " · 作者回复" : ""}：</strong>{reply.text}</p>
                     ))}
                     {weiboMyPostReplies[i.id] && (
