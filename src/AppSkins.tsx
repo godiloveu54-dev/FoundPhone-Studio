@@ -205,8 +205,8 @@ export function WeChatSkin(p: SkinProps) {
     [plusMenu, setPlusMenu] = useState(false),
     [financeMode, setFinanceMode] = useState(""),
     [transferAmount, setTransferAmount] = useState(""),
-    [bankBalance, setBankBalance] = useState(1000000),
     [financeMessages, setFinanceMessages] = useState<Item[]>([]);
+  const [bankBalance, setBankBalance] = useSkinState<number>(p, "wechatBankBalance", 1000000);
   const [readThreads, setReadThreads] = useSkinState<string[]>(
     p,
     "readThreads",
