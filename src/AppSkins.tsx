@@ -488,12 +488,15 @@ export function WeChatSkin(p: SkinProps) {
               <p>以上为已配置的群成员。聊天记录可后续继续添加。</p>
             </section>
           )}
-          {p.thread === "四代同堂" && !p.creator && (
+          {p.thread === "四代同堂" && !p.creator &&
+            !p.items.some((item) => item.title === "四代同堂" && item.outgoing && item.body === "收到") && (
             <div className="wx-quick-replies">
               <button style={{ padding: "7px 18px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "收到")}>收到</button>
             </div>
           )}
-          {p.thread === "张桂源" && !p.creator && (
+          {p.thread === "张桂源" && !p.creator &&
+            !p.items.some((item) => item.title === "张桂源" && item.outgoing &&
+              ["解冻了好开心", "不能耍起了呀"].includes(item.body)) && (
             <div className="wx-quick-replies">
               <button style={{ padding: "7px 12px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "解冻了好开心")}>解冻了好开心</button>
               <button style={{ padding: "7px 12px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "不能耍起了呀")}>不能耍起了呀</button>
@@ -630,7 +633,9 @@ export function WeChatSkin(p: SkinProps) {
                     ),
                 )
                 .map((t) => {
-                  const list = p.items.filter((i) => i.title === t).sort((a, b) => b.time.localeCompare(a.time)),
+                  const list = p.items.filter((i) => i.title === t).sort((a, b) =>
+                    t === "四代同堂" ? a.time.localeCompare(b.time) : b.time.localeCompare(a.time),
+                  ),
                     last = list[0];
                   return (
                     <button
