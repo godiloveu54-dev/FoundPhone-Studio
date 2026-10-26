@@ -309,6 +309,28 @@ function PhoneRuntime({
         (_, i) => i !== index,
       ),
     });
+  const handleNotificationOpen = (text: string) => {
+    setPanel("");
+    const target = text.match(/\u2063([a-z0-9-]+)\u2063/)?.[1];
+    if (target) {
+      const current = runtimeRef.current;
+      update({
+        ...current,
+        ui: {
+          ...current.ui,
+          weibo: {
+            ...current.ui?.weibo,
+            "weibo-notification-target": target,
+          },
+        },
+      });
+      if (locked) beginUnlock();
+      else open("weibo");
+      return;
+    }
+    if (locked) beginUnlock();
+    else open(notificationContent(text, work.apps).appId);
+  };
   if (!ready) return <div className="phone-loading">正在恢复进度…</div>;
   return (
     <div
@@ -429,6 +451,7 @@ function PhoneRuntime({
                 error={pinError}
                 onUnlock={unlock}
                 onLight={() => setPanel("light")}
+                onOpenNotice={handleNotificationOpen}
                 onCamera={() => {
                   setQuickCamera(true);
                   open("camera");
@@ -459,6 +482,12 @@ function PhoneRuntime({
                   onSettings={onSettings}
                   onUi={(key, value) => {
                     const current = runtimeRef.current;
+                    if (app === "weibo" && key === "weibo-reply-notification") {
+                      const notice = `微博：陈奕恒回复了你的评论\\u2063${String(value)}\\u2063`;
+                      update({ ...current, notifications: [...current.notifications, notice] });
+                      setBanner(notice);
+                      return;
+                    }
                     update(
                       dispatch(
                         work,
@@ -555,12 +584,7 @@ function PhoneRuntime({
                     <SystemNotifications
                       notices={s.notifications}
                       apps={work.apps}
-                      onOpen={() => {
-                        setPanel("");
-                        if (locked) beginUnlock();
-                        else if (installedApps.some((a) => a.id === "messages"))
-                          open("messages");
-                      }}
+                      onOpen={handleNotificationOpen}
                       onDismiss={dismissNotice}
                     />
                   ) : (
@@ -682,8 +706,9 @@ function PhoneRuntime({
             <button
               className="device-banner"
               onClick={() => {
+                const text = banner;
                 setBanner("");
-                setPanel("notification");
+                handleNotificationOpen(text);
               }}
             >
               <AppIcon
