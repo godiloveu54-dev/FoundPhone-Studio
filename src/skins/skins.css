@@ -1429,6 +1429,44 @@
 .catalog-composer > svg {
   color: var(--app-accent, #848491);
 }
+
+.native-messages .stalker-sms-composer {
+  gap: 8px;
+  padding: 9px 12px calc(9px + env(safe-area-inset-bottom, 0px));
+  background: #f7f7f7;
+}
+.native-messages .stalker-sms-composer input {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  border: 1px solid #dedee3;
+  border-radius: 18px;
+  background: #fff;
+  padding: 0 13px;
+  color: #202124;
+  font-size: 14px;
+  outline: none;
+}
+.native-messages .stalker-sms-composer input:focus {
+  border-color: #aeb4bc;
+}
+.native-messages .stalker-sms-composer > button {
+  flex: 0 0 36px;
+  width: 36px;
+  min-height: 36px;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #2789f5;
+  color: #fff;
+}
+.native-messages .stalker-sms-composer > button:disabled {
+  opacity: .45;
+}
+
 .message-heading {
   display: flex;
   justify-content: space-between;
