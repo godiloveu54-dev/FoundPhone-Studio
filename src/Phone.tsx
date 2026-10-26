@@ -1069,6 +1069,8 @@ function AppContent({
   const [unlocks, setUnlocks] = useState<string[]>([]);
   const [pwError, setPwError] = useState("");
   const [likes, setLikes] = useState<string[]>([]);
+  const [familyCardPopup, setFamilyCardPopup] = useState<{ sender: string; text: string; kind: "food" | "plain" } | null>(null);
+  const [familyCardChoice, setFamilyCardChoice] = useState<"听" | "不听" | "">("");
   const shown = items
     .filter((i) => creator || visible(i, state))
     .filter((i) =>
@@ -1087,6 +1089,81 @@ function AppContent({
     }
     setDetail(i);
     if (!i.password || unlocks.includes(i.id)) onRead(i.id);
+  };
+  const payWithFamilyCard = (card: "陈奕恒" | "张桂源") => {
+    if (creator || !detail) return;
+    const isFood = app.id === "delivery";
+    const isTaobao = app.id === "taobao";
+    const isPurchase = isFood || isTaobao;
+    if (!isPurchase) return;
+    const text = card === "陈奕恒"
+      ? (isFood
+          ? "陈浚铭 如果我和你说 就是 你少吃点些对你不好的东西 多吃健康的食物 你会听吗？"
+          : "你终于愿意花我的卡了😆😆")
+      : (isFood ? "陈浚铭好能吃啊陈浚铭" : "陈浚铭好能买啊陈浚铭");
+    const sender = card === "陈奕恒" ? "陈奕恒" : "张桂源";
+    const current = runtimeRef.current;
+    const stamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
+    const incoming = makeItem({
+      id: `family-card-${Date.now()}`,
+      title: sender,
+      body: text,
+      sender,
+      time: stamp,
+      kind: "text",
+      outgoing: false,
+      read: false,
+    });
+    update({
+      ...current,
+      messages: {
+        ...current.messages,
+        wechat: [...(current.messages.wechat ?? []), incoming],
+      },
+      notifications: [...current.notifications, `微信 · ${sender}：${text}`],
+    });
+    setFamilyCardChoice("");
+    setFamilyCardPopup({
+      sender,
+      text,
+      kind: card === "陈奕恒" && isFood ? "food" : "plain",
+    });
+  };
+  const chooseFamilyCardReply = (choice: "听" | "不听") => {
+    const popup = familyCardPopup;
+    if (!popup || popup.kind !== "food") return;
+    const current = runtimeRef.current;
+    const stamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
+    const outgoing = makeItem({
+      id: `family-card-choice-${Date.now()}`,
+      title: "陈奕恒",
+      body: choice,
+      sender: work.phone.owner || "陈浚铭",
+      time: stamp,
+      kind: "text",
+      outgoing: true,
+      read: true,
+    });
+    const response = makeItem({
+      id: `family-card-response-${Date.now()}`,
+      title: "陈奕恒",
+      body: choice === "听" ? "陈浚铭你真好😁😁" : "你好坏啊",
+      sender: "陈奕恒",
+      time: stamp,
+      kind: "text",
+      outgoing: false,
+      read: false,
+    });
+    update({
+      ...current,
+      messages: {
+        ...current.messages,
+        wechat: [...(current.messages.wechat ?? []), outgoing, response],
+      },
+      notifications: [...current.notifications, `微信 · 陈奕恒：${response.body}`],
+    });
+    setFamilyCardPopup({ sender: "陈奕恒", text: response.body, kind: "plain" });
+    setFamilyCardChoice(choice);
   };
   const chats = [...new Set(shown.map((i) => i.title))];
   const back = () => {
@@ -1135,6 +1212,40 @@ function AppContent({
             <Media item={detail} />
           )}
           <RichText value={detail.richText} fallback={detail.body} />
+          {!creator && ["delivery", "taobao"].includes(app.id) && (
+            <div style={{ marginTop: 22, display: "grid", gap: 8 }}>
+              <button
+                onClick={() => setFamilyCardPopup({ sender: "选择亲情卡", text: "请选择本次支付使用的亲情卡", kind: "plain" })}
+                style={{ width: "100%", padding: "13px 16px", border: 0, borderRadius: 12, background: "#ff6a00", color: "#fff", fontWeight: 700, fontSize: 15 }}
+              >
+                购买 / 下单 · 亲情卡代付
+              </button>
+              {familyCardPopup?.sender === "选择亲情卡" && (
+                <div style={{ display: "grid", gap: 8, padding: 12, borderRadius: 12, background: "var(--surface, #f5f5f5)" }}>
+                  <button onClick={() => payWithFamilyCard("陈奕恒")} style={{ padding: 12, border: "1px solid #ddd", borderRadius: 10, background: "#fff" }}>陈奕恒的亲情卡</button>
+                  <button onClick={() => payWithFamilyCard("张桂源")} style={{ padding: 12, border: "1px solid #ddd", borderRadius: 10, background: "#fff" }}>张桂源的亲情卡</button>
+                </div>
+              )}
+            </div>
+          )}
+          {familyCardPopup && familyCardPopup.sender !== "选择亲情卡" && (
+            <div role="dialog" aria-modal="true" style={{ position: "fixed", inset: 0, zIndex: 10000, background: "rgba(0,0,0,.38)", display: "grid", placeItems: "center", padding: 24 }}>
+              <div style={{ width: "100%", maxWidth: 320, borderRadius: 22, background: "#f7f7f7", padding: 18, boxShadow: "0 18px 60px rgba(0,0,0,.25)", color: "#111" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+                  <div style={{ width: 38, height: 38, borderRadius: 12, background: "#07c160", color: "#fff", display: "grid", placeItems: "center", fontWeight: 700 }}>微</div>
+                  <div><strong>微信</strong><div style={{ fontSize: 12, color: "#777" }}>{familyCardPopup.sender}</div></div>
+                </div>
+                <div style={{ padding: "12px 14px", borderRadius: "4px 14px 14px 14px", background: "#fff", lineHeight: 1.6, fontSize: 15 }}>{familyCardPopup.text}</div>
+                {familyCardPopup.kind === "food" && (
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 14 }}>
+                    <button onClick={() => chooseFamilyCardReply("听")} style={{ padding: 11, border: 0, borderRadius: 10, background: "#07c160", color: "#fff", fontWeight: 700 }}>听</button>
+                    <button onClick={() => chooseFamilyCardReply("不听")} style={{ padding: 11, border: "1px solid #ddd", borderRadius: 10, background: "#fff", color: "#222", fontWeight: 700 }}>不听</button>
+                  </div>
+                )}
+                <button onClick={() => { setFamilyCardPopup(null); setFamilyCardChoice(""); }} style={{ marginTop: 12, width: "100%", padding: 10, border: 0, borderRadius: 10, background: "#e7e7e7", color: "#333" }}>关闭</button>
+              </div>
+            </div>
+          )}
           <dl className="item-metadata">
             {getFields(app.id)
               .filter((f) => detail.meta?.[f.key])
