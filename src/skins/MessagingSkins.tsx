@@ -126,7 +126,7 @@ const STALKER_REPLIES = [
   "你慢点骂，我心脏受不了这突如其来的幸福",
   "谢谢老公指点",
 ];
-const isStalkerNumber = (value: string) => /^\\d{3}\\*{4}\\d{4}$/.test(value);
+const isStalkerNumber = (value: string) => /^\d{3}\*{4}\d{4}$/.test(value);
 const storedThreadKey = (number: string) => `stalker-sms-thread-${number}`;
 function readStoredThread(p: Props, number: string): Item[] {
   try {
