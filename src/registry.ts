@@ -104,7 +104,7 @@ const definitions: [
     ShoppingBag,
     ["发现", "关注", "收藏"],
   ],
-  ["douyin", "抖音", "media", "#292c33", Video, ["推荐", "关注", "记录"]],
+  ["douyin", "抖音", "social", "#292c33", Video, ["推荐", "关注", "记录"]],
   ["bilibili", "哔哩哔哩", "media", "#d785a1", Tv, ["首页", "动态", "历史"]],
   ["alipay", "支付宝", "records", "#368dcc", Wallet, ["账单", "卡包"]],
   [
