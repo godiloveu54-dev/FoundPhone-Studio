@@ -4949,3 +4949,32 @@ label {
 .wx-history-date-divider { align-self: center; margin: 16px auto 12px; padding: 5px 10px; border-radius: 5px; background: #d8d8d8; color: #fff; font-size: 10px; letter-spacing: .2px; }
 .wx-year-history .skin-date { display: none; }
 .wx-year-history .skin-messages { overflow: visible; }
+
+
+.taobao-product-backdrop{position:absolute;inset:0;z-index:80;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.42);padding:12px}
+.taobao-product-sheet{position:relative;width:100%;max-height:88%;overflow-y:auto;border-radius:22px 22px 14px 14px;background:#fff;color:#242424;padding:20px 16px 16px}
+.taobao-sheet-close{position:absolute;right:12px;top:10px;z-index:2;width:30px;height:30px;border:0;border-radius:50%;font-size:24px}
+.taobao-product-sheet>.catalog-art,.taobao-product-sheet>img{display:block;width:100%;height:170px;object-fit:contain;border-radius:12px;margin-bottom:12px}
+.taobao-product-sheet h2{font-size:17px;line-height:1.4;margin:6px 32px 8px 0}
+.taobao-product-price{display:block;color:#f04424;font-size:25px;margin:8px 0}
+.taobao-product-stats{color:#888;font-size:12px;margin:0 0 16px}
+.taobao-option-group{margin:15px 0}
+.taobao-option-group>strong,.taobao-quantity>strong{display:block;font-size:13px;margin-bottom:9px}
+.taobao-option-group>div{display:flex;flex-wrap:wrap;gap:8px}
+.taobao-option-group button{border:1px solid #e6e6e6;border-radius:8px;padding:8px 11px;color:#444;background:#f7f7f7;font-size:12px}
+.taobao-option-group button.selected{color:#e84725;border-color:#f15a36;background:#fff3ef}
+.taobao-quantity{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid #f1f1f1}
+.taobao-quantity>div,.taobao-cart-controls{display:flex;align-items:center;gap:8px}
+.taobao-quantity button,.taobao-cart-controls button{border:0;border-radius:7px;background:#f3f3f3;min-width:28px;height:28px}
+.taobao-add-cart{display:block;width:100%;border:0;border-radius:24px;padding:13px;background:#f04424;color:white;font-weight:700;margin-top:12px}
+.taobao-cart{padding:8px 12px 20px}
+.taobao-cart h2{font-size:18px;margin:8px 0 14px}
+.taobao-cart-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:white;border-radius:12px;padding:13px;margin-bottom:10px}
+.taobao-cart-row>div:first-child{display:flex;flex-direction:column;gap:5px;min-width:0}
+.taobao-cart-row strong{font-size:13px;overflow-wrap:anywhere}
+.taobao-cart-row small{font-size:11px;color:#888}
+.taobao-cart-row b{color:#ed4827;font-size:14px}
+.taobao-cart-controls{gap:7px;flex-shrink:0}
+.taobao-cart-controls span{min-width:14px;text-align:center;font-size:12px}
+.taobao-cart-controls button:last-child{background:transparent;color:#999;font-size:11px}
+.taobao-cart-total{position:sticky;bottom:0;text-align:right;padding:14px 4px;background:#fff;color:#e84725;font-weight:700}
