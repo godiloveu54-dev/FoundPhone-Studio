@@ -4978,3 +4978,6 @@ label {
 .taobao-cart-controls span{min-width:14px;text-align:center;font-size:12px}
 .taobao-cart-controls button:last-child{background:transparent;color:#999;font-size:11px}
 .taobao-cart-total{position:sticky;bottom:0;text-align:right;padding:14px 4px;background:#fff;color:#e84725;font-weight:700}
+
+.taobao-ui{position:relative;overflow:hidden}
+.taobao-product-backdrop{inset:0;overflow-y:auto}
