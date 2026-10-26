@@ -15,6 +15,7 @@ import {
   User,
   Users,
   Video,
+  Share2,
 } from "lucide-react";
 import { useState } from "react";
 import { safeMedia, type Item } from "../schema";
@@ -432,11 +433,15 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
           onClick={() => setLiked(!liked)}
         >
           <Heart size={29} fill={liked ? "#f44368" : "white"} />
-          <small>{item.likes + (liked ? 1 : 0)}</small>
+          <small>{meta(item, "displayLikes", String(item.likes + (liked ? 1 : 0)))}</small>
         </button>
         <button aria-label={`评论${item.title}`} onClick={() => p.onItem(item)}>
           <MessageCircle size={29} />
-          <small>{item.comments.length}</small>
+          <small>{meta(item, "commentCount", String(item.comments.length))}</small>
+        </button>
+        <button aria-label={`转发${item.title}`} onClick={() => p.onItem(item)}>
+          <Share2 size={26} />
+          <small>{meta(item, "shareCount", "分享")}</small>
         </button>
         <button
           aria-label={`收藏${item.title}`}
