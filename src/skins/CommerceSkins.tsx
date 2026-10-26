@@ -10,6 +10,8 @@ import {
   Wallet,
 } from "lucide-react";
 import { useState } from "react";
+import { useSkinState } from "../skinState";
+import type { Item } from "../schema";
 import {
   Empty,
   Header,
