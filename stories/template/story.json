@@ -467,6 +467,486 @@
         "phone": "",
         "relationship": "朋友"
       }
+    },
+    {
+      "id": "sasaeng-01",
+      "title": "私生01",
+      "body": "",
+      "sender": "私生01",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生01",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-02",
+      "title": "私生02",
+      "body": "",
+      "sender": "私生02",
+      "kind": "text",
+      "time": "2026-10-26 08:02",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生02",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-03",
+      "title": "私生03",
+      "body": "",
+      "sender": "私生03",
+      "kind": "text",
+      "time": "2026-10-26 08:04",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生03",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-04",
+      "title": "私生04",
+      "body": "",
+      "sender": "私生04",
+      "kind": "text",
+      "time": "2026-10-26 08:06",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生04",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-05",
+      "title": "私生05",
+      "body": "",
+      "sender": "私生05",
+      "kind": "text",
+      "time": "2026-10-26 08:08",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生05",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-06",
+      "title": "私生06",
+      "body": "",
+      "sender": "私生06",
+      "kind": "text",
+      "time": "2026-10-26 08:10",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生06",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-07",
+      "title": "私生07",
+      "body": "",
+      "sender": "私生07",
+      "kind": "text",
+      "time": "2026-10-26 08:12",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生07",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-08",
+      "title": "私生08",
+      "body": "",
+      "sender": "私生08",
+      "kind": "text",
+      "time": "2026-10-26 08:14",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生08",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-09",
+      "title": "私生09",
+      "body": "",
+      "sender": "私生09",
+      "kind": "text",
+      "time": "2026-10-26 08:16",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生09",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-10",
+      "title": "私生10",
+      "body": "",
+      "sender": "私生10",
+      "kind": "text",
+      "time": "2026-10-26 08:18",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生10",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-11",
+      "title": "私生11",
+      "body": "",
+      "sender": "私生11",
+      "kind": "text",
+      "time": "2026-10-26 08:20",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生11",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-12",
+      "title": "私生12",
+      "body": "",
+      "sender": "私生12",
+      "kind": "text",
+      "time": "2026-10-26 08:22",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生12",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-13",
+      "title": "私生13",
+      "body": "",
+      "sender": "私生13",
+      "kind": "text",
+      "time": "2026-10-26 08:24",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生13",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-14",
+      "title": "私生14",
+      "body": "",
+      "sender": "私生14",
+      "kind": "text",
+      "time": "2026-10-26 08:26",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生14",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-15",
+      "title": "私生15",
+      "body": "",
+      "sender": "私生15",
+      "kind": "text",
+      "time": "2026-10-26 08:28",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生15",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-16",
+      "title": "私生16",
+      "body": "",
+      "sender": "私生16",
+      "kind": "text",
+      "time": "2026-10-26 08:30",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生16",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-17",
+      "title": "私生17",
+      "body": "",
+      "sender": "私生17",
+      "kind": "text",
+      "time": "2026-10-26 08:32",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生17",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-18",
+      "title": "私生18",
+      "body": "",
+      "sender": "私生18",
+      "kind": "text",
+      "time": "2026-10-26 08:34",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生18",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-19",
+      "title": "私生19",
+      "body": "",
+      "sender": "私生19",
+      "kind": "text",
+      "time": "2026-10-26 08:36",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生19",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-20",
+      "title": "私生20",
+      "body": "",
+      "sender": "私生20",
+      "kind": "text",
+      "time": "2026-10-26 08:38",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生20",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-21",
+      "title": "私生21",
+      "body": "",
+      "sender": "私生21",
+      "kind": "text",
+      "time": "2026-10-26 08:40",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生21",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-22",
+      "title": "私生22",
+      "body": "",
+      "sender": "私生22",
+      "kind": "text",
+      "time": "2026-10-26 08:42",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生22",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-23",
+      "title": "私生23",
+      "body": "",
+      "sender": "私生23",
+      "kind": "text",
+      "time": "2026-10-26 08:44",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生23",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-24",
+      "title": "私生24",
+      "body": "",
+      "sender": "私生24",
+      "kind": "text",
+      "time": "2026-10-26 08:46",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生24",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-25",
+      "title": "私生25",
+      "body": "",
+      "sender": "私生25",
+      "kind": "text",
+      "time": "2026-10-26 08:48",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生25",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-26",
+      "title": "私生26",
+      "body": "",
+      "sender": "私生26",
+      "kind": "text",
+      "time": "2026-10-26 08:50",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生26",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-27",
+      "title": "私生27",
+      "body": "",
+      "sender": "私生27",
+      "kind": "text",
+      "time": "2026-10-26 08:52",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生27",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-28",
+      "title": "私生28",
+      "body": "",
+      "sender": "私生28",
+      "kind": "text",
+      "time": "2026-10-26 08:54",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生28",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-29",
+      "title": "私生29",
+      "body": "",
+      "sender": "私生29",
+      "kind": "text",
+      "time": "2026-10-26 08:56",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生29",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-30",
+      "title": "私生30",
+      "body": "",
+      "sender": "私生30",
+      "kind": "text",
+      "time": "2026-10-26 08:58",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生30",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-31",
+      "title": "私生31",
+      "body": "",
+      "sender": "私生31",
+      "kind": "text",
+      "time": "2026-10-26 08:60",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生31",
+        "phone": "",
+        "relationship": "陌生人"
+      }
+    },
+    {
+      "id": "sasaeng-32",
+      "title": "私生32",
+      "body": "",
+      "sender": "私生32",
+      "kind": "text",
+      "time": "2026-10-26 08:62",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "私生32",
+        "phone": "",
+        "relationship": "陌生人"
+      }
     }
   ],
   "chats": [
@@ -2223,7 +2703,7 @@
     },
     {
       "id": "sasaeng-person-01",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生01",
       "participants": [
         "owner",
@@ -2241,7 +2721,7 @@
     },
     {
       "id": "sasaeng-person-02",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生02",
       "participants": [
         "owner",
@@ -2259,7 +2739,7 @@
     },
     {
       "id": "sasaeng-person-03",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生03",
       "participants": [
         "owner",
@@ -2277,7 +2757,7 @@
     },
     {
       "id": "sasaeng-person-04",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生04",
       "participants": [
         "owner",
@@ -2295,7 +2775,7 @@
     },
     {
       "id": "sasaeng-person-05",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生05",
       "participants": [
         "owner",
@@ -2313,7 +2793,7 @@
     },
     {
       "id": "sasaeng-person-06",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生06",
       "participants": [
         "owner",
@@ -2331,7 +2811,7 @@
     },
     {
       "id": "sasaeng-person-07",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生07",
       "participants": [
         "owner",
@@ -2349,7 +2829,7 @@
     },
     {
       "id": "sasaeng-person-08",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生08",
       "participants": [
         "owner",
@@ -2367,7 +2847,7 @@
     },
     {
       "id": "sasaeng-person-09",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生09",
       "participants": [
         "owner",
@@ -2385,7 +2865,7 @@
     },
     {
       "id": "sasaeng-person-10",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生10",
       "participants": [
         "owner",
@@ -2403,7 +2883,7 @@
     },
     {
       "id": "sasaeng-person-11",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生11",
       "participants": [
         "owner",
@@ -2421,7 +2901,7 @@
     },
     {
       "id": "sasaeng-person-12",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生12",
       "participants": [
         "owner",
@@ -2439,7 +2919,7 @@
     },
     {
       "id": "sasaeng-person-13",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生13",
       "participants": [
         "owner",
@@ -2457,7 +2937,7 @@
     },
     {
       "id": "sasaeng-person-14",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生14",
       "participants": [
         "owner",
@@ -2475,7 +2955,7 @@
     },
     {
       "id": "sasaeng-person-15",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生15",
       "participants": [
         "owner",
@@ -2493,7 +2973,7 @@
     },
     {
       "id": "sasaeng-person-16",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生16",
       "participants": [
         "owner",
@@ -2511,7 +2991,7 @@
     },
     {
       "id": "sasaeng-person-17",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生17",
       "participants": [
         "owner",
@@ -2529,7 +3009,7 @@
     },
     {
       "id": "sasaeng-person-18",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生18",
       "participants": [
         "owner",
@@ -2547,7 +3027,7 @@
     },
     {
       "id": "sasaeng-person-19",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生19",
       "participants": [
         "owner",
@@ -2565,7 +3045,7 @@
     },
     {
       "id": "sasaeng-person-20",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生20",
       "participants": [
         "owner",
@@ -2583,7 +3063,7 @@
     },
     {
       "id": "sasaeng-person-21",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生21",
       "participants": [
         "owner",
@@ -2601,7 +3081,7 @@
     },
     {
       "id": "sasaeng-person-22",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生22",
       "participants": [
         "owner",
@@ -2619,7 +3099,7 @@
     },
     {
       "id": "sasaeng-person-23",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生23",
       "participants": [
         "owner",
@@ -2637,7 +3117,7 @@
     },
     {
       "id": "sasaeng-person-24",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生24",
       "participants": [
         "owner",
@@ -2655,7 +3135,7 @@
     },
     {
       "id": "sasaeng-person-25",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生25",
       "participants": [
         "owner",
@@ -2673,7 +3153,7 @@
     },
     {
       "id": "sasaeng-person-26",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生26",
       "participants": [
         "owner",
@@ -2691,7 +3171,7 @@
     },
     {
       "id": "sasaeng-person-27",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生27",
       "participants": [
         "owner",
@@ -2709,7 +3189,7 @@
     },
     {
       "id": "sasaeng-person-28",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生28",
       "participants": [
         "owner",
@@ -2727,7 +3207,7 @@
     },
     {
       "id": "sasaeng-person-29",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生29",
       "participants": [
         "owner",
@@ -2745,7 +3225,7 @@
     },
     {
       "id": "sasaeng-person-30",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生30",
       "participants": [
         "owner",
@@ -2763,7 +3243,7 @@
     },
     {
       "id": "sasaeng-person-31",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生31",
       "participants": [
         "owner",
@@ -2781,7 +3261,7 @@
     },
     {
       "id": "sasaeng-person-32",
-      "app": "wechat",
+      "app": "messages",
       "title": "私生32",
       "participants": [
         "owner",
@@ -10278,28 +10758,7 @@
         ]
       }
     ],
-    "messages": [
-      {
-        "id": "sasaeng-seed-message",
-        "title": "私生",
-        "body": "哥哥，你终于上线了……",
-        "sender": "私生",
-        "time": "2026-10-26 09:41",
-        "kind": "text",
-        "folder": "短信",
-        "avatar": "",
-        "media": "",
-        "meta": {},
-        "hidden": false,
-        "unlock": "",
-        "password": "",
-        "favorite": false,
-        "outgoing": false,
-        "read": false,
-        "likes": 0,
-        "comments": []
-      }
-    ]
+    "messages": []
   },
   "variables": {},
   "events": [],
