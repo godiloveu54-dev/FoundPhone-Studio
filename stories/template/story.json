@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 5,
+  "revision": 6,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -256,6 +256,21 @@
         "name": "王橹杰",
         "phone": "",
         "relationship": "朋友"
+      }
+    },
+    {
+      "id": "company-staff",
+      "title": "工作人员",
+      "body": "",
+      "sender": "工作人员",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "工作人员",
+        "phone": "",
+        "relationship": "工作联系人"
       }
     }
   ],
@@ -2853,6 +2868,36 @@
           "time": "2026-10-24",
           "senderId": "yang-hanbo",
           "body": "…我怎么有点不太信呢",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "id": "sida-tongtang-wechat",
+      "app": "wechat",
+      "title": "四代同堂",
+      "participants": [
+        "owner",
+        "company-staff",
+        "zhang-guiyuan",
+        "yang-bowen",
+        "zhang-hanrui",
+        "guan-junchen",
+        "wang-lujie",
+        "nie-weichen",
+        "zhang-yiran",
+        "chen-yiheng",
+        "chen-sihan",
+        "yang-hanbo",
+        "wang-shuoran",
+        "li-yudong"
+      ],
+      "messages": [
+        {
+          "id": "st-2026-10-26-001",
+          "time": "2026-10-26 09:40",
+          "senderId": "company-staff",
+          "body": "接通知，近期准备恢复训练，所有人尽快返回重庆。看到消息回复「收到」，不要遗漏。",
           "kind": "text"
         }
       ]
