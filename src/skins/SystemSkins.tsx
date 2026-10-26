@@ -816,23 +816,37 @@ function LocationMap({
 }) {
   return (
     <div className={`fiction-map ${find ? "find-map" : ""}`}>
-      <svg viewBox="0 0 300 300" aria-label="原创虚构地图">
-        <rect width="300" height="300" fill="#e4e5d8" />
-        {[35, 100, 190, 260].map((n) => (
-          <path
-            key={n}
-            d={`M0 ${n} H300 M${n} 0 V300`}
-            stroke="#fff"
-            strokeWidth="11"
-          />
-        ))}
-        <path
-          d="M20 0 Q190 110 120 300"
-          stroke="#b6d8df"
-          strokeWidth="24"
-          fill="none"
-        />
-        <rect x="205" y="112" width="42" height="65" rx="7" fill="#bdcfac" />
+      <svg viewBox="0 0 300 300" aria-label={find ? "重庆南岸区地图" : "原创虚构地图"} role="img">
+        {find ? (
+          <>
+            <rect width="300" height="300" fill="#e9e9df" />
+            <path d="M-20 12 L95 64 L155 115 L210 162 L320 220" stroke="#c6e3e8" strokeWidth="45" fill="none" />
+            <path d="M-20 12 L95 64 L155 115 L210 162 L320 220" stroke="#b3d7df" strokeWidth="2" fill="none" />
+            <path d="M-10 250 Q65 214 105 170 T190 95 T315 48" stroke="#fff" strokeWidth="10" fill="none" />
+            <path d="M-10 250 Q65 214 105 170 T190 95 T315 48" stroke="#d6d7ce" strokeWidth="1.5" fill="none" />
+            <path d="M10 88 L80 116 L125 148 L170 184 L230 248" stroke="#fff" strokeWidth="8" fill="none" />
+            <path d="M10 88 L80 116 L125 148 L170 184 L230 248" stroke="#d6d7ce" strokeWidth="1.5" fill="none" />
+            <path d="M28 0 L68 75 L100 125 L118 185 L135 300 M170 0 L178 55 L205 110 L238 170 L280 300 M0 190 L65 188 L130 210 L195 222 L300 260 M0 135 L70 142 L130 165 L190 175 L300 185" stroke="#fff" strokeWidth="7" fill="none" />
+            <path d="M28 0 L68 75 L100 125 L118 185 L135 300 M170 0 L178 55 L205 110 L238 170 L280 300 M0 190 L65 188 L130 210 L195 222 L300 260 M0 135 L70 142 L130 165 L190 175 L300 185" stroke="#d6d7ce" strokeWidth="1" fill="none" />
+            <path d="M15 32 L65 24 L95 48 L78 76 L35 68 Z M205 18 L258 28 L270 58 L236 72 L205 52 Z M205 235 L250 220 L285 250 L268 286 L220 278 Z" fill="#d3dfc8" />
+            <rect x="122" y="126" width="40" height="27" rx="4" fill="#d7c9b7" stroke="#fff" strokeWidth="2" />
+            <text x="143" y="139" fontSize="7" textAnchor="middle" fill="#5b574e">长江国际</text>
+            <text x="18" y="118" fontSize="9" fill="#66685f">南滨路</text>
+            <text x="202" y="99" fontSize="8" fill="#66685f">后堡</text>
+            <text x="190" y="202" fontSize="8" fill="#66685f">南岸区</text>
+            <text x="14" y="278" fontSize="8" fill="#66685f">黄葛渡立交</text>
+            <text x="15" y="17" fontSize="8" fill="#66685f">重庆市</text>
+          </>
+        ) : (
+          <>
+            <rect width="300" height="300" fill="#e4e5d8" />
+            {[35, 100, 190, 260].map((n) => (
+              <path key={n} d={`M0 ${n} H300 M${n} 0 V300`} stroke="#fff" strokeWidth="11" />
+            ))}
+            <path d="M20 0 Q190 110 120 300" stroke="#b6d8df" strokeWidth="24" fill="none" />
+            <rect x="205" y="112" width="42" height="65" rx="7" fill="#bdcfac" />
+          </>
+        )}
       </svg>
       {items.map((i, n) => (
         <button
