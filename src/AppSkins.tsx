@@ -72,6 +72,9 @@ function Avatar({
     "聂玮辰": "./IMG_4400.jpeg",
     "张奕然": "./IMG_4425.jpeg",
   };
+  // 这些联系人按用户要求保留默认头像，不从聊天记录或其他人物图片继承头像。
+  const defaultAvatarNames = new Set(["官俊臣", "李煜东", "杨涵博", "魏子宸"]);
+  if (defaultAvatarNames.has(name.replace(/^TF家族[-·]/, "").trim())) src = "";
   const normalizedName = name.replace(/^TF家族[-·]/, "").trim();
   const image = safeMedia(src || avatarByName[normalizedName] || "");
   return (
