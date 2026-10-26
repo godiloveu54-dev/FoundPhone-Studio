@@ -300,17 +300,48 @@ export function YouTubeSkin(p: Props) {
     </div>
   );
 }
+const bilibiliDemoVideos: Item[] = [
+  { id: "bili-demo-01", title: "辐能局1v3残局拆解：什么时候该假身骗枪什么时候直架 | 晚灯Val", body: "高分局残局思路拆解，假身骗枪与直架时机分析。", richText: "", meta: { views: "12.8万", duration: "08:42", category: "游戏" }, time: "2026-10-26 08:00", sender: "晚灯Val", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 2380, comments: [] },
+  { id: "bili-demo-02", title: "【恒铭混剪】从此匿名的好友", body: "恒铭向混剪｜从此匿名的好友。", richText: "", meta: { views: "8.6万", duration: "03:16", category: "混剪" }, time: "2026-10-26 08:00", sender: "汽水剪辑社", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 5600, comments: [] },
+  { id: "bili-demo-03", title: "中考数学压轴大题｜二次函数综合题型精讲 | 一数", body: "二次函数综合题型精讲，带你拆解中考压轴题。", richText: "", meta: { views: "32.1万", duration: "18:35", category: "学习" }, time: "2026-10-26 08:00", sender: "一数", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 12000, comments: [] },
+  { id: "bili-demo-04", title: "捷风不是只有dash！高分局拉扯换身位的节奏逻辑 | JF瓦教学", body: "捷风身位控制、拉扯和进退节奏教学。", richText: "", meta: { views: "6.4万", duration: "11:09", category: "游戏" }, time: "2026-10-26 08:00", sender: "JF瓦教学", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 1900, comments: [] },
+  { id: "bili-demo-05", title: "【文铭】杨博文×陈浚铭｜我的耳返有你的贝斯声", body: "文铭向双人混剪｜我的耳返有你的贝斯声。", richText: "", meta: { views: "10.2万", duration: "04:28", category: "混剪" }, time: "2026-10-26 08:00", sender: "橘子汽水放映室", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 7300, comments: [] },
+  { id: "bili-demo-06", title: "物理电学难点梳理｜中考高频易错点汇总 | 物理杨老师", body: "中考物理电学知识点与高频易错题梳理。", richText: "", meta: { views: "19.7万", duration: "15:22", category: "学习" }, time: "2026-10-26 08:00", sender: "物理杨老师", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 8400, comments: [] },
+  { id: "bili-demo-07", title: "莲华古城A大单向烟进阶变式，老烟位都不一定知道 | 烟位观测站", body: "莲华古城A大单向烟进阶变式点位。", richText: "", meta: { views: "4.8万", duration: "07:51", category: "游戏" }, time: "2026-10-26 08:00", sender: "烟位观测站", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 1500, comments: [] },
+  { id: "bili-demo-08", title: "【桂铭】张桂源x陈浚铭｜同手同脚", body: "桂铭向双人混剪｜同手同脚。", richText: "", meta: { views: "7.9万", duration: "03:52", category: "混剪" }, time: "2026-10-26 08:00", sender: "小熊汽水铺", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 4900, comments: [] },
+  { id: "bili-demo-09", title: "中考英语完形解题逻辑，避开出题人陷阱 | 南瓜英语", body: "完形填空解题逻辑与常见陷阱分析。", richText: "", meta: { views: "22.4万", duration: "12:47", category: "学习" }, time: "2026-10-26 08:00", sender: "南瓜英语", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 9800, comments: [] },
+  { id: "bili-demo-10", title: "职业赛局复盘｜DRG这套默认控图思路放到排位同样好用 | 瓦赛事研究所", body: "职业赛局复盘：默认控图与转点节奏。", richText: "", meta: { views: "9.1万", duration: "16:03", category: "游戏" }, time: "2026-10-26 08:00", sender: "瓦赛事研究所", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 3200, comments: [] },
+  { id: "bili-demo-11", title: "【all铭】太爱铭铭了怎么办？｜四代糖点混剪 | 小铭观测站", body: "all铭向四代糖点混剪。", richText: "", meta: { views: "13.6万", duration: "05:06", category: "混剪" }, time: "2026-10-26 08:00", sender: "小铭观测站", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 8800, comments: [] },
+  { id: "bili-demo-12", title: "中考历史时间线速记，一口气梳理全部考点 | 历史周老师", body: "中考历史时间线与核心考点速记。", richText: "", meta: { views: "17.3万", duration: "14:18", category: "学习" }, time: "2026-10-26 08:00", sender: "历史周老师", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 7600, comments: [] },
+  { id: "bili-demo-13", title: "【高分复盘】钻石到辐能核心常见对位思维误区拆解 | 瓦罗兰特Replays", body: "从钻石到辐能的对位思维与常见误区。", richText: "", meta: { views: "5.7万", duration: "13:41", category: "游戏" }, time: "2026-10-26 08:00", sender: "瓦罗兰特Replays", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 2100, comments: [] },
+  { id: "bili-demo-14", title: "深海明珠防守方变速轮转，打破对手默认进点节奏 | 回合制战术", body: "深海明珠防守方变速轮转策略。", richText: "", meta: { views: "3.9万", duration: "09:34", category: "游戏" }, time: "2026-10-26 08:00", sender: "回合制战术", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 1300, comments: [] },
+  { id: "bili-demo-15", title: "五排固定车队进攻默认流程拆解，告别乱冲 | 车队战术笔记", body: "五排进攻默认流程、信息交换与协同推进。", richText: "", meta: { views: "2.8万", duration: "10:26", category: "游戏" }, time: "2026-10-26 08:00", sender: "车队战术笔记", avatar: "", kind: "video", media: "", hidden: false, unlock: "", password: "", folder: "推荐", favorite: false, outgoing: false, read: false, likes: 950, comments: [] },
+];
+function bilibiliCover(item: Item) {
+  const title = item.title;
+  const category = item.meta.category || "生活";
+  const visual = category === "游戏" ? "VALORANT" : category === "学习" ? "中考冲刺" : "恒铭混剪";
+  const icon = category === "游戏" ? "🎯" : category === "学习" ? "✦" : "♡";
+  return (
+    <div className={`bili-generated-cover ${category === "游戏" ? "game" : category === "学习" ? "study" : "edit"}`}>
+      <span className="bili-cover-kicker">{visual} · BILIBILI</span>
+      <span className="bili-cover-symbol">{icon}</span>
+      <strong>{title.split(/[｜|]/)[0].slice(0, 26)}</strong>
+      <small>{category === "游戏" ? "战术解析 / 高分复盘" : category === "学习" ? "重点梳理 / 考点精讲" : "双人向 / 高光混剪"}</small>
+    </div>
+  );
+}
 export function BilibiliSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "首页");
   const [category, setCategory] = useState("推荐");
+  const seededItems = [...bilibiliDemoVideos, ...items.filter((item) => !bilibiliDemoVideos.some((demo) => demo.title === item.title))];
   const list =
     tab === "历史"
       ? items.filter((i) => i.folder === "历史")
       : tab === "动态"
         ? items.filter((i) => i.folder === "动态")
-        : category === "推荐"
-          ? items
-          : items.filter((i) => i.folder === category);
+        : (category === "推荐" ? seededItems : items.filter((i) => i.folder === category))
+            .filter((i) => !q.trim() || i.title.toLowerCase().includes(q.toLowerCase()) || i.sender.toLowerCase().includes(q.toLowerCase()));
   return (
     <div className="catalog-skin bilibili-ui">
       <Header p={p} />
@@ -334,7 +365,7 @@ export function BilibiliSkin(p: Props) {
           {list.map((i) => (
             <button key={i.id} onClick={() => p.onItem(i)}>
               <div>
-                <Media item={i} />
+                {i.id.startsWith("bili-demo-") ? bilibiliCover(i) : <Media item={i} />}
                 <small>
                   <Play size={10} />
                   {meta(i, "views", "—")}
