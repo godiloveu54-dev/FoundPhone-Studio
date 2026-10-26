@@ -33,6 +33,7 @@ import { getApp } from "./registry";
 import {
   makeItem,
   initialRuntime,
+  validateWork,
   type Work,
   type Item,
   type Runtime,
@@ -63,7 +64,33 @@ function Studio() {
   const [phoneKey, setPhoneKey] = useState(0);
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    void useStudio.getState().load();
+    const params = new URLSearchParams(window.location.search);
+    const loadStoryPreview = async () => {
+      try {
+        const response = await fetch("./work.json", { cache: "no-store" });
+        if (!response.ok) throw new Error("剧情数据加载失败");
+        const story = validateWork(await response.json());
+        useStudio.setState({
+          works: [story],
+          work: story,
+          status: "已加载恒铭剧情",
+          error: "",
+          past: [],
+          future: [],
+        });
+        if (params.get("play") === "1") {
+          setPreview(story);
+          setRuntime(dispatch(story, initialRuntime(story), "start"));
+        }
+      } catch (error) {
+        useStudio.setState({
+          error: String(error),
+          status: "剧情加载失败",
+        });
+      }
+    };
+    if (params.get("story") === "1") void loadStoryPreview();
+    else void useStudio.getState().load();
     const handler = () => {
       void useStudio.getState().flush();
     };
