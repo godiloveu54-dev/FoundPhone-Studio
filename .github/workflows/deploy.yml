@@ -35,7 +35,7 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: npm run build
+        run: npm run story:build && npx vite build --config vite.runtime.config.ts && node scripts/package-runtime.mjs
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
