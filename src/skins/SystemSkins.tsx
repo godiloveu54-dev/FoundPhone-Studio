@@ -1003,9 +1003,9 @@ export function MapsSkin(p: Props) {
   return (
     <div className="catalog-skin native-maps">
       <Header p={p} />
-      <LocationMap items={items} onItem={p.onItem} />
+      <LocationMap items={items} onItem={p.onItem} find />
       <div className="map-sheet">
-        <SearchBox value={q} set={setQ} placeholder="搜索虚构地点" />
+        <SearchBox value={q} set={setQ} placeholder="搜索重庆地点或地址" />
         <div className="map-places">
           {items.map((i) => (
             <Row key={i.id} item={i} onItem={p.onItem} leading={<MapPin />} />
