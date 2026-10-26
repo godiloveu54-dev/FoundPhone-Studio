@@ -2679,12 +2679,144 @@
     ],
     "mail": [
       {
-        "id": "test-item-mail",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "mail-security-01",
+        "title": "Riot账号安全验证",
+        "body": "您的登录验证码：729461，5分钟内有效。如非本人操作，请不要泄露验证码，并尽快修改密码。",
+        "sender": "无畏契约",
+        "kind": "email",
+        "time": "2026-10-26 09:00",
+        "folder": "收件箱",
+        "meta": {
+          "subject": "Riot账号安全验证",
+          "category": "无畏契约｜Riot登录验证",
+          "unread": true
+        }
+      },
+      {
+        "id": "mail-security-02",
+        "title": "Riot邮箱变更确认",
+        "body": "验证码 301857，用于更换绑定邮箱，有效期10分钟。",
+        "sender": "无畏契约",
+        "kind": "email",
+        "time": "2026-10-26 10:00",
+        "folder": "收件箱",
+        "meta": {
+          "subject": "Riot邮箱变更确认",
+          "category": "无畏契约｜改绑邮箱验证",
+          "unread": true
+        }
+      },
+      {
+        "id": "mail-security-03",
+        "title": "王者荣耀安全验证",
+        "body": "您的验证码：510728，用于邮箱登录，请勿转发给他人。",
+        "sender": "王者荣耀",
+        "kind": "email",
+        "time": "2026-10-26 11:00",
+        "folder": "收件箱",
+        "meta": {
+          "subject": "王者荣耀安全验证",
+          "category": "王者荣耀｜账号登录验证邮件",
+          "unread": true
+        }
+      },
+      {
+        "id": "mail-security-04",
+        "title": "王者营地绑定验证通知",
+        "body": "验证码 842603，用于绑定王者营地账号，5分钟有效。",
+        "sender": "王者荣耀",
+        "kind": "email",
+        "time": "2026-10-26 12:00",
+        "folder": "收件箱",
+        "meta": {
+          "subject": "王者营地绑定验证通知",
+          "category": "王者荣耀｜营地绑定验证",
+          "unread": true
+        }
+      },
+      {
+        "id": "mail-security-05",
+        "title": "机票预订成功通知",
+        "body": "您的订单确认码：K6F29S，凭此码可查询、改期、办理值机。",
+        "sender": "携程旅行",
+        "kind": "email",
+        "time": "2026-10-26 13:00",
+        "folder": "收件箱",
+        "meta": {
+          "subject": "机票预订成功通知",
+          "category": "携程旅行｜预订确认+查询码",
+          "unread": true
+        }
+      },
+      {
+        "id": "mail-security-06",
+        "title": "机票订单支付验证",
+        "body": "支付校验验证码：195374，用于机票订单付款核验，3分钟内有效。",
+        "sender": "携程旅行",
+        "kind": "email",
+        "time": "2026-10-25 14:00",
+        "folder": "收件箱",
+        "meta": {
+          "subject": "机票订单支付验证",
+          "category": "携程旅行｜支付验证验证码",
+          "unread": true
+        }
+      },
+      {
+        "id": "mail-security-07",
+        "title": "多重验证重置申请",
+        "body": "验证码 640219，用于重置Riot二次验证，请勿提供给陌生人。",
+        "sender": "无畏契约",
+        "kind": "email",
+        "time": "2026-10-25 15:00",
+        "folder": "收件箱",
+        "meta": {
+          "subject": "多重验证重置申请",
+          "category": "无畏契约｜二重重置验证",
+          "unread": true
+        }
+      },
+      {
+        "id": "mail-security-08",
+        "title": "账号解绑安全校验",
+        "body": "验证码：274105，提交解绑申请使用，非本人操作忽略此邮件。",
+        "sender": "王者荣耀",
+        "kind": "email",
+        "time": "2026-10-25 16:00",
+        "folder": "收件箱",
+        "meta": {
+          "subject": "账号解绑安全校验",
+          "category": "王者荣耀｜申请解绑验证",
+          "unread": true
+        }
+      },
+      {
+        "id": "mail-security-09",
+        "title": "航班变更核验邮件",
+        "body": "变更核验码：GX73N8，如需修改乘机人信息，请输入此确认码。",
+        "sender": "东方航空",
+        "kind": "email",
+        "time": "2026-10-25 17:00",
+        "folder": "收件箱",
+        "meta": {
+          "subject": "航班变更核验邮件",
+          "category": "东方航空｜行程变更通知验证码",
+          "unread": true
+        }
+      },
+      {
+        "id": "mail-security-10",
+        "title": "Riot密码重置邮件",
+        "body": "重置验证码：481036，有效期8分钟，输入后设置新密码。",
+        "sender": "无畏契约",
+        "kind": "email",
+        "time": "2026-10-25 18:00",
+        "folder": "收件箱",
+        "meta": {
+          "subject": "Riot密码重置邮件",
+          "category": "无畏契约｜找回密码",
+          "unread": true
+        }
       }
     ],
     "clock": [
