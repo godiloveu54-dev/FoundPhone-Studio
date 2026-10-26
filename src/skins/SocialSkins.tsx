@@ -184,14 +184,16 @@ export function WeiboSkin(p: Props) {
     ...items.filter((item) => !weiboDemoPosts.some((demo) => demo.id === item.id)),
   ];
   const tabPosts = tab === "我"
-    ? allPosts.filter((item) => item.sender === "TF家族-陈浚铭chen" || item.folder === "我的")
-    : allPosts;
-  const filteredPosts = tabPosts.filter((item) =>
-    !q.trim() ||
-    item.body.toLowerCase().includes(q.toLowerCase()) ||
-    item.sender.toLowerCase().includes(q.toLowerCase()) ||
-    item.title.toLowerCase().includes(q.toLowerCase())
-  );
+    ? allPosts.filter((item) => item.sender === "TF家族-陈浚铭chen" || item.folder === "个人主页")
+    : allPosts.filter((item) => item.sender !== "TF家族-陈浚铭chen" && item.folder !== "我的");
+  const filteredPosts = tabPosts
+    .filter((item) =>
+      !q.trim() ||
+      item.body.toLowerCase().includes(q.toLowerCase()) ||
+      item.sender.toLowerCase().includes(q.toLowerCase()) ||
+      item.title.toLowerCase().includes(q.toLowerCase())
+    )
+    .sort((a, b) => b.time.localeCompare(a.time));
   const list = feed === "全部" ? filteredPosts : filteredPosts.filter((i) => i.folder === feed);
   return (
     <div className="catalog-skin weibo-ui">
