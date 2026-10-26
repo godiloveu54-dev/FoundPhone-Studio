@@ -34,7 +34,9 @@ import "./ios/status-bar.css";
 import { WeChatSkin, WhatsAppSkin } from "./AppSkins";
 import { RichText } from "./RichText";
 import {
+  useCallback,
   useEffect,
+  useMemo,
   useState,
   useRef,
   Suspense,
@@ -56,6 +58,7 @@ import {
 import { getApp, type AppPlugin } from "./registry";
 import {
   initialRuntime,
+  makeItem,
   safeMedia,
   type Work,
   type Item,
@@ -101,6 +104,55 @@ export function AppIcon({
   );
 }
 type PhoneProps = Omit<Parameters<typeof PhoneRuntime>[0], "deviceLayout">;
+
+type CallDialogueLine = { speaker: string; text: string };
+const sasaengSeedMessage: Item = {
+  id: "sasaeng-seed-message",
+  title: "私生",
+  body: "哥哥，你终于上线了……",
+  richText: "",
+  meta: {},
+  time: "2026-10-26 09:41",
+  sender: "私生",
+  avatar: "",
+  kind: "text",
+  media: "",
+  hidden: false,
+  unlock: "",
+  password: "",
+  folder: "",
+  favorite: false,
+  outgoing: false,
+  read: false,
+  likes: 0,
+  comments: [],
+};
+const sasaengCallRecord: Item = { id: "sasaeng-call", title: "中国电信 10000", body: "", richText: "", meta: {}, time: "2026-10-26 09:41", sender: "中国电信", avatar: "", kind: "call", media: "", hidden: false, unlock: "", password: "", folder: "", favorite: false, outgoing: false, read: false, likes: 0, comments: [] };
+const sasaengCallDialogue: CallDialogueLine[] = [
+  { speaker: "？", text: "你好，是陈先生吗？" },
+  { speaker: "我", text: "有事吗？" },
+  { speaker: "？", text: "不好意思打扰您，我是中国电信的客服，这边给您来电是因为系统检测到您的流量包业务……（憋笑）" },
+  { speaker: "我", text: "挂了。" },
+  { speaker: "？", text: "别挂哥哥……哥哥对不起，我错了……好想你啊哥哥，终于听到你的声音了。" },
+  { speaker: "我", text: "……" },
+];
+function getCallDialogue(item?: Item): CallDialogueLine[] {
+  if (item?.id === "sasaeng-call") return sasaengCallDialogue;
+  if (!item?.meta?.dialogue) return [];
+  try {
+    const value: unknown = JSON.parse(item.meta.dialogue);
+    if (!Array.isArray(value)) return [];
+    return value.filter(
+      (line): line is CallDialogueLine =>
+        !!line &&
+        typeof line === "object" &&
+        typeof (line as CallDialogueLine).speaker === "string" &&
+        typeof (line as CallDialogueLine).text === "string",
+    );
+  } catch {
+    return [];
+  }
+}
 export function Phone(props: PhoneProps) {
   const deviceLayout = useDeviceLayout(props.work, props.creator);
   return (
@@ -162,6 +214,7 @@ function PhoneRuntime({
   const [folder, setFolder] = useState("");
   const [panel, setPanel] = useState("");
   const [own, setOwn] = useState(() => initialRuntime(work));
+  const [callDialogueIndex, setCallDialogueIndex] = useState(0);
   const [ready, setReady] = useState(creator || !!external);
   const [loadError, setLoadError] = useState("");
   useEffect(() => {
@@ -191,11 +244,11 @@ function PhoneRuntime({
   const s = external ?? own;
   const runtimeRef = useRef(s);
   runtimeRef.current = s;
-  const update = (next: Runtime) => {
+  const update = useCallback((next: Runtime) => {
     runtimeRef.current = next;
     setOwn(next);
     onRuntime?.(next);
-  };
+  }, [onRuntime]);
   useEffect(() => {
     let active = true;
     if (creator || external) return;
@@ -243,8 +296,161 @@ function PhoneRuntime({
     }, 1000);
     return () => clearInterval(interval);
   }, [creator, ready, work.id, work.updatedAt]);
+  const callTarget = s.incomingCall?.target ?? "";
+  const callStatus = s.incomingCall?.status ?? "";
+  const callRecord = work.data.phone?.find((item) => item.id === callTarget) ??
+    (callTarget === "sasaeng-call" ? sasaengCallRecord : undefined);
+  const callDialogue = useMemo(() => getCallDialogue(callRecord), [callRecord]);
+  useEffect(() => {
+    if (creator || callStatus !== "answered" || callDialogue.length === 0) {
+      setCallDialogueIndex(0);
+      return;
+    }
+    setCallDialogueIndex(0);
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index < callDialogue.length - 1) {
+        index += 1;
+        setCallDialogueIndex(index);
+        return;
+      }
+      clearInterval(timer);
+      const current = runtimeRef.current.incomingCall;
+      if (current?.status === "answered" && current.target === callTarget) {
+        const ended = dispatch(
+          work,
+          { ...runtimeRef.current, incomingCall: null },
+          "callEnded",
+          current.target || current.caller,
+        );
+        if (
+          current.target === "sasaeng-call" &&
+          !ended.endings.includes("私生来电剧情结束")
+        ) {
+          ended.endings.push("私生来电剧情结束");
+        }
+        update(ended);
+      }
+    }, 2400);
+    return () => clearInterval(timer);
+  }, [creator, callStatus, callTarget, callDialogue, work, update]);
   const event = (event: string, target: string) => {
     if (!creator) update(dispatch(work, runtimeRef.current, event, target));
+  };
+  const handleFamilyCardPayment = (card: "陈奕恒" | "张桂源", isFood: boolean) => {
+    const isTaobao = app === "taobao";
+    const text = card === "陈奕恒"
+      ? (isFood
+          ? "陈浚铭 如果我和你说 就是 你少吃点些对你不好的东西 多吃健康的食物 你会听吗？"
+          : "你终于愿意花我的卡了😆😆")
+      : (isFood ? "陈浚铭好能吃啊陈浚铭" : "陈浚铭好能买啊陈浚铭");
+    const sender = card === "陈奕恒" ? "陈奕恒" : "张桂源";
+    const current = runtimeRef.current;
+    const stamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
+    const incoming = makeItem({
+      id: `family-card-${Date.now()}`,
+      title: sender,
+      body: text,
+      sender,
+      time: stamp,
+      kind: "text",
+      outgoing: false,
+      read: false,
+    });
+    update({
+      ...current,
+      messages: {
+        ...current.messages,
+        wechat: [...(current.messages.wechat ?? []), incoming],
+      },
+      notifications: [...current.notifications, `微信 · ${sender}：${text}`],
+    });
+    return { sender, text, kind: card === "陈奕恒" && isFood && !isTaobao ? "food" as const : "plain" as const };
+  };
+  const handleFamilyCardReply = (choice: "听" | "不听") => {
+    const current = runtimeRef.current;
+    const stamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
+    const outgoing = makeItem({
+      id: `family-card-choice-${Date.now()}`,
+      title: "陈奕恒",
+      body: choice,
+      sender: work.phone.owner || "陈浚铭",
+      time: stamp,
+      kind: "text",
+      outgoing: true,
+      read: true,
+    });
+    const response = makeItem({
+      id: `family-card-response-${Date.now()}`,
+      title: "陈奕恒",
+      body: choice === "听" ? "陈浚铭你真好😁😁" : "你好坏啊",
+      sender: "陈奕恒",
+      time: stamp,
+      kind: "text",
+      outgoing: false,
+      read: false,
+    });
+    update({
+      ...current,
+      messages: {
+        ...current.messages,
+        wechat: [...(current.messages.wechat ?? []), outgoing, response],
+      },
+      notifications: [...current.notifications, `微信 · 陈奕恒：${response.body}`],
+    });
+    return response.body;
+  };
+  const handleMessageReply = (thread: string, text: string) => {
+    if (creator) return;
+    const current = runtimeRef.current;
+    const isSasaengThread =
+      /私生|私生粉|跟踪者/i.test(thread) ||
+      [...(work.data.messages ?? []), ...(current.messages.messages ?? [])].some(
+        (item) => item.title === thread && /私生|私生粉|跟踪者/i.test(item.sender),
+      );
+    const alreadyTriggered = Boolean(current.variables.sasaengCallTriggered);
+    const timestamp = `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`;
+    const outgoing = makeItem({
+      id: `player-reply-${Date.now()}`,
+      title: thread,
+      body: text,
+      sender: work.phone.owner,
+      time: timestamp,
+      outgoing: true,
+    });
+    const nextMessages = [...(current.messages.messages ?? []), outgoing];
+    const next: Runtime = {
+      ...current,
+      messages: { ...current.messages, messages: nextMessages },
+      variables: isSasaengThread && !alreadyTriggered
+        ? { ...current.variables, sasaengCallTriggered: true }
+        : current.variables,
+    };
+    update(next);
+    if (!isSasaengThread || alreadyTriggered) return;
+    window.setTimeout(() => {
+      const latest = runtimeRef.current;
+      const stalkerReply = makeItem({
+        id: `sasaeng-reply-${Date.now()}`,
+        title: thread,
+        body: "哥哥……你终于回我了，我好想你。",
+        sender: "私生",
+        time: `${latest.date ?? work.phone.date ?? "2026-10-26"} ${latest.time ?? work.phone.time}`,
+      });
+      update({
+        ...latest,
+        messages: {
+          ...latest.messages,
+          messages: [...(latest.messages.messages ?? []), stalkerReply],
+        },
+        notifications: [...latest.notifications, "中国电信 10000 来电"],
+        incomingCall: {
+          caller: "中国电信 10000",
+          target: "sasaeng-call",
+          status: "ringing",
+        },
+      });
+    }, 1300);
   };
   const captureApp = () => {
     if (!app) return;
@@ -473,12 +679,21 @@ function PhoneRuntime({
                   items={[
                     ...(work.data[app] ?? []),
                     ...(s.messages[app] ?? []),
+                    ...(!creator && app === "messages" &&
+                      ![...(work.data[app] ?? []), ...(s.messages[app] ?? [])].some(
+                        (item) => /私生|私生粉|跟踪者/i.test(item.title + " " + item.sender),
+                      )
+                      ? [sasaengSeedMessage]
+                      : []),
                   ]}
                   creator={creator}
                   state={s}
                   onRead={(id) => event("read", id)}
                   onEdit={(item) => onEdit?.(app, item)}
                   onAdd={() => onAdd?.(app)}
+                  onReply={handleMessageReply}
+                  onFamilyCardPayment={handleFamilyCardPayment}
+                  onFamilyCardReply={handleFamilyCardReply}
                   onBack={() => setApp("")}
                   onSettings={onSettings}
                   onUi={(key, value) => {
@@ -648,12 +863,42 @@ function PhoneRuntime({
                 (() => {
                   const record = work.data.phone?.find(
                     (i) => i.id === s.incomingCall?.target,
-                  );
-                  return record?.kind === "audio" && safeMedia(record.media) ? (
-                    <audio controls src={safeMedia(record.media)} />
-                  ) : (
-                    <p>这是一通虚构来电。</p>
-                  );
+                  ) ?? (s.incomingCall?.target === "sasaeng-call"
+                    ? sasaengCallRecord
+                    : undefined);
+                  if (record?.kind === "audio" && safeMedia(record.media))
+                    return <audio controls src={safeMedia(record.media)} />;
+                  const dialogue = getCallDialogue(record);
+                  if (dialogue.length > 0) {
+                    const line = dialogue[
+                      Math.min(callDialogueIndex, dialogue.length - 1)
+                    ];
+                    return (
+                      <div
+                        className="call-dialogue"
+                        aria-live="polite"
+                        style={{
+                          width: "100%",
+                          maxWidth: 310,
+                          margin: "20px auto",
+                          padding: "14px 16px",
+                          borderRadius: 16,
+                          background: "rgba(255,255,255,0.12)",
+                          textAlign: "left",
+                          boxSizing: "border-box",
+                        }}
+                      >
+                        <small style={{ opacity: 0.72 }}>{line.speaker}</small>
+                        <p style={{ margin: "8px 0 0", lineHeight: 1.65 }}>
+                          {line.text}
+                        </p>
+                        <small style={{ display: "block", opacity: 0.62, marginTop: 12 }}>
+                          {callDialogueIndex + 1} / {dialogue.length}
+                        </small>
+                      </div>
+                    );
+                  }
+                  return <p>这是一通虚构来电。</p>;
                 })()}
               <div className="incoming-actions">
                 <button
@@ -893,6 +1138,8 @@ function AppContent({
   onBack,
   onSettings,
   onUi,
+  onFamilyCardPayment,
+  onFamilyCardReply,
   work,
 }: {
   app: AppPlugin;
@@ -906,6 +1153,8 @@ function AppContent({
   onBack: () => void;
   onSettings?: () => void;
   onUi?: (key: string, value: UiValue) => void;
+  onFamilyCardPayment: (card: "陈奕恒" | "张桂源", isFood: boolean) => { sender: string; text: string; kind: "food" | "plain" };
+  onFamilyCardReply: (choice: "听" | "不听") => string;
   work: Work;
 }) {
   const [detail, setDetail] = useState<Item | null>(null);
@@ -916,6 +1165,7 @@ function AppContent({
   const [unlocks, setUnlocks] = useState<string[]>([]);
   const [pwError, setPwError] = useState("");
   const [likes, setLikes] = useState<string[]>([]);
+  const [familyCardPopup, setFamilyCardPopup] = useState<{ sender: string; text: string; kind: "food" | "plain" } | null>(null);
   const shown = items
     .filter((i) => creator || visible(i, state))
     .filter((i) =>
@@ -934,6 +1184,17 @@ function AppContent({
     }
     setDetail(i);
     if (!i.password || unlocks.includes(i.id)) onRead(i.id);
+  };
+  const payWithFamilyCard = (card: "陈奕恒" | "张桂源") => {
+    if (creator || !detail) return;
+    const popup = onFamilyCardPayment(card, app.id === "delivery");
+    setFamilyCardPopup(popup);
+  };
+  const chooseFamilyCardReply = (choice: "听" | "不听") => {
+    const popup = familyCardPopup;
+    if (!popup || popup.kind !== "food") return;
+    const text = onFamilyCardReply(choice);
+    setFamilyCardPopup({ sender: "陈奕恒", text, kind: "plain" });
   };
   const chats = [...new Set(shown.map((i) => i.title))];
   const back = () => {
@@ -982,6 +1243,40 @@ function AppContent({
             <Media item={detail} />
           )}
           <RichText value={detail.richText} fallback={detail.body} />
+          {!creator && ["delivery", "taobao"].includes(app.id) && (
+            <div style={{ marginTop: 22, display: "grid", gap: 8 }}>
+              <button
+                onClick={() => setFamilyCardPopup({ sender: "选择亲情卡", text: "请选择本次支付使用的亲情卡", kind: "plain" })}
+                style={{ width: "100%", padding: "13px 16px", border: 0, borderRadius: 12, background: "#ff6a00", color: "#fff", fontWeight: 700, fontSize: 15 }}
+              >
+                购买 / 下单 · 亲情卡代付
+              </button>
+              {familyCardPopup?.sender === "选择亲情卡" && (
+                <div style={{ display: "grid", gap: 8, padding: 12, borderRadius: 12, background: "var(--surface, #f5f5f5)" }}>
+                  <button onClick={() => payWithFamilyCard("陈奕恒")} style={{ padding: 12, border: "1px solid #ddd", borderRadius: 10, background: "#fff" }}>陈奕恒的亲情卡</button>
+                  <button onClick={() => payWithFamilyCard("张桂源")} style={{ padding: 12, border: "1px solid #ddd", borderRadius: 10, background: "#fff" }}>张桂源的亲情卡</button>
+                </div>
+              )}
+            </div>
+          )}
+          {familyCardPopup && familyCardPopup.sender !== "选择亲情卡" && (
+            <div role="dialog" aria-modal="true" style={{ position: "fixed", inset: 0, zIndex: 10000, background: "rgba(0,0,0,.38)", display: "grid", placeItems: "center", padding: 24 }}>
+              <div style={{ width: "100%", maxWidth: 320, borderRadius: 22, background: "#f7f7f7", padding: 18, boxShadow: "0 18px 60px rgba(0,0,0,.25)", color: "#111" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+                  <div style={{ width: 38, height: 38, borderRadius: 12, background: "#07c160", color: "#fff", display: "grid", placeItems: "center", fontWeight: 700 }}>微</div>
+                  <div><strong>微信</strong><div style={{ fontSize: 12, color: "#777" }}>{familyCardPopup.sender}</div></div>
+                </div>
+                <div style={{ padding: "12px 14px", borderRadius: "4px 14px 14px 14px", background: "#fff", lineHeight: 1.6, fontSize: 15 }}>{familyCardPopup.text}</div>
+                {familyCardPopup.kind === "food" && (
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 14 }}>
+                    <button onClick={() => chooseFamilyCardReply("听")} style={{ padding: 11, border: 0, borderRadius: 10, background: "#07c160", color: "#fff", fontWeight: 700 }}>听</button>
+                    <button onClick={() => chooseFamilyCardReply("不听")} style={{ padding: 11, border: "1px solid #ddd", borderRadius: 10, background: "#fff", color: "#222", fontWeight: 700 }}>不听</button>
+                  </div>
+                )}
+                <button onClick={() => { setFamilyCardPopup(null); }} style={{ marginTop: 12, width: "100%", padding: 10, border: 0, borderRadius: 10, background: "#e7e7e7", color: "#333" }}>关闭</button>
+              </div>
+            </div>
+          )}
           <dl className="item-metadata">
             {getFields(app.id)
               .filter((f) => detail.meta?.[f.key])
@@ -1027,6 +1322,7 @@ function AppContent({
               onBack={onBack}
               thread={thread}
               onThread={setThread}
+              onReply={handleMessageReply}
             />
           </Suspense>
         </div>

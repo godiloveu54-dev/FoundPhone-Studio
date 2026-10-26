@@ -50,6 +50,7 @@ export type SkinProps = {
   onBack: () => void;
   thread: string;
   onThread: (s: string) => void;
+  onReply?: (thread: string, text: string) => void;
 };
 function Avatar({
   name,
