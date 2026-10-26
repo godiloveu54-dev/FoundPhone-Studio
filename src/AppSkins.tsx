@@ -206,6 +206,16 @@ export function WeChatSkin(p: SkinProps) {
     [financeMode, setFinanceMode] = useState(""),
     [transferAmount, setTransferAmount] = useState(""),
     [financeMessages, setFinanceMessages] = useState<Item[]>([]);
+  const [composerOpen, setComposerOpen] = useState(false),
+    [draftPost, setDraftPost] = useState(""),
+    [draftImage, setDraftImage] = useState(""),
+    [draftImageName, setDraftImageName] = useState(""),
+    [postError, setPostError] = useState("");
+  const [savedMomentPosts, setSavedMomentPosts] = useSkinState<string[]>(
+    p,
+    "wechatMomentsUserPosts",
+    [],
+  );
   const [bankBalance, setBankBalance] = useSkinState<number>(p, "wechatBankBalance", 1000000);
   const [readThreads, setReadThreads] = useSkinState<string[]>(
     p,
@@ -259,8 +269,15 @@ export function WeChatSkin(p: SkinProps) {
     if (!contactGroups[letter]) contactGroups[letter] = [];
     if (!contactGroups[letter].includes(c)) contactGroups[letter].push(c);
   }
-  const posts = p.items
-    .filter((i) => i.folder === "朋友圈" || i.kind === "post")
+  const userPosts: Item[] = savedMomentPosts.flatMap((raw) => {
+    try {
+      const parsed = JSON.parse(raw) as Item;
+      return parsed && parsed.kind === "post" && parsed.sender === (p.owner || "我") ? [parsed] : [];
+    } catch {
+      return [];
+    }
+  });
+  const posts = [...p.items.filter((i) => i.folder === "朋友圈" || i.kind === "post"), ...userPosts]
     .sort((a, b) => b.time.localeCompare(a.time));
   return (
     <div
@@ -437,8 +454,10 @@ export function WeChatSkin(p: SkinProps) {
       ) : moments ? (
         <div className="wx-moments">
           <div className="wx-moment-cover">
-            <Camera size={32} />
             <span>朋友圈</span>
+            <button className="wx-moment-camera" aria-label="发布朋友圈" onClick={() => { setPostError(""); setComposerOpen(true); }}>
+              <Camera size={25} />
+            </button>
           </div>
           {posts.map((i) => (
             <button
@@ -452,9 +471,84 @@ export function WeChatSkin(p: SkinProps) {
                 <p>{i.body}</p>
                 {i.media && <ItemMedia item={i} />}
                 <small>{i.time.slice(0, 10)}{i.meta?.location ? ` · ${i.meta.location}` : ""}</small>
+                {i.comments.length > 0 && <div className="wx-moment-comment-preview">{i.comments.slice(0, 2).map((comment, n) => <p key={n}>{comment}</p>)}</div>}
               </div>
             </button>
           ))}
+          {composerOpen && (
+            <div className="wx-moment-composer-backdrop" role="presentation" onClick={() => setComposerOpen(false)}>
+              <section className="wx-moment-composer" role="dialog" aria-modal="true" aria-label="发表朋友圈" onClick={(e) => e.stopPropagation()}>
+                <header><button onClick={() => setComposerOpen(false)}>取消</button><strong>发表朋友圈</strong><button className="wx-moment-send" disabled={!draftPost.trim() && !draftImage} onClick={() => {
+                  const now = new Date();
+                  const time = now.getFullYear() + "-" + String(now.getMonth()+1).padStart(2,"0") + "-" + String(now.getDate()).padStart(2,"0") + " " + String(now.getHours()).padStart(2,"0") + ":" + String(now.getMinutes()).padStart(2,"0");
+                  const keywordReplies: [RegExp, string[]][] = [
+                    [/吃|饭|奶茶|蛋糕|好吃|饿/, ["陈奕恒：给我也尝一口！😋", "陈浚铭：你又背着我吃好吃的！", "张桂源：看着就香哈哈哈"]],
+                    [/累|困|睡|熬夜|辛苦/, ["陈浚铭：辛苦啦，早点休息。", "陈奕恒：别太累了！", "杨博文：劳逸结合啊"]],
+                    [/雪|下雨|天气|冷|热|太阳/, ["官俊臣：我也想出去玩！", "陈浚铭：这天气真的绝了😁", "张函瑞：记得穿暖和点～"]],
+                    [/帅|美|漂亮|自拍|照片|拍照/, ["陈奕恒：拍得不错嘛😎", "张桂源：这不得多发几张？", "左奇函：很会拍💅"]],
+                    [/想你|想念|喜欢|爱/, ["陈浚铭：突然这么煽情啊🥹", "陈奕恒：谁呀谁呀，展开说说！", "张函瑞：嘿嘿嘿～"]],
+                  ];
+                  const matching = keywordReplies.find(([pattern]) => pattern.test(draftPost));
+                  const pool = matching?.[1] || [
+                    "陈奕恒：哈哈哈哈哈哈😂",
+                    "陈浚铭：你这条我必须评论一下😁",
+                    "杨博文：？展开讲讲",
+                    "张桂源：笑死我了哈哈哈",
+                    "张函瑞：好可爱！",
+                    "王橹杰：哈哈哈哈",
+                    "官俊臣：带我一个！",
+                    "左奇函：有点东西💅",
+                    "陈思罕：👍",
+                  ];
+                  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+                  const chosen = shuffled.slice(0, 1 + Math.floor(Math.random() * 2));
+                  const event: Item = {
+                    id: "wechat-moment-user-" + Date.now(),
+                    title: (p.owner || "我") + "的朋友圈",
+                    body: draftPost.trim(),
+                    richText: "",
+                    meta: { source: "用户发布" },
+                    time,
+                    sender: p.owner || "我",
+                    avatar: "",
+                    kind: "post",
+                    media: draftImage,
+                    hidden: false,
+                    unlock: "",
+                    password: "",
+                    folder: "朋友圈",
+                    favorite: false,
+                    outgoing: true,
+                    read: true,
+                    likes: 0,
+                    comments: chosen,
+                  };
+                  setSavedMomentPosts((current) => [...current, JSON.stringify(event)]);
+                  setDraftPost("");
+                  setDraftImage("");
+                  setDraftImageName("");
+                  setPostError("");
+                  setComposerOpen(false);
+                }}>发表</button></header>
+                <textarea aria-label="朋友圈文字" placeholder="这一刻的想法…" value={draftPost} onChange={(e) => setDraftPost(e.target.value)} />
+                {draftImage && <div className="wx-moment-image-preview"><img src={draftImage} alt="待发布图片" /><button onClick={() => { setDraftImage(""); setDraftImageName(""); }}>移除图片</button></div>}
+                <label className="wx-moment-image-picker"><ImageIcon size={22} /><span>{draftImageName || "添加图片"}</span><input type="file" accept="image/png,image/jpeg,image/webp,image/gif" onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  if (file.size > 1500000) { setPostError("图片请控制在 1.5MB 以内，再选择一次。"); e.currentTarget.value = ""; return; }
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    const value = typeof reader.result === "string" ? reader.result : "";
+                    if (/^data:image\/(png|jpeg|webp|gif);base64,/.test(value)) { setDraftImage(value); setDraftImageName(file.name); setPostError(""); }
+                    else setPostError("这张图片无法读取，请重新选择。");
+                  };
+                  reader.readAsDataURL(file);
+                }} /></label>
+                {postError && <p className="wx-moment-error">{postError}</p>}
+                <small>发布后会显示在朋友圈；好友评论由本地随机回复规则生成，并非 AI 实时对话。</small>
+              </section>
+            </div>
+          )}
           {!posts.length && <p className="skin-empty">暂无朋友圈动态</p>}
           {p.creator && (
             <button className="phone-add" onClick={p.onAdd}>
