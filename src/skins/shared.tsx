@@ -102,8 +102,6 @@ export function Avatar({
     "张函瑞": "./IMG_4395.jpeg",
     "王橹杰": "./IMG_4396.jpeg",
     "陈奕恒": "./IMG_4398.jpeg",
-    "聂玮辰": "./IMG_4400.jpeg",
-    "张奕然": "./IMG_4425.jpeg",
   };
   const normalizedName = name.replace(/^TF家族[-·]/, "").replace(/Jonathan|chen$/i, "").trim();
   const fallbackAvatar = Object.entries(avatarByName).find(([person]) => normalizedName.includes(person))?.[1] || "";
