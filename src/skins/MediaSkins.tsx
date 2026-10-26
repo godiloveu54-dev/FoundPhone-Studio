@@ -431,7 +431,7 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
   const [liked, setLiked] = useSkinState<boolean>(p, `liked-${item.id}`, false),
     [saved, setSaved] = useSkinState<boolean>(p, `saved-${item.id}`, false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(true);
+  const [, setPlaying] = useState(true);
   useEffect(() => {
     const video = videoRef.current;
     const card = video?.closest(".vertical-video");
