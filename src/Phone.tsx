@@ -404,6 +404,12 @@ function PhoneRuntime({
     if (creator) return;
     const current = runtimeRef.current;
     if (thread === "张桂源" && ["解冻了好开心", "不能耍起了呀"].includes(text)) {
+      const alreadyReplied = Boolean(current.variables.zhangGuiyuanReplyDone) ||
+        (current.messages.wechat ?? []).some((item) =>
+          item.title === thread && item.outgoing &&
+          ["解冻了好开心", "不能耍起了呀"].includes(item.body),
+        );
+      if (alreadyReplied) return;
       const outgoing = makeItem({
         id: `zhang-guiyuan-player-${Date.now()}`,
         title: thread,
@@ -411,10 +417,13 @@ function PhoneRuntime({
         sender: work.phone.owner,
         time: `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`,
         outgoing: true,
+        read: true,
       });
       update({
         ...current,
-        messages: { ...current.messages, wechat: [...(current.messages.wechat ?? []), outgoing] },
+        messages: { ...current.messages, wechat: [...(current.messages.wechat ?? []).map((item) => item.title === thread ? { ...item, read: true } : item), outgoing] },
+        variables: { ...current.variables, zhangGuiyuanReplyDone: true },
+        notifications: current.notifications.filter((item) => !item.includes("张桂源")),
       });
       return;
     }
@@ -428,14 +437,22 @@ function PhoneRuntime({
         outgoing: true,
       });
       const alreadyReplied = Boolean(current.variables.fourthGenAckTriggered);
+      const staffNoticeExists = (work.data.wechat ?? []).some((item) =>
+        item.title === thread && item.sender === "工作人员" &&
+        /恢复训练|回复/.test(item.body),
+      ) || (work.data.chats ?? []).some((chat) =>
+        chat.title === thread && chat.messages?.some((item) => /近期准备恢复训练/.test(item.body)),
+      );
+      if (text === "收到" && (alreadyReplied || !staffNoticeExists)) return;
+      const cleanWechat = (current.messages.wechat ?? []).filter((item) => !item.id.startsWith("fourth-gen-ack-"));
       update({
         ...current,
-        messages: { ...current.messages, wechat: [...(current.messages.wechat ?? []), outgoing] },
-        variables: text === "收到" && !alreadyReplied
+        messages: { ...current.messages, wechat: [...cleanWechat, outgoing] },
+        variables: text === "收到"
           ? { ...current.variables, fourthGenAckTriggered: true }
           : current.variables,
       });
-      if (text !== "收到" || alreadyReplied) return;
+      if (text !== "收到") return;
       const members = ["张桂源", "左奇函", "陈奕恒", "杨博文", "杨涵博", "官俊臣", "张奕然", "张函瑞", "陈思罕", "魏子宸", "王橹杰", "聂玮辰", "李煜东"];
       members.forEach((sender, index) => {
         window.setTimeout(() => {
@@ -464,8 +481,9 @@ function PhoneRuntime({
       return;
     }
     const isSasaengThread =
+      /^私生\\d{2}$/.test(thread) ||
       /私生|私生粉|跟踪者/i.test(thread) ||
-      [...(work.data.messages ?? []), ...(current.messages.messages ?? [])].some(
+      [...(work.data.messages ?? []), ...(current.messages.messages ?? []), ...(current.messages.wechat ?? [])].some(
         (item) => item.title === thread && /私生|私生粉|跟踪者/i.test(item.sender),
       );
     const alreadyTriggered = Boolean(current.variables.sasaengCallTriggered);
@@ -477,38 +495,65 @@ function PhoneRuntime({
       sender: work.phone.owner,
       time: timestamp,
       outgoing: true,
+      read: true,
     });
-    const nextMessages = [...(current.messages.messages ?? []), outgoing];
-    const next: Runtime = {
+    if (!isSasaengThread) {
+      const nextMessages = [...(current.messages.messages ?? []), outgoing];
+      update({
+        ...current,
+        messages: { ...current.messages, messages: nextMessages },
+      });
+      return;
+    }
+    const isWeChatStalker = /^私生\\d{2}$/.test(thread);
+    const nextMessages = isWeChatStalker
+      ? (current.messages.wechat ?? []).map((item) => item.title === thread ? { ...item, read: true } : item).concat(outgoing)
+      : [...(current.messages.messages ?? []).map((item) => item.title === thread ? { ...item, read: true } : item), outgoing];
+    update({
       ...current,
-      messages: { ...current.messages, messages: nextMessages },
-      variables: isSasaengThread && !alreadyTriggered
+      messages: {
+        ...current.messages,
+        ...(isWeChatStalker ? { wechat: nextMessages } : { messages: nextMessages }),
+      },
+      variables: !alreadyTriggered
         ? { ...current.variables, sasaengCallTriggered: true }
         : current.variables,
-    };
-    update(next);
-    if (!isSasaengThread || alreadyTriggered) return;
+      notifications: current.notifications.filter((item) => !item.includes(thread)),
+    });
+    const replies = [
+      "哥哥，你终于回我了……我一直在等你。",
+      "你回我了！我就知道你不会真的不理我。",
+      "哥哥，我好想你，你能不能再跟我说一句话？",
+      "我没有恶意，我只是太想见到你了。",
+      "哥哥，你是不是生气了？我以后会乖的。",
+      "你终于肯理我了，我真的好开心。",
+    ];
     window.setTimeout(() => {
       const latest = runtimeRef.current;
       const stalkerReply = makeItem({
         id: `sasaeng-reply-${Date.now()}`,
         title: thread,
-        body: "哥哥……你终于回我了，我好想你。",
-        sender: "私生",
+        body: replies[Math.floor(Math.random() * replies.length)],
+        sender: thread,
         time: `${latest.date ?? work.phone.date ?? "2026-10-26"} ${latest.time ?? work.phone.time}`,
+        read: true,
       });
       update({
         ...latest,
         messages: {
           ...latest.messages,
-          messages: [...(latest.messages.messages ?? []), stalkerReply],
+          ...(isWeChatStalker
+            ? { wechat: [...(latest.messages.wechat ?? []), stalkerReply] }
+            : { messages: [...(latest.messages.messages ?? []), stalkerReply] }),
         },
-        notifications: [...latest.notifications, "中国电信 10000 来电"],
-        incomingCall: {
-          caller: "中国电信 10000",
-          target: "sasaeng-call",
-          status: "ringing",
-        },
+        ...(!alreadyTriggered ? {
+          notifications: [...latest.notifications, "中国电信 10000 来电"],
+          incomingCall: {
+            caller: "中国电信 10000",
+            target: "sasaeng-call",
+            status: "ringing",
+          },
+        } : {}),
       });
     }, 1300);
   };
