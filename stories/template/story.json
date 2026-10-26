@@ -10,7 +10,11 @@
     "time": "09:41",
     "battery": 94,
     "network": "5G",
-    "wallpaper": "apple-wwdc26"
+    "wallpaper": "apple-wwdc26",
+    "deviceName": "陈太帅的手坤",
+    "iosVersion": "27.0.1",
+    "modelName": "iPhone 17 Pro Max",
+    "photoCount": 25
   },
   "installedApps": [
     "appstore",
@@ -2982,12 +2986,19 @@
     ],
     "settings": [
       {
-        "id": "test-item-settings",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
+        "id": "settings-about-device",
+        "title": "关于本机",
+        "body": "名称：陈太帅的手坤\niOS 版本：27.0.1\n机型名称：iPhone 17 Pro Max\n照片：25",
+        "sender": "设置",
         "kind": "text",
-        "meta": {}
+        "time": "2026-10-26 09:00",
+        "folder": "关于本机",
+        "meta": {
+          "deviceName": "陈太帅的手坤",
+          "iosVersion": "27.0.1",
+          "modelName": "iPhone 17 Pro Max",
+          "photoCount": 25
+        }
       }
     ],
     "weibo": [
