@@ -279,7 +279,7 @@ export function WeChatSkin(p: SkinProps) {
     L: contacts.filter((c) => c === "李煜东"),
     M: contacts.filter((c) => c === "妈妈"),
     N: contacts.filter((c) => c === "聂玮辰"),
-    W: ["王橹杰", "王烁然", "魏子宸"].filter((c) => contacts.includes(c)),
+    W: ["王橹杰", "魏子宸"].filter((c) => contacts.includes(c)),
     Y: ["杨博文", "杨涵博"].filter((c) => contacts.includes(c)),
     Z: ["张桂源", "张函瑞", "张奕然", "诸葛", "左航航酱", "左奇函"].filter((c) => contacts.includes(c)),
     F: contacts.filter((c) => c === "飞总"),
