@@ -2115,11 +2115,53 @@
     ],
     "notes": [
       {
-        "id": "test-item-notes",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
+        "id": "jy-note-2025-05-26",
+        "title": "6.2上完课和jonathan去买球星卡球星卡球星卡",
+        "body": "6.2上完课和jonathan去买球星卡球星卡球星卡",
+        "sender": "陈浚铭",
+        "time": "2025-05-26 00:00",
+        "kind": "note",
+        "folder": "备忘录",
+        "meta": {}
+      },
+      {
+        "id": "jy-note-2025-11-29",
+        "title": "我发誓不让爱我的人希望全破灭",
+        "body": "我发誓不让爱我的人希望全破灭",
+        "sender": "陈浚铭",
+        "time": "2025-11-29 00:00",
+        "kind": "note",
+        "folder": "备忘录",
+        "meta": {}
+      },
+      {
+        "id": "jy-note-2026-07-16",
+        "title": "我不想报rap了😭",
+        "body": "我不想报rap了😭",
+        "sender": "陈浚铭",
+        "time": "2026-07-16 00:00",
+        "kind": "note",
+        "folder": "备忘录",
+        "meta": {}
+      },
+      {
+        "id": "jy-note-2026-08-17",
+        "title": "你们是我不幸中的幸好",
+        "body": "你们是我不幸中的幸好",
+        "sender": "陈浚铭",
+        "time": "2026-08-17 00:00",
+        "kind": "note",
+        "folder": "备忘录",
+        "meta": {}
+      },
+      {
+        "id": "jy-note-2026-10-09",
+        "title": "等..",
+        "body": "等..",
+        "sender": "陈浚铭",
+        "time": "2026-10-09 00:00",
+        "kind": "note",
+        "folder": "备忘录",
         "meta": {}
       }
     ],
