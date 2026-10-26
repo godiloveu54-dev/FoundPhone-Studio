@@ -212,6 +212,51 @@
         "phone": "",
         "relationship": "朋友"
       }
+    },
+    {
+      "id": "contact-009",
+      "title": "陈思罕",
+      "body": "",
+      "sender": "陈思罕",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4393.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "陈思罕",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-010",
+      "title": "张函瑞",
+      "body": "",
+      "sender": "张函瑞",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4395.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "张函瑞",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-011",
+      "title": "王橹杰",
+      "body": "",
+      "sender": "王橹杰",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4396.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "王橹杰",
+        "phone": "",
+        "relationship": "朋友"
+      }
     }
   ],
   "chats": [
@@ -2575,6 +2620,51 @@
         "folder": "通讯录",
         "meta": {
           "name": "杨涵博",
+          "phone": "",
+          "relationship": "朋友"
+        }
+      },
+      {
+        "id": "contact-009",
+        "title": "陈思罕",
+        "body": "",
+        "sender": "陈思罕",
+        "kind": "text",
+        "time": "2026-10-26 08:00",
+        "avatar": "./IMG_4393.jpeg",
+        "folder": "通讯录",
+        "meta": {
+          "name": "陈思罕",
+          "phone": "",
+          "relationship": "朋友"
+        }
+      },
+      {
+        "id": "contact-010",
+        "title": "张函瑞",
+        "body": "",
+        "sender": "张函瑞",
+        "kind": "text",
+        "time": "2026-10-26 08:00",
+        "avatar": "./IMG_4395.jpeg",
+        "folder": "通讯录",
+        "meta": {
+          "name": "张函瑞",
+          "phone": "",
+          "relationship": "朋友"
+        }
+      },
+      {
+        "id": "contact-011",
+        "title": "王橹杰",
+        "body": "",
+        "sender": "王橹杰",
+        "kind": "text",
+        "time": "2026-10-26 08:00",
+        "avatar": "./IMG_4396.jpeg",
+        "folder": "通讯录",
+        "meta": {
+          "name": "王橹杰",
           "phone": "",
           "relationship": "朋友"
         }
