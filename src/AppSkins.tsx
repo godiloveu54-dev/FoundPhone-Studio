@@ -451,7 +451,7 @@ export function WeChatSkin(p: SkinProps) {
                 <strong>{i.sender}</strong>
                 <p>{i.body}</p>
                 {i.media && <ItemMedia item={i} />}
-                <small>{i.time}</small>
+                <small>{i.time.slice(0, 10)}{i.meta?.location ? ` · ${i.meta.location}` : ""}</small>
               </div>
             </button>
           ))}
