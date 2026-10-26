@@ -2643,6 +2643,144 @@
           "kind": "text"
         }
       ]
+    },
+    {
+      "id": "baba-wechat",
+      "app": "wechat",
+      "title": "爸爸",
+      "participants": [
+        "owner",
+        "爸爸"
+      ],
+      "messages": [
+        {
+          "id": "baba-2026-10-26-001",
+          "time": "2026-10-26",
+          "senderId": "爸爸",
+          "body": "幺儿 晚上想吃什么？爸爸在买菜",
+          "kind": "text"
+        },
+        {
+          "id": "baba-2026-10-26-002",
+          "time": "2026-10-26",
+          "senderId": "owner",
+          "body": "青椒牛肉😁😁顺便帮我带杯奶茶呗😬😬想喝一点点的米麻薯奶绿😁😁",
+          "kind": "text"
+        },
+        {
+          "id": "baba-2026-10-26-003",
+          "time": "2026-10-26",
+          "senderId": "爸爸",
+          "body": "要得要得",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "id": "mama-wechat",
+      "app": "wechat",
+      "title": "妈妈",
+      "participants": [
+        "owner",
+        "妈妈"
+      ],
+      "messages": [
+        {
+          "id": "mama-2026-10-26-001",
+          "time": "2026-10-26",
+          "senderId": "妈妈",
+          "body": "乖乖 桌上有给你留的早饭",
+          "kind": "text"
+        },
+        {
+          "id": "mama-2026-10-26-002",
+          "time": "2026-10-26",
+          "senderId": "妈妈",
+          "body": "睡醒了记得起来吃呀",
+          "kind": "text"
+        },
+        {
+          "id": "mama-2026-10-26-003",
+          "time": "2026-10-26",
+          "senderId": "妈妈",
+          "body": "吃了再睡浚铭",
+          "kind": "text"
+        },
+        {
+          "id": "mama-2026-10-26-004",
+          "time": "2026-10-26",
+          "senderId": "owner",
+          "body": "知道了😆😆马上就吃",
+          "kind": "text"
+        },
+        {
+          "id": "mama-2026-10-26-005",
+          "time": "2026-10-26",
+          "senderId": "妈妈",
+          "body": "宝贝真乖",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "id": "gege-wechat",
+      "app": "wechat",
+      "title": "哥哥",
+      "participants": [
+        "owner",
+        "哥哥"
+      ],
+      "messages": [
+        {
+          "id": "gege-2026-10-25-001",
+          "time": "2026-10-25",
+          "senderId": "owner",
+          "body": "大学生活怎么样呀我们家唯一一个大学生😁😁",
+          "kind": "text"
+        },
+        {
+          "id": "gege-2026-10-25-002",
+          "time": "2026-10-25",
+          "senderId": "哥哥",
+          "body": "不是说下大雪就好了吗",
+          "kind": "text"
+        },
+        {
+          "id": "gege-2026-10-25-003",
+          "time": "2026-10-25",
+          "senderId": "owner",
+          "body": "什么意思🫪🫪还没到冬天呢怎么会有雪",
+          "kind": "text"
+        },
+        {
+          "id": "gege-2026-10-25-004",
+          "time": "2026-10-25",
+          "senderId": "owner",
+          "body": "难道说你想堆雪人？",
+          "kind": "text"
+        },
+        {
+          "id": "gege-2026-10-25-005",
+          "time": "2026-10-25",
+          "senderId": "owner",
+          "body": "等你寒假回来我们一起呀😁😁😌😌",
+          "kind": "text"
+        },
+        {
+          "id": "gege-2026-10-25-006",
+          "time": "2026-10-25",
+          "senderId": "哥哥",
+          "body": "…….",
+          "kind": "text"
+        },
+        {
+          "id": "gege-2026-10-25-007",
+          "time": "2026-10-25",
+          "senderId": "哥哥",
+          "body": "好",
+          "kind": "text"
+        }
+      ]
     }
   ],
   "content": {
