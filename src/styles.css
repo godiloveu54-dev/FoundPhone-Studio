@@ -5076,3 +5076,18 @@ label {
 .wx-contact-index button:disabled {
   color: #b9bec5;
 }
+
+
+/* WeChat simulated group chats */
+.wx-group-chat-list { padding-bottom: 18px; }
+.wx-group-chat-row { min-height: 76px; }
+.wx-group-chat-row .wx-chat-row > div,
+.wx-group-chat-row > div { min-width: 0; }
+.wx-group-chat-row p { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 245px; }
+.wx-group-members-panel { margin: 18px 16px; padding: 18px 14px; border-radius: 12px; background: rgba(128,128,128,.08); }
+.wx-group-members-title { font-size: 14px; color: var(--skin-muted, #888); margin-bottom: 14px; }
+.wx-group-members-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 8px; }
+.wx-group-members-grid > div { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+.wx-group-members-grid .skin-avatar { width: 42px; height: 42px; }
+.wx-group-members-grid small { font-size: 11px; text-align: center; overflow-wrap: anywhere; }
+.wx-group-members-panel > p { font-size: 12px; color: var(--skin-muted, #888); margin: 16px 0 0; }
