@@ -107,6 +107,56 @@ export class StoryIssue extends Error {
   }
 }
 export function compileStory(raw: unknown): { story: Story; work: Work } {
+  // Normalize legacy simulator data before strict schema validation. The template
+  // contains UI-specific phone/contact fields and primitive metadata values that
+  // are valid for the simulator but need canonical forms in the story engine.
+  if (raw && typeof raw === "object" && !Array.isArray(raw)) {
+    const input = raw as Record<string, any>;
+    if (input.phone && typeof input.phone === "object") {
+      const phoneKeys = new Set([
+        "owner", "date", "time", "battery", "network", "wallpaper",
+        "wallpaperImage", "passcode", "theme", "notifications",
+      ]);
+      for (const key of Object.keys(input.phone)) {
+        if (!phoneKeys.has(key)) delete input.phone[key];
+      }
+    }
+    if (Array.isArray(input.contacts)) {
+      input.contacts = input.contacts.map((contact: Record<string, any>) => ({
+        id: String(contact.id ?? "contact"),
+        name: String(contact.name ?? contact.meta?.name ?? contact.title ?? contact.sender ?? "联系人"),
+        phone: String(contact.phone ?? contact.meta?.phone ?? ""),
+        avatar: String(contact.avatar ?? ""),
+        bio: String(contact.bio ?? contact.meta?.relationship ?? contact.body ?? ""),
+      }));
+    }
+    if (input.content && typeof input.content === "object") {
+      const validKinds = new Set([
+        "text", "image", "audio", "video", "file", "transfer", "call",
+        "order", "note", "post", "event",
+      ]);
+      for (const [app, items] of Object.entries(input.content as Record<string, any>)) {
+        if (!Array.isArray(items)) continue;
+        for (const item of items) {
+          if (!item || typeof item !== "object") continue;
+          if (item.meta && typeof item.meta === "object" && !Array.isArray(item.meta)) {
+            for (const [key, value] of Object.entries(item.meta)) {
+              item.meta[key] = typeof value === "string" ? value : String(value);
+            }
+          }
+          if (!validKinds.has(item.kind)) {
+            item.kind = item.kind === "product" || app === "taobao"
+              ? "order"
+              : app === "photos" || app === "camera"
+                ? "image"
+                : app === "music" || app === "netease"
+                  ? "audio"
+                  : "text";
+          }
+        }
+      }
+    }
+  }
   const s = storySchema.parse(raw);
   const fail = (p: string, m: string): never => {
     throw new StoryIssue(p, m);
