@@ -161,10 +161,9 @@ function MessageList({
             ) : (
               i.body
             )}
-            <small className={whatsapp ? undefined : "wx-message-time"}>
-              {i.time.slice(-5)}{" "}
-              {whatsapp && i.outgoing && <CheckCheck size={11} />}
-            </small>
+            {whatsapp && i.outgoing && (
+              <small className="wx-message-time"><CheckCheck size={11} /></small>
+            )}
           </button>
           {!whatsapp && i.outgoing && <Avatar name={i.sender} src={i.avatar} />}
         </div>
@@ -627,7 +626,7 @@ export function WeChatSkin(p: SkinProps) {
                         <strong>{t}</strong>
                         <p>{last.body}</p>
                       </div>
-                      <time>{last.time.slice(-5)}</time>
+                      <time>{last.time.slice(0, 10)}</time>
                     </button>
                   );
                 })}
