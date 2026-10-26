@@ -827,7 +827,6 @@ function PhoneRuntime({
                     const sourceItems = [
                       ...(work.data[app] ?? []),
                       ...(current.messages[app] ?? []),
-                      ...(s.messages[app] ?? []),
                     ];
                     const readItem = sourceItems.find((item) => item.id === id);
                     const title = readItem?.title;
