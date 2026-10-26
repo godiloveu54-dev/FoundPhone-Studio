@@ -759,9 +759,11 @@ export function MusicSkin(p: Props) {
               <small>{n + 1}</small>
               <span>
                 <strong>{i.title}</strong>
-                <small>
-                  {i.sender} · {meta(i, "album")}
-                </small>
+                {i.sender || meta(i, "album") ? (
+                  <small>
+                    {[i.sender, meta(i, "album")].filter(Boolean).join(" · ")}
+                  </small>
+                ) : null}
               </span>
               <span>{meta(i, "duration")}</span>
             </button>
