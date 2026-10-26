@@ -146,7 +146,7 @@ export function MessagesSkin(p: Props) {
   const { q, setQ, items: baseItems } = useContent(p, "信息");
   const [unread, setUnread] = useState(false);
   const [replyText, setReplyText] = useState("");
-  const stalkerNumbers = [...new Set(baseItems.map((i) => i.title).filter(isStalkerNumber))];
+  const stalkerNumbers = [...new Set(p.items.map((i) => i.title).filter(isStalkerNumber))];
   const [dynamicMessages, setDynamicMessages] = useState<Item[]>(() =>
     stalkerNumbers.flatMap((number) => readStoredThread(p, number)),
   );
@@ -171,7 +171,7 @@ export function MessagesSkin(p: Props) {
     if (!stalkerNumbers.length || p.creator) return;
     const timer = window.setInterval(() => {
       const number = stalkerNumbers[Math.floor(Math.random() * stalkerNumbers.length)];
-      const source = baseItems.filter((item) => item.title === number && !item.outgoing);
+      const source = p.items.filter((item) => item.title === number && !item.outgoing);
       if (!source.length) return;
       const sample = source[Math.floor(Math.random() * source.length)];
       persistMessage(number, {
@@ -185,9 +185,10 @@ export function MessagesSkin(p: Props) {
       });
     }, 20000);
     return () => window.clearInterval(timer);
-  }, [stalkerNumbers.join("|"), baseItems, p.ui, p.creator]);
+  }, [stalkerNumbers.join("|"), p.items, p.ui, p.creator, persistMessage]);
 
-  const allItems = [...baseItems, ...dynamicMessages].sort((a, b) => a.time.localeCompare(b.time));
+  const visibleBaseItems = p.thread ? p.items : baseItems;
+  const allItems = [...visibleBaseItems, ...dynamicMessages].sort((a, b) => a.time.localeCompare(b.time));
   const sendReply = () => {
     const text = replyText.trim();
     if (!text || !isStalkerNumber(p.thread) || p.creator) return;
@@ -216,7 +217,7 @@ export function MessagesSkin(p: Props) {
     persistMessage(number, outgoing);
     setReplyText("");
     window.setTimeout(() => {
-      const source = baseItems.filter((item) => item.title === number && !item.outgoing);
+      const source = p.items.filter((item) => item.title === number && !item.outgoing);
       const sample = source[Math.floor(Math.random() * source.length)];
       const incoming: Item = {
         id: `stalker-reply-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
