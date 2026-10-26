@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v3",
   "title": "恒铭 iPhone 模拟器",
   "description": "陈浚铭的 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容。",
-  "revision": 38,
+  "revision": 39,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -11157,6 +11157,703 @@
           "category": "潮玩",
           "stock": 320,
           "sales": 28600,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-299",
+        "title": "Jodie 中号 编织",
+        "body": "品牌：Bottega Veneta\n价格：¥26,800\n类目：箱包\n库存：6\n销量：80\n评分：4.8",
+        "sender": "Bottega Veneta",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Bottega Veneta",
+          "price": 26800,
+          "category": "箱包",
+          "stock": 6,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-300",
+        "title": "Cassette 大号 编织",
+        "body": "品牌：Bottega Veneta\n价格：¥24,500\n类目：箱包\n库存：7\n销量：80\n评分：4.8",
+        "sender": "Bottega Veneta",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Bottega Veneta",
+          "price": 24500,
+          "category": "箱包",
+          "stock": 7,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-301",
+        "title": "Arco 大号 托特",
+        "body": "品牌：Bottega Veneta\n价格：¥38,000\n类目：箱包\n库存：4\n销量：80\n评分：4.8",
+        "sender": "Bottega Veneta",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Bottega Veneta",
+          "price": 38000,
+          "category": "箱包",
+          "stock": 4,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-302",
+        "title": "Andiamo 中号 编织",
+        "body": "品牌：Bottega Veneta\n价格：¥32,500\n类目：箱包\n库存：5\n销量：80\n评分：4.8",
+        "sender": "Bottega Veneta",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Bottega Veneta",
+          "price": 32500,
+          "category": "箱包",
+          "stock": 5,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-303",
+        "title": "Niki 大号 油蜡皮",
+        "body": "品牌：Saint Laurent\n价格：¥26,800\n类目：箱包\n库存：6\n销量：80\n评分：4.8",
+        "sender": "Saint Laurent",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Saint Laurent",
+          "price": 26800,
+          "category": "箱包",
+          "stock": 6,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-304",
+        "title": "Loulou 中号 绗缝",
+        "body": "品牌：Saint Laurent\n价格：¥24,500\n类目：箱包\n库存：7\n销量：80\n评分：4.8",
+        "sender": "Saint Laurent",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Saint Laurent",
+          "price": 24500,
+          "category": "箱包",
+          "stock": 7,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-305",
+        "title": "Envelope 大号 链条包",
+        "body": "品牌：Saint Laurent\n价格：¥25,800\n类目：箱包\n库存：6\n销量：80\n评分：4.8",
+        "sender": "Saint Laurent",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Saint Laurent",
+          "price": 25800,
+          "category": "箱包",
+          "stock": 6,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-306",
+        "title": "Sac de Jour 中号",
+        "body": "品牌：Saint Laurent\n价格：¥32,000\n类目：箱包\n库存：5\n销量：80\n评分：4.8",
+        "sender": "Saint Laurent",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Saint Laurent",
+          "price": 32000,
+          "category": "箱包",
+          "stock": 5,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-307",
+        "title": "City 大号 机车包",
+        "body": "品牌：Balenciaga\n价格：¥22,800\n类目：箱包\n库存：7\n销量：80\n评分：4.8",
+        "sender": "Balenciaga",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Balenciaga",
+          "price": 22800,
+          "category": "箱包",
+          "stock": 7,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-308",
+        "title": "Hourglass 中号 沙漏包",
+        "body": "品牌：Balenciaga\n价格：¥21,500\n类目：箱包\n库存：8\n销量：80\n评分：4.8",
+        "sender": "Balenciaga",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Balenciaga",
+          "price": 21500,
+          "category": "箱包",
+          "stock": 8,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-309",
+        "title": "Le Cagole 中号",
+        "body": "品牌：Balenciaga\n价格：¥22,800\n类目：箱包\n库存：7\n销量：80\n评分：4.8",
+        "sender": "Balenciaga",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Balenciaga",
+          "price": 22800,
+          "category": "箱包",
+          "stock": 7,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-310",
+        "title": "Baguette 大号 法棍包",
+        "body": "品牌：Fendi\n价格：¥32,000\n类目：箱包\n库存：5\n销量：80\n评分：4.8",
+        "sender": "Fendi",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Fendi",
+          "price": 32000,
+          "category": "箱包",
+          "stock": 5,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-311",
+        "title": "Peekaboo 中号",
+        "body": "品牌：Fendi\n价格：¥42,000\n类目：箱包\n库存：4\n销量：80\n评分：4.8",
+        "sender": "Fendi",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Fendi",
+          "price": 42000,
+          "category": "箱包",
+          "stock": 4,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-312",
+        "title": "Sunshine 大号 托特",
+        "body": "品牌：Fendi\n价格：¥26,800\n类目：箱包\n库存：6\n销量：80\n评分：4.8",
+        "sender": "Fendi",
+        "kind": "product",
+        "folder": "箱包",
+        "meta": {
+          "brand": "Fendi",
+          "price": 26800,
+          "category": "箱包",
+          "stock": 6,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-313",
+        "title": "潜航者 绿水鬼",
+        "body": "品牌：Rolex\n价格：¥128,000\n类目：腕表\n库存：3\n销量：80\n评分：4.8",
+        "sender": "Rolex",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Rolex",
+          "price": 128000,
+          "category": "腕表",
+          "stock": 3,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-314",
+        "title": "迪通拿 白盘 钢款",
+        "body": "品牌：Rolex\n价格：¥298,000\n类目：腕表\n库存：3\n销量：80\n评分：4.8",
+        "sender": "Rolex",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Rolex",
+          "price": 298000,
+          "category": "腕表",
+          "stock": 3,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-315",
+        "title": "迪通拿 熊猫盘",
+        "body": "品牌：Rolex\n价格：¥325,000\n类目：腕表\n库存：3\n销量：80\n评分：4.8",
+        "sender": "Rolex",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Rolex",
+          "price": 325000,
+          "category": "腕表",
+          "stock": 3,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-316",
+        "title": "格林尼治 百事圈",
+        "body": "品牌：Rolex\n价格：¥168,000\n类目：腕表\n库存：3\n销量：80\n评分：4.8",
+        "sender": "Rolex",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Rolex",
+          "price": 168000,
+          "category": "腕表",
+          "stock": 3,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-317",
+        "title": "海马300 潜水表 钢带",
+        "body": "品牌：Omega\n价格：¥48,800\n类目：腕表\n库存：3\n销量：80\n评分：4.8",
+        "sender": "Omega",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Omega",
+          "price": 48800,
+          "category": "腕表",
+          "stock": 3,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-318",
+        "title": "超霸 月球表 专业版",
+        "body": "品牌：Omega\n价格：¥62,000\n类目：腕表\n库存：3\n销量：80\n评分：4.8",
+        "sender": "Omega",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Omega",
+          "price": 62000,
+          "category": "腕表",
+          "stock": 3,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-319",
+        "title": "鹦鹉螺 5711/1A 蓝盘",
+        "body": "品牌：Patek Philippe\n价格：¥980,000\n类目：腕表\n库存：3\n销量：80\n评分：4.8",
+        "sender": "Patek Philippe",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Patek Philippe",
+          "price": 980000,
+          "category": "腕表",
+          "stock": 3,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-320",
+        "title": "Calatrava 6119R",
+        "body": "品牌：Patek Philippe\n价格：¥268,000\n类目：腕表\n库存：3\n销量：80\n评分：4.8",
+        "sender": "Patek Philippe",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Patek Philippe",
+          "price": 268000,
+          "category": "腕表",
+          "stock": 3,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-321",
+        "title": "皇家橡树 15500ST 蓝盘",
+        "body": "品牌：Audemars Piguet\n价格：¥328,000\n类目：腕表\n库存：3\n销量：80\n评分：4.8",
+        "sender": "Audemars Piguet",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Audemars Piguet",
+          "price": 328000,
+          "category": "腕表",
+          "stock": 3,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-322",
+        "title": "纵横四海 4500V 蓝盘",
+        "body": "品牌：Vacheron Constantin\n价格：¥228,000\n类目：腕表\n库存：3\n销量：80\n评分：4.8",
+        "sender": "Vacheron Constantin",
+        "kind": "product",
+        "folder": "腕表",
+        "meta": {
+          "brand": "Vacheron Constantin",
+          "price": 228000,
+          "category": "腕表",
+          "stock": 3,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-323",
+        "title": "Air Jordan 1 高帮 经典",
+        "body": "品牌：Nike\n价格：¥1,299\n类目：运动鞋服\n库存：138\n销量：730\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1299,
+          "category": "运动鞋服",
+          "stock": 138,
+          "sales": 730,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-324",
+        "title": "Air Jordan 4 复古",
+        "body": "品牌：Nike\n价格：¥1,699\n类目：运动鞋服\n库存：105\n销量：558\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1699,
+          "category": "运动鞋服",
+          "stock": 105,
+          "sales": 558,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-325",
+        "title": "Air Jordan 11 大魔王",
+        "body": "品牌：Nike\n价格：¥1,899\n类目：运动鞋服\n库存：94\n销量：500\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1899,
+          "category": "运动鞋服",
+          "stock": 94,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-326",
+        "title": "Air Max 97 银子弹",
+        "body": "品牌：Nike\n价格：¥1,499\n类目：运动鞋服\n库存：120\n销量：633\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 1499,
+          "category": "运动鞋服",
+          "stock": 120,
+          "sales": 633,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-327",
+        "title": "Vaporfly 3 竞速跑鞋",
+        "body": "品牌：Nike\n价格：¥2,299\n类目：运动鞋服\n库存：78\n销量：413\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 2299,
+          "category": "运动鞋服",
+          "stock": 78,
+          "sales": 413,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-328",
+        "title": "Tech Fleece 连帽卫衣",
+        "body": "品牌：Nike\n价格：¥599\n类目：运动鞋服\n库存：300\n销量：1583\n评分：4.8",
+        "sender": "Nike",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Nike",
+          "price": 599,
+          "category": "运动鞋服",
+          "stock": 300,
+          "sales": 1583,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-329",
+        "title": "Chuck 70 高帮帆布鞋",
+        "body": "品牌：Converse\n价格：¥799\n类目：运动鞋服\n库存：225\n销量：1187\n评分：4.8",
+        "sender": "Converse",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Converse",
+          "price": 799,
+          "category": "运动鞋服",
+          "stock": 225,
+          "sales": 1187,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-330",
+        "title": "Run Star Hike 厚底",
+        "body": "品牌：Converse\n价格：¥899\n类目：运动鞋服\n库存：200\n销量：1055\n评分：4.8",
+        "sender": "Converse",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Converse",
+          "price": 899,
+          "category": "运动鞋服",
+          "stock": 200,
+          "sales": 1055,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-331",
+        "title": "Gel-Kayano 14 复古跑鞋",
+        "body": "品牌：Asics\n价格：¥1,199\n类目：运动鞋服\n库存：150\n销量：791\n评分：4.8",
+        "sender": "Asics",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Asics",
+          "price": 1199,
+          "category": "运动鞋服",
+          "stock": 150,
+          "sales": 791,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-332",
+        "title": "Clifton 9 缓震跑鞋",
+        "body": "品牌：Hoka\n价格：¥1,499\n类目：运动鞋服\n库存：120\n销量：633\n评分：4.8",
+        "sender": "Hoka",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Hoka",
+          "price": 1499,
+          "category": "运动鞋服",
+          "stock": 120,
+          "sales": 633,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-333",
+        "title": "XT-6 户外越野鞋",
+        "body": "品牌：Salomon\n价格：¥1,499\n类目：运动鞋服\n库存：120\n销量：633\n评分：4.8",
+        "sender": "Salomon",
+        "kind": "product",
+        "folder": "运动鞋服",
+        "meta": {
+          "brand": "Salomon",
+          "price": 1499,
+          "category": "运动鞋服",
+          "stock": 120,
+          "sales": 633,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-334",
+        "title": "经典短筒 雪地靴",
+        "body": "品牌：UGG\n价格：¥1,499\n类目：鞋履\n库存：120\n销量：633\n评分：4.8",
+        "sender": "UGG",
+        "kind": "product",
+        "folder": "鞋履",
+        "meta": {
+          "brand": "UGG",
+          "price": 1499,
+          "category": "鞋履",
+          "stock": 120,
+          "sales": 633,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-335",
+        "title": "iPhone 15 Pro Max 1TB",
+        "body": "品牌：Apple\n价格：¥13,999\n类目：数码\n库存：12\n销量：80\n评分：4.8",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 13999,
+          "category": "数码",
+          "stock": 12,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-336",
+        "title": "iPad Pro 13寸 M4 2TB",
+        "body": "品牌：Apple\n价格：¥19,999\n类目：数码\n库存：9\n销量：80\n评分：4.8",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 19999,
+          "category": "数码",
+          "stock": 9,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-337",
+        "title": "MacBook Pro 16寸 M3 Max",
+        "body": "品牌：Apple\n价格：¥29,999\n类目：数码\n库存：6\n销量：80\n评分：4.8",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 29999,
+          "category": "数码",
+          "stock": 6,
+          "sales": 80,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-338",
+        "title": "AirPods Pro 2 USB-C",
+        "body": "品牌：Apple\n价格：¥1,899\n类目：数码\n库存：94\n销量：500\n评分：4.8",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 1899,
+          "category": "数码",
+          "stock": 94,
+          "sales": 500,
+          "rating": 4.8,
+          "currency": "CNY"
+        }
+      },
+      {
+        "id": "taobao-product-339",
+        "title": "Apple Watch Ultra 2",
+        "body": "品牌：Apple\n价格：¥6,499\n类目：数码\n库存：27\n销量：146\n评分：4.8",
+        "sender": "Apple",
+        "kind": "product",
+        "folder": "数码",
+        "meta": {
+          "brand": "Apple",
+          "price": 6499,
+          "category": "数码",
+          "stock": 27,
+          "sales": 146,
           "rating": 4.8,
           "currency": "CNY"
         }
