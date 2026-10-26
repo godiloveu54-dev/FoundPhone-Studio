@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v3",
   "title": "恒铭 iPhone 模拟器",
   "description": "陈浚铭的 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容。",
-  "revision": 37,
+  "revision": 38,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -109,36 +109,6 @@
       }
     },
     {
-      "id": "contact-grandpa",
-      "title": "爷爷",
-      "body": "",
-      "sender": "爷爷",
-      "kind": "text",
-      "time": "2026-10-26 08:00",
-      "avatar": "",
-      "folder": "通讯录",
-      "meta": {
-        "name": "爷爷",
-        "phone": "",
-        "relationship": "家人"
-      }
-    },
-    {
-      "id": "contact-grandma",
-      "title": "奶奶",
-      "body": "",
-      "sender": "奶奶",
-      "kind": "text",
-      "time": "2026-10-26 08:00",
-      "avatar": "",
-      "folder": "通讯录",
-      "meta": {
-        "name": "奶奶",
-        "phone": "",
-        "relationship": "家人"
-      }
-    },
-    {
       "id": "contact-003",
       "title": "哥哥",
       "body": "",
@@ -160,7 +130,7 @@
       "sender": "陈奕恒",
       "kind": "text",
       "time": "2026-10-26 08:00",
-      "avatar": "",
+      "avatar": "./IMG_4398.jpeg",
       "folder": "通讯录",
       "meta": {
         "name": "陈奕恒",
@@ -175,7 +145,7 @@
       "sender": "张桂源",
       "kind": "text",
       "time": "2026-10-26 08:00",
-      "avatar": "",
+      "avatar": "./IMG_4391.jpeg",
       "folder": "通讯录",
       "meta": {
         "name": "张桂源",
@@ -190,12 +160,792 @@
       "sender": "杨博文",
       "kind": "text",
       "time": "2026-10-26 08:00",
-      "avatar": "",
+      "avatar": "./IMG_4394.jpeg",
       "folder": "通讯录",
       "meta": {
         "name": "杨博文",
         "phone": "",
         "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-007",
+      "title": "左奇函",
+      "body": "",
+      "sender": "左奇函",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4392.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "左奇函",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-008",
+      "title": "杨涵博",
+      "body": "",
+      "sender": "杨涵博",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "杨涵博",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-009",
+      "title": "陈思罕",
+      "body": "",
+      "sender": "陈思罕",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4393.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "陈思罕",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-010",
+      "title": "张函瑞",
+      "body": "",
+      "sender": "张函瑞",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4395.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "张函瑞",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "contact-011",
+      "title": "王橹杰",
+      "body": "",
+      "sender": "王橹杰",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4396.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "王橹杰",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "company-staff",
+      "title": "工作人员",
+      "body": "",
+      "sender": "工作人员",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "工作人员",
+        "phone": "",
+        "relationship": "工作联系人"
+      }
+    },
+    {
+      "id": "test-contact",
+      "title": "测试联系人",
+      "body": "",
+      "sender": "测试联系人",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "测试联系人",
+        "phone": "",
+        "relationship": "测试"
+      }
+    },
+    {
+      "id": "chen-yiheng",
+      "title": "陈奕恒",
+      "body": "",
+      "sender": "陈奕恒",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4398.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "陈奕恒",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "zhang-guiyuan",
+      "title": "张桂源",
+      "body": "",
+      "sender": "张桂源",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4391.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "张桂源",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "zhang-hanrui",
+      "title": "张函瑞",
+      "body": "",
+      "sender": "张函瑞",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4395.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "张函瑞",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "yang-hanbo",
+      "title": "杨涵博",
+      "body": "",
+      "sender": "杨涵博",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "杨涵博",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "yang-bowen",
+      "title": "杨博文",
+      "body": "",
+      "sender": "杨博文",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4394.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "杨博文",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "guan-junchen",
+      "title": "官俊臣",
+      "body": "",
+      "sender": "官俊臣",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "官俊臣",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "wang-lujie",
+      "title": "王橹杰",
+      "body": "",
+      "sender": "王橹杰",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4396.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "王橹杰",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "nie-weichen",
+      "title": "聂玮辰",
+      "body": "",
+      "sender": "聂玮辰",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4400.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "聂玮辰",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "zhang-yiran",
+      "title": "张奕然",
+      "body": "",
+      "sender": "张奕然",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4425.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "张奕然",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "chen-sihan",
+      "title": "陈思罕",
+      "body": "",
+      "sender": "陈思罕",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4393.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "陈思罕",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "li-yudong",
+      "title": "李煜东",
+      "body": "",
+      "sender": "李煜东",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "李煜东",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "wei-zichen",
+      "title": "魏子宸",
+      "body": "",
+      "sender": "魏子宸",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "魏子宸",
+        "phone": "",
+        "relationship": "联系人"
+      }
+    },
+    {
+      "id": "chen-junming",
+      "title": "陈浚铭",
+      "body": "",
+      "sender": "陈浚铭",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "./IMG_4390.jpeg",
+      "folder": "通讯录",
+      "meta": {
+        "name": "陈浚铭",
+        "phone": "",
+        "relationship": "朋友"
+      }
+    },
+    {
+      "id": "sasaeng-01",
+      "title": "176****2101",
+      "body": "",
+      "sender": "176****2101",
+      "kind": "text",
+      "time": "2026-10-26 08:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2101",
+        "phone": "176****2101",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-02",
+      "title": "176****2102",
+      "body": "",
+      "sender": "176****2102",
+      "kind": "text",
+      "time": "2026-10-26 08:02",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2102",
+        "phone": "176****2102",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-03",
+      "title": "176****2103",
+      "body": "",
+      "sender": "176****2103",
+      "kind": "text",
+      "time": "2026-10-26 08:04",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2103",
+        "phone": "176****2103",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-04",
+      "title": "176****2104",
+      "body": "",
+      "sender": "176****2104",
+      "kind": "text",
+      "time": "2026-10-26 08:06",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2104",
+        "phone": "176****2104",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-05",
+      "title": "176****2105",
+      "body": "",
+      "sender": "176****2105",
+      "kind": "text",
+      "time": "2026-10-26 08:08",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2105",
+        "phone": "176****2105",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-06",
+      "title": "176****2106",
+      "body": "",
+      "sender": "176****2106",
+      "kind": "text",
+      "time": "2026-10-26 08:10",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2106",
+        "phone": "176****2106",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-07",
+      "title": "176****2107",
+      "body": "",
+      "sender": "176****2107",
+      "kind": "text",
+      "time": "2026-10-26 08:12",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2107",
+        "phone": "176****2107",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-08",
+      "title": "176****2108",
+      "body": "",
+      "sender": "176****2108",
+      "kind": "text",
+      "time": "2026-10-26 08:14",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2108",
+        "phone": "176****2108",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-09",
+      "title": "176****2109",
+      "body": "",
+      "sender": "176****2109",
+      "kind": "text",
+      "time": "2026-10-26 08:16",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2109",
+        "phone": "176****2109",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-10",
+      "title": "176****2110",
+      "body": "",
+      "sender": "176****2110",
+      "kind": "text",
+      "time": "2026-10-26 08:18",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2110",
+        "phone": "176****2110",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-11",
+      "title": "176****2111",
+      "body": "",
+      "sender": "176****2111",
+      "kind": "text",
+      "time": "2026-10-26 08:20",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2111",
+        "phone": "176****2111",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-12",
+      "title": "176****2112",
+      "body": "",
+      "sender": "176****2112",
+      "kind": "text",
+      "time": "2026-10-26 08:22",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2112",
+        "phone": "176****2112",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-13",
+      "title": "176****2113",
+      "body": "",
+      "sender": "176****2113",
+      "kind": "text",
+      "time": "2026-10-26 08:24",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2113",
+        "phone": "176****2113",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-14",
+      "title": "176****2114",
+      "body": "",
+      "sender": "176****2114",
+      "kind": "text",
+      "time": "2026-10-26 08:26",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2114",
+        "phone": "176****2114",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-15",
+      "title": "176****2115",
+      "body": "",
+      "sender": "176****2115",
+      "kind": "text",
+      "time": "2026-10-26 08:28",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2115",
+        "phone": "176****2115",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-16",
+      "title": "176****2116",
+      "body": "",
+      "sender": "176****2116",
+      "kind": "text",
+      "time": "2026-10-26 08:30",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2116",
+        "phone": "176****2116",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-17",
+      "title": "176****2117",
+      "body": "",
+      "sender": "176****2117",
+      "kind": "text",
+      "time": "2026-10-26 08:32",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2117",
+        "phone": "176****2117",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-18",
+      "title": "176****2118",
+      "body": "",
+      "sender": "176****2118",
+      "kind": "text",
+      "time": "2026-10-26 08:34",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2118",
+        "phone": "176****2118",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-19",
+      "title": "176****2119",
+      "body": "",
+      "sender": "176****2119",
+      "kind": "text",
+      "time": "2026-10-26 08:36",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2119",
+        "phone": "176****2119",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-20",
+      "title": "176****2120",
+      "body": "",
+      "sender": "176****2120",
+      "kind": "text",
+      "time": "2026-10-26 08:38",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2120",
+        "phone": "176****2120",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-21",
+      "title": "176****2121",
+      "body": "",
+      "sender": "176****2121",
+      "kind": "text",
+      "time": "2026-10-26 08:40",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2121",
+        "phone": "176****2121",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-22",
+      "title": "176****2122",
+      "body": "",
+      "sender": "176****2122",
+      "kind": "text",
+      "time": "2026-10-26 08:42",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2122",
+        "phone": "176****2122",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-23",
+      "title": "176****2123",
+      "body": "",
+      "sender": "176****2123",
+      "kind": "text",
+      "time": "2026-10-26 08:44",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2123",
+        "phone": "176****2123",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-24",
+      "title": "176****2124",
+      "body": "",
+      "sender": "176****2124",
+      "kind": "text",
+      "time": "2026-10-26 08:46",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2124",
+        "phone": "176****2124",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-25",
+      "title": "176****2125",
+      "body": "",
+      "sender": "176****2125",
+      "kind": "text",
+      "time": "2026-10-26 08:48",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2125",
+        "phone": "176****2125",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-26",
+      "title": "176****2126",
+      "body": "",
+      "sender": "176****2126",
+      "kind": "text",
+      "time": "2026-10-26 08:50",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2126",
+        "phone": "176****2126",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-27",
+      "title": "176****2127",
+      "body": "",
+      "sender": "176****2127",
+      "kind": "text",
+      "time": "2026-10-26 08:52",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2127",
+        "phone": "176****2127",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-28",
+      "title": "176****2128",
+      "body": "",
+      "sender": "176****2128",
+      "kind": "text",
+      "time": "2026-10-26 08:54",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2128",
+        "phone": "176****2128",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-29",
+      "title": "176****2129",
+      "body": "",
+      "sender": "176****2129",
+      "kind": "text",
+      "time": "2026-10-26 08:56",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2129",
+        "phone": "176****2129",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-30",
+      "title": "176****2130",
+      "body": "",
+      "sender": "176****2130",
+      "kind": "text",
+      "time": "2026-10-26 08:58",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2130",
+        "phone": "176****2130",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-31",
+      "title": "176****2131",
+      "body": "",
+      "sender": "176****2131",
+      "kind": "text",
+      "time": "2026-10-26 09:00",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2131",
+        "phone": "176****2131",
+        "relationship": "未知来电"
+      }
+    },
+    {
+      "id": "sasaeng-32",
+      "title": "176****2132",
+      "body": "",
+      "sender": "176****2132",
+      "kind": "text",
+      "time": "2026-10-26 09:02",
+      "avatar": "",
+      "folder": "通讯录",
+      "meta": {
+        "name": "176****2132",
+        "phone": "176****2132",
+        "relationship": "未知来电"
       }
     }
   ],
