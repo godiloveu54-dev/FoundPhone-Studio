@@ -1,4 +1,3 @@
-import { NativeComposer } from "./DeviceSystem";
 import { useSkinState } from "./skinState";
 import { Fragment, useState } from "react";
 import {
@@ -196,19 +195,37 @@ function Compose({
   onAdd,
   wa = false,
   onPlus,
+  onSend,
 }: {
   creator: boolean;
   onAdd: () => void;
   wa?: boolean;
   onPlus?: () => void;
+  onSend?: (text: string) => void;
 }) {
+  const [draft, setDraft] = useState("");
+  const send = () => {
+    const text = draft.trim();
+    if (!text) return;
+    if (creator) onAdd();
+    else onSend?.(text);
+    setDraft("");
+  };
   return (
-    <div className={`skin-compose ${wa ? "wa-compose" : ""}`}>
+    <div className={`skin-compose ${wa ? "wa-compose" : ""}`} style={{ display: "flex", alignItems: "center", gap: 8, boxSizing: "border-box", width: "100%", minWidth: 0, padding: "8px 10px" }}>
       {wa ? <Plus size={20} /> : <Mic size={20} />}
-      <NativeComposer creator={creator} onAdd={onAdd} />
-
-      <Smile size={21} />
-      {wa ? <Mic size={20} /> : <button aria-label="更多功能" className="wx-compose-plus" onClick={onPlus}><Plus size={22} /></button>}
+      <input
+        className="native-compose-field"
+        aria-label="输入消息"
+        value={draft}
+        placeholder={creator ? "添加消息" : "输入消息"}
+        onChange={(e) => setDraft(e.target.value)}
+        onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } }}
+        style={{ flex: "1 1 0", width: 0, minWidth: 0, height: 36, boxSizing: "border-box", border: 0, borderRadius: 7, padding: "0 10px", outline: "none" }}
+      />
+      <button type="button" aria-label="表情" className="wx-compose-emoji" style={{ flex: "0 0 auto", display: "grid", placeItems: "center", border: 0, background: "transparent", padding: 3 }} onClick={() => setDraft((v) => v + "😊")}><Smile size={21} /></button>
+      {wa ? <Mic size={20} /> : <button type="button" aria-label="更多功能" className="wx-compose-plus" onClick={onPlus} style={{ flex: "0 0 auto", display: "grid", placeItems: "center", border: 0, background: "transparent", padding: 3 }}><Plus size={22} /></button>}
+      {!wa && <button type="button" aria-label="发送消息" disabled={!draft.trim()} onClick={send} style={{ flex: "0 0 auto", border: 0, borderRadius: 5, padding: "7px 10px", color: draft.trim() ? "#fff" : "#999", background: draft.trim() ? "#07c160" : "#e5e5e5", fontSize: 13, fontWeight: 600 }}>发送</button>}
     </div>
   );
 }
@@ -482,7 +499,7 @@ export function WeChatSkin(p: SkinProps) {
               <button style={{ padding: "7px 12px", borderRadius: 18, border: "1px solid #d8e5ff", background: "#eef4ff", color: "#2468d7", fontWeight: 600 }} onClick={() => p.onReply?.(p.thread!, "不能耍起了呀")}>不能耍起了呀</button>
             </div>
           )}
-          <Compose creator={p.creator} onAdd={p.onAdd} onPlus={() => setPlusMenu((v) => !v)} />
+          <Compose creator={p.creator} onAdd={p.onAdd} onSend={(text) => p.onReply?.(p.thread, text)} onPlus={() => setPlusMenu((v) => !v)} />
         </>
       ) : moments ? (
         <div className="wx-moments">
