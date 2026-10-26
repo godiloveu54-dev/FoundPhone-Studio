@@ -388,7 +388,7 @@ function PhoneRuntime({
       time: stamp,
       kind: "text",
       outgoing: false,
-      read: false,
+      read: true,
     });
     update({
       ...current,
@@ -446,6 +446,7 @@ function PhoneRuntime({
             body: "收到",
             sender,
             time: `${latest.date ?? work.phone.date ?? "2026-10-26"} ${latest.time ?? work.phone.time}`,
+            read: true,
           });
           update({
             ...latest,
