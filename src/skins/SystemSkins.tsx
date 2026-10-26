@@ -46,7 +46,9 @@ export function PhoneSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "最近通话");
   const [digits, setDigits] = useState(""),
     [call, setCall] = useState("");
-  const list = tab === "收藏" ? items.filter((i) => i.favorite) : items;
+  const list = (tab === "收藏" ? items.filter((i) => i.favorite) : items)
+    .slice()
+    .sort((a, b) => b.time.localeCompare(a.time));
   return (
     <div className="catalog-skin native-phone">
       <Header p={p} />
