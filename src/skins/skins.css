@@ -4530,3 +4530,17 @@
 .wx-moment-composer>small{color:#888;line-height:1.5}
 .wx-moment-comment-preview{margin-top:8px;padding:7px 9px;background:rgba(128,128,128,.09);border-radius:5px;text-align:left}
 .wx-moment-comment-preview p{margin:2px 0!important;font-size:13px!important;line-height:1.45}
+
+/* Douyin-style video feed: edge-to-edge video with readable captions and engagement counts. */
+.douyin-video-post{position:relative;overflow:hidden;background:#111;color:#fff;border-radius:14px;margin-bottom:18px;}
+.douyin-video-post .douyin-video-stage{display:block;position:relative;width:100%;padding:0;border:0;background:#080808;overflow:hidden;aspect-ratio:9/14;cursor:pointer;}
+.douyin-video-post .douyin-video-stage video{display:block;width:100%;height:100%;object-fit:contain;background:#080808;}
+.douyin-video-hint{position:absolute;left:12px;bottom:12px;padding:5px 8px;border-radius:7px;background:#0009;color:#fff;font-size:11px;pointer-events:none;}
+.douyin-caption{position:relative;padding:12px 14px 6px;color:#fff;text-align:left;}
+.douyin-caption strong{display:block;font-size:14px;margin-bottom:5px;}
+.douyin-caption p{font-size:14px;line-height:1.45;margin:0 0 7px;white-space:pre-wrap;overflow-wrap:anywhere;}
+.douyin-caption small{display:block;font-size:11px;color:#d5d5d5;}
+.douyin-video-post .post-actions{display:flex;align-items:center;gap:14px;padding:4px 14px 13px;color:#fff;}
+.douyin-video-post .post-actions button{color:#fff;}
+.douyin-video-post .post-actions small{font-size:11px;color:#d5d5d5;}
+@media (prefers-reduced-motion: reduce){.douyin-video-post video{scroll-behavior:auto;}}
