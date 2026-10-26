@@ -316,14 +316,19 @@ function PhoneRuntime({
       clearInterval(timer);
       const current = runtimeRef.current.incomingCall;
       if (current?.status === "answered" && current.target === callTarget) {
-        update(
-          dispatch(
-            work,
-            { ...runtimeRef.current, incomingCall: null },
-            "callEnded",
-            current.target || current.caller,
-          ),
+        const ended = dispatch(
+          work,
+          { ...runtimeRef.current, incomingCall: null },
+          "callEnded",
+          current.target || current.caller,
         );
+        if (
+          current.target === "sasaeng-call" &&
+          !ended.endings.includes("私生来电剧情结束")
+        ) {
+          ended.endings.push("私生来电剧情结束");
+        }
+        update(ended);
       }
     }, 2400);
     return () => clearInterval(timer);
@@ -766,7 +771,9 @@ function PhoneRuntime({
                 (() => {
                   const record = work.data.phone?.find(
                     (i) => i.id === s.incomingCall?.target,
-                  );
+                  ) ?? (s.incomingCall?.target === "sasaeng-call"
+                    ? ({ id: "sasaeng-call", meta: {} } as Item)
+                    : undefined);
                   if (record?.kind === "audio" && safeMedia(record.media))
                     return <audio controls src={safeMedia(record.media)} />;
                   const dialogue = getCallDialogue(record);
