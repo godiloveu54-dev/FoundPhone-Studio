@@ -942,10 +942,12 @@ function LocationMap({
   items,
   onItem,
   find = false,
+  showAvatar = false,
 }: {
   items: Item[];
   onItem: (i: Item) => void;
   find?: boolean;
+  showAvatar?: boolean;
 }) {
   return (
     <div className={`fiction-map ${find ? "find-map" : ""}`}>
@@ -992,7 +994,7 @@ function LocationMap({
           }}
           onClick={() => onItem(i)}
         >
-          {find ? <Avatar name={i.title} /> : <MapPin size={24} />}
+          {showAvatar ? <Avatar name={i.title} /> : <MapPin size={24} />}
         </button>
       ))}
     </div>
@@ -1062,7 +1064,7 @@ export function FindSkin(p: Props) {
   return (
     <div className="catalog-skin native-find">
       <Header p={p} />
-      <LocationMap items={list} onItem={p.onItem} find />
+      <LocationMap items={list} onItem={p.onItem} find showAvatar />
       <div className="find-sheet">
         <h2>{tab}</h2>
         {list.map((i) => (
