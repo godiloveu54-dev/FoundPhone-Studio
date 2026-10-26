@@ -100,6 +100,7 @@ export function AlipaySkin(p: Props) {
 export function TaobaoSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "商品");
   const [status, setStatus] = useState("全部");
+  const [visibleProducts, setVisibleProducts] = useState(30);
   const [cart, setCart] = useSkinState<string[]>(p, "taobaoCart", []);
   const [selected, setSelected] = useState<Item | null>(null);
   const [color, setColor] = useState("");
@@ -226,7 +227,7 @@ export function TaobaoSkin(p: Props) {
       <div className="catalog-scroll">
         {tab === "商品" ? (
           <div className="taobao-products">
-            {list.map((i) => (
+            {list.slice(0, visibleProducts).map((i) => (
               <button key={i.id} onClick={() => openProduct(i)}>
                 <Media item={i} />
                 <strong>{i.title}</strong>
@@ -235,6 +236,11 @@ export function TaobaoSkin(p: Props) {
                 <small>销量 {meta(i, "sales", "0")}</small>
               </button>
             ))}
+            {list.length > visibleProducts && (
+              <button className="taobao-load-more" onClick={() => setVisibleProducts((count) => count + 30)}>
+                加载更多商品（还剩 {list.length - visibleProducts} 件）
+              </button>
+            )}
           </div>
         ) : tab === "购物车" ? (
           <div className="taobao-cart">
