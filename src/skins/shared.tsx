@@ -133,10 +133,11 @@ export function Media({
         controls
         playsInline
         src={src}
+        preload="none"
         onClick={(e) => e.stopPropagation()}
       />
     ) : (
-      <img className={className} loading="lazy" alt={item.title} src={src} />
+      <img className={className} loading="lazy" decoding="async" alt={item.title} src={src} />
     )
   ) : (
     <div className={`catalog-art ${className}`}>
