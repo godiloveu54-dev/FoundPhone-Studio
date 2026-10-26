@@ -17,7 +17,7 @@ import {
   Video,
   Share2,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { safeMedia, type Item } from "../schema";
 import {
   Avatar,
@@ -430,15 +430,56 @@ export function BilibiliSkin(p: Props) {
 function VerticalVideo({ p, item }: { p: Props; item: Item }) {
   const [liked, setLiked] = useSkinState<boolean>(p, `liked-${item.id}`, false),
     [saved, setSaved] = useSkinState<boolean>(p, `saved-${item.id}`, false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(true);
+  useEffect(() => {
+    const video = videoRef.current;
+    const card = video?.closest(".vertical-video");
+    if (!video || !card) return;
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.65) {
+          void video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+        } else {
+          video.pause();
+          setPlaying(false);
+        }
+      }
+    }, { threshold: [0, 0.65, 1] });
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [item.id]);
+  const togglePlayback = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      void video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+    } else {
+      video.pause();
+      setPlaying(false);
+    }
+  };
   return (
     <article className="vertical-video">
-      <Media item={item} />
+      {item.kind === "video" && safeMedia(item.media) ? (
+        <video
+          ref={videoRef}
+          src={safeMedia(item.media)}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label={item.title}
+          onClick={togglePlayback}
+        />
+      ) : <Media item={item} />}
       <div className="vertical-actions">
         <button
           aria-label={`作者${item.sender}`}
           onClick={() => p.onItem(item)}
         >
-          <Avatar name={item.sender} />
+          <Avatar name={item.sender} src={item.avatar} />
         </button>
         <button
           aria-label={`喜欢${item.title}`}
