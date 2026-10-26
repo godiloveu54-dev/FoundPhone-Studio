@@ -107,7 +107,7 @@ export function TaobaoSkin(p: Props) {
   const [quantity, setQuantity] = useState(1);
   const [checkout, setCheckout] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("招商银行储蓄卡 · 尾号 6688");
-  const [transactions, setTransactions] = useSkinState<string[]>(p, "simulatedTransactions", []);
+  const [, setTransactions] = useSkinState<string[]>(p, "simulatedTransactions", []);
   const paymentMethods = [
     "招商银行储蓄卡 · 尾号 6688",
     "张桂源的副卡",
@@ -118,7 +118,6 @@ export function TaobaoSkin(p: Props) {
     "亲密付 · 张桂源",
     "亲密付 · 杨博文",
   ];
-  const products = items.filter((i) => i.kind === "product");
   const list = items
     .filter((i) =>
       tab === "商品"
@@ -136,7 +135,6 @@ export function TaobaoSkin(p: Props) {
   const optionsFor = (item: Item) => {
     const category = meta(item, "category", item.folder);
     const title = item.title.toLowerCase();
-    const brand = item.sender.toLowerCase();
     let colors: string[] = [];
     let sizes: string[] = [];
     if (category === "服饰" || /卫衣|风衣|羽绒|夹克|大衣|外套|针织|棉服|派克|冲锋衣|瑜伽裤|棒球帽|帽子/.test(item.title)) {
