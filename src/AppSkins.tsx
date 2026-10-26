@@ -383,7 +383,7 @@ export function WeChatSkin(p: SkinProps) {
                 <MessageList
                   items={p.items
                     .filter((i) => i.title === p.thread && /^\d{4}/.test(i.time) && i.time.slice(0, 4) === selectedYear)
-                    .sort((a, b) => b.time.localeCompare(a.time))}
+                    .sort((a, b) => a.time.localeCompare(b.time))}
                   creator={p.creator}
                   onItem={p.onItem}
                   onRead={p.onRead}
@@ -624,7 +624,8 @@ export function WeChatSkin(p: SkinProps) {
                 )
                 .map((t) => {
                   const list = p.items.filter((i) => i.title === t).sort((a, b) => a.time.localeCompare(b.time)),
-                    last = list[list.length - 1];
+                    last = list[list.length - 1],
+                    unread = list.filter((item) => !item.read && !item.outgoing && !list.some((reply) => reply.outgoing && reply.time >= item.time));
                   return (
                     <button
                       className="wx-chat-row"
@@ -636,9 +637,9 @@ export function WeChatSkin(p: SkinProps) {
                     >
                       <span className="wx-chat-avatar">
                         <Avatar name={t} src={last.avatar || p.items.find((i) => i.sender === t)?.avatar || p.items.find((i) => i.title === t)?.avatar} />
-                        {list.filter((i) => !i.read).length > 0 && (
+                        {unread.length > 0 && (
                             <b className="wx-unread">
-                              {list.filter((i) => !i.read).length}
+                              {unread.length}
                             </b>
                           )}
                       </span>
