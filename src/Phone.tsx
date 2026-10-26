@@ -1140,6 +1140,7 @@ function AppContent({
   onUi,
   onFamilyCardPayment,
   onFamilyCardReply,
+  onReply,
   work,
 }: {
   app: AppPlugin;
@@ -1155,6 +1156,7 @@ function AppContent({
   onUi?: (key: string, value: UiValue) => void;
   onFamilyCardPayment: (card: "陈奕恒" | "张桂源", isFood: boolean) => { sender: string; text: string; kind: "food" | "plain" };
   onFamilyCardReply: (choice: "听" | "不听") => string;
+  onReply: (thread: string, text: string) => void;
   work: Work;
 }) {
   const [detail, setDetail] = useState<Item | null>(null);
@@ -1322,7 +1324,7 @@ function AppContent({
               onBack={onBack}
               thread={thread}
               onThread={setThread}
-              onReply={handleMessageReply}
+              onReply={onReply}
             />
           </Suspense>
         </div>
