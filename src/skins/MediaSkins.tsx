@@ -465,11 +465,10 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
         <video
           ref={videoRef}
           src={safeMedia(item.media)}
-          autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           aria-label={item.title}
           onClick={togglePlayback}
         />
