@@ -93,10 +93,22 @@ export function Avatar({
   round?: boolean;
   src?: string;
 }) {
+  const avatarByName: Record<string, string> = {
+    "陈浚铭": "./IMG_4390.jpeg",
+    "陈奕恒": "./IMG_4398.jpeg",
+    "张桂源": "./IMG_4391.jpeg",
+    "左奇函": "./IMG_4392.jpeg",
+    "陈思罕": "./IMG_4393.jpeg",
+    "杨博文": "./IMG_4394.jpeg",
+    "张函瑞": "./IMG_4395.jpeg",
+    "王橹杰": "./IMG_4396.jpeg",
+  };
+  const normalizedName = name.replace(/^TF家族[-·]/, "").replace(/Jonathan|chen$/i, "").trim();
+  const image = safeMedia(src || avatarByName[normalizedName] || "");
   return (
     <span className={`catalog-avatar ${round ? "round" : ""}`}>
-      {safeMedia(src) && /^(data:image\/|https?:\/\/|\.\.?\/)/.test(safeMedia(src)) ? (
-        <img src={safeMedia(src)} alt="" />
+      {image && /^(data:image\/|https?:\/\/|\.\.?\/)/.test(image) ? (
+        <img src={image} alt={name} />
       ) : (
         name.slice(0, 1) || "人"
       )}
