@@ -403,6 +403,43 @@ function PhoneRuntime({
   const handleMessageReply = (thread: string, text: string) => {
     if (creator) return;
     const current = runtimeRef.current;
+    if (thread === "四代同堂") {
+      const outgoing = makeItem({
+        id: `fourth-gen-player-${Date.now()}`,
+        title: thread,
+        body: text,
+        sender: work.phone.owner,
+        time: `${current.date ?? work.phone.date ?? "2026-10-26"} ${current.time ?? work.phone.time}`,
+        outgoing: true,
+      });
+      const alreadyReplied = Boolean(current.variables.fourthGenAckTriggered);
+      update({
+        ...current,
+        messages: { ...current.messages, wechat: [...(current.messages.wechat ?? []), outgoing] },
+        variables: text === "收到" && !alreadyReplied
+          ? { ...current.variables, fourthGenAckTriggered: true }
+          : current.variables,
+      });
+      if (text !== "收到" || alreadyReplied) return;
+      const members = ["张桂源", "左奇函", "陈奕恒", "杨博文", "杨涵博", "官俊臣", "张奕然", "张函瑞", "陈思罕", "魏子宸", "王橹杰", "聂玮辰", "李煜东"];
+      members.forEach((sender, index) => {
+        window.setTimeout(() => {
+          const latest = runtimeRef.current;
+          const reply = makeItem({
+            id: `fourth-gen-ack-${index}-${Date.now()}`,
+            title: thread,
+            body: "收到",
+            sender,
+            time: `${latest.date ?? work.phone.date ?? "2026-10-26"} ${latest.time ?? work.phone.time}`,
+          });
+          update({
+            ...latest,
+            messages: { ...latest.messages, wechat: [...(latest.messages.wechat ?? []), reply] },
+          });
+        }, 650 * (index + 1));
+      });
+      return;
+    }
     const isSasaengThread =
       /私生|私生粉|跟踪者/i.test(thread) ||
       [...(work.data.messages ?? []), ...(current.messages.messages ?? [])].some(
@@ -499,6 +536,17 @@ function PhoneRuntime({
   const displayTime = creator ? work.phone.time : s.time || work.phone.time;
   const plugin = getApp(app);
   useEffect(() => {
+    if (creator || !ready) return;
+    const current = runtimeRef.current;
+    if (current.variables.fourthGenNoticeQueued) return;
+    const notice = "@所有人 接通知，近期准备恢复训练，所有人尽快返回重庆。看到消息回复「收到」，不要遗漏。";
+    update({
+      ...current,
+      variables: { ...current.variables, fourthGenNoticeQueued: true },
+      notifications: [...current.notifications, `TF四代工作群：${notice}`],
+    });
+  }, [creator, ready, work.id, update]);
+  useEffect(() => {
     const count = s.notifications.length;
     if (!locked && work.phone.notifications && count > noticesSeen.current) {
       setBanner(s.notifications.at(-1) || "");
@@ -506,7 +554,7 @@ function PhoneRuntime({
       noticesSeen.current = count;
       return () => clearTimeout(timer);
     }
-    noticesSeen.current = count;
+    if (!locked) noticesSeen.current = count;
   }, [s.notifications.length, locked, work.phone.notifications]);
   const dismissNotice = (index: number) =>
     update({
@@ -517,6 +565,16 @@ function PhoneRuntime({
     });
   const handleNotificationOpen = (text: string) => {
     setPanel("");
+    if (text.includes("TF四代工作群")) {
+      const current = runtimeRef.current;
+      update({
+        ...current,
+        ui: { ...current.ui, wechat: { ...current.ui?.wechat, openThread: "四代同堂" } },
+      });
+      if (locked) beginUnlock();
+      else open("wechat");
+      return;
+    }
     const target = text.match(/\u2063([a-z0-9-]+)\u2063/)?.[1];
     if (target) {
       const current = runtimeRef.current;
@@ -1161,6 +1219,13 @@ function AppContent({
 }) {
   const [detail, setDetail] = useState<Item | null>(null);
   const [thread, setThread] = useState("");
+  useEffect(() => {
+    const requested = state.ui?.wechat?.openThread;
+    if (app.id === "wechat" && typeof requested === "string" && requested) {
+      setThread(requested);
+      onUi?.("openThread", "");
+    }
+  }, [app.id, state.ui?.wechat?.openThread]);
   const [tab, setTab] = useState(app.tabs[0]);
   const [q, setQ] = useState("");
   const [pw, setPw] = useState("");
