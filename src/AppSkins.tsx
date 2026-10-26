@@ -387,7 +387,7 @@ export function WeChatSkin(p: SkinProps) {
                 <div key={name}>
                   <Avatar
                     name={name}
-                    src={p.items.find((i) => i.sender === name)?.avatar}
+                    src={p.items.find((i) => i.sender === name)?.avatar || p.items.find((i) => i.title === name)?.avatar}
                   />
                   <small>{name}</small>
                 </div>
@@ -499,7 +499,7 @@ export function WeChatSkin(p: SkinProps) {
                       }}
                     >
                       <span className="wx-chat-avatar">
-                        <Avatar name={t} src={last.avatar} />
+                        <Avatar name={t} src={last.avatar || p.items.find((i) => i.sender === t)?.avatar || p.items.find((i) => i.title === t)?.avatar} />
                         {!readThreads.includes(t) &&
                           list.some((i) => !i.read) && (
                             <b className="wx-unread">
@@ -543,7 +543,7 @@ export function WeChatSkin(p: SkinProps) {
                       >
                         <Avatar
                           name={c}
-                          src={p.items.find((i) => i.sender === c)?.avatar}
+                          src={p.items.find((i) => i.sender === c)?.avatar || p.items.find((i) => i.title === c)?.avatar}
                         />
                         {c}
                       </button>
