@@ -179,9 +179,21 @@ const neteaseDemoPlaylist = [
   title,
   sender,
   folder: "陈浚铭专属歌单",
-  kind: "music",
+  kind: "music" as const,
   body: `${title} — ${sender}`,
-  meta: { album: "网易云音乐 · 歌单收藏", trackNumber: index + 1 },
+  richText: "",
+  time: "00:00",
+  avatar: "",
+  media: "",
+  hidden: false,
+  unlock: "",
+  password: "",
+  favorite: false,
+  outgoing: false,
+  read: false,
+  likes: 0,
+  comments: [],
+  meta: { album: "网易云音乐 · 歌单收藏", trackNumber: String(index + 1) },
 }));
 export function NeteaseSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "发现");
