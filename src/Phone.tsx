@@ -483,7 +483,7 @@ function PhoneRuntime({
       return;
     }
     const isSasaengThread =
-      /^私生\\d{2}$/.test(thread) ||
+      /^私生\d{2}$/.test(thread) ||
       /私生|私生粉|跟踪者/i.test(thread) ||
       [...(work.data.messages ?? []), ...(current.messages.messages ?? []), ...(current.messages.wechat ?? [])].some(
         (item) => item.title === thread && /私生|私生粉|跟踪者/i.test(item.sender),
@@ -507,7 +507,7 @@ function PhoneRuntime({
       });
       return;
     }
-    const isWeChatStalker = /^私生\\d{2}$/.test(thread);
+    const isWeChatStalker = /^私生\d{2}$/.test(thread);
     const nextMessages = isWeChatStalker
       ? (current.messages.wechat ?? []).map((item) => item.title === thread ? { ...item, read: true } : item).concat(outgoing)
       : [...(current.messages.messages ?? []).map((item) => item.title === thread ? { ...item, read: true } : item), outgoing];
@@ -822,7 +822,20 @@ function PhoneRuntime({
                   ].map((item) => s.read.includes(item.id) ? { ...item, read: true } : item)}
                   creator={creator}
                   state={s}
-                  onRead={(id) => event("read", id)}
+                  onRead={(id) => {
+                    const current = runtimeRef.current;
+                    const sourceItems = [
+                      ...(work.data[app] ?? []),
+                      ...(current.messages[app] ?? []),
+                      ...(s.messages[app] ?? []),
+                    ];
+                    const readItem = sourceItems.find((item) => item.id === id);
+                    const title = readItem?.title;
+                    const notifications = title
+                      ? current.notifications.filter((notice) => !notice.includes(title))
+                      : current.notifications;
+                    update(dispatch(work, { ...current, notifications }, "read", id));
+                  }}
                   onEdit={(item) => onEdit?.(app, item)}
                   onAdd={() => onAdd?.(app)}
                   onReply={handleMessageReply}
