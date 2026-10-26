@@ -2913,12 +2913,19 @@
     ],
     "find": [
       {
-        "id": "test-item-find",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
+        "id": "find-device-chen-taishuai-shoukun",
+        "title": "陈太帅的手坤",
+        "body": "位置：重庆时代峰峻里",
+        "sender": "陈浚铭",
+        "time": "2026-10-26 09:00",
         "kind": "text",
-        "meta": {}
+        "folder": "设备",
+        "meta": {
+          "deviceName": "陈太帅的手坤",
+          "location": "重庆时代峰峻里",
+          "status": "在线",
+          "deviceType": "设备"
+        }
       }
     ],
     "calculator": [
