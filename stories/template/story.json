@@ -2,8 +2,8 @@
   "scriptVersion": 1,
   "id": "ui-test-phone-v3",
   "title": "恒铭 iPhone 模拟器",
-  "description": "陈浚铭的 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容。",
-  "revision": 43,
+  "description": "陈浚铭的恒铭 iPhone 模拟器。保留已配置的 2023—2026 年微信聊天记录、语音与通话记录、朋友圈、抖音视频及其他应用内容；更新后自动重置旧版本游玩存档，避免旧聊天状态覆盖最新剧情。",
+  "revision": 44,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
