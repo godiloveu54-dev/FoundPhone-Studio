@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 6,
+  "revision": 7,
   "phone": {
     "owner": "陈浚铭",
     "date": "2026-10-26",
@@ -2890,7 +2890,8 @@
         "chen-sihan",
         "yang-hanbo",
         "wang-shuoran",
-        "li-yudong"
+        "li-yudong",
+        "wei-zichen"
       ],
       "messages": [
         {
@@ -2899,6 +2900,115 @@
           "senderId": "company-staff",
           "body": "接通知，近期准备恢复训练，所有人尽快返回重庆。看到消息回复「收到」，不要遗漏。",
           "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-001",
+          "time": "2026-10-26 09:41:00",
+          "senderId": "zhang-guiyuan",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-002",
+          "time": "2026-10-26 09:41:09",
+          "senderId": "yang-bowen",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-003",
+          "time": "2026-10-26 09:41:18",
+          "senderId": "zhang-hanrui",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-004",
+          "time": "2026-10-26 09:41:27",
+          "senderId": "guan-junchen",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-005",
+          "time": "2026-10-26 09:41:36",
+          "senderId": "wang-lujie",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-006",
+          "time": "2026-10-26 09:42:00",
+          "senderId": "nie-weichen",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-007",
+          "time": "2026-10-26 09:42:09",
+          "senderId": "zhang-yiran",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-008",
+          "time": "2026-10-26 09:42:18",
+          "senderId": "chen-yiheng",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-009",
+          "time": "2026-10-26 09:42:27",
+          "senderId": "chen-sihan",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-010",
+          "time": "2026-10-26 09:42:36",
+          "senderId": "wei-zichen",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-011",
+          "time": "2026-10-26 09:43:00",
+          "senderId": "yang-hanbo",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-012",
+          "time": "2026-10-26 09:43:09",
+          "senderId": "wang-shuoran",
+          "body": "收到",
+          "kind": "text"
+        },
+        {
+          "id": "st-2026-10-26-reply-013",
+          "time": "2026-10-26 09:43:18",
+          "senderId": "li-yudong",
+          "body": "收到",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "id": "yang-bowen-wechat",
+      "app": "wechat",
+      "title": "杨博文",
+      "participants": [
+        "owner",
+        "yang-bowen"
+      ],
+      "messages": [
+        {
+          "id": "yb-2026-08-15-001",
+          "time": "2026-08-15",
+          "senderId": "yang-bowen",
+          "body": "在吗？",
+          "kind": "text"
         }
       ]
     }
@@ -2906,12 +3016,244 @@
   "content": {
     "phone": [
       {
-        "id": "test-item-phone",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "call-history-001",
+        "title": "爸爸",
+        "body": "已接来电",
+        "sender": "爸爸",
+        "kind": "call",
+        "time": "2026-10-26 09:36",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-history-002",
+        "title": "张桂源",
+        "body": "已接来电",
+        "sender": "张桂源",
+        "kind": "call",
+        "time": "2026-10-26 09:12",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "朋友"
+        }
+      },
+      {
+        "id": "call-history-003",
+        "title": "188****4021",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-26 08:57",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "188****4021",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-004",
+        "title": "177****5930",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-25 23:48",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "177****5930",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-005",
+        "title": "妈妈",
+        "body": "已接来电",
+        "sender": "妈妈",
+        "kind": "call",
+        "time": "2026-10-25 22:16",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-history-006",
+        "title": "陈奕恒",
+        "body": "已接来电",
+        "sender": "陈奕恒",
+        "kind": "call",
+        "time": "2026-10-25 20:42",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "朋友"
+        }
+      },
+      {
+        "id": "call-history-007",
+        "title": "136****7718",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-25 19:31",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "136****7718",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-008",
+        "title": "哥哥",
+        "body": "已接来电",
+        "sender": "哥哥",
+        "kind": "call",
+        "time": "2026-10-25 18:05",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-history-009",
+        "title": "199****0264",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-25 16:53",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "199****0264",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-010",
+        "title": "155****6183",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-25 15:27",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "155****6183",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-011",
+        "title": "181****9037",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-24 22:41",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "181****9037",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-012",
+        "title": "张桂源",
+        "body": "已接来电",
+        "sender": "张桂源",
+        "kind": "call",
+        "time": "2026-10-24 21:08",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "朋友"
+        }
+      },
+      {
+        "id": "call-history-013",
+        "title": "170****4452",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-24 17:36",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "170****4452",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-014",
+        "title": "153****8086",
+        "body": "未接来电",
+        "sender": "未知号码",
+        "kind": "call",
+        "time": "2026-10-23 23:19",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "153****8086",
+          "callStatus": "未接来电",
+          "category": "陌生来电"
+        }
+      },
+      {
+        "id": "call-history-015",
+        "title": "爸爸",
+        "body": "已接来电",
+        "sender": "爸爸",
+        "kind": "call",
+        "time": "2026-10-23 18:22",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "已接来电",
+          "category": "家人"
+        }
+      },
+      {
+        "id": "call-history-016",
+        "title": "陈奕恒",
+        "body": "未接来电",
+        "sender": "陈奕恒",
+        "kind": "call",
+        "time": "2026-10-22 21:54",
+        "avatar": "",
+        "folder": "通话记录",
+        "meta": {
+          "phoneNumber": "",
+          "callStatus": "未接来电",
+          "category": "朋友"
+        }
       }
     ],
     "contacts": [
